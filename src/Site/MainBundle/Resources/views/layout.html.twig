@@ -1,0 +1,96 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('sitemain/css/style.css') }}"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+
+    <![endif]-->
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="{{ asset('sitemain/css/ie.css') }}" media="screen">
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="{{ asset('sitemain/css/ie8.css') }}" media="screen">
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('sitemain/css/form.css') }}"/>
+{% endblock %}
+{% block body %}
+    <div class="wrapper-header layout-max">
+        <div class="header layout">
+            <a  class="logo" href="{{ path('Site_main_homepage') }}">
+                <img src="{{ asset('sitemain/img/logo.jpg') }}" width="249" height="71" alt=""/>
+            </a>
+        </div>
+    </div>
+    <div class="wrapper-slogan layout-max">
+        <div class="wrapper-nav layout-max {% if app.request.attributes.get('_route') == 'Site_main_homepage' %}wrapper-nav-main{% endif %}">
+            <div class="nav layout">
+                {{ knp_menu_render('SiteMainBundle:FrontendMenuBuilder:menu') }}
+            </div>
+        </div>
+        {% block slider %}
+        {% endblock %}
+    </div>
+    {% block content %}
+    {% endblock %}
+    {% block footerImg %}
+        <div class="wrapper-img layout-max">
+            {% if page is defined and catalog is not defined %}
+                {% if page.dark == false %}
+                    <div></div>
+                {% endif %}
+            {% elseif catalog is defined %}
+                {% if catalog.dark == false %}
+                    <div></div>
+                {% endif %}
+            {% endif %}
+            <div class="footer_text">
+                VISMARA DESIGN  <span class="icon_reg"><span>&reg;</span></span>   Via Carducci n° 3    20822 Seveso - MB - Italy. All rights reserved.
+            </div>
+        </div>
+    {% endblock %}
+    {% block footer %}
+        <div class="wrapper-footer layout-max">
+        </div>
+    {% endblock %}
+    <div class="icone">
+        <a href="http://instagram.com/vismaradesignitaly" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/instagram.png') }}" alt="instagram" width="20" height="20" border="0">
+        </a>
+        <a href="http://www.facebook.com/VismaraDesign" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/facebook.png') }}" alt="facebook" width="20" height="20" border="0">
+        </a>
+        <a href="http://www.youtube.com/user/VismaraDesignItaly" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/youtube.png') }}" alt="youtube" width="20" height="20" border="0">
+        </a>
+        <a href="https://twitter.com/VismaraDesignIt?lang=it" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/twitter.png') }}" alt="twitter" width="20" height="20" border="0">
+        </a>
+        {#<a href="https://plus.google.com/106140279666892473371/posts" target="_blank">#}
+            {#<img src="{{ asset('sitemain/img/icone/google.png') }}" alt="google+" width="20" height="20" border="0">#}
+        {#</a>#}
+        <a href="http://www.pinterest.com/VismaraDesign1/" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/pinterest.png') }}" alt="pinterest" width="20" height="20" border="0">
+        </a>
+    </div>
+    <div class="language">
+        <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}"
+           {% if app.request.locale == 'en' %}class="selected"{% endif %}>en</a>
+        <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'it'})) }}"
+           {% if app.request.locale == 'it' %}class="selected"{% endif %}>it</a>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <!-- script -->
+    {#<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js'></script>#}
+    <script src='{{ asset('sitemain/js/photoswipe/lib/jquery-1.6.1.min.js') }}'></script>
+    <script src='{{ asset('sitemain/js/showMenu.js') }}'></script>
+    <script src="{{ asset("sitemain/js/jquery.placeholder.js") }}"></script>
+    <script src="{{ asset("sitemain/js/init.hover.zoom.js") }}"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('input, textarea').placeholder();
+        });
+    </script>
+    <!-- end script -->
+{% endblock %}

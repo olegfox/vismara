@@ -1,0 +1,37 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper-collection catalog layout-max">
+        <div class="layout">
+            <div class="gallery group">
+                {% include 'SiteMainBundle:Gallery:catalog.html.twig' %}
+            </div>
+        </div>
+    </div>
+    {% if page is defined %}
+        <div class="wrap_content">
+            <div class="content catalog">
+                {% if app.request.locale == "en" %}
+                    {{ page.text|raw }}
+                {% else %}
+                    {{ page.textIt|raw }}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

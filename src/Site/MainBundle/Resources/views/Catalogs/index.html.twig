@@ -1,0 +1,44 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            body {
+                background: url("{% path page.background, 'reference' %}");
+                background-size: cover;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+    {% if catalogs is defined %}
+        <div class="bottombox">
+            <div class="c950">
+                <h2>{{ 'Downloads'|trans }}</h2>
+                {% for catalog in catalogs %}
+                    <a href="/catalogs/{{ catalog.filename }}" class="iconlink" id="download">
+                        <strong>
+                            {% if app.request.locale == "en" %}
+                                {{ catalog.title }}
+                            {% else %}
+                                {{ catalog.titleIt }}
+                            {% endif %}
+                        </strong>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footerImg %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

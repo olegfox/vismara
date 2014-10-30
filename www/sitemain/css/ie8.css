@@ -1,0 +1,12 @@
+.wrapper-nav-main{
+    background: transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#63000000,endColorstr=#63000000)";
+}
+.wrapper-collection{
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbcbc', endColorstr='#dddddd',GradientType=0 );
+}
+
+.wrapper-collection.catalog {
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+    filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+}

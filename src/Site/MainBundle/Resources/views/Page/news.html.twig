@@ -1,0 +1,15 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+{% block content %}
+    <div class="text news">
+    {% if text is defined %}
+        {% for t in text %}
+            <div class="box-text">
+                <a href="{{ path('Site_main_page', {section: t.section.slug, slug: t.slug}) }}">
+                    <img src="{{ image('.'~media_public_url(t.img, 'reference')).zoomCrop(500, 500) }}" width="100%" alt="">
+                    <p class="description">{{ t.title }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block html %} ng-app="feedback"{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+{% endblock %}
+
+{% block content %}
+    {% if page is defined %}
+        <div class="wrapper-collection catalog form layout-max">
+            <div class="wrapperContent">
+                <div class="content contentWhite">
+                    <div class="chooseFeedback">
+                        <div>
+                            <a href="{{ path('Site_main_feedback_company') }}">{{ "RESERVED FOR COMPANIES"|trans }}</a>
+                            <a href="{{ path('Site_main_feedback_private_person') }}">{{ "RESERVED FOR INDIVIDUALS"|trans }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap_content">
+            <div class="content catalog">
+                {% if app.request.locale == 'en' %}
+                    {{ page.text|raw }}
+                {% else %}
+                    {{ page.textIt|raw }}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{#{% block footerImg %}#}
+{#{% endblock %}#}

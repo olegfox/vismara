@@ -1,0 +1,11 @@
+.flexslider{
+    width: 100%;
+    padding: 0;
+    overflow: hidden!important;
+    margin: -42px auto 0px;
+    z-index: 0;
+    max-width: inherit;
+}
+.flex-direction-nav{
+    display: none;
+}

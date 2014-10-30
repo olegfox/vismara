@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{{ 'Letter from site'|trans }} VismaraDesign</title>
+</head>
+<body style="margin: 0px; width: 700px; font-family: Arial; letter-spacing: 2px;">
+<div class="content">
+    <table class="table" style="border-collapse: collapse;">
+        <tr>
+            <td>{{ 'Name of a company'|trans }}</td>
+            <td> {{ feedback.nameCompany }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'City'|trans }}</td>
+            <td> {{ feedback.city }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'Contact name'|trans }}</td>
+            <td> {{ feedback.contactName }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td> {{ feedback.email }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'Message'|trans }}</td>
+            <td> {{ feedback.message }}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

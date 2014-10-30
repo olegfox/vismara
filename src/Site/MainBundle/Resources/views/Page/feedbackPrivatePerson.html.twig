@@ -1,0 +1,123 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block html %} ng-app="feedback"{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+{% endblock %}
+
+{% block content %}
+    {% if page is defined %}
+        <div class="wrapper-collection catalog form layout-max">
+            <div class="wrapperContent">
+                <div class="content contentWhite">
+                    <form name="form" action="" method="post" class="form-horizontal" ng-controller="FeedbackController" novalidate>
+                        <div class="form-group">
+                            <span>*</span>{{ form_widget(form.firstname) }}
+                        </div>
+                        <div class="form-group">
+                            <span>*</span>{{ form_widget(form.lastname) }}
+                        </div>
+                        <div class="form-group">
+                            <span>*</span>{{ form_widget(form.city) }}
+                        </div>
+                        {% for e in form.email %}
+                            <div class="form-group">
+                                <span>*</span>{{ form_widget(e) }}
+                            </div>
+                        {% endfor %}
+                        <div class="form-group">
+                            {{ form_widget(form.message) }}
+                        </div>
+                        <div class="form-group">
+                            <label for="license">
+                                {{ 'PROCESSING OF PERSONAL DATA (PRIVACY POLICY)'|trans }}:
+                                <textarea name="license" id="license" disabled="disabled" cols="40" rows="5">
+                                    Personal data treatement:
+
+                                    1.1 Personal information Vismara Design understands your desire to protect personal information. We intend to inform you how your personal information will be gathered, tracked or used, and to give you choices. If choices are not offered on web pages where your personal information is obtained, please select one of the communication channels at the bottom of this statement to indicate your communication preferences.
+
+                                    1.1.1 what information we gather and track
+                                    We request personal information when you fill a form to correspond with us or engage in certain other activities on our website. You make the decision whether to proceed with any activity that requests personal information. If you do not wish to provide the requested information, however, you may not be able to complete the contact or the registration form.
+
+                                    1.1.2 how we use the information we gather and track
+                                    We use personally identifiable information in the following ways:
+                                    1. To provide you with information about our products, news and research on future product ideas or improvements;
+                                    2. To assist us in creating content that is relevant to you;
+                                    3. To assist us in creating better products and services to meet your needs;
+                                    4. To help you quickly find product informations important to you.
+
+                                    1.1.3 with whom we may share your information
+                                    From time to time, we may provide your information to selected business partners to communicate to you information about products or services that they believe are important to you or your business. If you prefer that we not provide your information to our business partners, you may let us know using one of the methods described in this policy.In addition, Vismara design retains the services of outside contractors to provide services for us. They may be used to ship products or handle order processing. We require that these contractors keep the personal information of customers secure and confidential. We als require that these contractors use personal information only on behalf of Vismara Design.
+
+                                    1.1.4 choice/opt-out
+                                    Vismara Design provides a number of ways for you to 'opt-out' of receiving additional information from us or having us provide your personal information to our partners. We may offer you these choices at the time you give us your information.If you are on a Vismara Design web page that requires personal information but does not offer communication choices, or would like to change your preferences for information that you have previously provided, please email us.If you do not wish to continue receiving our e-mail newsletters or bulletins you can opt-out of receiving these communications just sending an empty e-mail with as subject "mailing list removal " to the address: vismara@vismara.it
+
+                                    1.2 Policy changes
+                                    In the event there is a major change to Vismara Design's privacy practices, a prominent notice will be posted on our web site. If the change involves the use of your personally identifiable information, the notice will contain instructions on how you can opt-out of such use.
+
+                                    1.3 Vismara Design contact information
+                                    If you have any questions, comments, or would like to change your communication preferences, please contact us using one of the options below:Customer Profile Form vismara@vismara.it
+                                    Postal Mail Vismara Design
+                                    Via Carducci 3
+                                    20030 Seveso
+                                    Milano - ItalyPersonal data treatement:
+
+                                    1.1 Personal information Vismara Design understands your desire to protect personal information. We intend to inform you how your personal information will be gathered, tracked or used, and to give you choices. If choices are not offered on web pages where your personal information is obtained, please select one of the communication channels at the bottom of this statement to indicate your communication preferences.
+
+                                    1.1.1 what information we gather and track
+                                    We request personal information when you fill a form to correspond with us or engage in certain other activities on our website. You make the decision whether to proceed with any activity that requests personal information. If you do not wish to provide the requested information, however, you may not be able to complete the contact or the registration form.
+
+                                    1.1.2 how we use the information we gather and track
+                                    We use personally identifiable information in the following ways:
+                                    1. To provide you with information about our products, news and research on future product ideas or improvements;
+                                    2. To assist us in creating content that is relevant to you;
+                                    3. To assist us in creating better products and services to meet your needs;
+                                    4. To help you quickly find product informations important to you.
+
+                                    1.1.3 with whom we may share your information
+                                    From time to time, we may provide your information to selected business partners to communicate to you information about products or services that they believe are important to you or your business. If you prefer that we not provide your information to our business partners, you may let us know using one of the methods described in this policy.In addition, Vismara design retains the services of outside contractors to provide services for us. They may be used to ship products or handle order processing. We require that these contractors keep the personal information of customers secure and confidential. We als require that these contractors use personal information only on behalf of Vismara Design.
+
+                                    1.1.4 choice/opt-out
+                                    Vismara Design provides a number of ways for you to 'opt-out' of receiving additional information from us or having us provide your personal information to our partners. We may offer you these choices at the time you give us your information.If you are on a Vismara Design web page that requires personal information but does not offer communication choices, or would like to change your preferences for information that you have previously provided, please email us.If you do not wish to continue receiving our e-mail newsletters or bulletins you can opt-out of receiving these communications just sending an empty e-mail with as subject "mailing list removal " to the address: vismara@vismara.it
+
+                                    1.2 Policy changes
+                                    In the event there is a major change to Vismara Design's privacy practices, a prominent notice will be posted on our web site. If the change involves the use of your personally identifiable information, the notice will contain instructions on how you can opt-out of such use.
+
+                                    1.3 Vismara Design contact information
+                                    If you have any questions, comments, or would like to change your communication preferences, please contact us using one of the options below:Customer Profile Form vismara@vismara.it
+                                    Postal Mail Vismara Design
+                                    Via Carducci 3
+                                    20030 Seveso
+                                    Milano - Italy
+                                </textarea>
+                            </label>
+                        </div>
+                        <div class="form-actions clearfix">
+                            <button type="button" id="submit" class="btn btn-success btn-lg" ng-disabled="form.$invalid || (user.email != user.email2)" ng-click="submit()">{{ 'Send'|trans }}</button>
+                        </div>
+                        {{ form_errors(form) }}
+                        {{ form_end(form) }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular-placeholder.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/feedback.js") }}"></script>
+{% endblock %}

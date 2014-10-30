@@ -1,0 +1,82 @@
+# Site/MainBundle/Resources/config/admin.yml
+services:
+    sonata.admin.menu:
+        class: Site\MainBundle\Admin\MenuAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Menu" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Menu
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.gallery:
+        class: Site\MainBundle\Admin\GalleryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Catalogs" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Gallery
+            - 'SiteMainBundle:GalleryAdmin'
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.image:
+        class: Site\MainBundle\Admin\ImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Gallery" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Image
+            - 'SiteMainBundle:ImageAdmin'
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.slider:
+        class: Site\MainBundle\Admin\SliderAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Slider" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Slider
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.video:
+        class: Site\MainBundle\Admin\VideoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Video" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Video
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.bottomImage:
+        class: Site\MainBundle\Admin\BottomImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Lower picture" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\BottomImage
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.map:
+        class: Site\MainBundle\Admin\MapAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Map" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Map
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.catalogs:
+        class: Site\MainBundle\Admin\CatalogsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Catalogs" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Catalogs
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]

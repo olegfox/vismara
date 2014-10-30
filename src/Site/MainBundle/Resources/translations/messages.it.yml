@@ -1,0 +1,23 @@
+form:
+  name_company: Nome della società
+  city: Città
+  contact_name: Nome del contatto
+  repeate_email: Conferma email
+  message: Messaggio
+
+
+Downloads: Download
+collections: collezioni
+RESERVED FOR COMPANIES: PER LE AZIENDE
+RESERVED FOR INDIVIDUALS: PER PERSONE
+PROCESSING OF PERSONAL DATA (PRIVACY POLICY): TRATTAMENTO DEI DATI PERSONALI (PRIVACY POLICY)
+Send: Inviare
+contacts: contatti
+e-mail: e-mail
+Letter from site: Lettera del sito
+Name of a company: Nome della società
+City: Città
+Contact name: Nome del contatto
+Message: Messaggio
+First name: Nome
+Second name: Cognome

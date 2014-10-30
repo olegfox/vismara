@@ -1,0 +1,92 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+{% endblock %}
+
+{% block content %}
+    {% if maps is defined %}
+        <div id="map" style="width: 100%; height: 450px"></div>
+    {% endif %}
+    {% if page is defined %}
+        <div class="wrapperContent">
+            <div class="content contentWhite">
+                {% if maps is defined %}
+                    <div class="wrap_contacts">
+                        <div class="contacts">
+                            <p>{{ 'contacts'|trans }}:</p>
+                            <p>phone: +7 495 225 70 30</p>
+                            <p>{{ 'e-mail'|trans }}: <a href="mailto:kontakti@vismara.it" target="_top">kontakti@vismara.it</a></p>
+                        </div><div class="chooseFeedback">
+                            <div>
+                                <a href="{{ path('Site_main_feedback_company') }}">{{ 'RESERVED FOR COMPANIES'|trans }}</a>
+                                <a href="{{ path('Site_main_feedback_private_person') }}">{{ 'RESERVED FOR INDIVIDUALS'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if app.request.locale == "en" %}
+                    {{ page.text|raw }}
+                {% else %}
+                    {{ page.textIt|raw }}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% if maps is defined %}
+    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+    <script>
+        ymaps.ready(init);
+        var myMap,
+                myPlacemark;
+        function init() {
+            var evro = [
+                {% for map in maps %}
+                {% if map.img.id is defined %}
+                {% set img = '<div class="map_img"><img src="'~image('.'~media_public_url(map.img, 'reference')).cropResize(89)~'" /></div>' %}
+                {% else %}
+                {% set img = '' %}
+                {% endif %}
+                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% else %}{{ map.getNameIt() }}{% endif %}</h4><p>{% if app.request.locale == 'en' %}{{ map.getText() }}{% else %}{{ map.getTextIt() }}{% endif %}</p>{% if map.getPhone() != '' %}<p>{{ map.getPhone() }}</p>{% endif %}', {{ map.getX() }}, {{ map.getY() }}],
+                {% endfor %}
+            ];
+            myMap = new ymaps.Map("map", {
+                center: [55.781463, 37.507993],
+                zoom: 4
+            });
+            iconImageHreff = '';
+            for (i = 0; i < evro.length; i++) {
+                iconImageHreff = '{{ asset('sitemain/img/icon.gif') }}';
+                myPlacemark = new ymaps.Placemark([evro[i][1], evro[i][2]], {
+                    content: evro[i][0],
+                    balloonContent: evro[i][0]
+                }, {
+                    iconImageHref: iconImageHreff,
+                    iconImageSize: [30, 16],
+                    iconImageOffset: [-14, -16]
+                });
+                myMap.geoObjects.add(myPlacemark);
+            }
+
+            myMap.controls.add(
+                    new ymaps.control.ZoomControl()
+            );
+            myMap.controls.add('typeSelector');
+        }
+    </script>
+    {% endif %}
+{% endblock %}

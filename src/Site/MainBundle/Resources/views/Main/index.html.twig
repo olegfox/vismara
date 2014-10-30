@@ -1,0 +1,72 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('sitemain/css/flexslider.css') }}" rel="stylesheet">
+    <link href="{{ asset('sitemain/css/flexslider-custom.css') }}" rel="stylesheet">
+    {% if page is defined %}
+    <style type="text/css">
+        .wrapper-img {
+            background: url("{% path page.background, 'reference' %}") top center;
+        }
+    </style>
+    {% endif %}
+{% endblock %}
+    {% block slider %}
+        {% if sliders is defined %}
+                <div class="slider slogan layout flexslider">
+                    <ul class="slides">
+                        {% for slider in sliders %}
+                            <li>
+                                {% if slider.link != "" %}
+                                    <a href="{{ slider.link }}">
+                                        <img src="{% path slider.img, 'reference' %}"
+                                             alt="{% path slider.img, 'reference' %}"/>
+                                    </a>
+                                {% else %}
+                                    <img src="{% path slider.img, 'reference' %}"
+                                         alt="{% path slider.img, 'reference' %}"/>
+                                {% endif %}
+                                <div class="text" {% if slider.link != "" %}onclick="window.location.href='{{ slider.link }}';"{% endif %}>
+                                    <div class="table">
+                                        <div class="table-cell{% if slider.dark == false %} dark{% endif %}">
+                                            <h1 class="slogan-title">{% if app.request.locale == 'en' %}{{ slider.text|nl2br }}{% else %}{{ slider.textIt|nl2br }}{% endif %}</h1>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+        {% endif %}
+    {% endblock %}
+
+
+{% block content %}
+    <div class="main layout">
+        {% if page is defined %}
+            {% if app.request.locale == 'en' %}
+                {{ page.text|raw }}
+            {% else %}
+                {{ page.textIt|raw }}
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="wrapper-collection layout-max">
+        <div class="collection layout">
+            <h2 class="collection-title">{{ 'collections'|trans }}</h2>
+            <div class="gallery group">
+                {% include 'SiteMainBundle:Gallery:catalog.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- script -->
+    {{ parent() }}
+    <script src="{{ asset('sitemain/js/script.js') }}"></script>
+    <script src="{{ asset('sitemain/js/jquery.flexslider-min.js') }}"></script>
+    <script src="{{ asset('sitemain/js/flexslider.js') }}"></script>
+    <!-- end script -->
+{% endblock %}

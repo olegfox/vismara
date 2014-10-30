@@ -1,0 +1,48 @@
+=placeholder-color($style)
+  ::-moz-placeholder
+    color: $style
+  ::-webkit-input-placeholder
+    color: $style
+  :-ms-input-placeholder
+    color: $style
+
+input, textarea
+  +placeholder-color("#000")
+
+.form
+  padding-bottom: 20px!important
+  .wrapperContent
+    padding-bottom: 0px
+
+
+form
+  padding-left: 10px
+  max-width: 345px
+  margin: 0 auto
+  select
+    width: 347px
+    border: solid 1px
+    padding: 5px
+    background: #fff
+  input
+    width: 335px
+    border: solid 1px
+    padding: 5px
+  textarea
+    border: solid 1px
+    padding: 5px
+  button
+    border: 0
+    padding: 10px
+    background: #000
+    color: #fff
+  button[disabled]
+    opacity: 0.5
+  .form-group
+    font-family: 'Calibri'
+    margin-bottom: 20px
+    text-align: center
+    span
+      position: absolute
+      line-height: 32px
+      margin-left: -10px

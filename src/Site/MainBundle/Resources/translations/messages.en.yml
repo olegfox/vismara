@@ -1,0 +1,24 @@
+form:
+  name_company: Name of a company
+  city: City
+  contact_name: Contact name
+  repeate_email: Repeat email
+  message: Message
+  first_name: First name
+  second_name: Second name
+
+Downloads: Downloads
+collections: collections
+RESERVED FOR COMPANIES: RESERVED FOR COMPANIES
+RESERVED FOR INDIVIDUALS: RESERVED FOR INDIVIDUALS
+PROCESSING OF PERSONAL DATA (PRIVACY POLICY): PROCESSING OF PERSONAL DATA (PRIVACY POLICY)
+Send: Send
+contacts: contacts
+e-mail: e-mail
+Letter from site: Letter from site
+Name of a company: Name of a company
+City: City
+Contact name: Contact name
+Message: Message
+First name: First name
+Second name: Second name

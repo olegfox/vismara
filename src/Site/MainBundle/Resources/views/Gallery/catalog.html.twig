@@ -1,0 +1,23 @@
+{% if catalogs is defined %}
+    {% for catalog in catalogs %}
+        <div>
+            <a href="{{ path('Site_main_gallery_one', {slug : catalog.slug}) }}" class="zoom" id="zoom">
+                <img src="{{ image('.'~media_public_url(catalog.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
+
+                <div class="wrap_name">
+                    <div class="name{% if catalog.hideDark %} nameHide{% endif %}">
+                        <div>
+                            {% if catalog.hideTitle == false %}
+                                {% if app.request.locale == "en" %}
+                                    {{ catalog.title }}
+                                {% else %}
+                                    {{ catalog.titleIt }}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+{% endif %}

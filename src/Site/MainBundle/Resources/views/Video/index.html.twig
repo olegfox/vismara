@@ -1,0 +1,59 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="videos">
+        {% for video in videos %}
+            <div class="wrap_video">
+                <div class="video">
+                    <a href="http://www.youtube.com/embed/{{ video.getValue().getProviderReference() }}?fs=1&amp;autoplay=1">
+                        <img src="{{ asset('sitemain/img/play.png') }}"
+                             width="216px" height="216px"
+                             alt="{{ asset('sitemain/img/play.png') }}"/>
+                    </a>
+                    <img src="{{ image(video.getValue().getProviderMetadata()['thumbnail_url']).zoomCrop(835, 470) }}"
+                         width="835px"
+                         alt="{% if app.request.locale == "en" %}{{ video.title }}{% else %}{{ video.titleIt }}{% endif %}"/>
+                    <div class="background"></div>
+                </div>
+                <div class="description">
+                    <p>
+                        {% if app.request.locale == "en" %}
+                            {{ video.title }}
+                        {% else %}
+                            {{ video.titleIt }}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if page is defined %}
+        <div class="content">
+            {% if app.request.locale == "en" %}
+                {{ page.text|raw }}
+            {% else %}
+                {{ page.textIt|raw }}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset("sitemain/js/videoClick.js") }}"></script>
+{% endblock %}

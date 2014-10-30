@@ -1,0 +1,19 @@
+Site_main_catalogs:
+    pattern:  /katalogi/
+    defaults: { _controller: SiteMainBundle:Main:catalogs}
+
+#Site_main_feedback:
+#    pattern:  /kontaktyi/
+#    defaults: { _controller: SiteMainBundle:Page:feedbackChoose}
+
+Site_main_feedback_company:
+    pattern:  /kontaktyi/company/
+    defaults: { _controller: SiteMainBundle:Page:feedbackCompany}
+
+Site_main_feedback_private_person:
+    pattern:  /kontaktyi/private_person/
+    defaults: { _controller: SiteMainBundle:Page:feedbackPrivatePerson}
+
+Site_main_page:
+    pattern:  /{slug}/
+    defaults: { _controller: SiteMainBundle:Page:index}
