@@ -33,6 +33,11 @@ class Catalogs
     private $title_it = "";
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $title_ru = "";
+
+    /**
      * @ORM\Column(type="text", nullable = true)
      */
     private $slug = "";
@@ -302,5 +307,28 @@ class Catalogs
     public function getTitleIt()
     {
         return $this->title_it;
+    }
+
+    /**
+     * Set title_ru
+     *
+     * @param string $titleRu
+     * @return Catalogs
+     */
+    public function setTitleRu($titleRu)
+    {
+        $this->title_ru = $titleRu;
+
+        return $this;
+    }
+
+    /**
+     * Get title_ru
+     *
+     * @return string 
+     */
+    public function getTitleRu()
+    {
+        return $this->title_ru;
     }
 }

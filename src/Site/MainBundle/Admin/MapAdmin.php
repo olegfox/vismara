@@ -22,9 +22,11 @@ class MapAdmin extends Admin
         $formMapper
             ->add('name', 'text', array('label' => 'Header EN'))
             ->add('name_it', 'text', array('label' => 'Header IT'))
+            ->add('name_ru', 'text', array('label' => 'Header RU'))
             ->add('phone', 'text', array('label' => 'Phone', 'required' => false))
             ->add('text', 'text', array('label' => 'Text EN', 'required' => false))
             ->add('text_it', 'text', array('label' => 'Text IT', 'required' => false))
+            ->add('text_ru', 'text', array('label' => 'Text RU', 'required' => false))
             ->add('coord', 'text', array('label' => 'Coordinates'))
             ->add('img', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',

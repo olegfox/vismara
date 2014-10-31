@@ -12,32 +12,32 @@ image_upload:
     defaults: { _controller: SiteMainBundle:Image:upload }
 
 Site_main_gallery:
-    pattern:  /{_locale}/page/kollektsii/
+    pattern:  /{_locale}/page/collections/
     defaults: { _controller: SiteMainBundle:Main:collections}
     requirements:
-            _locale: en|it
+            _locale: en|it|ru
 
 Site_main_gallery_one:
-    pattern:  /{_locale}/page/kollektsii/{slug}/
+    pattern:  /{_locale}/page/collections/{slug}/
     defaults: { _controller: SiteMainBundle:Main:collectionOne}
     requirements:
-            _locale: en|it
+            _locale: en|it|ru
 
 Site_main_video:
     pattern:  /{_locale}/page/video/
     defaults: { _controller: SiteMainBundle:Page:video}
     requirements:
-            _locale: en|it
+            _locale: en|it|ru
 
 Site_main_homepage:
     pattern:  /{_locale}/
     defaults: { _controller: SiteMainBundle:Main:index}
     requirements:
-            _locale: en|it
+            _locale: en|it|ru
 
 #      страницы
 page:
     resource: @SiteMainBundle/Resources/config/page.yml
     prefix: /{_locale}/page
     requirements:
-            _locale: en|it
+            _locale: en|it|ru

@@ -30,6 +30,11 @@ class Video
     private $title_it;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $title_ru;
+
+    /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $value;
@@ -112,5 +117,28 @@ class Video
     public function getTitleIt()
     {
         return $this->title_it;
+    }
+
+    /**
+     * Set title_ru
+     *
+     * @param string $titleRu
+     * @return Video
+     */
+    public function setTitleRu($titleRu)
+    {
+        $this->title_ru = $titleRu;
+
+        return $this;
+    }
+
+    /**
+     * Get title_ru
+     *
+     * @return string 
+     */
+    public function getTitleRu()
+    {
+        return $this->title_ru;
     }
 }

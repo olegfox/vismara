@@ -26,6 +26,9 @@ class VideoAdmin extends Admin
             ->add('title_it', 'text', array(
                 'label' => 'Header IT'
             ))
+            ->add('title_ru', 'text', array(
+                'label' => 'Header RU'
+            ))
             ->add('value', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.youtube',
                 'context' => 'default',

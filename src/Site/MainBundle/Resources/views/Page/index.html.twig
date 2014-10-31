@@ -37,8 +37,10 @@
                 {% endif %}
                 {% if app.request.locale == "en" %}
                     {{ page.text|raw }}
-                {% else %}
+                {% elseif app.request.locale == "it" %}
                     {{ page.textIt|raw }}
+                {% elseif app.request.locale == "ru" %}
+                    {{ page.textRu|raw }}
                 {% endif %}
             </div>
         </div>
@@ -61,7 +63,7 @@
                 {% else %}
                 {% set img = '' %}
                 {% endif %}
-                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% else %}{{ map.getNameIt() }}{% endif %}</h4><p>{% if app.request.locale == 'en' %}{{ map.getText() }}{% else %}{{ map.getTextIt() }}{% endif %}</p>{% if map.getPhone() != '' %}<p>{{ map.getPhone() }}</p>{% endif %}', {{ map.getX() }}, {{ map.getY() }}],
+                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% elseif app.request.locale == 'it' %}{{ map.getNameIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getNameRu() }}{% endif %}</h4><p>{% if app.request.locale == 'en' %}{{ map.getText() }}{% elseif app.request.locale == 'it' %}{{ map.getTextIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getTextRu() }}{% endif %}</p>{% if map.getPhone() != '' %}<p>{{ map.getPhone() }}</p>{% endif %}', {{ map.getX() }}, {{ map.getY() }}],
                 {% endfor %}
             ];
             myMap = new ymaps.Map("map", {

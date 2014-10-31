@@ -26,8 +26,10 @@
                         <strong>
                             {% if app.request.locale == "en" %}
                                 {{ catalog.title }}
-                            {% else %}
+                            {% elseif app.request.locale == "it" %}
                                 {{ catalog.titleIt }}
+                            {% elseif app.request.locale == "ru" %}
+                                {{ catalog.titleRu }}
                             {% endif %}
                         </strong>
                     </a>

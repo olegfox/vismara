@@ -33,6 +33,11 @@ class Gallery
     private $title_it = "";
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $title_ru = "";
+
+    /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $titleImg;
@@ -51,6 +56,11 @@ class Gallery
      * @ORM\Column(type="text")
      */
     private $description_it = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_ru = "";
 
     /**
      * @ORM\Column(type="text", nullable = true)
@@ -97,6 +107,11 @@ class Gallery
      * @ORM\Column(type="text")
      */
     private $text_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text_ru;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -601,5 +616,74 @@ class Gallery
     public function getTextIt()
     {
         return $this->text_it;
+    }
+
+    /**
+     * Set title_ru
+     *
+     * @param string $titleRu
+     * @return Gallery
+     */
+    public function setTitleRu($titleRu)
+    {
+        $this->title_ru = $titleRu;
+
+        return $this;
+    }
+
+    /**
+     * Get title_ru
+     *
+     * @return string 
+     */
+    public function getTitleRu()
+    {
+        return $this->title_ru;
+    }
+
+    /**
+     * Set description_ru
+     *
+     * @param string $descriptionRu
+     * @return Gallery
+     */
+    public function setDescriptionRu($descriptionRu)
+    {
+        $this->description_ru = $descriptionRu;
+
+        return $this;
+    }
+
+    /**
+     * Get description_ru
+     *
+     * @return string 
+     */
+    public function getDescriptionRu()
+    {
+        return $this->description_ru;
+    }
+
+    /**
+     * Set text_ru
+     *
+     * @param string $textRu
+     * @return Gallery
+     */
+    public function setTextRu($textRu)
+    {
+        $this->text_ru = $textRu;
+
+        return $this;
+    }
+
+    /**
+     * Get text_ru
+     *
+     * @return string 
+     */
+    public function getTextRu()
+    {
+        return $this->text_ru;
     }
 }

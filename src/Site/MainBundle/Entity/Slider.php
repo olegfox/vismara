@@ -35,6 +35,11 @@ class Slider
     private $text_it;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text_ru;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position;
@@ -196,5 +201,28 @@ class Slider
     public function getTextIt()
     {
         return $this->text_it;
+    }
+
+    /**
+     * Set text_ru
+     *
+     * @param string $textRu
+     * @return Slider
+     */
+    public function setTextRu($textRu)
+    {
+        $this->text_ru = $textRu;
+
+        return $this;
+    }
+
+    /**
+     * Get text_ru
+     *
+     * @return string 
+     */
+    public function getTextRu()
+    {
+        return $this->text_ru;
     }
 }

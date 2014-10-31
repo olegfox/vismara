@@ -33,12 +33,22 @@ class Menu
     /**
      * @ORM\Column(type="text")
      */
+    private $title_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $text;
 
     /**
      * @ORM\Column(type="text")
      */
     private $text_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text_ru;
 
     /**
      * @ORM\Column(type="text", nullable = true)
@@ -255,5 +265,51 @@ class Menu
     public function getTextIt()
     {
         return $this->text_it;
+    }
+
+    /**
+     * Set title_ru
+     *
+     * @param string $titleRu
+     * @return Menu
+     */
+    public function setTitleRu($titleRu)
+    {
+        $this->title_ru = $titleRu;
+
+        return $this;
+    }
+
+    /**
+     * Get title_ru
+     *
+     * @return string 
+     */
+    public function getTitleRu()
+    {
+        return $this->title_ru;
+    }
+
+    /**
+     * Set text_ru
+     *
+     * @param string $textRu
+     * @return Menu
+     */
+    public function setTextRu($textRu)
+    {
+        $this->text_ru = $textRu;
+
+        return $this;
+    }
+
+    /**
+     * Get text_ru
+     *
+     * @return string 
+     */
+    public function getTextRu()
+    {
+        return $this->text_ru;
     }
 }

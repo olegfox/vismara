@@ -713,13 +713,23 @@ a.facebook {
 
 .language {
   position: absolute;
-  top: 5px;
-  left: 10px; }
+  top: 11px;
+  left: 7px; }
   .language a {
+    font-family: Arial;
+    font-size: 12px;
     text-transform: uppercase;
-    color: #000;
-    text-decoration: none; }
-    .language a.selected {
-      font-weight: bold; }
+    color: #fff;
+    text-decoration: none;
+    background: #656565;
+    padding: 6px 0px;
+    margin-left: 3px;
+    border-radius: 12px 12px;
+    cursor: pointer;
+    width: 34px;
+    text-align: center;
+    display: inline-block; }
+    .language a.selected, .language a:hover {
+      background: #000; }
 
 /*# sourceMappingURL=style.css.map */

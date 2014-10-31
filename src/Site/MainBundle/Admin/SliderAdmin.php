@@ -46,7 +46,8 @@ class SliderAdmin extends Admin
                 )
             ))
             ->add('text', 'textarea', array('label' => 'The text on the slider EN'))
-            ->add('text_it', 'textarea', array('label' => 'The text on the slider IT'));
+            ->add('text_it', 'textarea', array('label' => 'The text on the slider IT'))
+            ->add('text_ru', 'textarea', array('label' => 'The text on the slider RU'));
     }
 
     // Fields to be shown on filter forms

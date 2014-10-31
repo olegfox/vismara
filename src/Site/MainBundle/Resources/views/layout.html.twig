@@ -78,6 +78,8 @@
            {% if app.request.locale == 'en' %}class="selected"{% endif %}>en</a>
         <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'it'})) }}"
            {% if app.request.locale == 'it' %}class="selected"{% endif %}>it</a>
+        <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'ru'})) }}"
+           {% if app.request.locale == 'ru' %}class="selected"{% endif %}>ru</a>
     </div>
 {% endblock %}
 {% block javascripts %}

@@ -22,6 +22,7 @@ class GalleryAdmin extends Admin
         $formMapper
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
+            ->add('title_ru', 'text', array('label' => 'Header RU'))
             ->add('titleImg', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context' => 'default',
@@ -36,6 +37,7 @@ class GalleryAdmin extends Admin
             ))
             ->add('description', 'textarea', array('label' => 'Description EN'))
             ->add('description_it', 'textarea', array('label' => 'Description IT'))
+            ->add('description_ru', 'textarea', array('label' => 'Description RU'))
             ->add('hideTitle', 'choice', array(
                 'label' => 'Show title at the miniature?',
                 'choices' => array(
@@ -114,6 +116,15 @@ class GalleryAdmin extends Admin
             ))
             ->add('text_it', 'textarea', array(
                 'label' => 'Text IT',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_ru', 'textarea', array(
+                'label' => 'Text RU',
                 'required' => '',
                 "attr" => array(
                     "class" => "redactor",

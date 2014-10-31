@@ -31,7 +31,7 @@
             <div></div>
             {% endif %}
             <div class="headImg">
-                <img src="{% path catalog.titleImg, 'reference' %}" alt="{% if app.request.locale == 'en' %}{{ catalog.title }}{% else %}{{ catalog.titleIt }}{% endif %}"/>
+                <img src="{% path catalog.titleImg, 'reference' %}" alt="{% if app.request.locale == 'en' %}{{ catalog.title }}{% elseif app.request.locale == 'it' %}{{ catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.titleRu }}{% endif %}"/>
             </div>
         {% else %}
             {% if catalog.dark == false %}
@@ -40,8 +40,10 @@
             <div class="head">
                 {% if app.request.locale == 'en' %}
                     {{ catalog.title }}
-                {% else %}
+                {% elseif app.request.locale == 'it' %}
                     {{ catalog.titleIt }}
+                {% elseif app.request.locale == 'ru' %}
+                    {{ catalog.titleRu }}
                 {% endif %}
             </div>
         {% endif %}
@@ -50,8 +52,10 @@
         <div class="rightText">
             {% if app.request.locale == 'en' %}
                 {{ catalog.text|raw }}
-            {% else %}
+            {% elseif app.request.locale == 'it' %}
                 {{ catalog.textIt|raw }}
+            {% elseif app.request.locale == 'ru' %}
+                {{ catalog.textRu|raw }}
             {% endif %}
             <div class="social-buttons">
                 <script type="text/javascript">(function() {

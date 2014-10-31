@@ -28,8 +28,10 @@
             <div class="content catalog">
                 {% if app.request.locale == "en" %}
                     {{ page.text|raw }}
-                {% else %}
+                {% elseif app.request.locale == "it" %}
                     {{ page.textIt|raw }}
+                {% elseif app.request.locale == "ru" %}
+                    {{ page.textRu|raw }}
                 {% endif %}
             </div>
         </div>

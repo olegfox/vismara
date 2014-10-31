@@ -29,7 +29,7 @@
                                 <div class="text" {% if slider.link != "" %}onclick="window.location.href='{{ slider.link }}';"{% endif %}>
                                     <div class="table">
                                         <div class="table-cell{% if slider.dark == false %} dark{% endif %}">
-                                            <h1 class="slogan-title">{% if app.request.locale == 'en' %}{{ slider.text|nl2br }}{% else %}{{ slider.textIt|nl2br }}{% endif %}</h1>
+                                            <h1 class="slogan-title">{% if app.request.locale == 'en' %}{{ slider.text|nl2br }}{% elseif app.request.locale == 'it' %}{{ slider.textIt|nl2br }}{% elseif app.request.locale == 'ru' %}{{ slider.textRu|nl2br }}{% endif %}</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -47,8 +47,10 @@
         {% if page is defined %}
             {% if app.request.locale == 'en' %}
                 {{ page.text|raw }}
-            {% else %}
+            {% elseif app.request.locale == 'it' %}
                 {{ page.textIt|raw }}
+            {% elseif app.request.locale == 'ru' %}
+                {{ page.textRu|raw }}
             {% endif %}
         {% endif %}
     </div>

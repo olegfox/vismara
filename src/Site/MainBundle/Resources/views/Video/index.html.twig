@@ -27,15 +27,17 @@
                     </a>
                     <img src="{{ image(video.getValue().getProviderMetadata()['thumbnail_url']).zoomCrop(835, 470) }}"
                          width="835px"
-                         alt="{% if app.request.locale == "en" %}{{ video.title }}{% else %}{{ video.titleIt }}{% endif %}"/>
+                         alt="{% if app.request.locale == "en" %}{{ video.title }}{% elseif app.request.locale == "it" %}{{ video.titleIt }}{% elseif app.request.locale == "ru" %}{{ video.titleRu }}{% endif %}"/>
                     <div class="background"></div>
                 </div>
                 <div class="description">
                     <p>
                         {% if app.request.locale == "en" %}
                             {{ video.title }}
-                        {% else %}
+                        {% elseif app.request.locale == "it" %}
                             {{ video.titleIt }}
+                        {% elseif app.request.locale == "ru" %}
+                            {{ video.titleRu }}
                         {% endif %}
                     </p>
                 </div>

@@ -1,0 +1,24 @@
+form:
+  name_company: Название компании
+  city: Город
+  contact_name: Контактное лицо
+  repeate_email: Повторите email
+  message: Сообщение
+  first_name: Имя
+  second_name: Фамилия
+
+Downloads: Загрузки
+collections: коллекции
+RESERVED FOR COMPANIES: ЗАРЕЗЕРВИРОВАНО ДЛЯ КОМПАНИЙ
+RESERVED FOR INDIVIDUALS: ЗАРЕЗЕРВИРОВАНО ДЛЯ ЧАСТНЫХ ЛИЦ
+PROCESSING OF PERSONAL DATA (PRIVACY POLICY): ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ (PRIVACY POLICY):
+Send: Отправить
+contacts: контакты
+e-mail: e-mail
+Letter from site: Письмо с сайта
+Name of a company: Название компании
+City: Город
+Contact name: Контактное лицо
+Message: Сообщение
+First name: Имя
+Second name: Фамилия

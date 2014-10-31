@@ -27,6 +27,11 @@ class Map
     protected $name_it;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    protected $name_ru;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     protected $phone; 
@@ -40,6 +45,11 @@ class Map
      * @ORM\Column(type="text", nullable=true)
      */
     protected $text_it;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $text_ru;
 
     /**
      * @ORM\Column(type="text")
@@ -230,5 +240,51 @@ class Map
     public function getTextIt()
     {
         return $this->text_it;
+    }
+
+    /**
+     * Set name_ru
+     *
+     * @param string $nameRu
+     * @return Map
+     */
+    public function setNameRu($nameRu)
+    {
+        $this->name_ru = $nameRu;
+
+        return $this;
+    }
+
+    /**
+     * Get name_ru
+     *
+     * @return string 
+     */
+    public function getNameRu()
+    {
+        return $this->name_ru;
+    }
+
+    /**
+     * Set text_ru
+     *
+     * @param string $textRu
+     * @return Map
+     */
+    public function setTextRu($textRu)
+    {
+        $this->text_ru = $textRu;
+
+        return $this;
+    }
+
+    /**
+     * Get text_ru
+     *
+     * @return string 
+     */
+    public function getTextRu()
+    {
+        return $this->text_ru;
     }
 }

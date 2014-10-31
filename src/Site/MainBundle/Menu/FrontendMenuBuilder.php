@@ -22,19 +22,10 @@ class FrontendMenuBuilder extends ContainerAware
                 $title = $s->getTitleIt();
             }
             if ($s->getId() != 1) {
-                if($s->getSlug() == 'catalogs'){
+                if($s->getSlug() == 'collections'){
                     $m = $menu->addChild($title, array(
                         'route' => 'Site_main_gallery'
                     ));
-                    $repository = $em->getRepository('SiteMainBundle:Gallery');
-                    $gallery = $repository->findAll();
-                    foreach($gallery as $g){
-                        $m->addChild($g->getTitle(), array(
-                            'route' => 'Site_main_gallery_one',
-                            'routeParameters' => array('slug' => $g->getSlug(), '_locale' => $locale)
-                        ));
-                    }
-
                 }else{
                     $menu->addChild($title, array(
                         'route' => 'Site_main_page',

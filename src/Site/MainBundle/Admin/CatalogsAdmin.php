@@ -22,6 +22,7 @@ class CatalogsAdmin extends Admin
         $formMapper
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
+            ->add('title_ru', 'text', array('label' => 'Header RU'))
             ->add('position', 'number', array(
                 'label' => 'Position',
                 'attr' => array(

@@ -22,6 +22,7 @@ class MenuAdmin extends Admin
         $formMapper
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
+            ->add('title_ru', 'text', array('label' => 'Header RU'))
             ->add('position', 'number', array(
                 'label' => 'Position',
                 'attr' => array(
@@ -51,6 +52,15 @@ class MenuAdmin extends Admin
             ))
             ->add('text_it', 'textarea', array(
                 'label' => 'The text of the page IT',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_ru', 'textarea', array(
+                'label' => 'The text of the page RU',
                 'required' => '',
                 "attr" => array(
                     "class" => "redactor",

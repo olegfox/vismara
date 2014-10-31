@@ -40,7 +40,7 @@ class MainController extends Controller
 
     public function collectionOneAction($slug, $slugImage = ''){
         $catalog = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findOneBy(array('slug' => $slug));
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'kollektsii'));
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'collections'));
         $images = $this->getDoctrine()->getRepository("SiteMainBundle:Image")->findBy(array('gallery' => $catalog), array('position' => 'asc'));
         $params = array(
             "catalog" => $catalog,
@@ -60,7 +60,7 @@ class MainController extends Controller
 
     public function collectionsAction(){
         $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findBy(array(), array('position' => 'asc'));
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'kollektsii'));
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'collections'));
         $params = array(
             "catalogs" => $catalogs,
             "page" => $page
@@ -70,7 +70,7 @@ class MainController extends Controller
 
     public function catalogsAction(){
         $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Catalogs")->findAll();
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'katalogi'));
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogs'));
         $params = array(
             "catalogs" => $catalogs,
             "page" => $page
