@@ -7,6 +7,8 @@ $(function(){
         //toolbar: 'custom',
         //css: ['custom.css?1'],
         allowedTags: ["a", "p", "img"],
-        convertVideoLinks: true
+        convertVideoLinks: true,
+        focus: true,
+        plugins: ['fontsize']
     });
 });

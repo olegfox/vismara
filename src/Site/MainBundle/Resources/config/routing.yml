@@ -41,3 +41,10 @@ page:
     prefix: /{_locale}/page
     requirements:
             _locale: en|it|ru
+
+#         новости
+news:
+    resource: @SiteMainBundle/Resources/config/news.yml
+    prefix: /{_locale}/news
+    requirements:
+            _locale: en|it|ru

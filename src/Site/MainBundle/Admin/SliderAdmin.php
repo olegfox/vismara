@@ -45,9 +45,30 @@ class SliderAdmin extends Admin
                     'min' => 0
                 )
             ))
-            ->add('text', 'textarea', array('label' => 'The text on the slider EN'))
-            ->add('text_it', 'textarea', array('label' => 'The text on the slider IT'))
-            ->add('text_ru', 'textarea', array('label' => 'The text on the slider RU'));
+            ->add('text', 'textarea', array(
+                'label' => 'The text on the slider EN',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_it', 'textarea', array(
+                'label' => 'The text on the slider IT',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_ru', 'textarea', array(
+                'label' => 'The text on the slider RU',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ));
     }
 
     // Fields to be shown on filter forms

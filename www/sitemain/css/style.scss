@@ -377,13 +377,17 @@ ul {
 
 .slogan-title {
   font-size: 36px;
-  line-height: 44px;
+  line-height: 36px;
   color: #fff;
   text-align: center;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 7px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+  p{
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+  }
 }
 
 /*------------end slogan----------------------*/
@@ -656,6 +660,7 @@ ul {
 }
 
 .content p {
+  font-size: 18px;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   padding: 1em 0px;
@@ -725,6 +730,11 @@ ul {
   padding: 20px 0px;
   .wrap_video {
     margin-bottom: 50px;
+    .description{
+      p{
+        font-size: 18px;
+      }
+    }
   }
   .video {
     position: relative;
@@ -780,7 +790,7 @@ a.facebook {
       height: 36px;
       min-width: 272px;
       display: inline-block;
-      line-height: 39px;
+      line-height: 38px;
     }
   }
 }

@@ -47,6 +47,12 @@ class Image
     private $gallery;
 
     /**
+     * @ORM\ManyToOne(targetEntity="NewsGallery", inversedBy="images")
+     * @ORM\JoinColumn(name="id_news",  referencedColumnName="id")
+     */
+    private $news;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position;
@@ -198,5 +204,28 @@ class Image
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Set news
+     *
+     * @param \Site\MainBundle\Entity\NewsGallery $news
+     * @return Image
+     */
+    public function setNews(\Site\MainBundle\Entity\NewsGallery $news = null)
+    {
+        $this->news = $news;
+
+        return $this;
+    }
+
+    /**
+     * Get news
+     *
+     * @return \Site\MainBundle\Entity\NewsGallery 
+     */
+    public function getNews()
+    {
+        return $this->news;
     }
 }

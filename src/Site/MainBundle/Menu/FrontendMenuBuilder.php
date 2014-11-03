@@ -16,10 +16,12 @@ class FrontendMenuBuilder extends ContainerAware
         $locale = $this->container->get('request')->get('_locale');
 
         foreach ($secondmenu as $key => $s) {
-            if($locale == 'en'){
-                $title = $s->getTitle();
-            }else{
+            if($locale == 'it'){
                 $title = $s->getTitleIt();
+            }elseif($locale == 'ru'){
+                $title = $s->getTitleRu();
+            }else{
+                $title = $s->getTitle();
             }
             if ($s->getId() != 1) {
                 if($s->getSlug() == 'collections'){

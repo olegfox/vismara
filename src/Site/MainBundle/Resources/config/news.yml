@@ -1,0 +1,9 @@
+news_index:
+    pattern:  /
+    defaults: { _controller: SiteMainBundle:News:index}
+
+news_post:
+    pattern:  /{type}/{slug}/
+    defaults: { _controller: SiteMainBundle:News:post}
+    requirements:
+            type: post|video|gallery

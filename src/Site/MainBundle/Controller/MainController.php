@@ -17,6 +17,12 @@ class MainController extends Controller
                     $this
                         ->generateUrl(
                             'Site_main_homepage', array("_locale" => 'it')), 301);
+        }elseif($locale == "ru"){
+            return $this
+                ->redirect(
+                    $this
+                        ->generateUrl(
+                            'Site_main_homepage', array("_locale" => 'ru')), 301);
         }
         return $this
             ->redirect(
@@ -70,7 +76,7 @@ class MainController extends Controller
 
     public function catalogsAction(){
         $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Catalogs")->findAll();
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogs'));
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogue'));
         $params = array(
             "catalogs" => $catalogs,
             "page" => $page

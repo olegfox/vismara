@@ -174,6 +174,15 @@ sonata_admin:
         Site_catalogs:
           label: Catalogs
           items: [sonata.admin.catalogs]
+        Site_newsPost:
+          label: NewsPost
+          items: [sonata.admin.newsPost]
+        Site_newsGallery:
+          label: NewsGallery
+          items: [sonata.admin.newsGallery]
+        Site_newsVideo:
+          label: NewsVideo
+          items: [sonata.admin.newsVideo]
 sonata_formatter:
     formatters:
         markdown:

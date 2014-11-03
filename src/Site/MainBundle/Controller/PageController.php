@@ -21,7 +21,7 @@ class PageController extends Controller
         $params = array(
             "page" => $page
         );
-        if($slug == 'kontaktyi'){
+        if($slug == 'contacts'){
             $maps = $this->getDoctrine()->getRepository('SiteMainBundle:Map')->findAll();
             $params['maps'] = $maps;
         }
@@ -31,7 +31,7 @@ class PageController extends Controller
 
     public function feedbackChooseAction(){
         $page = $this->getDoctrine()
-            ->getRepository('SiteMainBundle:Menu')->findOneBySlug('kontaktyi');
+            ->getRepository('SiteMainBundle:Menu')->findOneBySlug('contacts');
 
         return $this->render('SiteMainBundle:Page:feedbackChoose.html.twig', array(
             "page" => $page
@@ -64,7 +64,7 @@ class PageController extends Controller
         }
 
         $page = $this->getDoctrine()
-            ->getRepository('SiteMainBundle:Menu')->findOneBySlug('kontaktyi');
+            ->getRepository('SiteMainBundle:Menu')->findOneBySlug('contacts');
 
         return $this->render('SiteMainBundle:Page:feedbackPrivatePerson.html.twig', array(
             'form' => $form->createView(),
@@ -98,7 +98,7 @@ class PageController extends Controller
         }
 
         $page = $this->getDoctrine()
-            ->getRepository('SiteMainBundle:Menu')->findOneBySlug('kontaktyi');
+            ->getRepository('SiteMainBundle:Menu')->findOneBySlug('contacts');
 
         return $this->render('SiteMainBundle:Page:feedbackCompany.html.twig', array(
             'form' => $form->createView(),

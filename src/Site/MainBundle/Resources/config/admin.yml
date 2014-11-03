@@ -80,3 +80,33 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.newsPost:
+        class: Site\MainBundle\Admin\NewsPostAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "NewsPost" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\NewsPost
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.newsGallery:
+        class: Site\MainBundle\Admin\NewsGalleryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "NewsGallery" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\NewsGallery
+            - 'SiteMainBundle:NewsGalleryAdmin'
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.newsVideo:
+        class: Site\MainBundle\Admin\NewsVideoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "NewsVideo" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\NewsVideo
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
