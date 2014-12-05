@@ -1,16 +1,37 @@
 form:
   name_company: Name of a company
+  country: Country
   city: City
-  contact_name: Contact name
+  contact_name: Name
   repeate_email: Repeat email
-  message: Message
-  first_name: First name
-  second_name: Second name
+  message: Text
+  first_name: Name
+  second_name: Surname
+
+form_catalog:
+  head: In order to access our product catalogue, you need to register.
+  head_link: Registration is free!
+  company_name: Company name
+  privat_contact: Privat contact
+  contact_name: Contact name
+  your_task: Your task
+  company_field: Company field
+  country: Country
+  city: City
+  address: Address
+  email: E-mail
+  confirm_email: Confirm e-mail
+  website: Website
+  requested_password: Requested password
+  text: Text
+  yes: yes
+  no: no
+  password: password
 
 Downloads: Downloads
-collections: collections
-RESERVED FOR COMPANIES: RESERVED FOR COMPANIES
-RESERVED FOR INDIVIDUALS: RESERVED FOR INDIVIDUALS
+collection: collection
+RESERVED FOR COMPANIES: FOR COMPANIES
+RESERVED FOR INDIVIDUALS: FOR PRIVATS
 PROCESSING OF PERSONAL DATA (PRIVACY POLICY): PROCESSING OF PERSONAL DATA (PRIVACY POLICY)
 Send: Send
 contacts: contacts
@@ -22,3 +43,10 @@ Contact name: Contact name
 Message: Message
 First name: First name
 Second name: Second name
+Letter has been sent successfully!: Letter has been sent successfully!
+Error!: Error!
+Vismara Design in the world: Vismara Design in the world
+Catalogs: Catalogs
+On your mail sent to the list of directories.1: Thank you for your interest in our products!
+On your mail sent to the list of directories.2: Mail sent to your email with the link to directories.
+Get the catalog: To access the directory, enter your email. we will send you catalogs.

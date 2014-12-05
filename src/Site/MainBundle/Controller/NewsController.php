@@ -10,46 +10,30 @@ class NewsController extends Controller
 
     public function indexAction()
     {
-        $repository_news_post = $this->getDoctrine()->getRepository("SiteMainBundle:NewsPost");
-        $repository_news_video = $this->getDoctrine()->getRepository("SiteMainBundle:NewsVideo");
-        $repository_news_gallery = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
+        $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
 
-        $news_post = $repository_news_post->findAll();
-        $news_video = $repository_news_video->findAll();
-        $news_gallery = $repository_news_gallery->findAll();
+        $news = $repository->findAll();
 
-        $news = array();
-        $i = 0;
-
-        foreach($news_post as $p){
-            $news[$i][] = $p;
-            $news[$i]['created'] = $p->getCreated()->getTimestamp();
-            $i++;
-        }
-
-        foreach($news_video as $p){
-            $news[$i][] = $p;
-            $news[$i]['created'] = $p->getCreated()->getTimestamp();
-            $i++;
-        }
-
-        foreach($news_gallery as $p){
-            $news[$i][] = $p;
-            $news[$i]['created'] = $p->getCreated()->getTimestamp();
-            $i++;
-        }
-
-        usort($news, function($a, $b) {
-            if($a['created'] > $b['created']){
-                return 0;
-            }
-            return -1;
-        });
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array("slug" => "news"));
 
         $params = array(
-            "news" => $news
+            "news" => $news,
+            "page" => $page
         );
         return $this->render('SiteMainBundle:News:index.html.twig', $params);
+    }
+
+    public function postAction($slug){
+        $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
+        $n = $repository->findOneBy(array('slug' => $slug));
+
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array("slug" => "news"));
+
+        $params = array(
+            "n" => $n,
+            "page" => $page
+        );
+        return $this->render('SiteMainBundle:News:one.html.twig', $params);
     }
 
 }

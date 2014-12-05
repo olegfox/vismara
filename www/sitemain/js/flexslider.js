@@ -3,6 +3,16 @@ $(window).load(function () {
         animation: "fade",
         animationSpeed: 1000,
         slideshowSpeed: 3000,
-        controlNav: false
+        controlNav: false,
+        before: function(slider) {
+
+            if(slider.currentSlide == 0){
+                $('.flexslider').flexslider("pause");
+                setTimeout(function(){
+                    $('.flexslider').flexslider("play");
+                }, 7000);
+            }
+
+        }
     });
 });

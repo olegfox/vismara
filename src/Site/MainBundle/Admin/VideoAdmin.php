@@ -20,15 +20,28 @@ class VideoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'text', array(
+            ->with('title')
+            ->add('title', 'textarea', array(
                 'label' => 'Header EN'
             ))
-            ->add('title_it', 'text', array(
+            ->add('title_it', 'textarea', array(
                 'label' => 'Header IT'
             ))
-            ->add('title_ru', 'text', array(
+            ->add('title_ru', 'textarea', array(
                 'label' => 'Header RU'
             ))
+            ->end()
+            ->with('description')
+            ->add('description', 'textarea', array(
+                'label' => 'Description EN'
+            ))
+            ->add('description_it', 'textarea', array(
+                'label' => 'Description IT'
+            ))
+            ->add('description_ru', 'textarea', array(
+                'label' => 'Description RU'
+            ))
+            ->end()
             ->add('value', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.youtube',
                 'context' => 'default',

@@ -1,16 +1,37 @@
 form:
   name_company: Название компании
+  country: Страна
   city: Город
   contact_name: Контактное лицо
   repeate_email: Повторите email
-  message: Сообщение
+  message: Текст
   first_name: Имя
   second_name: Фамилия
 
+form_catalog:
+  head: Для того, чтобы получить доступ к нашему каталогу продукции, вам необходимо зарегистрироваться.
+  head_link: Регистрация абсолютно бесплатна!
+  company_name: Название компании
+  privat_contact: Личные контакты
+  contact_name: Контактное лицо
+  your_task: Ваша задача
+  company_field: Компания
+  country: Страна
+  city: Город
+  address: Адрес
+  email: E-mail
+  confirm_email: Подтвердите e-mail
+  website: Веб-сайт
+  requested_password: Отправить пароль?
+  text: Текст
+  yes: да
+  no: нет
+  password: пароль
+
 Downloads: Загрузки
-collections: коллекции
-RESERVED FOR COMPANIES: ЗАРЕЗЕРВИРОВАНО ДЛЯ КОМПАНИЙ
-RESERVED FOR INDIVIDUALS: ЗАРЕЗЕРВИРОВАНО ДЛЯ ЧАСТНЫХ ЛИЦ
+collection: коллекции
+RESERVED FOR COMPANIES: ДЛЯ КОМПАНИЙ
+RESERVED FOR INDIVIDUALS: ДЛЯ ЧАСТНЫХ ЛИЦ
 PROCESSING OF PERSONAL DATA (PRIVACY POLICY): ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ (PRIVACY POLICY):
 Send: Отправить
 contacts: контакты
@@ -22,3 +43,9 @@ Contact name: Контактное лицо
 Message: Сообщение
 First name: Имя
 Second name: Фамилия
+Letter has been sent successfully!: Письмо успешно отправлено!
+Error!: Ошибка!
+Catalogs: Каталоги
+On your mail sent to the list of directories.1: спасибо за интерес к нашей продукции!
+On your mail sent to the list of directories.2: на вашу почту отправлено письмо с ссылками на каталоги.
+Get the catalog: Чтобы получить доступ к каталогам, укажите свою электронную почту. мы пришлем вам каталоги.

@@ -25,9 +25,15 @@ class FrontendMenuBuilder extends ContainerAware
             }
             if ($s->getId() != 1) {
                 if($s->getSlug() == 'collections'){
-                    $m = $menu->addChild($title, array(
+                    $menu->addChild($title, array(
                         'route' => 'Site_main_gallery'
                     ));
+                }elseif($s->getSlug() == 'news'){
+                    if($locale != 'ru'){
+                        $menu->addChild($title, array(
+                            'route' => 'news_index'
+                        ));
+                    }
                 }else{
                     $menu->addChild($title, array(
                         'route' => 'Site_main_page',

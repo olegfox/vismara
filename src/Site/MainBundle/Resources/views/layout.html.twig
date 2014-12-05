@@ -15,6 +15,33 @@
     <link rel="stylesheet" href="{{ asset('sitemain/css/form.css') }}"/>
 {% endblock %}
 {% block body %}
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter27011118 = new Ya.Metrika({id:27011118,
+                        webvisor:true,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true});
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="//mc.yandex.ru/watch/27011118" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <div class="wrapper-header layout-max">
         <div class="header layout">
             <a  class="logo" href="{{ path('Site_main_homepage') }}">
@@ -55,22 +82,15 @@
     {% endblock %}
     <div class="icone">
         <a href="http://instagram.com/vismaradesignitaly" target="_blank">
-            <img src="{{ asset('sitemain/img/icone/instagram.png') }}" alt="instagram" width="20" height="20" border="0">
-        </a>
-        <a href="http://www.facebook.com/VismaraDesign" target="_blank">
-            <img src="{{ asset('sitemain/img/icone/facebook.png') }}" alt="facebook" width="20" height="20" border="0">
-        </a>
-        <a href="http://www.youtube.com/user/VismaraDesignItaly" target="_blank">
-            <img src="{{ asset('sitemain/img/icone/youtube.png') }}" alt="youtube" width="20" height="20" border="0">
-        </a>
-        <a href="https://twitter.com/VismaraDesignIt?lang=it" target="_blank">
-            <img src="{{ asset('sitemain/img/icone/twitter.png') }}" alt="twitter" width="20" height="20" border="0">
-        </a>
-        {#<a href="https://plus.google.com/106140279666892473371/posts" target="_blank">#}
-            {#<img src="{{ asset('sitemain/img/icone/google.png') }}" alt="google+" width="20" height="20" border="0">#}
-        {#</a>#}
-        <a href="http://www.pinterest.com/VismaraDesign1/" target="_blank">
-            <img src="{{ asset('sitemain/img/icone/pinterest.png') }}" alt="pinterest" width="20" height="20" border="0">
+            <img src="{{ asset('sitemain/img/icone/instagram.png') }}" alt="instagram" width="27" height="27" border="0">
+        </a><a href="http://www.facebook.com/VismaraDesign" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/facebook.png') }}" alt="facebook" width="27" height="27" border="0">
+        </a><a href="http://www.youtube.com/user/VismaraDesignItaly" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/youtube.png') }}" alt="youtube" width="27" height="27" border="0">
+        </a><a href="https://twitter.com/VismaraDesignIt?lang=it" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/twitter.png') }}" alt="twitter" width="27" height="27" border="0">
+        </a><a href="http://www.pinterest.com/VismaraDesign1/" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/pinterest.png') }}" alt="pinterest" width="27" height="27" border="0">
         </a>
     </div>
     <div class="language">

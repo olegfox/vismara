@@ -26,6 +26,7 @@ class FeedbackFormType extends AbstractType
         $builder
             ->add('firstname', 'text', array(
                 'label' => false,
+                'required' => true,
                 "attr" => array(
                     "placeholder" => "form.first_name",
                     "class" => "form-control",
@@ -36,6 +37,7 @@ class FeedbackFormType extends AbstractType
             ))
             ->add('lastname', 'text', array(
                 'label' => false,
+                'required' => true,
                 "attr" => array(
                     "placeholder" => "form.second_name",
                     "class" => "form-control",
@@ -44,8 +46,20 @@ class FeedbackFormType extends AbstractType
                     "ng-maxlength" => "255"
                 )
             ))
+            ->add('country', 'text', array(
+                'label' => false,
+                'required' => true,
+                "attr" => array(
+                    "placeholder" => "form.country",
+                    "class" => "form-control",
+                    "ng-model" => "user.country",
+                    "ng-minlength" => "2",
+                    "ng-maxlength" => "255"
+                )
+            ))
             ->add('city', 'text', array(
                 'label' => false,
+                'required' => true,
                 "attr" => array(
                     "placeholder" => "form.city",
                     "class" => "form-control",
@@ -68,7 +82,7 @@ class FeedbackFormType extends AbstractType
                 'second_options' => array(
                     'label' => false,
                     'attr' => array(
-                        'placeholder' => 'form.repeat_email',
+                        'placeholder' => 'form.repeate_email',
                         "class" => "form-control",
                         "ng-model" => "user.email2"
                     )
@@ -76,7 +90,7 @@ class FeedbackFormType extends AbstractType
             ))
             ->add('message', 'textarea', array(
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 "attr" => array(
                     "placeholder" => "form.message",
                     "class" => "form-control",

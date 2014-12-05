@@ -56,7 +56,7 @@
     </div>
     <div class="wrapper-collection layout-max">
         <div class="collection layout">
-            <h2 class="collection-title">{{ 'collections'|trans }}</h2>
+            <h2 class="collection-title">{{ 'collection'|trans }}</h2>
             <div class="gallery group">
                 {% include 'SiteMainBundle:Gallery:catalog.html.twig' %}
             </div>
@@ -69,6 +69,10 @@
     {{ parent() }}
     <script src="{{ asset('sitemain/js/script.js') }}"></script>
     <script src="{{ asset('sitemain/js/jquery.flexslider-min.js') }}"></script>
-    <script src="{{ asset('sitemain/js/flexslider.js') }}"></script>
+    {% if app.request.locale == 'ru'%}
+        <script src="{{ asset('sitemain/js/flexslider_ru.js') }}"></script>
+    {% else %}
+        <script src="{{ asset('sitemain/js/flexslider.js') }}"></script>
+    {% endif %}
     <!-- end script -->
 {% endblock %}

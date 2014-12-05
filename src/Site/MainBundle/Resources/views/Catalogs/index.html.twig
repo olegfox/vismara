@@ -1,5 +1,7 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
+{% block html %} ng-app="feedback"{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     {% if page.background.id is defined %}
@@ -20,20 +22,10 @@
     {% if catalogs is defined %}
         <div class="bottombox">
             <div class="c950">
-                <h2>{{ 'Downloads'|trans }}</h2>
-                {% for catalog in catalogs %}
-                    <a href="/catalogs/{{ catalog.filename }}" class="iconlink" id="download">
-                        <strong>
-                            {% if app.request.locale == "en" %}
-                                {{ catalog.title }}
-                            {% elseif app.request.locale == "it" %}
-                                {{ catalog.titleIt }}
-                            {% elseif app.request.locale == "ru" %}
-                                {{ catalog.titleRu }}
-                            {% endif %}
-                        </strong>
-                    </a>
-                {% endfor %}
+                <h2>
+                    {{ "form_catalog.head"|trans }}<br/>
+                    <a href="{{ path('Site_main_feedback_company') }}">{{ "form_catalog.head_link"|trans }}</a>
+                </h2>
             </div>
         </div>
     {% endif %}
@@ -43,4 +35,12 @@
 {% endblock %}
 
 {% block footer %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {#<script src="{{ asset("sitemain/js/catalogFeedback.js") }}"></script>#}
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular-placeholder.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/feedback.js") }}"></script>
 {% endblock %}

@@ -16,7 +16,10 @@
 
 {% block content %}
     {% if maps is defined %}
-        <div id="map" style="width: 100%; height: 450px"></div>
+        {% if app.request.locale == "en" or app.request.locale == "it" %}
+            <p style="text-align: center;text-transform: uppercase;background: rgba(255, 255, 255, 0.5);position: absolute;width: 100%;z-index: 1000;padding: 1em 0;-webkit-margin-before: 0;-webkit-margin-after: 0;"><b>{{ 'Vismara Design in the world'|trans }}</b></p>
+        {% endif %}
+        <div id="map" style="width: 100%; height: 600px"></div>
     {% endif %}
     {% if page is defined %}
         <div class="wrapperContent">
@@ -25,7 +28,13 @@
                     <div class="wrap_contacts">
                         <div class="contacts">
                             <p>{{ 'contacts'|trans }}:</p>
-                            <p>phone: +7 495 225 70 30</p>
+                            {% if app.request.locale == "ru" %}
+                                <p>phone: <img src="{{ asset('sitemain/img/ru.jpg') }}" alt="Россия" width="15px" height="10px"> +7 495 225 70 30</p>
+                                <p>phone: <img src="{{ asset('sitemain/img/ua.jpg') }}" alt="Укранина" width="15px" height="10px"> +38 098 606 24 35</p>
+                            {% else %}
+                                <p>phone: +39 0362 503.726</p>
+                                <p>fax: +39 0362 551.452</p>
+                            {% endif %}
                             <p>{{ 'e-mail'|trans }}: <a href="mailto:kontakti@vismara.it" target="_top">kontakti@vismara.it</a></p>
                         </div><div class="chooseFeedback">
                             <div>
@@ -67,8 +76,8 @@
                 {% endfor %}
             ];
             myMap = new ymaps.Map("map", {
-                center: [55.781463, 37.507993],
-                zoom: 4
+                center: [44.44106868, -2.54793170],
+                zoom: 3
             });
             iconImageHreff = '';
             for (i = 0; i < evro.length; i++) {

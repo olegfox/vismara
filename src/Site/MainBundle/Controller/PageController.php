@@ -7,8 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Site\MainBundle\Entity\Feedback;
 use Site\MainBundle\Entity\FeedbackCompany;
+use Site\MainBundle\Entity\FeedbackCatalog;
 use Site\MainBundle\Form\Type\FeedbackFormType;
 use Site\MainBundle\Form\Type\FeedbackCompanyFormType;
+use Site\MainBundle\Form\Type\FeedbackCatalogType;
 
 
 class PageController extends Controller
@@ -46,8 +48,8 @@ class PageController extends Controller
             $form->bind($request);
 
             $swift = \Swift_Message::newInstance()
-                ->setSubject('VismaraDesign')
-                ->setFrom(array('kontakti@vismara.it' => "VismaraDesign"))
+                ->setSubject('VismaraDesign FOR PRIVATS')
+                ->setFrom(array('kontakti@vismara.it' => "VismaraDesign FOR PRIVATS"))
                 ->setTo("kontakti@vismara.it")
                 ->setBody(
                     $this->renderView(
@@ -74,14 +76,14 @@ class PageController extends Controller
 
     public function feedbackCompanyAction(Request $request)
     {
-        $feedback = new FeedbackCompany();
-        $form = $this->createForm(new FeedbackCompanyFormType(), $feedback);
+        $feedback = new FeedbackCatalog();
+        $form = $this->createForm(new FeedbackCatalogType(), $feedback);
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
             $swift = \Swift_Message::newInstance()
-                ->setSubject('VismaraDesign')
-                ->setFrom(array('kontakti@vismara.it' => "VismaraDesign"))
+                ->setSubject('VismaraDesign FOR COMPANIES')
+                ->setFrom(array('kontakti@vismara.it' => "VismaraDesign FOR COMPANIES"))
                 ->setTo('kontakti@vismara.it')
                 ->setBody(
                     $this->renderView(
@@ -114,6 +116,18 @@ class PageController extends Controller
             ->getRepository('SiteMainBundle:Video')->findAll();
         return $this->render('SiteMainBundle:Video:index.html.twig', array(
             'videos' => $videos,
+            "page" => $page
+        ));
+    }
+
+    public function videoOneAction($id)
+    {
+        $page = $this->getDoctrine()
+            ->getRepository('SiteMainBundle:Menu')->findOneBySlug('video');
+        $video = $this->getDoctrine()
+            ->getRepository('SiteMainBundle:Video')->find($id);
+        return $this->render('SiteMainBundle:Video:one.html.twig', array(
+            'video' => $video,
             "page" => $page
         ));
     }

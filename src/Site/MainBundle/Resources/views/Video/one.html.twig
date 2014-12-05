@@ -1,0 +1,89 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block title %}{% if app.request.locale == "en" %}{{ video.title|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.titleIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.titleRu|nl2br|raw }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "en" %}{{ video.description|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu|nl2br|raw }}{% endif %}{% endblock %}
+{% block og_title %}{% if app.request.locale == "en" %}{{ video.title|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.titleIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.titleRu|nl2br|raw }}{% endif %}{% endblock %}
+{% block og_description %}{% if app.request.locale == "en" %}{{ video.description|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu|nl2br|raw }}{% endif %}{% endblock %}
+{% block og_image %}http://{{ app.request.host }}{{ image(video.getValue().getProviderMetadata()['thumbnail_url']).zoomCrop(300, 300) }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="videos">
+            <div class="wrap_video">
+                <h1>
+                    {% if app.request.locale == "en" %}
+                        {{ video.title|nl2br|raw }}
+                    {% elseif app.request.locale == "it" %}
+                        {{ video.titleIt|nl2br|raw }}
+                    {% elseif app.request.locale == "ru" %}
+                        {{ video.titleRu|nl2br|raw }}
+                    {% endif %}
+                </h1>
+                <div class="video">
+                    <a href="http://www.youtube.com/embed/{{ video.getValue().getProviderReference() }}?fs=1&amp;autoplay=1">
+                        <img src="{{ asset('sitemain/img/play.png') }}"
+                             width="216px" height="216px"
+                             alt="{{ asset('sitemain/img/play.png') }}"/>
+                    </a>
+                    <img src="{{ image(video.getValue().getProviderMetadata()['thumbnail_url']).zoomCrop(835, 470) }}"
+                         width="835px"
+                         alt="{% if app.request.locale == "en" %}{{ video.description }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu }}{% endif %}"/>
+                    <div class="background"></div>
+                </div>
+                <div class="description">
+                    <p>
+                        {% if app.request.locale == "en" %}
+                            {% set description = video.description|nl2br|raw %}
+                            {{ video.description|nl2br|raw }}
+                        {% elseif app.request.locale == "it" %}
+                            {% set description = video.descriptionIt|nl2br|raw %}
+                            {{ video.descriptionIt|nl2br|raw }}
+                        {% elseif app.request.locale == "ru" %}
+                            {% set description = video.descriptionRu|nl2br|raw %}
+                            {{ video.descriptionRu|nl2br|raw }}
+                        {% endif %}
+                    </p>
+                    <div class="social">
+                        <script type="text/javascript">(function() {
+                                if (window.pluso)if (typeof window.pluso.start == "function") return;
+                                if (window.ifpluso==undefined) { window.ifpluso = 1;
+                                    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                                    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                                    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                                    var h=d[g]('body')[0];
+                                    h.appendChild(s);
+                                }})();</script>
+                        <div class="pluso" data-background="transparent" data-options="medium,square,line,horizontal,counter,theme=04" data-services="facebook,twitter,google" data-url="http://{{ app.request.host }}{{ path('Site_main_video_one', {id: video.id}) }}" data-title="VismaraDesign - Video" data-description="{{ description }}"></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    {% if page is defined %}
+        <div class="content">
+            {% if app.request.locale == "en" %}
+                {{ page.text|raw }}
+            {% else %}
+                {{ page.textIt|raw }}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset("sitemain/js/videoClick.js") }}"></script>
+{% endblock %}

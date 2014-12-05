@@ -1,15 +1,37 @@
 form:
   name_company: Nome della società
+  country: STATO
   city: Città
   contact_name: Nome del contatto
   repeate_email: Conferma email
-  message: Messaggio
+  message: TESTO
+  first_name: NOME
+  second_name: Cognome
 
+form_catalog:
+  head: Per poter accedere al nostro catalogo prodotti, è necessario registrarsi.
+  head_link: La registrazione è gratuita!
+  company_name: NOME DELLA SOCIETA’
+  privat_contact: CONTATTO PRIVATO:
+  contact_name: NOME E COGNOME:
+  your_task: MANSIONE:
+  company_field: Company field:
+  country: STATO’:
+  city: CITTA:
+  address: INDIRIZZO:
+  email: E-MAIL:
+  confirm_email: CONFIRMA E-MAIL:
+  website: SITO WEB:
+  requested_password: RICHIEDI PASSWORD:
+  text: TESTO
+  yes: si
+  no: no
+  password: password
 
 Downloads: Download
-collections: collezioni
-RESERVED FOR COMPANIES: PER LE AZIENDE
-RESERVED FOR INDIVIDUALS: PER PERSONE
+collection: collezioni
+RESERVED FOR COMPANIES: PER SOCIETA’
+RESERVED FOR INDIVIDUALS: PER PRIVATI
 PROCESSING OF PERSONAL DATA (PRIVACY POLICY): TRATTAMENTO DEI DATI PERSONALI (PRIVACY POLICY)
 Send: Inviare
 contacts: contatti
@@ -21,3 +43,10 @@ Contact name: Nome del contatto
 Message: Messaggio
 First name: Nome
 Second name: Cognome
+Letter has been sent successfully!: Lettera è stata inviata con successo!
+Error!: Errore!
+Vismara Design in the world: Vismara Design nel mondo
+Catalogs: Cataloghi
+On your mail sent to the list of directories.1: Grazie per il vostro interesse nei nostri prodotti!
+On your mail sent to the list of directories.2: La posta inviata al tuo indirizzo email con il link alle directory.
+Get the catalog: Per accedere alla directory, il tuo indirizzo email. vi invieremo cataloghi.

@@ -26,6 +26,7 @@ class FeedbackCompanyFormType extends AbstractType
         $builder
             ->add('nameCompany', 'text', array(
                 'label' => false,
+                'required' => true,
                 "attr" => array(
                     "placeholder" => "form.name_company",
                     "class" => "form-control",
@@ -46,6 +47,7 @@ class FeedbackCompanyFormType extends AbstractType
             ))
             ->add('contactName', 'text', array(
                 'label' => false,
+                'required' => true,
                 "attr" => array(
                     "placeholder" => "form.contact_name",
                     "class" => "form-control",

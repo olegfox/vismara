@@ -3,30 +3,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{{ 'Letter from site'|trans }} VismaraDesign</title>
+    <title>{{ 'RESERVED FOR COMPANIES'|trans }} VismaraDesign</title>
 </head>
 <body style="margin: 0px; width: 700px; font-family: Arial; letter-spacing: 2px;">
 <div class="content">
     <table class="table" style="border-collapse: collapse;">
         <tr>
-            <td>{{ 'Name of a company'|trans }}</td>
-            <td> {{ feedback.nameCompany }}</td>
+            <td><strong>{{ "form_catalog.company_name"|trans }}</strong></td>
+            <td>{{ feedback.getCompanyName() }}</td>
         </tr>
         <tr>
-            <td>{{ 'City'|trans }}</td>
-            <td> {{ feedback.city }}</td>
+            <td><strong>{{ "form_catalog.privat_contact"|trans }}</strong></td>
+            <td>{{ feedback.getPrivatContact() }}</td>
         </tr>
         <tr>
-            <td>{{ 'Contact name'|trans }}</td>
-            <td> {{ feedback.contactName }}</td>
+            <td><strong>{{ "form_catalog.contact_name"|trans }}</strong></td>
+            <td>{{ feedback.getContactName() }}</td>
         </tr>
         <tr>
-            <td>Email</td>
-            <td> {{ feedback.email }}</td>
+            <td><strong>{{ "form_catalog.your_task"|trans }}</strong></td>
+            <td>{{ feedback.getYourTask() }}</td>
         </tr>
         <tr>
-            <td>{{ 'Message'|trans }}</td>
-            <td> {{ feedback.message }}</td>
+            <td><strong>{{ "form_catalog.company_field"|trans }}</strong></td>
+            <td>{{ feedback.getCompanyField() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.country"|trans }}</strong></td>
+            <td>{{ feedback.getCountry() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.city"|trans }}</strong></td>
+            <td>{{ feedback.getCity() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.address"|trans }}</strong></td>
+            <td>{{ feedback.getAddress() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.email"|trans }}</strong></td>
+            <td>{{ feedback.getEmail() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.website"|trans }}</strong></td>
+            <td>{{ feedback.getWebsite() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.text"|trans }}</strong></td>
+            <td>{{ feedback.getText() }}</td>
         </tr>
     </table>
 </div>

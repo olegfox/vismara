@@ -35,6 +35,21 @@ class Video
     private $title_ru;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_ru;
+
+    /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $value;
@@ -140,5 +155,74 @@ class Video
     public function getTitleRu()
     {
         return $this->title_ru;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Video
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description_it
+     *
+     * @param string $descriptionIt
+     * @return Video
+     */
+    public function setDescriptionIt($descriptionIt)
+    {
+        $this->description_it = $descriptionIt;
+
+        return $this;
+    }
+
+    /**
+     * Get description_it
+     *
+     * @return string 
+     */
+    public function getDescriptionIt()
+    {
+        return $this->description_it;
+    }
+
+    /**
+     * Set description_ru
+     *
+     * @param string $descriptionRu
+     * @return Video
+     */
+    public function setDescriptionRu($descriptionRu)
+    {
+        $this->description_ru = $descriptionRu;
+
+        return $this;
+    }
+
+    /**
+     * Get description_ru
+     *
+     * @return string 
+     */
+    public function getDescriptionRu()
+    {
+        return $this->description_ru;
     }
 }

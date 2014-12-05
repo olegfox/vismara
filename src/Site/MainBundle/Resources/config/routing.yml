@@ -29,6 +29,12 @@ Site_main_video:
     requirements:
             _locale: en|it|ru
 
+Site_main_video_one:
+    pattern:  /{_locale}/page/video/{id}
+    defaults: { _controller: SiteMainBundle:Page:videoOne}
+    requirements:
+            _locale: en|it|ru
+
 Site_main_homepage:
     pattern:  /{_locale}/
     defaults: { _controller: SiteMainBundle:Main:index}

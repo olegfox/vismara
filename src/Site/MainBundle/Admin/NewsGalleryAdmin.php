@@ -82,6 +82,13 @@ class NewsGalleryAdmin extends Admin
                 'label' => ' ',
             ))
             ->end()
+            ->with('Video')
+            ->add('video', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.youtube',
+                'context' => 'default',
+                'label' => false
+            ))
+            ->end()
             ->with('Text')
             ->add('created', 'date', array('label' => 'Date created'))
             ->add('text', 'textarea', array(

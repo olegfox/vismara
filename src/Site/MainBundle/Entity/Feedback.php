@@ -9,9 +9,12 @@ class Feedback
 
     protected $lastname;
 
+    protected $country;
+
     protected $city;
 
     protected $email;
+
 
     protected $message;
 
@@ -43,6 +46,18 @@ class Feedback
         $this->lastname = $lastname;
 
         return $this;
+    }
+
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
     }
 
     public function getCity()

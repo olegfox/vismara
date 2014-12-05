@@ -12,13 +12,13 @@
         $scope.submit=function(){
             $.post($('form').attr('action'), $('form').serialize(), function(data){
                 if(data == 'ok'){
-                    $('input[type=text], input[type=email], textarea#message').val('');
+                    $('input[type=text], input[type=email], textarea#message, textarea#text, textarea#address').val('');
                     $('input[type=checkbox]').prop('checked', false);
                     $('button#submit').attr('disabled', 'disabled');
                     $scope.clear();
-                    alert('Письмо успешно отправлено!');
+                    alert($('.successfully').html());
                 }else{
-                    alert("Ошибка");
+                    alert($('.error').html());
                 }
             });
         }

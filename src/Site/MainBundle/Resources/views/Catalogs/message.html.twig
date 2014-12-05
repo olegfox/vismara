@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{{ 'Catalogs'|trans }} VismaraDesign</title>
+</head>
+<body style="margin: 0px; width: 700px; font-family: Arial; letter-spacing: 2px;">
+<div class="content">
+    <h2>{{ 'Catalogs'|trans }} VismaraDesign</h2>
+    <table class="table" style="border-collapse: collapse;">
+        <tr>
+            <td><strong>{{ "form_catalog.company_name"|trans }}</strong></td>
+            <td>{{ feedback.getCompanyName() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.privat_contact"|trans }}</strong></td>
+            <td>{{ feedback.getPrivatContact() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.contact_name"|trans }}</strong></td>
+            <td>{{ feedback.getContactName() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.your_task"|trans }}</strong></td>
+            <td>{{ feedback.getYourTask() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.company_field"|trans }}</strong></td>
+            <td>{{ feedback.getCompanyField() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.country"|trans }}</strong></td>
+            <td>{{ feedback.getCountry() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.city"|trans }}</strong></td>
+            <td>{{ feedback.getCity() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.address"|trans }}</strong></td>
+            <td>{{ feedback.getAddress() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.email"|trans }}</strong></td>
+            <td>{{ feedback.getEmail() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.website"|trans }}</strong></td>
+            <td>{{ feedback.getWebsite() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.text"|trans }}</strong></td>
+            <td>{{ feedback.getText() }}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

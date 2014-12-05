@@ -10,7 +10,7 @@ use Site\MainBundle\Translitor\Translitor;
  * Site\MainBundle\Entity\NewsGallery
  *
  * @ORM\Table(name="news_gallery")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\NewsGalleryRepository")
  */
 class NewsGallery
 {
@@ -89,6 +89,11 @@ class NewsGallery
      * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="news", orphanRemoval=true)
      */
     private $images;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    private $video;
 
     /**
      * @var datetime $created
@@ -513,5 +518,28 @@ class NewsGallery
     {
 
         return $this;
+    }
+
+    /**
+     * Set video
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $video
+     * @return NewsGallery
+     */
+    public function setVideo(\Application\Sonata\MediaBundle\Entity\Media $video = null)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }
