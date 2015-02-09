@@ -1151,4 +1151,21 @@ hr{
   font-size: 30px;
 }
 
+// News
+.boxes{
+  padding-top: 25px;
+  .box{
+    display: inline-block;
+    width: 50%;
+    img{
+      width: 100%;
+    }
+    a{
+      font-size: 14px;
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+// end news
 

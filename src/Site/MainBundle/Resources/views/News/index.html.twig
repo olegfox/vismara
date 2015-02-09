@@ -1,4 +1,5 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
+{% from 'SiteMainBundle:News:macros.html.twig' import newsMacros %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -12,7 +13,9 @@
 {% endblock %}
 
 {% block content %}
-    {% for n in news %}
-        {% include 'SiteMainBundle:News:gallery.html.twig' %}
-    {% endfor %}
+    <div class="wrapperContent">
+        <div class="content contentWhite">
+            {{ newsMacros(news) }}
+        </div>
+    </div>
 {% endblock %}

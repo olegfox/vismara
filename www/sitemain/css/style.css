@@ -925,4 +925,16 @@ hr {
   -webkit-margin-after: 0;
   font-size: 30px; }
 
+.boxes {
+  padding-top: 25px; }
+  .boxes .box {
+    display: inline-block;
+    width: 50%; }
+    .boxes .box img {
+      width: 100%; }
+    .boxes .box a {
+      font-size: 14px;
+      color: #000;
+      text-decoration: none; }
+
 /*# sourceMappingURL=style.css.map */

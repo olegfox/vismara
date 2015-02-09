@@ -33,6 +33,7 @@ class NewsGalleryRuAdmin extends Admin
             ->add('keyword', 'text', array('label' => 'Keywords Ru', 'required' => ''))
             ->with('Like Image')
             ->add('likeImage', 'sonata_media_type', array(
+                'required' => true,
                 'provider' => 'sonata.media.provider.image',
                 'data_class'   =>  'Application\Sonata\MediaBundle\Entity\Media',
                 'validation_groups' => array('Default', 'image'),
