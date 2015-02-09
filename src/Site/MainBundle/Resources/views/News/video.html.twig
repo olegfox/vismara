@@ -1,19 +1,9 @@
 <div class="videos news_video">
     <h2>
         <a href="{{ path('news_post', {type: n.type, slug: n[0].slug}) }}">
-            {% if app.request.locale == "en" %}
-                {% set title = n[0].title %}
-                {% set description = n[0].description %}
-                {{ n[0].title }}
-            {% elseif app.request.locale == "it" %}
-                {% set title = n[0].titleIt %}
-                {% set description = n[0].descriptionIt %}
-                {{ n[0].titleIt }}
-            {% elseif app.request.locale == "ru" %}
-                {% set title = n[0].titleRu %}
-                {% set description = n[0].descriptionRu %}
-                {{ n[0].titleRu }}
-            {% endif %}
+            {% set title = n[0].title %}
+            {% set description = n[0].description %}
+            {{ n[0].title }}
         </a>
     </h2>
 <div class="wrap_video">
@@ -25,17 +15,11 @@
         </a>
         <img src="{{ image(n[0].getVideo().getProviderMetadata()['thumbnail_url']).zoomCrop(835, 470) }}"
              width="835px"
-             alt="{% if app.request.locale == "en" %}{{ n[0].title }}{% elseif app.request.locale == "it" %}{{ n[0].titleIt }}{% elseif app.request.locale == "ru" %}{{ n[0].titleRu }}{% endif %}"/>
+             alt="{{ n[0].title }}"/>
         <div class="background"></div>
     </div>
     <div class="description">
-        {% if app.request.locale == "en" %}
-            {{ n[0].text|raw }}
-        {% elseif app.request.locale == "it" %}
-            {{ n[0].textIt|raw }}
-        {% elseif app.request.locale == "ru" %}
-            {{ n[0].textRu|raw }}
-        {% endif %}
+        {{ n[0].text|raw }}
     </div>
     <div class="social">
         <script type="text/javascript">(function() {

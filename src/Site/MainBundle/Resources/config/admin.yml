@@ -90,6 +90,26 @@ services:
             - 'SiteMainBundle:NewsGalleryAdmin'
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.newsGalleryIt:
+        class: Site\MainBundle\Admin\NewsGalleryItAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "NewsIt" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\NewsGalleryIt
+            - 'SiteMainBundle:NewsGalleryItAdmin'
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.newsGalleryRu:
+        class: Site\MainBundle\Admin\NewsGalleryRuAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "NewsRu" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\NewsGalleryRu
+            - 'SiteMainBundle:NewsGalleryRuAdmin'
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
     sonata.admin.feedbackCatalog:
         class: Site\MainBundle\Admin\FeedbackCatalogAdmin
         tags:

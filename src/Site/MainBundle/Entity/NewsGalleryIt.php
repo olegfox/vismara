@@ -7,12 +7,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Site\MainBundle\Translitor\Translitor;
 
 /**
- * Site\MainBundle\Entity\NewsGallery
+ * Site\MainBundle\Entity\NewsGalleryIt
  *
- * @ORM\Table(name="news_gallery")
- * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\NewsGalleryRepository")
+ * @ORM\Table(name="news_gallery_it")
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\NewsGalleryItRepository")
  */
-class NewsGallery
+class NewsGalleryIt
 {
     /**
      * @ORM\Id
@@ -47,7 +47,7 @@ class NewsGallery
     private $text;
 
     /**
-     * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="news", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="newsIt", orphanRemoval=true)
      */
     private $images;
 

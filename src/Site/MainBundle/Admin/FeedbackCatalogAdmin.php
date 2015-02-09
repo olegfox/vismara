@@ -20,17 +20,16 @@ class FeedbackCatalogAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('company_name', 'text', array('label' => 'form_catalog.company_name'))
-            ->add('privat_contact', 'text', array('label' => 'form_catalog.privat_contact'))
-            ->add('contact_name', 'text', array('label' => 'form_catalog.contact_name'))
-            ->add('your_task', 'text', array('label' => 'form_catalog.your_task'))
-            ->add('company_field', 'text', array('label' => 'form_catalog.company_field'))
-            ->add('country', 'text', array('label' => 'form_catalog.country'))
-            ->add('city', 'text', array('label' => 'form_catalog.city'))
-            ->add('address', 'text', array('label' => 'form_catalog.address'))
-            ->add('email', 'email', array('label' => 'form_catalog.email'))
-            ->add('website', 'text', array('label' => 'form_catalog.website'))
-            ->add('text', 'textarea', array('label' => 'form_catalog.text'));
+            ->add('company_name', 'text', array('label' => 'Company name'))
+            ->add('contact_name', 'text', array('label' => 'Contact name'))
+            ->add('your_task', 'text', array('label' => 'Your task'))
+            ->add('company_field', 'text', array('label' => 'Company field'))
+            ->add('country', 'text', array('label' => 'Country'))
+            ->add('city', 'text', array('label' => 'City'))
+            ->add('address', 'text', array('label' => 'Address'))
+            ->add('email', 'email', array('label' => 'E-mail'))
+            ->add('website', 'text', array('label' => 'Website'))
+            ->add('text', 'textarea', array('label' => 'Text'));
     }
 
     // Fields to be shown on filter forms

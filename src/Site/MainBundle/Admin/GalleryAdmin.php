@@ -35,6 +35,9 @@ class GalleryAdmin extends Admin
                     true => 'Yes'
                 )
             ))
+            ->add('keyword', 'text', array('label' => 'Keywords EN', 'required' => ''))
+            ->add('keyword_it', 'text', array('label' => 'Keywords IT', 'required' => ''))
+            ->add('keyword_ru', 'text', array('label' => 'Keywords RU', 'required' => ''))
             ->add('description', 'textarea', array('label' => 'Description EN'))
             ->add('description_it', 'textarea', array('label' => 'Description IT'))
             ->add('description_ru', 'textarea', array('label' => 'Description RU'))

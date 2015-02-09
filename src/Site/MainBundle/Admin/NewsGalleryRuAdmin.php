@@ -14,7 +14,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 
-class NewsGalleryAdmin extends Admin
+class NewsGalleryRuAdmin extends Admin
 {
     protected
         $datagridValues = array(
@@ -27,10 +27,10 @@ class NewsGalleryAdmin extends Admin
     {
         $formMapper
             ->with('Head')
-            ->add('title', 'text', array('label' => 'Head EN'))
+            ->add('title', 'text', array('label' => 'Head Ru'))
             ->end()
             ->with('Keywords')
-            ->add('keyword', 'text', array('label' => 'Keywords EN', 'required' => ''))
+            ->add('keyword', 'text', array('label' => 'Keywords Ru', 'required' => ''))
             ->with('Like Image')
             ->add('likeImage', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
@@ -43,7 +43,7 @@ class NewsGalleryAdmin extends Admin
             ->end()
             ->with('Description')
             ->add('description', 'textarea', array(
-                'label' => 'Description EN',
+                'label' => 'Description Ru',
                 'required' => '',
                 "attr" => array(
                     "cols" => "100"
@@ -84,7 +84,7 @@ class NewsGalleryAdmin extends Admin
             ->with('Text')
             ->add('created', 'date', array('label' => 'Date created'))
             ->add('text', 'textarea', array(
-                'label' => 'Text EN',
+                'label' => 'Text Ru',
                 'required' => '',
                 "attr" => array(
                     "class" => "redactor",
@@ -99,7 +99,7 @@ class NewsGalleryAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title', null, array("label" => "Head EN"))
+            ->add('title', null, array("label" => "Head It"))
             ->add('created', null, array("label" => "Date created"));
     }
 
@@ -107,7 +107,7 @@ class NewsGalleryAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title', 'text', array('label' => 'Head EN'))
+            ->addIdentifier('title', 'text', array('label' => 'Head It'))
             ->add('created', 'date', array('label' => 'Date created'));
     }
 

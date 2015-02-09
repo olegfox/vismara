@@ -2,6 +2,10 @@
 
 {% block html %} ng-app="feedback"{% endblock %}
 
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     {% if page.background.id is defined %}
@@ -23,8 +27,9 @@
         <div class="bottombox">
             <div class="c950">
                 <h2>
-                    {{ "form_catalog.head"|trans }}<br/>
-                    <a href="{{ path('Site_main_feedback_company') }}">{{ "form_catalog.head_link"|trans }}</a>
+                    {{ "form_catalog.head"|trans }}<br/><br/>
+                    {{ "form_catalog.head_link"|trans }}<br/><br/>
+                    <a class="button_register" href="{{ path('Site_main_feedback_company') }}">{{ "form_catalog.head_link2"|trans }}</a>
                 </h2>
             </div>
         </div>

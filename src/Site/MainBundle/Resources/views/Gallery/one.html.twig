@@ -1,9 +1,10 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% else %}{{ ' | '~catalog.titleIt }}{% endif %}{% endblock %}
-{% block description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% else %}{{ catalog.descriptionIt }}{% endif %}{% endblock %}
-{% block og_title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% else %}{{ ' | '~catalog.titleIt }}{% endif %}{% endblock %}
-{% block og_description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% else %}{{ catalog.descriptionIt }}{% endif %}{% endblock %}
+{% block title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% elseif app.request.locale == 'it' %}{{ ' | '~catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ ' | '~catalog.titleRu }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% elseif app.request.locale == 'it' %}{{ catalog.descriptionIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.descriptionRu }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ catalog.keywordIt }}{% elseif app.request.locale == "ru" %}{{ catalog.keywordRu }}{% else %}{{ catalog.keyword }}{% endif %}{% endblock %}
+{% block og_title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% elseif app.request.locale == 'it' %}{{ ' | '~catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ ' | '~catalog.titleRu }}{% endif %}{% endblock %}
+{% block og_description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% elseif app.request.locale == 'it' %}{{ catalog.descriptionIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.descriptionRu }}{% endif %}{% endblock %}
 {% block og_image %}http://{{ app.request.host~image('.'~media_public_url(catalog.preview, 'reference')).zoomCrop(300, 300) }}{% endblock %}
 {% block og_url %}{% endblock %}
 {% block image_src %}http://{{ app.request.host~image('.'~media_public_url(catalog.preview, 'reference')).zoomCrop(300, 300) }}{% endblock %}
@@ -78,8 +79,8 @@
                             <a id="img{{ i.id }}"
                                href="{{ asset(i.minSrc) }}"
                                class="fancybox" rel="group"></a>
-                            <a href="#"><img src="{{ image(i.src).zoomCrop(500, 500) }}"
-                                             alt="{{ image(i.src).zoomCrop(500, 500) }}"/></a>
+                            <a href="{{ asset(i.minSrc) }}"><img src="{{ image(i.src).zoomCrop(500, 500) }}" title="{{ i.getTitleLocale(app.request.locale) }}"
+                                             alt="{{ i.getDescriptionLocale(app.request.locale) ? i.getDescriptionLocale(app.request.locale) : asset(i.minSrc) }}"/></a>
                         </div>
                     {% endfor %}
                 </div>

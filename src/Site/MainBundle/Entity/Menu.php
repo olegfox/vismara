@@ -51,6 +51,36 @@ class Menu
     private $text_ru;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $keyword;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $keyword_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $keyword_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_ru;
+
+    /**
      * @ORM\Column(type="text", nullable = true)
      */
     private $slug = "";
@@ -311,5 +341,143 @@ class Menu
     public function getTextRu()
     {
         return $this->text_ru;
+    }
+
+    /**
+     * Set keyword_it
+     *
+     * @param string $keywordIt
+     * @return Menu
+     */
+    public function setKeywordIt($keywordIt)
+    {
+        $this->keyword_it = $keywordIt;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword_it
+     *
+     * @return string 
+     */
+    public function getKeywordIt()
+    {
+        return $this->keyword_it;
+    }
+
+    /**
+     * Set keyword_ru
+     *
+     * @param string $keywordRu
+     * @return Menu
+     */
+    public function setKeywordRu($keywordRu)
+    {
+        $this->keyword_ru = $keywordRu;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword_ru
+     *
+     * @return string 
+     */
+    public function getKeywordRu()
+    {
+        return $this->keyword_ru;
+    }
+
+    /**
+     * Set description_it
+     *
+     * @param string $descriptionIt
+     * @return Menu
+     */
+    public function setDescriptionIt($descriptionIt)
+    {
+        $this->description_it = $descriptionIt;
+
+        return $this;
+    }
+
+    /**
+     * Get description_it
+     *
+     * @return string 
+     */
+    public function getDescriptionIt()
+    {
+        return $this->description_it;
+    }
+
+    /**
+     * Set description_ru
+     *
+     * @param string $descriptionRu
+     * @return Menu
+     */
+    public function setDescriptionRu($descriptionRu)
+    {
+        $this->description_ru = $descriptionRu;
+
+        return $this;
+    }
+
+    /**
+     * Get description_ru
+     *
+     * @return string 
+     */
+    public function getDescriptionRu()
+    {
+        return $this->description_ru;
+    }
+
+    /**
+     * Set keyword
+     *
+     * @param string $keyword
+     * @return Menu
+     */
+    public function setKeyword($keyword)
+    {
+        $this->keyword = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword
+     *
+     * @return string 
+     */
+    public function getKeyword()
+    {
+        return $this->keyword;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Menu
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

@@ -177,9 +177,15 @@ sonata_admin:
         Site_newsGallery:
           label: News
           items: [sonata.admin.newsGallery]
-        Site_feedbackCatalog:
-          label: EmailFeedbackCatalog
-          items: [sonata.admin.feedbackCatalog]
+        Site_newsGalleryIt:
+          label: NewsIt
+          items: [sonata.admin.newsGalleryIt]
+        Site_newsGalleryRu:
+          label: NewsRu
+          items: [sonata.admin.newsGalleryRu]
+#        Site_feedbackCatalog:
+#          label: EmailFeedbackCatalog
+#          items: [sonata.admin.feedbackCatalog]
 sonata_formatter:
     formatters:
         markdown:

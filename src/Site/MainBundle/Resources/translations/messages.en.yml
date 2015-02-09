@@ -11,6 +11,7 @@ form:
 form_catalog:
   head: In order to access our product catalogue, you need to register.
   head_link: Registration is free!
+  head_link2: register
   company_name: Company name
   privat_contact: Privat contact
   contact_name: Contact name

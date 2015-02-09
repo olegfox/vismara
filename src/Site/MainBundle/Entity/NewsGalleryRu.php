@@ -7,12 +7,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Site\MainBundle\Translitor\Translitor;
 
 /**
- * Site\MainBundle\Entity\NewsGallery
+ * Site\MainBundle\Entity\NewsGalleryRu
  *
- * @ORM\Table(name="news_gallery")
- * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\NewsGalleryRepository")
+ * @ORM\Table(name="news_gallery_ru")
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\NewsGalleryRuRepository")
  */
-class NewsGallery
+class NewsGalleryRu
 {
     /**
      * @ORM\Id
@@ -47,7 +47,7 @@ class NewsGallery
     private $text;
 
     /**
-     * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="news", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="newsRu", orphanRemoval=true)
      */
     private $images;
 
@@ -80,7 +80,7 @@ class NewsGallery
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -106,7 +106,7 @@ class NewsGallery
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -136,7 +136,7 @@ class NewsGallery
     /**
      * Get keyword
      *
-     * @return string 
+     * @return string
      */
     public function getKeyword()
     {
@@ -159,7 +159,7 @@ class NewsGallery
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -182,7 +182,7 @@ class NewsGallery
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -205,7 +205,7 @@ class NewsGallery
     /**
      * Get text
      *
-     * @return string 
+     * @return string
      */
     public function getText()
     {
@@ -228,7 +228,7 @@ class NewsGallery
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -251,7 +251,7 @@ class NewsGallery
     /**
      * Get updated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdated()
     {
@@ -284,7 +284,7 @@ class NewsGallery
     /**
      * Get images
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getImages()
     {
@@ -318,7 +318,7 @@ class NewsGallery
     /**
      * Get video
      *
-     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     * @return \Application\Sonata\MediaBundle\Entity\Media
      */
     public function getVideo()
     {

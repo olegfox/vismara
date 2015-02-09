@@ -1,8 +1,10 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}{% if app.request.locale == "en" %}{{ n[0].title }}{% elseif app.request.locale == "it" %}{{ n[0].titleIt }}{% elseif app.request.locale == "ru" %}{{ n[0].titleRu }}{% endif %}{% endblock %}
-{% block keywords %}{% if app.request.locale == "en" %}{{ n[0].keyword }}{% elseif app.request.locale == "it" %}{{ n[0].keywordIt }}{% elseif app.request.locale == "ru" %}{{ n[0].keywordRu }}{% endif %}{% endblock %}
-{% block description %}{% if app.request.locale == "en" %}{{ n[0].description }}{% elseif app.request.locale == "it" %}{{ n[0].descriptionIt }}{% elseif app.request.locale == "ru" %}{{ n[0].descriptionRu }}{% endif %}{% endblock %}
+{% block title %}{{ n.title }}{% endblock %}
+{% block keywords %}{{ n.keyword }}{% endblock %}
+{% block description %}{{ n.description }}{% endblock %}
+{% block og_image %}{% if n.likeImage.id is defined %}http://{{ app.request.host }}{{ image('.'~media_public_url(n.likeImage, 'reference')).zoomCrop(300, 300) }}{% endif %}{% endblock %}
+{% block image_src %}{% if n.likeImage.id is defined %}http://{{ app.request.host }}{{ image('.'~media_public_url(n.likeImage, 'reference')).zoomCrop(300, 300) }}{% endif %}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}

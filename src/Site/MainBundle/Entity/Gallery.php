@@ -38,6 +38,21 @@ class Gallery
     private $title_ru = "";
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $keyword;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $keyword_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $keyword_ru;
+
+    /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $titleImg;
@@ -685,5 +700,74 @@ class Gallery
     public function getTextRu()
     {
         return $this->text_ru;
+    }
+
+    /**
+     * Set keyword
+     *
+     * @param string $keyword
+     * @return Gallery
+     */
+    public function setKeyword($keyword)
+    {
+        $this->keyword = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword
+     *
+     * @return string 
+     */
+    public function getKeyword()
+    {
+        return $this->keyword;
+    }
+
+    /**
+     * Set keyword_it
+     *
+     * @param string $keywordIt
+     * @return Gallery
+     */
+    public function setKeywordIt($keywordIt)
+    {
+        $this->keyword_it = $keywordIt;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword_it
+     *
+     * @return string 
+     */
+    public function getKeywordIt()
+    {
+        return $this->keyword_it;
+    }
+
+    /**
+     * Set keyword_ru
+     *
+     * @param string $keywordRu
+     * @return Gallery
+     */
+    public function setKeywordRu($keywordRu)
+    {
+        $this->keyword_ru = $keywordRu;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword_ru
+     *
+     * @return string 
+     */
+    public function getKeywordRu()
+    {
+        return $this->keyword_ru;
     }
 }

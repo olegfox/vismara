@@ -22,10 +22,10 @@ class FeedbackCatalog
      */
     protected $company_name;
 
-    /**
-     * @ORM\Column(type="string", length = 200, nullable = false)
-     */
-    protected $privat_contact;
+//    /**
+//     * @ORM\Column(type="string", length = 200, nullable = false)
+//     */
+//    protected $privat_contact;
 
     /**
      * @ORM\Column(type="string", length = 200, nullable = false)
@@ -106,28 +106,28 @@ class FeedbackCatalog
         return $this->company_name;
     }
 
-    /**
-     * Set privat_contact
-     *
-     * @param string $privatContact
-     * @return FeedbackCatalog
-     */
-    public function setPrivatContact($privatContact)
-    {
-        $this->privat_contact = $privatContact;
-
-        return $this;
-    }
-
-    /**
-     * Get privat_contact
-     *
-     * @return string 
-     */
-    public function getPrivatContact()
-    {
-        return $this->privat_contact;
-    }
+//    /**
+//     * Set privat_contact
+//     *
+//     * @param string $privatContact
+//     * @return FeedbackCatalog
+//     */
+//    public function setPrivatContact($privatContact)
+//    {
+//        $this->privat_contact = $privatContact;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get privat_contact
+//     *
+//     * @return string
+//     */
+//    public function getPrivatContact()
+//    {
+//        return $this->privat_contact;
+//    }
 
     /**
      * Set contact_name

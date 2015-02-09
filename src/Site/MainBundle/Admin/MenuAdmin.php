@@ -20,9 +20,39 @@ class MenuAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('Head')
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
+            ->end()
+            ->with('Keywords')
+            ->add('keyword', 'text', array('label' => 'Keywords EN', 'required' => ''))
+            ->add('keyword_it', 'text', array('label' => 'Keywords IT', 'required' => ''))
+            ->add('keyword_ru', 'text', array('label' => 'Keywords RU', 'required' => ''))
+            ->end()
+            ->with('Description')
+            ->add('description', 'textarea', array(
+                'label' => 'Description EN',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "100"
+                )
+            ))
+            ->add('description_it', 'textarea', array(
+                'label' => 'Description IT',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "100"
+                )
+            ))
+            ->add('description_ru', 'textarea', array(
+                'label' => 'Description RU',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "100"
+                )
+            ))
+            ->end()
             ->add('position', 'number', array(
                 'label' => 'Position',
                 'attr' => array(

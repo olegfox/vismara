@@ -11,6 +11,45 @@ file that was distributed with this source code.
 
 {% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
 
+{% block form_label %}
+    {% spaceless %}
+        {% if label is not sameas(false) %}
+            {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ " control-label col-sm-2" }) %}
+
+            {% if not compound %}
+                {% set label_attr = label_attr|merge({'for': id}) %}
+            {% endif %}
+            {% if required %}
+                {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+            {% endif %}
+
+            {% if label is empty %}
+                {% set label = name|humanize %}
+            {% endif %}
+
+            {% if in_list_checkbox is defined and in_list_checkbox and widget is defined %}
+                <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+                {{ widget|raw }}
+                <span>
+                    {% if not sonata_admin.admin %}
+                        {{- label|trans({}, translation_domain) -}}
+                    {% else %}
+                        {{- label|trans({}, sonata_admin.field_description.translationDomain) -}}
+                    {% endif%}
+                </span>
+                </label>
+            {% else %}
+                <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                {% if not sonata_admin.admin%}
+                    {{- label|trans({}, translation_domain) -}}
+                {% else %}
+                    {{ sonata_admin.admin.trans(label, {}, sonata_admin.field_description.translationDomain) }}
+                {% endif %}
+                </label>
+            {% endif %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_label %}
 
 {# Custom Sonata Admin Extension #}
 {% block sonata_admin_orm_one_to_one_widget %}

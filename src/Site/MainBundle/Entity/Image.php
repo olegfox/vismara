@@ -28,6 +28,36 @@ class Image
     /**
      * @ORM\Column(type="text")
      */
+    private $title = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $title_it = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $title_ru = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_it = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_ru = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $mimeType;
 
     /**
@@ -51,6 +81,18 @@ class Image
      * @ORM\JoinColumn(name="id_news",  referencedColumnName="id")
      */
     private $news;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NewsGalleryIt", inversedBy="images")
+     * @ORM\JoinColumn(name="id_news_it",  referencedColumnName="id")
+     */
+    private $newsIt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NewsGalleryRu", inversedBy="images")
+     * @ORM\JoinColumn(name="id_news_ru",  referencedColumnName="id")
+     */
+    private $newsRu;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -227,5 +269,223 @@ class Image
     public function getNews()
     {
         return $this->news;
+    }
+
+    /**
+     * Set newsIt
+     *
+     * @param \Site\MainBundle\Entity\NewsGalleryIt $newsIt
+     * @return Image
+     */
+    public function setNewsIt(\Site\MainBundle\Entity\NewsGalleryIt $newsIt = null)
+    {
+        $this->newsIt = $newsIt;
+
+        return $this;
+    }
+
+    /**
+     * Get newsIt
+     *
+     * @return \Site\MainBundle\Entity\NewsGalleryIt
+     */
+    public function getNewsIt()
+    {
+        return $this->newsIt;
+    }
+
+    /**
+     * Set newsRu
+     *
+     * @param \Site\MainBundle\Entity\NewsGalleryIt $newsRu
+     * @return Image
+     */
+    public function setNewsRu(\Site\MainBundle\Entity\NewsGalleryRu $newsRu = null)
+    {
+        $this->newsRu = $newsRu;
+
+        return $this;
+    }
+
+    /**
+     * Get newsRu
+     *
+     * @return \Site\MainBundle\Entity\NewsGalleryRu
+     */
+    public function getNewsRu()
+    {
+        return $this->newsRu;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Image
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Image
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set title_it
+     *
+     * @param string $titleIt
+     * @return Image
+     */
+    public function setTitleIt($titleIt)
+    {
+        $this->title_it = $titleIt;
+
+        return $this;
+    }
+
+    /**
+     * Get title_it
+     *
+     * @return string 
+     */
+    public function getTitleIt()
+    {
+        return $this->title_it;
+    }
+
+    /**
+     * Set title_ru
+     *
+     * @param string $titleRu
+     * @return Image
+     */
+    public function setTitleRu($titleRu)
+    {
+        $this->title_ru = $titleRu;
+
+        return $this;
+    }
+
+    /**
+     * Get title_ru
+     *
+     * @return string 
+     */
+    public function getTitleRu()
+    {
+        return $this->title_ru;
+    }
+
+    /**
+     * Set description_it
+     *
+     * @param string $descriptionIt
+     * @return Image
+     */
+    public function setDescriptionIt($descriptionIt)
+    {
+        $this->description_it = $descriptionIt;
+
+        return $this;
+    }
+
+    /**
+     * Get description_it
+     *
+     * @return string 
+     */
+    public function getDescriptionIt()
+    {
+        return $this->description_it;
+    }
+
+    /**
+     * Set description_ru
+     *
+     * @param string $descriptionRu
+     * @return Image
+     */
+    public function setDescriptionRu($descriptionRu)
+    {
+        $this->description_ru = $descriptionRu;
+
+        return $this;
+    }
+
+    /**
+     * Get description_ru
+     *
+     * @return string 
+     */
+    public function getDescriptionRu()
+    {
+        return $this->description_ru;
+    }
+
+    public function getTitleLocale($locale){
+        switch($locale){
+            case 'en':{
+                return $this->getTitle();
+            }break;
+            case 'it':{
+                return $this->getTitleIt();
+            }break;
+            case 'ru':{
+                return $this->getTitleRu();
+            }break;
+            default:{
+                return $this->getTitle();
+            }
+        }
+    }
+
+    public function getDescriptionLocale($locale){
+        switch($locale){
+            case 'en':{
+                return $this->getDescription();
+            }break;
+            case 'it':{
+                return $this->getDescriptionIt();
+            }break;
+            case 'ru':{
+                return $this->getDescriptionRu();
+            }break;
+            default:{
+                return $this->getDescription();
+            }
+        }
     }
 }

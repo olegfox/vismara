@@ -10,7 +10,16 @@ class NewsController extends Controller
 
     public function indexAction()
     {
-        $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
+        $request = $this->get('request');
+        $locale = $request->getLocale();
+
+        if($locale == 'it'){
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryIt");
+        }elseif($locale == 'ru'){
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryRu");
+        }else{
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
+        }
 
         $news = $repository->findAll();
 
@@ -24,7 +33,17 @@ class NewsController extends Controller
     }
 
     public function postAction($slug){
-        $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
+        $request = $this->get('request');
+        $locale = $request->getLocale();
+
+        if($locale == 'it'){
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryIt");
+        }elseif($locale == 'ru'){
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryRu");
+        }else{
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
+        }
+
         $n = $repository->findOneBy(array('slug' => $slug));
 
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array("slug" => "news"));

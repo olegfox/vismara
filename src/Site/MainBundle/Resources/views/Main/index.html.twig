@@ -1,4 +1,9 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('sitemain/css/flexslider.css') }}" rel="stylesheet">

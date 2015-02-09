@@ -24,15 +24,15 @@
 {% block content %}
     <div class="videos">
             <div class="wrap_video">
-                <h1>
-                    {% if app.request.locale == "en" %}
-                        {{ video.title|nl2br|raw }}
-                    {% elseif app.request.locale == "it" %}
-                        {{ video.titleIt|nl2br|raw }}
-                    {% elseif app.request.locale == "ru" %}
-                        {{ video.titleRu|nl2br|raw }}
-                    {% endif %}
-                </h1>
+                {#<h1>#}
+                    {#{% if app.request.locale == "en" %}#}
+                        {#{{ video.title|nl2br|raw }}#}
+                    {#{% elseif app.request.locale == "it" %}#}
+                        {#{{ video.titleIt|nl2br|raw }}#}
+                    {#{% elseif app.request.locale == "ru" %}#}
+                        {#{{ video.titleRu|nl2br|raw }}#}
+                    {#{% endif %}#}
+                {#</h1>#}
                 <div class="video">
                     <a href="http://www.youtube.com/embed/{{ video.getValue().getProviderReference() }}?fs=1&amp;autoplay=1">
                         <img src="{{ asset('sitemain/img/play.png') }}"
@@ -45,6 +45,17 @@
                     <div class="background"></div>
                 </div>
                 <div class="description">
+                    <p>
+                        <b>
+                            {% if app.request.locale == "en" %}
+                                {{ video.title|nl2br|raw|upper }}
+                            {% elseif app.request.locale == "it" %}
+                                {{ video.titleIt|nl2br|raw|upper }}
+                            {% elseif app.request.locale == "ru" %}
+                                {{ video.titleRu|nl2br|raw|upper }}
+                            {% endif %}
+                        </b>
+                    </p>
                     <p>
                         {% if app.request.locale == "en" %}
                             {% set description = video.description|nl2br|raw %}

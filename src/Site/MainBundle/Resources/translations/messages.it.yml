@@ -11,6 +11,7 @@ form:
 form_catalog:
   head: Per poter accedere al nostro catalogo prodotti, è necessario registrarsi.
   head_link: La registrazione è gratuita!
+  head_link2: registro
   company_name: NOME DELLA SOCIETA’
   privat_contact: CONTATTO PRIVATO:
   contact_name: NOME E COGNOME:

@@ -1,12 +1,26 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     {% if page.background.id is defined %}
         <style type="text/css">
+            {% if page.slug == 'company' %}
+            body {
+                background: url("{{ asset('sitemain/img/bg_about.jpg') }}");
+                background-size: cover;
+            }
+            .wrapper-img {
+                background: #000;
+            }
+            {% else %}
             .wrapper-img {
                 background: url("{% path page.background, 'reference' %}") top center;
             }
+            {% endif %}
         </style>
     {% endif %}
 {% endblock %}
@@ -17,13 +31,13 @@
 {% block content %}
     {% if maps is defined %}
         {% if app.request.locale == "en" or app.request.locale == "it" %}
-            <p style="text-align: center;text-transform: uppercase;background: rgba(255, 255, 255, 0.5);position: absolute;width: 100%;z-index: 1000;padding: 1em 0;-webkit-margin-before: 0;-webkit-margin-after: 0;"><b>{{ 'Vismara Design in the world'|trans }}</b></p>
+            <p class="headMap"><b>{{ 'Vismara Design in the world'|trans }}</b></p>
         {% endif %}
         <div id="map" style="width: 100%; height: 600px"></div>
     {% endif %}
     {% if page is defined %}
-        <div class="wrapperContent">
-            <div class="content contentWhite">
+        <div class="wrapperContent {% if page.slug == 'company' %}wrapperContentBlack{% endif %}">
+            <div class="content contentWhite {% if page.slug == 'company' %}contentBlack{% endif %}">
                 {% if maps is defined %}
                     <div class="wrap_contacts">
                         <div class="contacts">
@@ -59,7 +73,11 @@
 {% block javascripts %}
     {{ parent() }}
     {% if maps is defined %}
-    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+    {% set lang = 'ru-RU' %}
+    {% if app.request.locale != 'ru' %}
+        {% set lang = 'en-US' %}
+    {% endif %}
+    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang={{ lang }}" type="text/javascript"></script>
     <script>
         ymaps.ready(init);
         var myMap,
@@ -68,11 +86,11 @@
             var evro = [
                 {% for map in maps %}
                 {% if map.img.id is defined %}
-                {% set img = '<div class="map_img"><img src="'~image('.'~media_public_url(map.img, 'reference')).cropResize(89)~'" /></div>' %}
+                {% set img = '<div class="map_img"><img src="'~image('.'~media_public_url(map.img, 'reference')).cropResize(142)~'" /></div>' %}
                 {% else %}
                 {% set img = '' %}
                 {% endif %}
-                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% elseif app.request.locale == 'it' %}{{ map.getNameIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getNameRu() }}{% endif %}</h4><p>{% if app.request.locale == 'en' %}{{ map.getText() }}{% elseif app.request.locale == 'it' %}{{ map.getTextIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getTextRu() }}{% endif %}</p>{% if map.getPhone() != '' %}<p>{{ map.getPhone() }}</p>{% endif %}', {{ map.getX() }}, {{ map.getY() }}],
+                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% elseif app.request.locale == 'it' %}{{ map.getNameIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getNameRu() }}{% endif %}</h4>', {{ map.getX() }}, {{ map.getY() }}],
                 {% endfor %}
             ];
             myMap = new ymaps.Map("map", {
@@ -88,7 +106,9 @@
                 }, {
                     iconImageHref: iconImageHreff,
                     iconImageSize: [30, 16],
-                    iconImageOffset: [-14, -16]
+                    iconImageOffset: [-14, -16],
+                    balloonCloseButton: false,
+                    hideIconOnBalloonOpen: false
                 });
                 myMap.geoObjects.add(myPlacemark);
             }

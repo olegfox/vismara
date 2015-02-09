@@ -21,15 +21,37 @@ class ImageAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', 'text', array('label' => 'Name', 'read_only' => true))
+            ->add('src', 'text', array('label' => 'Path', 'read_only' => true))
+            ->add('title', 'text', array('label' => 'Title EN'))
+            ->add('title_it', 'text', array('label' => 'Title IT'))
+            ->add('title_ru', 'text', array('label' => 'Title RU'))
+            ->add('description', 'textarea', array(
+                'label' => 'Description EN',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "20"
+                )
+            ))
+            ->add('description_it', 'textarea', array(
+                'label' => 'Description IT',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "20"
+                )
+            ))
+            ->add('description_ru', 'textarea', array(
+                'label' => 'Description RU',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "20"
+                )
+            ))
             ->add('position', 'number', array(
                 'label' => 'Position',
                 'attr' => array(
                     'min' => 0
                 )
-            ))
-            ->add('src', 'text', array('label' => 'Path', 'read_only' => true))
-            ->add('mimeType', 'text', array('label' => 'Mime Type', 'read_only' => true));
+            ));
     }
 
     // Fields to be shown on filter forms

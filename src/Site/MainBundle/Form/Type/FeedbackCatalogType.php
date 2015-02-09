@@ -30,17 +30,17 @@ class FeedbackCatalogType extends AbstractType
                     "ng-maxlength" => "255"
                 )
             ))
-            ->add('privat_contact', 'text', array(
-                'required' => false,
-                'label' => false,
-                'attr' => array(
-                    "placeholder" => "form_catalog.privat_contact",
-                    "class" => "form-control",
-                    "ng-model" => "user.privatContact",
-                    "ng-minlength" => "2",
-                    "ng-maxlength" => "255"
-                )
-            ))
+//            ->add('privat_contact', 'text', array(
+//                'required' => false,
+//                'label' => false,
+//                'attr' => array(
+//                    "placeholder" => "form_catalog.privat_contact",
+//                    "class" => "form-control",
+//                    "ng-model" => "user.privatContact",
+//                    "ng-minlength" => "2",
+//                    "ng-maxlength" => "255"
+//                )
+//            ))
             ->add('contact_name', 'text', array(
                 'required' => true,
                 'label' => false,

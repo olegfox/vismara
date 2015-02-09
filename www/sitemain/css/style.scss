@@ -11,6 +11,13 @@
   :-ms-input-placeholder      {@content}
 }
 
+@mixin placeholderFocus {
+  :focus::-webkit-input-placeholder {@content}
+  :focus:-moz-placeholder           {@content}
+  :focus::-moz-placeholder          {@content}
+  :focus:-ms-input-placeholder      {@content}
+}
+
 @font-face {
   font-family: 'Calibri';
   src: url('/sitemain/fonts/Calibri.eot?#iefix') format('embedded-opentype'), url('/sitemain/fonts/Calibri.woff') format('woff'), url('/sitemain/fonts/Calibri.ttf') format('truetype'), url('/sitemain/fonts/Calibri.svg#Calibri') format('svg');
@@ -107,7 +114,7 @@ h1 {
 h2 {
   a {
     color: #000;
-    font-size: 16px;
+    font-size: 30px;
   }
 }
 
@@ -655,6 +662,18 @@ ul {
   margin: 0 auto;
   padding-bottom: 20px;
 }
+.wrapperContentBlack{
+  background: url(/sitemain/img/bg80.png);
+  max-width: 876px;
+  margin: 20px auto;
+  padding-top: 20px;
+  p.img{
+    padding-top: 0px;
+  }
+  *{
+    color: #fff!important;
+  }
+}
 
 .wrap_content {
   background: #bcbcbc;
@@ -696,7 +715,8 @@ ul {
 }
 
 .content p {
-  font-size: 14px;
+  font-size: 18px!important;
+  line-height: 22px!important;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   padding: 1em 0px;
@@ -772,7 +792,10 @@ ul {
     }
     .description {
       p {
-        font-size: 18px;
+        font-size: 14px;
+        b{
+          font-size: 30px;
+        }
       }
     }
   }
@@ -854,7 +877,7 @@ a.facebook {
 .bottombox {
   position: absolute;
   z-index: 5;
-  padding-top: 20px;
+  padding-top: 59px;
   margin-top: 50px;
   margin-bottom: 50px;
   background: url(/sitemain/img/bg80.png);
@@ -866,21 +889,22 @@ a.facebook {
     padding: 0 20px;
   }
   h2 {
-    font-family: Arial;
-    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18px;
     font-weight: normal;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin: 0 0 40px 0;
+    margin: 0 0 70px 0;
     width: 760px;
+    line-height: 22px;
     a{
       font-family: Arial;
       font-size: 16px;
       font-weight: normal;
       color: #fff;
       text-transform: uppercase;
-      letter-spacing: 1px;  
+      letter-spacing: 1px;
     }
   }
   a {
@@ -946,7 +970,7 @@ a.facebook {
 }
 
 .map_img {
-  padding: 10px;
+  padding: 0px;
   text-align: center;
 }
 
@@ -1053,15 +1077,19 @@ a.facebook {
   font-weight: bold;
 }
 
+@include placeholderFocus {
+  color: #fff;
+}
+
 .wrap_post{
   h2{
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     padding: 27px 0px 10px 0px;
-    line-height: 16px;
+    line-height: 30px;
   }
   .date{
-    font-size: 16px;
+    font-size: 30px;
   }
   .wrap_video{
     margin-bottom: 12px;
@@ -1091,6 +1119,36 @@ hr{
   border: #d9d9d9 solid 1px;
   -webkit-margin-before: 0.5em;
   -webkit-margin-after: 0;
+}
+
+.ymaps-b-balloon__close{
+  display: none!important;
+}
+
+.ymaps-b-balloon__content-body{
+  text-align: center;
+}
+
+.ymaps-b-balloon__content-body h4{
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+}
+
+.ymaps-b-balloon__content-body img{
+  width: 100%;
+}
+
+.headMap{
+  text-align: center;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  padding: 1em 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  font-size: 30px;
 }
 
 
