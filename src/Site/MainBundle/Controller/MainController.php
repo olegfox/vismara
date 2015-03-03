@@ -38,6 +38,12 @@ class MainController extends Controller
                     $this
                         ->generateUrl(
                             'Site_main_homepage', array("_locale" => 'ru')), 301);
+        }elseif($locale == "cn"){
+            return $this
+                ->redirect(
+                    $this
+                        ->generateUrl(
+                            'Site_main_homepage', array("_locale" => 'cn')), 301);
         }
         return $this
             ->redirect(

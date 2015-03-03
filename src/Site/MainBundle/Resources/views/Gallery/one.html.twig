@@ -1,10 +1,10 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% elseif app.request.locale == 'it' %}{{ ' | '~catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ ' | '~catalog.titleRu }}{% endif %}{% endblock %}
-{% block description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% elseif app.request.locale == 'it' %}{{ catalog.descriptionIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.descriptionRu }}{% endif %}{% endblock %}
-{% block keywords %}{% if app.request.locale == "it" %}{{ catalog.keywordIt }}{% elseif app.request.locale == "ru" %}{{ catalog.keywordRu }}{% else %}{{ catalog.keyword }}{% endif %}{% endblock %}
-{% block og_title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% elseif app.request.locale == 'it' %}{{ ' | '~catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ ' | '~catalog.titleRu }}{% endif %}{% endblock %}
-{% block og_description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% elseif app.request.locale == 'it' %}{{ catalog.descriptionIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.descriptionRu }}{% endif %}{% endblock %}
+{% block title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% elseif app.request.locale == 'it' %}{{ ' | '~catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ ' | '~catalog.titleRu }}{% elseif app.request.locale == 'cn' %}{{ ' | '~catalog.titleCn }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% elseif app.request.locale == 'it' %}{{ catalog.descriptionIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.descriptionRu }}{% elseif app.request.locale == 'cn' %}{{ catalog.descriptionCn }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ catalog.keywordIt }}{% elseif app.request.locale == "ru" %}{{ catalog.keywordRu }}{% elseif app.request.locale == "cn" %}{{ catalog.keywordCn }}{% else %}{{ catalog.keyword }}{% endif %}{% endblock %}
+{% block og_title %}VISMARA DESIGN{% if app.request.locale == 'en' %}{{ ' | '~catalog.title }}{% elseif app.request.locale == 'it' %}{{ ' | '~catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ ' | '~catalog.titleRu }}{% elseif app.request.locale == 'cn' %}{{ ' | '~catalog.titleCn }}{% endif %}{% endblock %}
+{% block og_description %}{% if app.request.locale == 'en' %}{{ catalog.description }}{% elseif app.request.locale == 'it' %}{{ catalog.descriptionIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.descriptionRu }}{% elseif app.request.locale == 'cn' %}{{ catalog.descriptionCn }}{% endif %}{% endblock %}
 {% block og_image %}http://{{ app.request.host~image('.'~media_public_url(catalog.preview, 'reference')).zoomCrop(300, 300) }}{% endblock %}
 {% block og_url %}{% endblock %}
 {% block image_src %}http://{{ app.request.host~image('.'~media_public_url(catalog.preview, 'reference')).zoomCrop(300, 300) }}{% endblock %}
@@ -32,7 +32,7 @@
             <div></div>
             {% endif %}
             <div class="headImg">
-                <img src="{% path catalog.titleImg, 'reference' %}" alt="{% if app.request.locale == 'en' %}{{ catalog.title }}{% elseif app.request.locale == 'it' %}{{ catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.titleRu }}{% endif %}"/>
+                <img src="{% path catalog.titleImg, 'reference' %}" alt="{% if app.request.locale == 'en' %}{{ catalog.title }}{% elseif app.request.locale == 'it' %}{{ catalog.titleIt }}{% elseif app.request.locale == 'ru' %}{{ catalog.titleRu }}{% elseif app.request.locale == 'cn' %}{{ catalog.titleCn }}{% endif %}"/>
             </div>
         {% else %}
             {% if catalog.dark == false %}
@@ -43,6 +43,8 @@
                     {{ catalog.title }}
                 {% elseif app.request.locale == 'it' %}
                     {{ catalog.titleIt }}
+                {% elseif app.request.locale == 'cn' %}
+                    {{ catalog.titleCn }}
                 {% elseif app.request.locale == 'ru' %}
                     {{ catalog.titleRu }}
                 {% endif %}
@@ -55,6 +57,8 @@
                 {{ catalog.text|raw }}
             {% elseif app.request.locale == 'it' %}
                 {{ catalog.textIt|raw }}
+            {% elseif app.request.locale == 'cn' %}
+                {{ catalog.textCn|raw }}
             {% elseif app.request.locale == 'ru' %}
                 {{ catalog.textRu|raw }}
             {% endif %}

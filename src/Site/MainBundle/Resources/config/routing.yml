@@ -15,42 +15,42 @@ Site_main_gallery:
     pattern:  /{_locale}/page/collections/
     defaults: { _controller: SiteMainBundle:Main:collections}
     requirements:
-            _locale: en|it|ru
+            _locale: en|it|ru|cn
 
 Site_main_gallery_one:
     pattern:  /{_locale}/page/collections/{slug}/
     defaults: { _controller: SiteMainBundle:Main:collectionOne}
     requirements:
-            _locale: en|it|ru
+            _locale: en|it|ru|cn
 
 Site_main_video:
     pattern:  /{_locale}/page/video/
     defaults: { _controller: SiteMainBundle:Page:video}
     requirements:
-            _locale: en|it|ru
+            _locale: en|it|ru|cn
 
 Site_main_video_one:
     pattern:  /{_locale}/page/video/{id}
     defaults: { _controller: SiteMainBundle:Page:videoOne}
     requirements:
-            _locale: en|it|ru
+            _locale: en|it|ru|cn
 
 Site_main_homepage:
     pattern:  /{_locale}/
     defaults: { _controller: SiteMainBundle:Main:index}
     requirements:
-            _locale: en|it|ru
+            _locale: en|it|ru|cn
 
 #      страницы
 page:
     resource: @SiteMainBundle/Resources/config/page.yml
     prefix: /{_locale}/page
     requirements:
-            _locale: en|it|ru
+            _locale: en|it|ru|cn
 
 #         новости
 news:
     resource: @SiteMainBundle/Resources/config/news.yml
     prefix: /{_locale}/news
     requirements:
-            _locale: en|it|ru
+            _locale: en|it|ru|cn

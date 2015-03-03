@@ -1,8 +1,8 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% else %}{{ page.title }}{% endif %}{% endblock %}
-{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
-{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -35,7 +35,7 @@
 
 {% block content %}
     {% if maps is defined %}
-        {% if app.request.locale == "en" or app.request.locale == "it" %}
+        {% if app.request.locale == "en" or app.request.locale == "it" or app.request.locale == "cn" %}
             <p class="headMap"><b>{{ 'Vismara Design in the world'|trans }}</b></p>
         {% endif %}
         <div id="map" style="width: 100%; height: 600px"></div>
@@ -69,6 +69,10 @@
                     {{ page.text|raw }}
                 {% elseif app.request.locale == "it" %}
                     {{ page.textIt|raw }}
+                {% elseif app.request.locale == "cn" %}
+                    {{ page.textCn|raw }}
+                {% elseif app.request.locale == "cn" %}
+                    {{ page.textCn|raw }}
                 {% elseif app.request.locale == "ru" %}
                     {{ page.textRu|raw }}
                 {% endif %}
@@ -97,7 +101,7 @@
                 {% else %}
                 {% set img = '' %}
                 {% endif %}
-                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% elseif app.request.locale == 'it' %}{{ map.getNameIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getNameRu() }}{% endif %}</h4>', {{ map.getX() }}, {{ map.getY() }}],
+                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% elseif app.request.locale == 'it' %}{{ map.getNameIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getNameRu() }}{% elseif app.request.locale == 'cn' %}{{ map.getNameCn() }}{% endif %}</h4>', {{ map.getX() }}, {{ map.getY() }}],
                 {% endfor %}
             ];
             myMap = new ymaps.Map("map", {

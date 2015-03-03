@@ -68,6 +68,14 @@ class SliderAdmin extends Admin
                     "width" => "653px",
                     "height" => "596px"
                 )
+            ))
+            ->add('text_cn', 'textarea', array(
+                'label' => 'The text on the slider CN',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
             ));
     }
 

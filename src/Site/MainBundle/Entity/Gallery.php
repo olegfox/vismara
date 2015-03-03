@@ -40,6 +40,11 @@ class Gallery
     /**
      * @ORM\Column(type="text")
      */
+    private $title_cn = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $keyword;
 
     /**
@@ -51,6 +56,11 @@ class Gallery
      * @ORM\Column(type="text")
      */
     private $keyword_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $keyword_cn;
 
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
@@ -76,6 +86,11 @@ class Gallery
      * @ORM\Column(type="text")
      */
     private $description_ru = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_cn = "";
 
     /**
      * @ORM\Column(type="text", nullable = true)
@@ -127,6 +142,11 @@ class Gallery
      * @ORM\Column(type="text")
      */
     private $text_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text_cn;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -769,5 +789,97 @@ class Gallery
     public function getKeywordRu()
     {
         return $this->keyword_ru;
+    }
+
+    /**
+     * Set title_cn
+     *
+     * @param string $titleCn
+     * @return Gallery
+     */
+    public function setTitleCn($titleCn)
+    {
+        $this->title_cn = $titleCn;
+
+        return $this;
+    }
+
+    /**
+     * Get title_cn
+     *
+     * @return string 
+     */
+    public function getTitleCn()
+    {
+        return $this->title_cn;
+    }
+
+    /**
+     * Set keyword_cn
+     *
+     * @param string $keywordCn
+     * @return Gallery
+     */
+    public function setKeywordCn($keywordCn)
+    {
+        $this->keyword_cn = $keywordCn;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword_cn
+     *
+     * @return string 
+     */
+    public function getKeywordCn()
+    {
+        return $this->keyword_cn;
+    }
+
+    /**
+     * Set description_cn
+     *
+     * @param string $descriptionCn
+     * @return Gallery
+     */
+    public function setDescriptionCn($descriptionCn)
+    {
+        $this->description_cn = $descriptionCn;
+
+        return $this;
+    }
+
+    /**
+     * Get description_cn
+     *
+     * @return string 
+     */
+    public function getDescriptionCn()
+    {
+        return $this->description_cn;
+    }
+
+    /**
+     * Set text_cn
+     *
+     * @param string $textCn
+     * @return Gallery
+     */
+    public function setTextCn($textCn)
+    {
+        $this->text_cn = $textCn;
+
+        return $this;
+    }
+
+    /**
+     * Get text_cn
+     *
+     * @return string 
+     */
+    public function getTextCn()
+    {
+        return $this->text_cn;
     }
 }

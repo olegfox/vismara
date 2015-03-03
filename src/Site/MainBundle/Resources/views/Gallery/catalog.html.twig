@@ -12,6 +12,8 @@
                                     {{ catalog.title }}
                                 {% elseif app.request.locale == "it" %}
                                     {{ catalog.titleIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ catalog.titleCn }}
                                 {% elseif app.request.locale == "ru" %}
                                     {{ catalog.titleRu }}
                                 {% endif %}

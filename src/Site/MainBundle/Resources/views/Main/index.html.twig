@@ -1,8 +1,8 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% else %}{{ page.title }}{% endif %}{% endblock %}
-{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
-{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -34,7 +34,7 @@
                                 <div class="text" {% if slider.link != "" %}onclick="window.location.href='{{ slider.link }}';"{% endif %}>
                                     <div class="table">
                                         <div class="table-cell{% if slider.dark == false %} dark{% endif %}">
-                                            <h1 class="slogan-title">{% if app.request.locale == 'en' %}{{ slider.text|raw }}{% elseif app.request.locale == 'it' %}{{ slider.textIt|raw }}{% elseif app.request.locale == 'ru' %}{{ slider.textRu|raw }}{% endif %}</h1>
+                                            <h1 class="slogan-title">{% if app.request.locale == 'en' %}{{ slider.text|raw }}{% elseif app.request.locale == 'it' %}{{ slider.textIt|raw }}{% elseif app.request.locale == 'ru' %}{{ slider.textRu|raw }}{% elseif app.request.locale == 'cn' %}{{ slider.textCn|raw }}{% endif %}</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -54,6 +54,8 @@
                 {{ page.text|raw }}
             {% elseif app.request.locale == 'it' %}
                 {{ page.textIt|raw }}
+            {% elseif app.request.locale == 'cn' %}
+                {{ page.textCn|raw }}
             {% elseif app.request.locale == 'ru' %}
                 {{ page.textRu|raw }}
             {% endif %}

@@ -25,6 +25,7 @@ class ImageAdmin extends Admin
             ->add('title', 'text', array('label' => 'Title EN'))
             ->add('title_it', 'text', array('label' => 'Title IT'))
             ->add('title_ru', 'text', array('label' => 'Title RU'))
+            ->add('title_cn', 'text', array('label' => 'Title CN'))
             ->add('description', 'textarea', array(
                 'label' => 'Description EN',
                 'required' => '',
@@ -41,6 +42,13 @@ class ImageAdmin extends Admin
             ))
             ->add('description_ru', 'textarea', array(
                 'label' => 'Description RU',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "20"
+                )
+            ))
+            ->add('description_cn', 'textarea', array(
+                'label' => 'Description CN',
                 'required' => '',
                 "attr" => array(
                     "cols" => "20"

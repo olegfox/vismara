@@ -17,6 +17,8 @@ class NewsController extends Controller
             $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryIt");
         }elseif($locale == 'ru'){
             $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryRu");
+        }elseif($locale == 'cn'){
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryCn");
         }else{
             $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
         }
@@ -40,6 +42,8 @@ class NewsController extends Controller
             $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryIt");
         }elseif($locale == 'ru'){
             $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryRu");
+        }elseif($locale == 'cn'){
+            $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGalleryCn");
         }else{
             $repository = $this->getDoctrine()->getRepository("SiteMainBundle:NewsGallery");
         }

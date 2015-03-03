@@ -38,6 +38,11 @@ class Catalogs
     private $title_ru = "";
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $title_cn = "";
+
+    /**
      * @ORM\Column(type="text", nullable = true)
      */
     private $slug = "";
@@ -330,5 +335,28 @@ class Catalogs
     public function getTitleRu()
     {
         return $this->title_ru;
+    }
+
+    /**
+     * Set title_cn
+     *
+     * @param string $titleCn
+     * @return Catalogs
+     */
+    public function setTitleCn($titleCn)
+    {
+        $this->title_cn = $titleCn;
+
+        return $this;
+    }
+
+    /**
+     * Get title_cn
+     *
+     * @return string 
+     */
+    public function getTitleCn()
+    {
+        return $this->title_cn;
     }
 }

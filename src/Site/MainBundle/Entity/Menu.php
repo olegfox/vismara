@@ -38,6 +38,11 @@ class Menu
     /**
      * @ORM\Column(type="text")
      */
+    private $title_cn;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $text;
 
     /**
@@ -49,6 +54,11 @@ class Menu
      * @ORM\Column(type="text")
      */
     private $text_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text_cn;
 
     /**
      * @ORM\Column(type="text")
@@ -68,6 +78,11 @@ class Menu
     /**
      * @ORM\Column(type="text")
      */
+    private $keyword_cn;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $description;
 
     /**
@@ -79,6 +94,11 @@ class Menu
      * @ORM\Column(type="text")
      */
     private $description_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_cn;
 
     /**
      * @ORM\Column(type="text", nullable = true)
@@ -507,5 +527,97 @@ class Menu
     public function getBackground2()
     {
         return $this->background2;
+    }
+
+    /**
+     * Set title_cn
+     *
+     * @param string $titleCn
+     * @return Menu
+     */
+    public function setTitleCn($titleCn)
+    {
+        $this->title_cn = $titleCn;
+
+        return $this;
+    }
+
+    /**
+     * Get title_cn
+     *
+     * @return string 
+     */
+    public function getTitleCn()
+    {
+        return $this->title_cn;
+    }
+
+    /**
+     * Set text_cn
+     *
+     * @param string $textCn
+     * @return Menu
+     */
+    public function setTextCn($textCn)
+    {
+        $this->text_cn = $textCn;
+
+        return $this;
+    }
+
+    /**
+     * Get text_cn
+     *
+     * @return string 
+     */
+    public function getTextCn()
+    {
+        return $this->text_cn;
+    }
+
+    /**
+     * Set keyword_cn
+     *
+     * @param string $keywordCn
+     * @return Menu
+     */
+    public function setKeywordCn($keywordCn)
+    {
+        $this->keyword_cn = $keywordCn;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword_cn
+     *
+     * @return string 
+     */
+    public function getKeywordCn()
+    {
+        return $this->keyword_cn;
+    }
+
+    /**
+     * Set description_cn
+     *
+     * @param string $descriptionCn
+     * @return Menu
+     */
+    public function setDescriptionCn($descriptionCn)
+    {
+        $this->description_cn = $descriptionCn;
+
+        return $this;
+    }
+
+    /**
+     * Get description_cn
+     *
+     * @return string 
+     */
+    public function getDescriptionCn()
+    {
+        return $this->description_cn;
     }
 }

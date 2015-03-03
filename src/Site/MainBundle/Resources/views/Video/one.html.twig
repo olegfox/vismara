@@ -1,9 +1,9 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}{% if app.request.locale == "en" %}{{ video.title|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.titleIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.titleRu|nl2br|raw }}{% endif %}{% endblock %}
-{% block description %}{% if app.request.locale == "en" %}{{ video.description|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu|nl2br|raw }}{% endif %}{% endblock %}
-{% block og_title %}{% if app.request.locale == "en" %}{{ video.title|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.titleIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.titleRu|nl2br|raw }}{% endif %}{% endblock %}
-{% block og_description %}{% if app.request.locale == "en" %}{{ video.description|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu|nl2br|raw }}{% endif %}{% endblock %}
+{% block title %}{% if app.request.locale == "en" %}{{ video.title|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.titleIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.titleRu|nl2br|raw }}{% elseif app.request.locale == "cn" %}{{ video.titleCn|nl2br|raw }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "en" %}{{ video.description|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu|nl2br|raw }}{% elseif app.request.locale == "cn" %}{{ video.descriptionCn|nl2br|raw }}{% endif %}{% endblock %}
+{% block og_title %}{% if app.request.locale == "en" %}{{ video.title|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.titleIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.titleRu|nl2br|raw }}{% elseif app.request.locale == "cn" %}{{ video.titleCn|nl2br|raw }}{% endif %}{% endblock %}
+{% block og_description %}{% if app.request.locale == "en" %}{{ video.description|nl2br|raw }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt|nl2br|raw }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu|nl2br|raw }}{% elseif app.request.locale == "cn" %}{{ video.descriptionCn|nl2br|raw }}{% endif %}{% endblock %}
 {% block og_image %}http://{{ app.request.host }}{{ image(video.getValue().getProviderMetadata()['thumbnail_url']).zoomCrop(300, 300) }}{% endblock %}
 
 {% block stylesheets %}
@@ -41,7 +41,7 @@
                     </a>
                     <img src="{{ image(video.getValue().getProviderMetadata()['thumbnail_url']).zoomCrop(835, 470) }}"
                          width="835px"
-                         alt="{% if app.request.locale == "en" %}{{ video.description }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu }}{% endif %}"/>
+                         alt="{% if app.request.locale == "en" %}{{ video.description }}{% elseif app.request.locale == "it" %}{{ video.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ video.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ video.descriptionCn }}{% endif %}"/>
                     <div class="background"></div>
                 </div>
                 <div class="description">
@@ -51,6 +51,8 @@
                                 {{ video.title|nl2br|raw|upper }}
                             {% elseif app.request.locale == "it" %}
                                 {{ video.titleIt|nl2br|raw|upper }}
+                            {% elseif app.request.locale == "cn" %}
+                                {{ video.titleCn|nl2br|raw|upper }}
                             {% elseif app.request.locale == "ru" %}
                                 {{ video.titleRu|nl2br|raw|upper }}
                             {% endif %}
@@ -63,6 +65,8 @@
                         {% elseif app.request.locale == "it" %}
                             {% set description = video.descriptionIt|nl2br|raw %}
                             {{ video.descriptionIt|nl2br|raw }}
+                        {% elseif app.request.locale == "cn" %}
+                            {% set description = video.descriptionCn|nl2br|raw %}
                         {% elseif app.request.locale == "ru" %}
                             {% set description = video.descriptionRu|nl2br|raw %}
                             {{ video.descriptionRu|nl2br|raw }}
@@ -85,10 +89,14 @@
     </div>
     {% if page is defined %}
         <div class="content">
-            {% if app.request.locale == "en" %}
+            {% if app.request.locale == 'en' %}
                 {{ page.text|raw }}
-            {% else %}
+            {% elseif app.request.locale == 'it' %}
                 {{ page.textIt|raw }}
+            {% elseif app.request.locale == 'cn' %}
+                {{ page.textCn|raw }}
+            {% elseif app.request.locale == 'ru' %}
+                {{ page.textRu|raw }}
             {% endif %}
         </div>
     {% endif %}

@@ -43,6 +43,11 @@ class Image
     /**
      * @ORM\Column(type="text")
      */
+    private $title_cn = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $description = "";
 
     /**
@@ -54,6 +59,11 @@ class Image
      * @ORM\Column(type="text")
      */
     private $description_ru = "";
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_cn = "";
 
     /**
      * @ORM\Column(type="text")
@@ -93,6 +103,12 @@ class Image
      * @ORM\JoinColumn(name="id_news_ru",  referencedColumnName="id")
      */
     private $newsRu;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NewsGalleryCn", inversedBy="images")
+     * @ORM\JoinColumn(name="id_news_cn",  referencedColumnName="id")
+     */
+    private $newsCn;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -466,6 +482,9 @@ class Image
             case 'ru':{
                 return $this->getTitleRu();
             }break;
+            case 'cn':{
+                return $this->getTitleCn();
+            }break;
             default:{
                 return $this->getTitle();
             }
@@ -483,9 +502,81 @@ class Image
             case 'ru':{
                 return $this->getDescriptionRu();
             }break;
+            case 'cn':{
+                return $this->getDescriptionCn();
+            }break;
             default:{
                 return $this->getDescription();
             }
         }
+    }
+
+    /**
+     * Set title_cn
+     *
+     * @param string $titleCn
+     * @return Image
+     */
+    public function setTitleCn($titleCn)
+    {
+        $this->title_cn = $titleCn;
+
+        return $this;
+    }
+
+    /**
+     * Get title_cn
+     *
+     * @return string 
+     */
+    public function getTitleCn()
+    {
+        return $this->title_cn;
+    }
+
+    /**
+     * Set description_cn
+     *
+     * @param string $descriptionCn
+     * @return Image
+     */
+    public function setDescriptionCn($descriptionCn)
+    {
+        $this->description_cn = $descriptionCn;
+
+        return $this;
+    }
+
+    /**
+     * Get description_cn
+     *
+     * @return string 
+     */
+    public function getDescriptionCn()
+    {
+        return $this->description_cn;
+    }
+
+    /**
+     * Set newsCn
+     *
+     * @param \Site\MainBundle\Entity\NewsGalleryCn $newsCn
+     * @return Image
+     */
+    public function setNewsCn(\Site\MainBundle\Entity\NewsGalleryCn $newsCn = null)
+    {
+        $this->newsCn = $newsCn;
+
+        return $this;
+    }
+
+    /**
+     * Get newsCn
+     *
+     * @return \Site\MainBundle\Entity\NewsGalleryCn 
+     */
+    public function getNewsCn()
+    {
+        return $this->newsCn;
     }
 }

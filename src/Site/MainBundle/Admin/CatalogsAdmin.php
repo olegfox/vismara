@@ -23,6 +23,7 @@ class CatalogsAdmin extends Admin
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
+            ->add('title_cn', 'text', array('label' => 'Header CN'))
             ->add('position', 'number', array(
                 'label' => 'Position',
                 'attr' => array(

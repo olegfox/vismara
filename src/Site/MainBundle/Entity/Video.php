@@ -37,6 +37,11 @@ class Video
     /**
      * @ORM\Column(type="text")
      */
+    private $title_cn;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $description;
 
     /**
@@ -48,6 +53,11 @@ class Video
      * @ORM\Column(type="text")
      */
     private $description_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description_cn;
 
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
@@ -224,5 +234,51 @@ class Video
     public function getDescriptionRu()
     {
         return $this->description_ru;
+    }
+
+    /**
+     * Set title_cn
+     *
+     * @param string $titleCn
+     * @return Video
+     */
+    public function setTitleCn($titleCn)
+    {
+        $this->title_cn = $titleCn;
+
+        return $this;
+    }
+
+    /**
+     * Get title_cn
+     *
+     * @return string 
+     */
+    public function getTitleCn()
+    {
+        return $this->title_cn;
+    }
+
+    /**
+     * Set description_cn
+     *
+     * @param string $descriptionCn
+     * @return Video
+     */
+    public function setDescriptionCn($descriptionCn)
+    {
+        $this->description_cn = $descriptionCn;
+
+        return $this;
+    }
+
+    /**
+     * Get description_cn
+     *
+     * @return string 
+     */
+    public function getDescriptionCn()
+    {
+        return $this->description_cn;
     }
 }

@@ -32,6 +32,11 @@ class Map
     protected $name_ru;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    protected $name_cn;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     protected $phone; 
@@ -50,6 +55,11 @@ class Map
      * @ORM\Column(type="text", nullable=true)
      */
     protected $text_ru;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $text_cn;
 
     /**
      * @ORM\Column(type="text")
@@ -286,5 +296,51 @@ class Map
     public function getTextRu()
     {
         return $this->text_ru;
+    }
+
+    /**
+     * Set name_cn
+     *
+     * @param string $nameCn
+     * @return Map
+     */
+    public function setNameCn($nameCn)
+    {
+        $this->name_cn = $nameCn;
+
+        return $this;
+    }
+
+    /**
+     * Get name_cn
+     *
+     * @return string 
+     */
+    public function getNameCn()
+    {
+        return $this->name_cn;
+    }
+
+    /**
+     * Set text_cn
+     *
+     * @param string $textCn
+     * @return Map
+     */
+    public function setTextCn($textCn)
+    {
+        $this->text_cn = $textCn;
+
+        return $this;
+    }
+
+    /**
+     * Get text_cn
+     *
+     * @return string 
+     */
+    public function getTextCn()
+    {
+        return $this->text_cn;
     }
 }

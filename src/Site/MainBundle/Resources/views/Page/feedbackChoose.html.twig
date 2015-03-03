@@ -36,6 +36,8 @@
                     {{ page.text|raw }}
                 {% elseif app.request.locale == 'it' %}
                     {{ page.textIt|raw }}
+                {% elseif app.request.locale == 'cn' %}
+                    {{ page.textCn|raw }}
                 {% elseif app.request.locale == 'ru' %}
                     {{ page.textRu|raw }}
                 {% endif %}

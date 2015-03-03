@@ -40,6 +40,11 @@ class Slider
     private $text_ru;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text_cn;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position;
@@ -224,5 +229,28 @@ class Slider
     public function getTextRu()
     {
         return $this->text_ru;
+    }
+
+    /**
+     * Set text_cn
+     *
+     * @param string $textCn
+     * @return Slider
+     */
+    public function setTextCn($textCn)
+    {
+        $this->text_cn = $textCn;
+
+        return $this;
+    }
+
+    /**
+     * Get text_cn
+     *
+     * @return string 
+     */
+    public function getTextCn()
+    {
+        return $this->text_cn;
     }
 }

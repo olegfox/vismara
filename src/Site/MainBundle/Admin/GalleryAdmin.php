@@ -23,6 +23,7 @@ class GalleryAdmin extends Admin
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
+            ->add('title_cn', 'text', array('label' => 'Header CN'))
             ->add('titleImg', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context' => 'default',
@@ -38,9 +39,11 @@ class GalleryAdmin extends Admin
             ->add('keyword', 'text', array('label' => 'Keywords EN', 'required' => ''))
             ->add('keyword_it', 'text', array('label' => 'Keywords IT', 'required' => ''))
             ->add('keyword_ru', 'text', array('label' => 'Keywords RU', 'required' => ''))
+            ->add('keyword_cn', 'text', array('label' => 'Keywords CN', 'required' => ''))
             ->add('description', 'textarea', array('label' => 'Description EN'))
             ->add('description_it', 'textarea', array('label' => 'Description IT'))
             ->add('description_ru', 'textarea', array('label' => 'Description RU'))
+            ->add('description_cn', 'textarea', array('label' => 'Description CN'))
             ->add('hideTitle', 'choice', array(
                 'label' => 'Show title at the miniature?',
                 'choices' => array(
@@ -128,6 +131,15 @@ class GalleryAdmin extends Admin
             ))
             ->add('text_ru', 'textarea', array(
                 'label' => 'Text RU',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_cn', 'textarea', array(
+                'label' => 'Text CN',
                 'required' => '',
                 "attr" => array(
                     "class" => "redactor",

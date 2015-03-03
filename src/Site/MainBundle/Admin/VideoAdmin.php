@@ -30,6 +30,9 @@ class VideoAdmin extends Admin
             ->add('title_ru', 'textarea', array(
                 'label' => 'Header RU'
             ))
+            ->add('title_cn', 'textarea', array(
+                'label' => 'Header CN'
+            ))
             ->end()
             ->with('description')
             ->add('description', 'textarea', array(
@@ -40,6 +43,9 @@ class VideoAdmin extends Admin
             ))
             ->add('description_ru', 'textarea', array(
                 'label' => 'Description RU'
+            ))
+            ->add('description_cn', 'textarea', array(
+                'label' => 'Description CN'
             ))
             ->end()
             ->add('value', 'sonata_media_type', array(

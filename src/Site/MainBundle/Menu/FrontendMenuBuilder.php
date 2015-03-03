@@ -20,6 +20,8 @@ class FrontendMenuBuilder extends ContainerAware
                 $title = $s->getTitleIt();
             }elseif($locale == 'ru'){
                 $title = $s->getTitleRu();
+            }elseif($locale == 'cn'){
+                $title = $s->getTitleCn();
             }else{
                 $title = $s->getTitle();
             }

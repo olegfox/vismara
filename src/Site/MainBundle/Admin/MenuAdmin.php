@@ -24,11 +24,13 @@ class MenuAdmin extends Admin
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
+            ->add('title_cn', 'text', array('label' => 'Header CN'))
             ->end()
             ->with('Keywords')
             ->add('keyword', 'text', array('label' => 'Keywords EN', 'required' => ''))
             ->add('keyword_it', 'text', array('label' => 'Keywords IT', 'required' => ''))
             ->add('keyword_ru', 'text', array('label' => 'Keywords RU', 'required' => ''))
+            ->add('keyword_cn', 'text', array('label' => 'Keywords CN', 'required' => ''))
             ->end()
             ->with('Description')
             ->add('description', 'textarea', array(
@@ -47,6 +49,13 @@ class MenuAdmin extends Admin
             ))
             ->add('description_ru', 'textarea', array(
                 'label' => 'Description RU',
+                'required' => '',
+                "attr" => array(
+                    "cols" => "100"
+                )
+            ))
+            ->add('description_cn', 'textarea', array(
+                'label' => 'Description CN',
                 'required' => '',
                 "attr" => array(
                     "cols" => "100"
@@ -96,6 +105,15 @@ class MenuAdmin extends Admin
             ))
             ->add('text_ru', 'textarea', array(
                 'label' => 'The text of the page RU',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_cn', 'textarea', array(
+                'label' => 'The text of the page CN',
                 'required' => '',
                 "attr" => array(
                     "class" => "redactor",
