@@ -3,6 +3,7 @@
 namespace Site\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,6 +19,11 @@ class FeedbackCatalog
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
      * @ORM\Column(type="string", length = 200, nullable = false)
      */
     protected $company_name;
@@ -28,6 +34,11 @@ class FeedbackCatalog
 //    protected $privat_contact;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
      * @ORM\Column(type="string", length = 200, nullable = false)
      */
     protected $contact_name;
@@ -38,16 +49,31 @@ class FeedbackCatalog
     protected $your_task;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
      * @ORM\Column(type="text", nullable = false)
      */
     protected $company_field;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
      * @ORM\Column(type="string", length = 200, nullable = false)
      */
     protected $country;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
      * @ORM\Column(type="string", length = 200, nullable = false)
      */
     protected $city;
@@ -58,6 +84,7 @@ class FeedbackCatalog
     protected $address;
 
     /**
+     * @Assert\Email
      * @ORM\Column(type="string", length = 100, nullable = false)
      */
     protected $email;
@@ -68,6 +95,7 @@ class FeedbackCatalog
     protected $website;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text", nullable = false)
      */
     protected $text;

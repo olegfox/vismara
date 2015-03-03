@@ -91,6 +91,11 @@ class Menu
     private $background;
 
     /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    private $background2;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position;
@@ -479,5 +484,28 @@ class Menu
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set background2
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $background2
+     * @return Menu
+     */
+    public function setBackground2(\Application\Sonata\MediaBundle\Entity\Media $background2 = null)
+    {
+        $this->background2 = $background2;
+
+        return $this;
+    }
+
+    /**
+     * Get background2
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getBackground2()
+    {
+        return $this->background2;
     }
 }

@@ -52,44 +52,46 @@
     </script>
     <noscript><div><img src="//mc.yandex.ru/watch/27011118" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    <div class="wrapper-header layout-max">
-        <div class="header layout">
-            <a  class="logo" href="{{ path('Site_main_homepage') }}">
-                <img src="{{ asset('sitemain/img/logo.jpg') }}" width="249" height="71" alt=""/>
-            </a>
-        </div>
-    </div>
-    <div class="wrapper-slogan layout-max">
-        <div class="wrapper-nav layout-max {% if app.request.attributes.get('_route') == 'Site_main_homepage' %}wrapper-nav-main{% endif %}">
-            <div class="nav layout">
-                {{ knp_menu_render('SiteMainBundle:FrontendMenuBuilder:menu') }}
+    <div class="wrap">
+        <div class="wrapper-header layout-max">
+            <div class="header layout">
+                <a  class="logo" href="{{ path('Site_main_homepage') }}">
+                    <img src="{{ asset('sitemain/img/logo.jpg') }}" width="249" height="71" alt=""/>
+                </a>
             </div>
         </div>
-        {% block slider %}
+        <div class="wrapper-slogan layout-max">
+            <div class="wrapper-nav layout-max {% if app.request.attributes.get('_route') == 'Site_main_homepage' %}wrapper-nav-main{% endif %}">
+                <div class="nav layout">
+                    {{ knp_menu_render('SiteMainBundle:FrontendMenuBuilder:menu') }}
+                </div>
+            </div>
+            {% block slider %}
+            {% endblock %}
+        </div>
+        {% block content %}
+        {% endblock %}
+        {% block footerImg %}
+            <div class="wrapper-img layout-max wrapper-img-footer">
+                {% if page is defined and catalog is not defined %}
+                    {% if page.dark == false %}
+                        <div></div>
+                    {% endif %}
+                {% elseif catalog is defined %}
+                    {% if catalog.dark == false %}
+                        <div></div>
+                    {% endif %}
+                {% endif %}
+                <div class="footer_text">
+                    VISMARA DESIGN  <span class="icon_reg"><span>&reg;</span></span>   Via Carducci n° 3    20822 Seveso - MB - Italy. All rights reserved.
+                </div>
+            </div>
+        {% endblock %}
+        {% block footer %}
+            <div class="wrapper-footer layout-max">
+            </div>
         {% endblock %}
     </div>
-    {% block content %}
-    {% endblock %}
-    {% block footerImg %}
-        <div class="wrapper-img layout-max">
-            {% if page is defined and catalog is not defined %}
-                {% if page.dark == false %}
-                    <div></div>
-                {% endif %}
-            {% elseif catalog is defined %}
-                {% if catalog.dark == false %}
-                    <div></div>
-                {% endif %}
-            {% endif %}
-            <div class="footer_text">
-                VISMARA DESIGN  <span class="icon_reg"><span>&reg;</span></span>   Via Carducci n° 3    20822 Seveso - MB - Italy. All rights reserved.
-            </div>
-        </div>
-    {% endblock %}
-    {% block footer %}
-        <div class="wrapper-footer layout-max">
-        </div>
-    {% endblock %}
     <div class="icone">
         <a href="http://instagram.com/vismaradesignitaly" target="_blank">
             <img src="{{ asset('sitemain/img/icone/instagram.png') }}" alt="instagram" width="27" height="27" border="0">
@@ -101,6 +103,8 @@
             <img src="{{ asset('sitemain/img/icone/twitter.png') }}" alt="twitter" width="27" height="27" border="0">
         </a><a href="http://www.pinterest.com/VismaraDesign1/" target="_blank">
             <img src="{{ asset('sitemain/img/icone/pinterest.png') }}" alt="pinterest" width="27" height="27" border="0">
+        </a><a href="https://plus.google.com/117846152509207408383" target="_blank">
+            <img src="{{ asset('sitemain/img/icone/google.png') }}" alt="google" width="27" height="27" border="0">
         </a>
     </div>
     <div class="language">

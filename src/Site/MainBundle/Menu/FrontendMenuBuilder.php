@@ -29,11 +29,11 @@ class FrontendMenuBuilder extends ContainerAware
                         'route' => 'Site_main_gallery'
                     ));
                 }elseif($s->getSlug() == 'news'){
-                    if($locale != 'ru'){
+//                    if($locale != 'ru'){
                         $menu->addChild($title, array(
                             'route' => 'news_index'
                         ));
-                    }
+//                    }
                 }else{
                     $menu->addChild($title, array(
                         'route' => 'Site_main_page',

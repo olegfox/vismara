@@ -58,9 +58,7 @@ class FeedbackCatalogType extends AbstractType
                 'attr' => array(
                     "placeholder" => "form_catalog.your_task",
                     "class" => "form-control",
-                    "ng-model" => "user.yourTask",
-                    "ng-minlength" => "2",
-                    "ng-maxlength" => "255"
+                    "ng-model" => "user.yourTask"
                 )
             ))
             ->add('company_field', 'text', array(

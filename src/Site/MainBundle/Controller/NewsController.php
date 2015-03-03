@@ -46,6 +46,11 @@ class NewsController extends Controller
 
         $n = $repository->findOneBy(array('slug' => $slug));
 
+        if(!$n){
+            return $this->redirect($this->generateUrl('news_index'), 301);
+//            throw $this->createNotFoundException();
+        }
+
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array("slug" => "news"));
 
         $params = array(

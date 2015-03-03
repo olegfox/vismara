@@ -3,17 +3,26 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% if page is defined %}
-        <style type="text/css">
-            .wrapper-img {
-                background: url("{% path page.background, 'reference' %}") top center;
-            }
-        </style>
-    {% endif %}
+
+    <style type="text/css">
+        {% if page.background2.id is defined %}
+        .wrap {
+            background: url("{% path page.background2, 'reference' %}") top center;
+            background-attachment: fixed;
+        }
+        {% endif %}
+
+        {% if page.background.id is defined %}
+        .wrapper-img {
+            background: url("{% path page.background, 'reference' %}") top center;
+        }
+        {% endif %}
+    </style>
+
 {% endblock %}
 
 {% block content %}
-    <div class="wrapperContent">
+    <div class="wrapperContent newsContent">
         <div class="content contentWhite">
             {{ newsMacros(news) }}
         </div>

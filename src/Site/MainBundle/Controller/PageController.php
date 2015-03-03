@@ -45,24 +45,25 @@ class PageController extends Controller
         $feedback = new Feedback();
         $form = $this->createForm(new FeedbackFormType(), $feedback);
         if ($request->isMethod('POST')) {
-            $form->bind($request);
+            $form->handleRequest($request);
 
-            $swift = \Swift_Message::newInstance()
-                ->setSubject('VismaraDesign FOR PRIVATS')
-                ->setFrom(array('kontakti@vismara.it' => "VismaraDesign FOR PRIVATS"))
-                ->setTo("kontakti@vismara.it")
-                ->setBody(
-                    $this->renderView(
-                        'SiteMainBundle:Page:messagePrivatePerson.html.twig',
-                        array(
-                            'feedback' => $feedback
+            if($form->isValid()){
+                $swift = \Swift_Message::newInstance()
+                    ->setSubject('VismaraDesign FOR PRIVATS')
+                    ->setFrom(array('kontakti@vismara.it' => "VismaraDesign FOR PRIVATS"))
+                    ->setTo("kontakti@vismara.it")
+                    ->setBody(
+                        $this->renderView(
+                            'SiteMainBundle:Page:messagePrivatePerson.html.twig',
+                            array(
+                                'feedback' => $feedback
+                            )
                         )
-                    )
-                    , 'text/html'
-                );
-            $this->get('mailer')->send($swift);
-            return new Response("ok");
-
+                        , 'text/html'
+                    );
+                $this->get('mailer')->send($swift);
+                return new Response("ok");
+            }
         }
 
         $page = $this->getDoctrine()
@@ -79,24 +80,25 @@ class PageController extends Controller
         $feedback = new FeedbackCatalog();
         $form = $this->createForm(new FeedbackCatalogType(), $feedback);
         if ($request->isMethod('POST')) {
-            $form->bind($request);
+            $form->handleRequest($request);
 
-            $swift = \Swift_Message::newInstance()
-                ->setSubject('VismaraDesign FOR COMPANIES')
-                ->setFrom(array('kontakti@vismara.it' => "VismaraDesign FOR COMPANIES"))
-                ->setTo('kontakti@vismara.it')
-                ->setBody(
-                    $this->renderView(
-                        'SiteMainBundle:Page:messageCompany.html.twig',
-                        array(
-                            'feedback' => $feedback
+            if($form->isValid()){
+                $swift = \Swift_Message::newInstance()
+                    ->setSubject('VismaraDesign FOR COMPANIES')
+                    ->setFrom(array('kontakti@vismara.it' => "VismaraDesign FOR COMPANIES"))
+                    ->setTo('kontakti@vismara.it')
+                    ->setBody(
+                        $this->renderView(
+                            'SiteMainBundle:Page:messageCompany.html.twig',
+                            array(
+                                'feedback' => $feedback
+                            )
                         )
-                    )
-                    , 'text/html'
-                );
-            $this->get('mailer')->send($swift);
-            return new Response("ok");
-
+                        , 'text/html'
+                    );
+                $this->get('mailer')->send($swift);
+                return new Response("ok");
+            }
         }
 
         $page = $this->getDoctrine()

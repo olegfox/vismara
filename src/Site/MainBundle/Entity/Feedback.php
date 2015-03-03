@@ -2,20 +2,55 @@
 
 namespace Site\MainBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class Feedback
 {
 
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
+     */
     protected $firstname;
 
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
+     */
     protected $lastname;
 
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
+     */
     protected $country;
 
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
+     */
     protected $city;
 
+    /**
+     * @Assert\Email
+     */
     protected $email;
 
-
+    /**
+     * @Assert\NotBlank()
+     */
     protected $message;
 
     public function getFirstname()

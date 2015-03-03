@@ -8,7 +8,7 @@
     {{ parent() }}
     <link href="{{ asset('sitemain/css/flexslider.css') }}" rel="stylesheet">
     <link href="{{ asset('sitemain/css/flexslider-custom.css') }}" rel="stylesheet">
-    {% if page is defined %}
+    {% if page.background.id is defined %}
     <style type="text/css">
         .wrapper-img {
             background: url("{% path page.background, 'reference' %}") top center;

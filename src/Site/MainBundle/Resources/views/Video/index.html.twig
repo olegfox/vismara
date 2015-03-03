@@ -6,13 +6,22 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% if page.background.id is defined %}
-        <style type="text/css">
+
+    <style type="text/css">
+        {% if page.background2.id is defined %}
+            .wrap {
+                background: url("{% path page.background2, 'reference' %}");
+                background-size: cover;
+            }
+        {% endif %}
+
+        {% if page.background.id is defined %}
             .wrapper-img {
                 background: url("{% path page.background, 'reference' %}") top center;
             }
-        </style>
-    {% endif %}
+        {% endif %}
+    </style>
+
 {% endblock %}
 
 {% block slider %}

@@ -6,20 +6,25 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% if page.background.id is defined %}
+    {% if page is defined %}
         <style type="text/css">
+            {% if page.background2.id is defined %}
+                .wrap {
+                    background: url("{% path page.background2, 'reference' %}");
+                    background-size: cover;
+                }
+            {% endif %}
+
             {% if page.slug == 'company' %}
-            body {
-                background: url("{{ asset('sitemain/img/bg_about.jpg') }}");
-                background-size: cover;
-            }
-            .wrapper-img {
-                background: #000;
-            }
+                .wrapper-img {
+                    background: #000;
+                }
             {% else %}
-            .wrapper-img {
-                background: url("{% path page.background, 'reference' %}") top center;
-            }
+                {% if page.background.id is defined %}
+                    .wrapper-img {
+                        background: url("{% path page.background, 'reference' %}") top center;
+                    }
+                {% endif %}
             {% endif %}
         </style>
     {% endif %}
@@ -43,13 +48,15 @@
                         <div class="contacts">
                             <p>{{ 'contacts'|trans }}:</p>
                             {% if app.request.locale == "ru" %}
-                                <p>phone: <img src="{{ asset('sitemain/img/ru.jpg') }}" alt="Россия" width="15px" height="10px"> +7 495 225 70 30</p>
-                                <p>phone: <img src="{{ asset('sitemain/img/ua.jpg') }}" alt="Укранина" width="15px" height="10px"> +38 098 606 24 35</p>
+                                <p class="flag"><img src="{{ asset('sitemain/img/ru_big.jpg') }}" alt="Россия" width="49px" height="32px"> <span>Россия: +7 495 225 70 30</span></p>
+                                <p class="flag"><img src="{{ asset('sitemain/img/uk_big.jpg') }}" alt="Украина" width="49px" height="32px"> <span>Украина: +38 098 606 24 35</span></p>
+                                <p class="flag"><img src="{{ asset('sitemain/img/kz_big.jpg') }}" alt="Казахстан" width="48px" height="33px"> <span>Казахстан: +77273170003</span></p>
+                                <p class="flag"><img src="{{ asset('sitemain/img/az_big.jpg') }}" alt="Азербайджан" width="49px" height="32px"> <span>Азербайджан: +994 51 5239451</span></p>
                             {% else %}
                                 <p>phone: +39 0362 503.726</p>
                                 <p>fax: +39 0362 551.452</p>
                             {% endif %}
-                            <p>{{ 'e-mail'|trans }}: <a href="mailto:kontakti@vismara.it" target="_top">kontakti@vismara.it</a></p>
+                            <p class="email">{{ 'e-mail'|trans }}: <a href="mailto:kontakti@vismara.it" target="_top">kontakti@vismara.it</a></p>
                         </div><div class="chooseFeedback">
                             <div>
                                 <a href="{{ path('Site_main_feedback_company') }}">{{ 'RESERVED FOR COMPANIES'|trans }}</a>

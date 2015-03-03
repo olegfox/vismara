@@ -66,6 +66,11 @@ class MenuAdmin extends Admin
                     true => 'No'
                 )
             ))
+            ->add('background2', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context' => 'default',
+                'label' => 'Page background'
+            ))
             ->add('background', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context' => 'default',

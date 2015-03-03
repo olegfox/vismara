@@ -1,13 +1,13 @@
 {% macro newsMacros(news) %}
     {% if news|length > 0 %}
         <div class="boxes">
-            {% for n in news %}<div class="box">
-                    <img src="{{ image('.'~media_public_url(n.likeImage, 'reference')).zoomCrop(500, 500) }}" alt="{{ n.title }}"/>
-                    <a href="{{ path('news_post', {slug: n.slug}) }}">
+            {% for n in news %}<div class="box"><div class="wrap_box">
+                    <a href="{{ path('news_post', {slug: n.slug}) }}"><img src="{{ image('.'~media_public_url(n.likeImage, 'reference')).zoomCrop(800, 600) }}" alt="{{ n.title }}"/></a>
+                    <a id="name" href="{{ path('news_post', {slug: n.slug}) }}">
                         <span class="date">{{ n.created|date("d.m.y") }}</span>
                         {{ n.title }}
                     </a>
-                </div>{% endfor %}
+                </div></div>{% endfor %}
         </div>
     {% endif %}
 {% endmacro %}
