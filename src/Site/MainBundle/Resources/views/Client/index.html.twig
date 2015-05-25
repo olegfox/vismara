@@ -1,0 +1,69 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block html %} ng-app="client"{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            body {
+                background: url("{{ asset("sitemain/img/bg_form.jpg") }}");
+                background-size: cover;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+{% endblock %}
+
+{% block content %}
+    {% if page is defined %}
+        <div class="bottombox">
+            <div class="c950">
+                <form id="catalogFeedback" name="form" action="" method="post" class="form-horizontal"
+                      ng-controller="ClientController" novalidate>
+                    <div class="form-group">
+                        <div class="pull-left">
+                            {{ form_widget(form.company_name) }}<span>*</span>
+                            {{ form_widget(form.contact_name) }}<span>*</span>
+                            {{ form_widget(form.your_task) }}
+                            {{ form_widget(form.company_field) }}<span>*</span>
+                            {{ form_widget(form.country) }}<span>*</span>
+                            {{ form_widget(form.city) }}<span>*</span>
+                            {{ form_widget(form.address) }}
+                        </div><div class="pull-right">
+                            {% for e in form.email %}
+                                {{ form_widget(e) }}<span>*</span>
+                            {% endfor %}
+                            {{ form_widget(form.website) }}
+                            {{ form_widget(form.text) }}<span>*</span>
+                        </div>
+                        <div class="form-actions clearfix">
+                            <button type="button" id="submit" class="btn btn-success btn-lg"
+                                    ng-disabled="form.$invalid || (user.email != user.email2)"
+                                    ng-click="submit()">{{ 'Send'|trans }}</button>
+                            <div class="successfully hide">{{ 'Letter has been sent successfully!'|trans }}</div>
+                            <div class="error hide">{{ 'Error!'|trans }}</div>
+                        </div>
+                        {{ form_errors(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footerImg %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular-placeholder.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/client.js") }}"></script>
+{% endblock %}

@@ -96,6 +96,13 @@ BrowserMatch "Mozilla/4.[0-9]{2}" force-no-vary
 </ifmodule>
 
 # сжатие text, html, javascript, css, xml:
-<ifModule mod_deflate.c>
-AddOutputFilterByType DEFLATE text/css text/javascript application/javascript application/x-javascript
-</ifModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/css
+  <IfModule mod_setenvif.c>
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  </IfModule>
+</IfModule>

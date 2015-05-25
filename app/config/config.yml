@@ -183,6 +183,9 @@ sonata_admin:
         Site_newsGalleryRu:
           label: NewsRu
           items: [sonata.admin.newsGalleryRu]
+        Site_clients:
+          label: Clients
+          items: [sonata.admin.client]
 #        Site_feedbackCatalog:
 #          label: EmailFeedbackCatalog
 #          items: [sonata.admin.feedbackCatalog]

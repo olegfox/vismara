@@ -28,7 +28,23 @@ class SliderAdmin extends Admin
                 'context' => 'default',
                 'label' => 'Picture'
             ))
-            ->add('link', 'text', array(
+            ->add('lang', 'choice', array(
+                'required' => true,
+                'label' => 'Lang',
+                'choices' => array(
+                    0 => 'en',
+                    1 => 'it',
+                    2 => 'ru',
+                    3 => 'cn',
+                    4 => 'all'
+                )
+            ))
+            ->add('video', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.youtube',
+                'context' => 'default',
+                'label' => 'Video Link'
+            ))
+            ->add('link', 'url', array(
                 'required' => false,
                 'label' => 'Link'
             ))

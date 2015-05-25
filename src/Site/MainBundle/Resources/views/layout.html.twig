@@ -103,7 +103,7 @@
             <img src="{{ asset('sitemain/img/icone/twitter.png') }}" alt="twitter" width="27" height="27" border="0">
         </a><a href="http://www.pinterest.com/VismaraDesign1/" target="_blank">
             <img src="{{ asset('sitemain/img/icone/pinterest.png') }}" alt="pinterest" width="27" height="27" border="0">
-        </a><a href="https://plus.google.com/117846152509207408383" target="_blank">
+        </a><a href="https://plus.google.com/+vismaradesignitaly" target="_blank" rel="publisher">
             <img src="{{ asset('sitemain/img/icone/google.png') }}" alt="google" width="27" height="27" border="0">
         </a>
     </div>
@@ -115,22 +115,23 @@
         <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'ru'})) }}"
            {% if app.request.locale == 'ru' %}class="selected"{% endif %}>ru</a>
         <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'cn'})) }}"
-           {% if app.request.locale == 'cn' %}class="selected"{% endif %}>cn</a>
+           {% if app.request.locale == 'cn' %}class="selected"{% endif %}>中文</a>
     </div>
+{% endblock %}
+{% block javascriptsTop %}
+    <script src='{{ asset('sitemain/js/photoswipe/lib/jquery-1.6.1.min.js') }}'></script>
 {% endblock %}
 {% block javascripts %}
     <!-- script -->
     {#<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js'></script>#}
-    <script src='{{ asset('sitemain/js/photoswipe/lib/jquery-1.6.1.min.js') }}'></script>
-    <script src='{{ asset('sitemain/js/showMenu.js') }}'></script>
     <script src="{{ asset("sitemain/js/jquery.placeholder.js") }}"></script>
-    <script src="{{ asset("sitemain/js/init.hover.zoom.js") }}"></script>
-    {#<script src="{{ asset("sitemain/js/snow.jquery.js") }}"></script>#}
-    {#<script type="text/javascript">#}
-        {#$(function(){#}
-            {#$('input, textarea').placeholder();#}
-            {#$(document).snowfall({round : true, minSize: 5, maxSize:8});#}
-        {#});#}
-    {#</script>#}
-    <!-- end script -->
+    <script type="text/javascript">
+        function showMenu(object){
+            if($(object).parent().find("ul").eq(0).css("display") == 'block'){
+                $(object).parent().find("ul").eq(0).hide();
+            }else{
+                $(object).parent().find("ul").eq(0).show();
+            }
+        }
+    </script>
 {% endblock %}

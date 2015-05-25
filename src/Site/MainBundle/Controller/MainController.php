@@ -54,8 +54,9 @@ class MainController extends Controller
 
     public function indexAction()
     {
+        $locale = $this->get('request')->getLocale();
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->find(1);
-        $sliders = $this->getDoctrine()->getRepository("SiteMainBundle:Slider")->findBy(array(), array('position' => 'asc'));
+        $sliders = $this->getDoctrine()->getRepository("SiteMainBundle:Slider")->findByLang($locale);
         $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findBy(array(), array('position' => 'asc'));
         $params = array(
             "page" => $page,
@@ -95,50 +96,15 @@ class MainController extends Controller
         return $this->render('SiteMainBundle:Gallery:index.html.twig', $params);
     }
 
-    public function catalogsAction(Request $request){
-        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Catalogs")->findAll();
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogue'));
-
-        $feedbackCatalog = new FeedbackCatalog();
-        $form = $this->createForm(new FeedbackCatalogType(), $feedbackCatalog);
-
-        if($request->isMethod("POST")){
-            $form->handleRequest($request);
-
-            if($form->isValid()){
-
-//                $check = $this->getDoctrine()->getRepository("SiteMainBundle:FeedbackCatalog")->findOneBy(array('email' => $feedbackCatalog->getEmail()));
-//
-//                if(!$check){
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($feedbackCatalog);
-                    $em->flush();
-//                }
-
-                $swift = \Swift_Message::newInstance()
-                    ->setSubject('VismaraDesign | FORM COLLEZIONI')
-                    ->setFrom(array('kontakti@vismara.it' => "VismaraDesign | FORM COLLEZIONI"))
-                    ->setTo("kontakti@vismara.it")
-//                    ->setTo("1991oleg22@gmail.com")
-                    ->setBody(
-                        $this->renderView(
-                            'SiteMainBundle:Catalogs:message.html.twig',
-                            array(
-                                'feedback' => $feedbackCatalog
-                            )
-                        )
-                        , 'text/html'
-                    );
-                $this->get('mailer')->send($swift);
-
-                return new Response("ok");
-            }
+    public function catalogsAction(){
+        if($this->get('security.context')->isGranted('ROLE_USER')){
+            return $this->redirect($this->generateUrl('client_catalogs'));
         }
 
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogue'));
+
         $params = array(
-            "catalogs" => $catalogs,
-            "page" => $page,
-            "form" => $form->createView()
+            "page" => $page
         );
         return $this->render('SiteMainBundle:Catalogs:index.html.twig', $params);
     }

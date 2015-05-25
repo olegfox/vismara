@@ -3,6 +3,7 @@ form:
   country: Страна
   city: Город
   contact_name: Контактное лицо
+  email: email
   repeate_email: Повторите email
   message: Текст
   first_name: Имя
@@ -28,6 +29,9 @@ form_catalog:
   yes: да
   no: нет
   password: пароль
+  login: Вход
+  message_register: Спасибо за регистрацию! На вашу почту будет отправлено письмо с паролем для входа на страницу со списком каталогов.
+  open_catalog: Перейти в каталог
 
 Downloads: Загрузки
 collection: коллекции
@@ -50,3 +54,4 @@ Catalogs: Каталоги
 On your mail sent to the list of directories.1: спасибо за интерес к нашей продукции!
 On your mail sent to the list of directories.2: на вашу почту отправлено письмо с ссылками на каталоги.
 Get the catalog: Чтобы получить доступ к каталогам, укажите свою электронную почту. мы пришлем вам каталоги.
+watch video: смотреть видео

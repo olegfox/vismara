@@ -1,0 +1,48 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block html %} ng-app="feedback"{% endblock %}
+
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.background.id is defined %}
+        <style type="text/css">
+            body {
+                background: url("{% path page.background, 'reference' %}");
+                background-size: cover;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="bottombox">
+        <div class="c950">
+            <h2>
+                {{ "form_catalog.message_register"|trans }}<br/><br/>
+                <a class="button_register" href="{{ path('client_login') }}">{{ "form_catalog.open_catalog"|trans }}</a>
+            </h2>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footerImg %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {#<script src="{{ asset("sitemain/js/catalogFeedback.js") }}"></script>#}
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/angular-placeholder.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("sitemain/js/feedback.js") }}"></script>
+{% endblock %}

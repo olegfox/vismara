@@ -3,6 +3,7 @@ form:
   country: Country
   city: City
   contact_name: Name
+  email: email
   repeate_email: Repeat email
   message: Text
   first_name: Name
@@ -28,6 +29,9 @@ form_catalog:
   yes: yes
   no: no
   password: password
+  login: Login
+  message_register: Thank you for registering! In your e-mail will be sent with a password to log on to the page with a list of directories.
+  open_catalog: Go to the catalog
 
 Downloads: Downloads
 collection: collection
@@ -51,3 +55,6 @@ Catalogs: Catalogs
 On your mail sent to the list of directories.1: Thank you for your interest in our products!
 On your mail sent to the list of directories.2: Mail sent to your email with the link to directories.
 Get the catalog: To access the directory, enter your email. we will send you catalogs.
+phone: phone
+fax: fax
+watch video: watch video

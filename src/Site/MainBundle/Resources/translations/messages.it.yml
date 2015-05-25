@@ -3,6 +3,7 @@ form:
   country: STATO
   city: Città
   contact_name: Nome del contatto
+  email: email
   repeate_email: Conferma email
   message: TESTO
   first_name: NOME
@@ -28,6 +29,9 @@ form_catalog:
   yes: si
   no: no
   password: password
+  login: Ingresso
+  message_register: Grazie per esserti registrato! Nella tua e-mail sarà inviata con una password per accedere alla pagina con un elenco di directory.
+  open_catalog: Vai al catalogo
 
 Downloads: Download
 collection: collezioni
@@ -51,3 +55,6 @@ Catalogs: Cataloghi
 On your mail sent to the list of directories.1: Grazie per il vostro interesse nei nostri prodotti!
 On your mail sent to the list of directories.2: La posta inviata al tuo indirizzo email con il link alle directory.
 Get the catalog: Per accedere alla directory, il tuo indirizzo email. vi invieremo cataloghi.
+phone: phone
+fax: fax
+watch video: guarda un video

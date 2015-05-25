@@ -3,12 +3,13 @@
 namespace Site\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Site\MainBundle\Entity\Video
  *
  * @ORM\Table(name="video")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Entity\Repository\VideoRepository")
  */
 class Video
 {
@@ -63,6 +64,14 @@ class Video
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $value;
+
+    /**
+     * @var datetime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="date")
+     */
+    private $created;
 
 
     /**
@@ -280,5 +289,28 @@ class Video
     public function getDescriptionCn()
     {
         return $this->description_cn;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Video
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

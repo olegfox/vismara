@@ -11,9 +11,6 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('sitemain/js/fancybox/source/jquery.fancybox.css') }}">
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('sitemain/js/fancybox/source/helpers/jquery.fancybox-buttons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('sitemain/js/photoswipe/photoswipe.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('sitemain/css/custom-photoswipe.css') }}">
     {% if catalog.background.id is defined %}
@@ -101,7 +98,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('sitemain/js/fancybox/source/jquery.fancybox.js') }}"></script>
     <script src="{{ asset('sitemain/js/photoswipe/lib/simple-inheritance.min.js') }}"></script>
     <script src="{{ asset('sitemain/js/photoswipe/code-photoswipe-jQuery-1.0.11.js') }}"></script>
     <script src="{{ asset('sitemain/js/init.gallery.js') }}"></script>

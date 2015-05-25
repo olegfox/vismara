@@ -5,14 +5,12 @@ $(window).load(function () {
         slideshowSpeed: 3000,
         controlNav: false,
         before: function(slider) {
-
             if(slider.currentSlide == 0){
                 $('.flexslider').flexslider("pause");
                 setTimeout(function(){
                     $('.flexslider').flexslider("play");
-                }, 7000);
+                }, 10000);
             }
-
         }
     });
 });

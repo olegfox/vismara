@@ -1,52 +1,60 @@
 form:
-  name_company: Название компании
-  country: Страна
-  city: Город
-  contact_name: Контактное лицо
-  repeate_email: Повторите email
-  message: Текст
-  first_name: Имя
-  second_name: Фамилия
+  name_company: 公司名称
+  country: 国家
+  city: 城市
+  contact_name: 姓名
+  email: 电子邮箱
+  repeate_email: 确认邮件
+  message: 请输入信息
+  first_name: 姓名
+  second_name: 姓氏
 
 form_catalog:
-  head: Для того, чтобы получить доступ к нашему каталогу продукции, вам необходимо зарегистрироваться.
-  head_link: Регистрация абсолютно бесплатна!
-  head_link2: регистрация
-  company_name: Название компании
-  privat_contact: Личные контакты
-  contact_name: Контактное лицо
-  your_task: Ваша задача
-  company_field: Компания
-  country: Страна
-  city: Город
-  address: Адрес
-  email: E-mail
-  confirm_email: Подтвердите e-mail
-  website: Веб-сайт
-  requested_password: Отправить пароль?
-  text: Текст
-  yes: да
-  no: нет
-  password: пароль
+  head: 若需获得产品目录，请先注册
+  head_link: 免费注册
+  head_link2: 注册
+  company_name: 公司名称
+  privat_contact: 私人联系方式
+  contact_name: 联系人姓名
+  your_task: 你的工作
+  company_field: 公司业务范畴
+  country: 国家
+  city: 城市
+  address: 地址
+  email: 电子邮箱
+  confirm_email: 确认邮箱
+  website: 网址
+  requested_password: 请求密码
+  text: 请输入信息
+  yes: 是
+  no: 否
+  password: 密码
+  login: 入口
+  message_register: 感谢您注册！在您的电子邮件将与密码登录到该页面目录的列表进行发送。
+  open_catalog: 转到目录
 
-Downloads: Загрузки
-collection: коллекции
-RESERVED FOR COMPANIES: ДЛЯ КОМПАНИЙ
-RESERVED FOR INDIVIDUALS: ДЛЯ ЧАСТНЫХ ЛИЦ
-PROCESSING OF PERSONAL DATA (PRIVACY POLICY): ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ (PRIVACY POLICY):
-Send: Отправить
-contacts: контакты
-e-mail: e-mail
-Letter from site: Письмо с сайта
-Name of a company: Название компании
-City: Город
-Contact name: Контактное лицо
-Message: Сообщение
-First name: Имя
-Second name: Фамилия
-Letter has been sent successfully!: Письмо успешно отправлено!
-Error!: Ошибка!
-Catalogs: Каталоги
-On your mail sent to the list of directories.1: спасибо за интерес к нашей продукции!
-On your mail sent to the list of directories.2: на вашу почту отправлено письмо с ссылками на каталоги.
-Get the catalog: Чтобы получить доступ к каталогам, укажите свою электронную почту. мы пришлем вам каталоги.
+Downloads: 下载
+collection: 产品系列
+RESERVED FOR COMPANIES: 公司用户
+RESERVED FOR INDIVIDUALS: 个人用户
+PROCESSING OF PERSONAL DATA (PRIVACY POLICY): 个人数据处理（隐私政策）
+Send: 发送
+contacts: 联系方式
+e-mail: 电子邮箱
+Letter from site: 网站来信
+Name of a company: 公司名称
+City: 城市
+Contact name: 联系人姓名
+Message: 信息
+First name: 姓名
+Second name: 姓氏
+Letter has been sent successfully!: 信息已成功发送！
+Error!: 错误！
+Vismara Design in the world: 世界舞台上的VismaraDesign
+Catalogs: 产品目录
+On your mail sent to the list of directories.1: 感谢您关注我们的产品！
+On your mail sent to the list of directories.2: 邮件已发送至您的邮箱，内附产品索引链接。
+Get the catalog: 若需获得产品索引，请输入您的邮箱。我们将尽快为您提供产品目录。
+phone: 电话
+fax: 传真
+watch video: 观看视频

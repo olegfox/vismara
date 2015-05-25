@@ -2,6 +2,10 @@ Site_main_locale:
     pattern:  /
     defaults: { _controller: SiteMainBundle:Main:showLocale}
 
+client_logout:
+    path:     /client/logout
+    defaults: { _controller: "SiteMainBundle:Client:logout" }
+
 Site_main_generate:
     pattern:  /generate/images/
     defaults: { _controller: SiteMainBundle:Main:generateImages}
@@ -54,3 +58,8 @@ news:
     prefix: /{_locale}/news
     requirements:
             _locale: en|it|ru|cn
+
+#         клиенты
+client:
+    resource: @SiteMainBundle/Resources/config/client.yml
+    prefix: /client

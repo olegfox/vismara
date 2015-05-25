@@ -62,7 +62,7 @@ class FeedbackCompanyFormType extends AbstractType
                 'first_options'  => array(
                     'label' => false,
                     'attr' => array(
-                        'placeholder' => 'Email',
+                        'placeholder' => 'form.email',
                         "class" => "form-control",
                         "ng-model" => "user.email"
                     )

@@ -397,6 +397,29 @@ ul {
   vertical-align: middle;
   &.dark {
     background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  .video-play{
+    font-size: 25px;
+    color: #fff;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    text-shadow: 2px 2px 2px black;
+    display: inline-block;
+    width: 367px;
+    height: 47px;
+    line-height: 46px;
+    text-align: center;
+    border: solid 4px #fff;
+    box-shadow: 2px 2px 2px black;
+    -moz-box-shadow: 2px 2px 2px black;
+    -webkit-box-shadow: 2px 2px 2px black;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin-top: 1.34em;
+    padding-left: 7px;
   }
 }
 
@@ -420,7 +443,7 @@ ul {
   padding: 88px 0 75px;
 }
 
-.main p {
+.main * {
   text-align: center;
   font-size: 18px;
   line-height: 22px;
@@ -904,6 +927,10 @@ a.facebook {
     max-width: 835px;
     margin: 0 auto;
     padding: 0 20px;
+    .error{
+      color: red;
+      margin-bottom: 20px;
+    }
   }
   h2 {
     font-family: 'Noto Sans', sans-serif;
@@ -1183,38 +1210,115 @@ hr{
 
 // News
 .boxes{
-  padding-top: 40px;
+  padding-bottom: 136px;
   .box{
     display: inline-block;
-    width: 50%;
-    margin-bottom: 40px;
+    width: 33.33%;
+    margin-bottom: 0px;
     .wrap_box{
       position: relative;
-      padding: 0 20px;
+      padding: 0px;
+    }
+    .wrap-m-forTable{
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      left: 0px;
+      bottom: 0px;
+    }
+    .item{
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-bottom: none;
+      text-transform: uppercase;
+      background: #000;
+      background-position: 50% 50%;
+      -webkit-transition: all 0.4s ease-out;
+      -moz-transition: all 0.4s ease-out;
+      -o-transition: all 0.4s ease-out;
+      -ms-transition: all 0.4s ease-out;
+      transition: all 0.4s ease-out;
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      transform: translateZ(0);
       img{
         width: 100%;
-        margin-bottom: -5px;
+        margin-bottom: -6px;
+        -webkit-transition: all 0.4s ease-out;
+        -moz-transition: all 0.4s ease-out;
+        -o-transition: all 0.4s ease-out;
+        -ms-transition: all 0.4s ease-out;
+        transition: all 0.4s ease-out;
       }
-      a#name{
-        position: absolute;
-        background: #000000;
-        background-color: rgba(0, 0, 0, 0.72);
-        -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B7000000,endColorstr=#B7000000);
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B7000000,endColorstr=#B7000000);
-        zoom: 1;
+      &:hover{
+        img{
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+          filter: alpha(opacity=25);
+          opacity: .25;
+          -webkit-transition: all 0.4s ease-out;
+          -moz-transition: all 0.4s ease-out;
+          -o-transition: all 0.4s ease-out;
+          -ms-transition: all 0.4s ease-out;
+          transition: all 0.4s ease-out;
+        }
+        .m-forTable{
+          opacity: 1;
+          color: #fff;
+        }
+      }
+    }
+    .m-forTable{
+      display: table;
+      width: 100%;
+      position: relative;
+      height: 100%;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+      text-align: center;
+      -webkit-transition: all 0.4s ease-out;
+      -moz-transition: all 0.4s ease-out;
+      -o-transition: all 0.4s ease-out;
+      -ms-transition: all 0.4s ease-out;
+      transition: all 0.4s ease-out;
+    }
+    .m-forTd{
+      display: table-cell;
+      vertical-align: middle;
+      span.font{
         display: block;
-        color: #FFF;
+//        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+//        filter: alpha(opacity=25);
+//        opacity: .25;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      span.text{
         font-size: 24px;
         font-weight: 300;
-        text-transform: uppercase;
-        text-decoration: none;
         padding: 18px 25px;
-        bottom: 25px;
-        left: 45px;
-        right: 45px;
+        color: #fff;
+        vertical-align: middle;
+        display: block;
       }
     }
   }
 }
 // end news
+
+@media (max-width: 1200px){
+  #map{
+    max-width: 836px;
+    margin: 0 auto;
+  }
+}
+
 

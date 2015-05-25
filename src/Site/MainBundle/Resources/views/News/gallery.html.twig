@@ -2,7 +2,7 @@
     <div class="content contentWhite">
         <div class="wrap_post">
             <h2>
-                <span class="date">{{ n.created|date("d.m.y") }}</span>
+                {#<span class="date">{{ n.created|date("d.m.y") }}</span>#}
                 <a href="{{ path('news_post', {slug: n.slug}) }}">
                     {% set title = n.title %}
                     {% set description = n.description %}

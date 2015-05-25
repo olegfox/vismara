@@ -1,0 +1,20 @@
+client_login_check:
+    path:     /login_verify
+    defaults: { _controller: "SiteMainBundle:Client:loginCheck" }
+    methods: [POST]
+
+client_catalogs:
+    pattern:  /catalogs
+    defaults: { _controller: SiteMainBundle:Client:catalogs}
+
+client_login:
+    path:     /login
+    defaults: { _controller: "SiteMainBundle:Client:login" }
+
+client_register:
+    pattern:  /register
+    defaults: { _controller: SiteMainBundle:Client:register}
+
+client_register_complete:
+    pattern:  /register/complete
+    defaults: { _controller: SiteMainBundle:Client:registerComplete}

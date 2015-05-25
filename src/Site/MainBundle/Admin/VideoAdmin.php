@@ -21,6 +21,9 @@ class VideoAdmin extends Admin
     {
         $formMapper
             ->with('title')
+            ->add('created', 'date', array(
+                'label' => 'Created'
+            ))
             ->add('title', 'textarea', array(
                 'label' => 'Header EN'
             ))
@@ -66,7 +69,8 @@ class VideoAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title', 'text', array('label' => 'Header'))
-            ->add('value', 'text', array('label' => 'Video'));
+            ->add('value', 'text', array('label' => 'Video'))
+            ->add('created', 'date', array('label' => 'Created', 'editable' => true));
     }
 
     public function validate(ErrorElement $errorElement, $object)
@@ -77,6 +81,34 @@ class VideoAdmin extends Admin
             ->assertNotBlank()
             ->end()
             ->with('title')
+            ->assertNotNull(array())
+            ->assertNotBlank()
+            ->end()
+            ->with('title_it')
+            ->assertNotNull(array())
+            ->assertNotBlank()
+            ->end()
+            ->with('title_ru')
+            ->assertNotNull(array())
+            ->assertNotBlank()
+            ->end()
+            ->with('title_cn')
+            ->assertNotNull(array())
+            ->assertNotBlank()
+            ->end()
+            ->with('description')
+            ->assertNotNull(array())
+            ->assertNotBlank()
+            ->end()
+            ->with('description_it')
+            ->assertNotNull(array())
+            ->assertNotBlank()
+            ->end()
+            ->with('description_ru')
+            ->assertNotNull(array())
+            ->assertNotBlank()
+            ->end()
+            ->with('description_cn')
             ->assertNotNull(array())
             ->assertNotBlank()
             ->end();

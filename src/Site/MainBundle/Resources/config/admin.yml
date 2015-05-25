@@ -110,6 +110,16 @@ services:
             - 'SiteMainBundle:NewsGalleryRuAdmin'
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.newsGalleryCn:
+        class: Site\MainBundle\Admin\NewsGalleryCnAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "NewsRu" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\NewsGalleryCn
+            - 'SiteMainBundle:NewsGalleryCnAdmin'
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
     sonata.admin.feedbackCatalog:
         class: Site\MainBundle\Admin\FeedbackCatalogAdmin
         tags:
@@ -118,5 +128,15 @@ services:
             - ~
             - Site\MainBundle\Entity\FeedbackCatalog
             - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.client:
+        class: Site\MainBundle\Admin\ClientAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Clients" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Client
+            - 'SiteMainBundle:ClientAdmin'
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]

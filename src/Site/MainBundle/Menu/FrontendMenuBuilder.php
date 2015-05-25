@@ -9,11 +9,16 @@ class FrontendMenuBuilder extends ContainerAware
 {
     public function menu(FactoryInterface $factory, array $options)
     {
+        $request = $this->container->get('request');
+
+        $routeName = $request->get('_route');
+
         $menu = $factory->createItem('root');
         $em = $this->container->get('doctrine.orm.entity_manager');
         $repository = $em->getRepository('SiteMainBundle:Menu');
         $secondmenu = $repository->findBy(array(), array('position' => 'asc'));
-        $locale = $this->container->get('request')->get('_locale');
+
+        $locale = $this->container->get('request')->getLocale();
 
         foreach ($secondmenu as $key => $s) {
             if($locale == 'it'){
@@ -37,10 +42,17 @@ class FrontendMenuBuilder extends ContainerAware
                         ));
 //                    }
                 }else{
-                    $menu->addChild($title, array(
+                    $m = $menu->addChild($title, array(
                         'route' => 'Site_main_page',
                         'routeParameters' => array('slug' => $s->getSlug(), '_locale' => $locale)
                     ));
+
+                    if( ($s->getSlug() == 'catalogue' && $routeName == 'client_catalogs') ||
+                        ($s->getSlug() == 'catalogue' && $routeName == 'client_login') ||
+                        ($s->getSlug() == 'catalogue' && $routeName == 'client_register') ||
+                        ($s->getSlug() == 'catalogue' && $routeName == 'client_register_complete')){
+                        $m->setCurrent(true);
+                    }
                 }
             }else{
                 $menu->addChild($title, array(

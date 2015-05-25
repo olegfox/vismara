@@ -8,10 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
  * Site\MainBundle\Entity\Slider
  *
  * @ORM\Table(name="slider")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\SliderRepository")
  */
 class Slider
 {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -59,6 +60,15 @@ class Slider
      */
     private $link;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    private $video;
+
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $lang;
 
     /**
      * Get id
@@ -252,5 +262,51 @@ class Slider
     public function getTextCn()
     {
         return $this->text_cn;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param integer $lang
+     * @return Slider
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return integer 
+     */
+    public function getLang()
+    {
+        return $this->lang;
+    }
+
+    /**
+     * Set video
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $video
+     * @return Slider
+     */
+    public function setVideo(\Application\Sonata\MediaBundle\Entity\Media $video = null)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }

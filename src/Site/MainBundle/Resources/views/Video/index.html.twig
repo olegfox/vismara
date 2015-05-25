@@ -75,6 +75,7 @@
                             {{ video.descriptionIt|nl2br|raw }}
                         {% elseif app.request.locale == "cn" %}
                             {% set description = video.descriptionCn|nl2br|raw %}
+                            {{ video.descriptionCn|nl2br|raw }}
                         {% elseif app.request.locale == "ru" %}
                             {% set description = video.descriptionRu|nl2br|raw %}
                             {{ video.descriptionRu|nl2br|raw }}

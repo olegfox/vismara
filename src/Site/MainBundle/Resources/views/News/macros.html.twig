@@ -2,10 +2,17 @@
     {% if news|length > 0 %}
         <div class="boxes">
             {% for n in news %}<div class="box"><div class="wrap_box">
-                    <a href="{{ path('news_post', {slug: n.slug}) }}"><img src="{{ image('.'~media_public_url(n.likeImage, 'reference')).zoomCrop(800, 600) }}" alt="{{ n.title }}"/></a>
-                    <a id="name" href="{{ path('news_post', {slug: n.slug}) }}">
-                        <span class="date">{{ n.created|date("d.m.y") }}</span>
-                        {{ n.title }}
+                    {% set link = path('news_post', {slug: n.slug}) %}
+                    <a href="{{ link }}" class="item">
+                        <img src="{{ image('.'~media_public_url(n.likeImage, 'reference')).zoomCrop(800, 600) }}" alt="{{ image('.'~media_public_url(n.likeImage, 'reference')).zoomCrop(800, 600) }}"/>
+                        <span class="wrap-m-forTable">
+                          <span class="m-forTable">
+                              <span class="m-forTd">
+                                <span class="font"></span>
+                                <span class="text">{{ n.title }}</span>
+                              </span>
+                          </span>
+                        </span>
                     </a>
                 </div></div>{% endfor %}
         </div>
