@@ -30,6 +30,7 @@ form_catalog:
   no: 否
   password: 密码
   login: 入口
+  zone: 区域
   message_register: 感谢您注册！在您的电子邮件将与密码登录到该页面目录的列表进行发送。
   open_catalog: 转到目录
 
@@ -58,3 +59,4 @@ Get the catalog: 若需获得产品索引，请输入您的邮箱。我们将尽
 phone: 电话
 fax: 传真
 watch video: 观看视频
+cookie_privacy: 本网站使用Cookies来确保您获得我们网站上的最佳体验

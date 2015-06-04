@@ -98,7 +98,8 @@ class MainController extends Controller
 
     public function catalogsAction(){
         if($this->get('security.context')->isGranted('ROLE_USER')){
-            return $this->redirect($this->generateUrl('client_catalogs'));
+            $user = $this->get('security.context')->getToken()->getUser();
+            return $this->redirect($this->generateUrl('client_catalogs', array('slug' => $user->getZone()->getSlug())));
         }
 
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogue'));

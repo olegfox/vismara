@@ -4,7 +4,7 @@ client_login_check:
     methods: [POST]
 
 client_catalogs:
-    pattern:  /catalogs
+    pattern:  /catalogs/{slug}
     defaults: { _controller: SiteMainBundle:Client:catalogs}
 
 client_login:

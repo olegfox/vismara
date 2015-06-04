@@ -1,0 +1,104 @@
+{% macro one(catalog) %}<div class="wrap-box"><div class="box">
+        <strong>
+            {% if app.request.locale == "en" %}
+                {{ catalog.title }}
+            {% elseif app.request.locale == "it" %}
+                {{ catalog.titleIt }}
+            {% elseif app.request.locale == "cn" %}
+                {{ catalog.titleCn }}
+            {% elseif app.request.locale == "ru" %}
+                {{ catalog.titleRu }}
+            {% endif %}
+        </strong>
+        <p>
+            {% if app.request.locale == "en" %}
+                {{ catalog.description }}
+            {% elseif app.request.locale == "it" %}
+                {{ catalog.descriptionIt }}
+            {% elseif app.request.locale == "cn" %}
+                {{ catalog.descriptionCn }}
+            {% elseif app.request.locale == "ru" %}
+                {{ catalog.descriptionRu }}
+            {% endif %}
+        </p>
+        <img src="{{ image(catalog.photoWebPath).zoomCrop(200, 267).jpeg(100) }}" alt=""/>
+        <div class="buttons">
+            <a href="/catalogs/{{ catalog.filename }}" class="download iconlink" download="{{ catalog.filename }}"></a>
+            <a href="/catalogs/{{ catalog.filename }}" class="view iconlink" target="_blank"></a>
+        </div>
+    </div></div>{% endmacro %}
+
+{% macro colorList(colorGroups) %}
+    {% for cG in colorGroups %}
+        <h2>
+            {% if app.request.locale == "en" %}
+                {{ cG.title }}
+            {% elseif app.request.locale == "it" %}
+                {{ cG.titleIt }}
+            {% elseif app.request.locale == "cn" %}
+                {{ cG.titleCn }}
+            {% elseif app.request.locale == "ru" %}
+                {{ cG.titleRu }}
+            {% endif %}
+        </h2>
+        <div class="collection-thumb">
+            <div>
+                {% for color in cG.colors %}<div class="content-collection">
+                        <div class="cf-image-name">
+                        <span>
+                            <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
+                        </span>
+                            <span class="cf-name">
+                                {% if app.request.locale == "en" %}
+                                    {{ color.title }}
+                                {% elseif app.request.locale == "it" %}
+                                    {{ color.titleIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ color.titleCn }}
+                                {% elseif app.request.locale == "ru" %}
+                                    {{ color.titleRu }}
+                                {% endif %}
+                            </span>
+                        </div>
+
+                        <div class="cf-m-info">
+                            <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
+                            <span class="cf-m-info-prod-name">
+                                {% if app.request.locale == "en" %}
+                                    {{ color.title }}
+                                {% elseif app.request.locale == "it" %}
+                                    {{ color.titleIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ color.titleCn }}
+                                {% elseif app.request.locale == "ru" %}
+                                    {{ color.titleRu }}
+                                {% endif %}
+                            </span>
+                            <span class="cf-m-info-cat-name">
+                                {% if app.request.locale == "en" %}
+                                    {{ cG.title }}
+                                {% elseif app.request.locale == "it" %}
+                                    {{ cG.titleIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ cG.titleCn }}
+                                {% elseif app.request.locale == "ru" %}
+                                    {{ cG.titleRu }}
+                                {% endif %}
+                            </span>
+                            <span class="cf-m-info-descr">
+                                {% if app.request.locale == "en" %}
+                                    {{ color.description }}
+                                {% elseif app.request.locale == "it" %}
+                                    {{ color.descriptionIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ color.descriptionCn }}
+                                {% elseif app.request.locale == "ru" %}
+                                    {{ color.descriptionRu }}
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>{% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}

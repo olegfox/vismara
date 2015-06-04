@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('sitemain/css/ie8.css') }}" media="screen">
     <![endif]-->
     <link rel="stylesheet" href="{{ asset('sitemain/css/form.css') }}"/>
+    <!-- Minified Cookie Consent served from our CDN -->
+    <script src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.1.0.2.min.js"></script>
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+        window.cookieconsent_options = {"message":"{{ "cookie_privacy"|trans }}","dismiss":"OK","learnMore":"More info","link":null,"theme":"dark-bottom"};
+    </script>
 {% endblock %}
 {% block body %}
     <script>
