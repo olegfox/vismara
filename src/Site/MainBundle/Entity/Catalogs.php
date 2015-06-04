@@ -10,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Site\MainBundle\Entity\Catalogs
  *
  * @ORM\Table(name="catalogs")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Entity\Repository\CatalogsRepository")
  */
 class Catalogs
 {
@@ -45,6 +45,26 @@ class Catalogs
     /**
      * @ORM\Column(type="text", nullable = true)
      */
+    private $description = "";
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
+    private $description_it = "";
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
+    private $description_ru = "";
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
+    private $description_cn = "";
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
     private $slug = "";
 
     /**
@@ -74,6 +94,24 @@ class Catalogs
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ZoneCatalogs", inversedBy="catalogs")
+     * @ORM\JoinColumn(name="id_zone",  referencedColumnName="id")
+     */
+    private $zone;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $photoFilename = "";
+
+    private $photoFile = "";
 
     /**
      * Get id
@@ -201,12 +239,12 @@ class Catalogs
 
     public function getAbsolutePath()
     {
-        return null === $this->imageName ? null : $this->getUploadRootDir().'/'.$this->imageName;
+        return null === $this->filename ? null : $this->getUploadRootDir().'/'.$this->filename;
     }
 
     public function getWebPath()
     {
-        return null === $this->imageName ? null : $this->getUploadDir().'/'.$this->imageName;
+        return null === $this->filename ? null : $this->getUploadDir().'/'.$this->filename;
     }
 
     protected function getUploadRootDir($basepath)
@@ -358,5 +396,255 @@ class Catalogs
     public function getTitleCn()
     {
         return $this->title_cn;
+    }
+
+    /**
+     * Set zone
+     *
+     * @param \Site\MainBundle\Entity\ZoneCatalogs $zone
+     * @return Catalogs
+     */
+    public function setZone(\Site\MainBundle\Entity\ZoneCatalogs $zone = null)
+    {
+        $this->zone = $zone;
+
+        return $this;
+    }
+
+    /**
+     * Get zone
+     *
+     * @return \Site\MainBundle\Entity\ZoneCatalogs 
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Catalogs
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description_it
+     *
+     * @param string $descriptionIt
+     * @return Catalogs
+     */
+    public function setDescriptionIt($descriptionIt)
+    {
+        $this->description_it = $descriptionIt;
+
+        return $this;
+    }
+
+    /**
+     * Get description_it
+     *
+     * @return string 
+     */
+    public function getDescriptionIt()
+    {
+        return $this->description_it;
+    }
+
+    /**
+     * Set description_ru
+     *
+     * @param string $descriptionRu
+     * @return Catalogs
+     */
+    public function setDescriptionRu($descriptionRu)
+    {
+        $this->description_ru = $descriptionRu;
+
+        return $this;
+    }
+
+    /**
+     * Get description_ru
+     *
+     * @return string 
+     */
+    public function getDescriptionRu()
+    {
+        return $this->description_ru;
+    }
+
+    /**
+     * Set description_cn
+     *
+     * @param string $descriptionCn
+     * @return Catalogs
+     */
+    public function setDescriptionCn($descriptionCn)
+    {
+        $this->description_cn = $descriptionCn;
+
+        return $this;
+    }
+
+    /**
+     * Get description_cn
+     *
+     * @return string 
+     */
+    public function getDescriptionCn()
+    {
+        return $this->description_cn;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     * @return Catalogs
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Генерация обложки pdf файла
+     *
+     * @param $height
+     * @param $width
+     * @return string
+     */
+    function genPdfThumbnail($height, $width)
+    {
+        $target = dirname($this->getWebPath()).DIRECTORY_SEPARATOR.$this->getId()."_preview.jpg";
+
+        if(!file_exists($target)){
+            $im = new \Imagick($this->getWebPath()."[0]");
+            $im->setImageBackgroundColor("#ffffff");
+            $im->setBackgroundColor("#ffffff");
+            $im->setimageformat("jpeg");
+            $im->thumbnailimage($width, $height); // width and height
+            $im->writeimage($target);
+            $im->clear();
+            $im->destroy();
+
+        }
+
+        return $this->getUploadDir().'/'.$this->getId()."_preview.jpg";
+    }
+
+    /**
+     * Set photoFilename
+     *
+     * @param string $photoFilename
+     * @return Color
+     */
+    public function setPhotoFilename($photoFilename)
+    {
+        $this->photoFilename = $photoFilename;
+
+        return $this;
+    }
+
+    /**
+     * Get photoFilename
+     *
+     * @return string
+     */
+    public function getPhotoFilename()
+    {
+        return $this->photoFilename;
+    }
+
+    public function setPhotoFile($photoFile = null)
+    {
+        $this->photoFile = $photoFile;
+
+        return $this;
+    }
+
+    /**
+     * Get photoFile
+     *
+     * @return UploadedFile
+     */
+    public function getPhotoFile()
+    {
+        return $this->photoFile;
+    }
+
+    public function getPhotoAbsolutePath()
+    {
+        return null === $this->photoFilename ? null : $this->getPhotoUploadRootDir().'/'.$this->photoFilename;
+    }
+
+    public function getPhotoWebPath()
+    {
+        return null === $this->photoFilename ? null : $this->getPhotoUploadDir().'/'.$this->photoFilename;
+    }
+
+    protected function getPhotoUploadRootDir($basepath)
+    {
+        // the absolute directory path where uploaded documents should be saved
+        return $basepath.$this->getPhotoUploadDir();
+    }
+
+    protected function getPhotoUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
+        return 'colors';
+    }
+
+    public function photoUpload($basepath)
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->photoFile) {
+            return;
+        }
+
+        if (null === $basepath) {
+            return;
+        }
+
+        // we use the original file name here but you should
+        // sanitize it at least to avoid any security issues
+
+        // move takes the target directory and then the target filename to move to
+        $this->photoFile->move($this->getPhotoUploadRootDir($basepath), $this->photoFile->getClientOriginalName());
+
+        // set the path property to the filename where you'ved saved the file
+        $this->setPhotoFilename($this->photoFile->getClientOriginalName());
+
+        // clean up the file property as you won't need it anymore
+        $this->photoFile = null;
     }
 }

@@ -140,3 +140,33 @@ services:
             - 'SiteMainBundle:ClientAdmin'
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.zone:
+        class: Site\MainBundle\Admin\ZoneCatalogsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Zone" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\ZoneCatalogs
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.colorGroup:
+        class: Site\MainBundle\Admin\ColorGroupAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Color Group" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\ColorGroup
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.color:
+        class: Site\MainBundle\Admin\ColorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Color" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Color
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]

@@ -21,6 +21,11 @@ class ClientAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('zone', 'entity', array(
+                'required' => true,
+                'label' => 'Zone',
+                'class' => 'SiteMainBundle:ZoneCatalogs'
+            ))
             ->add('company_name', 'text', array('label' => 'Company name'))
             ->add('contact_name', 'text', array('label' => 'Contact name'))
             ->add('your_task', 'text', array('label' => 'Your task'))
@@ -60,7 +65,8 @@ class ClientAdmin extends Admin
                     false => 'No',
                     true => 'Yes'
                 )
-            ));
+            ))
+            ->add('zone', null, array('label' => 'Zone'));
     }
 
     public function validate(ErrorElement $errorElement, $object)

@@ -25,6 +25,7 @@
                       ng-controller="ClientController" novalidate>
                     <div class="form-group">
                         <div class="pull-left">
+                            {{ form_widget(form.zone) }}
                             {{ form_widget(form.company_name) }}<span>*</span>
                             {{ form_widget(form.contact_name) }}<span>*</span>
                             {{ form_widget(form.your_task) }}

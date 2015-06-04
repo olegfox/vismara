@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>VismaraDesign New Register</title>
+</head>
+<body style="margin: 0px; width: 700px; font-family: Arial; letter-spacing: 2px;">
+<div class="content">
+    <table class="table" style="border-collapse: collapse;">
+        <tr>
+            <td><strong>{{ "form_catalog.company_name"|trans }}</strong></td>
+            <td>{{ client.getCompanyName() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.privat_contact"|trans }}</strong></td>
+            <td>{{ client.getPrivatContact() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.contact_name"|trans }}</strong></td>
+            <td>{{ client.getContactName() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.your_task"|trans }}</strong></td>
+            <td>{{ client.getYourTask() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.company_field"|trans }}</strong></td>
+            <td>{{ client.getCompanyField() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.country"|trans }}</strong></td>
+            <td>{{ client.getCountry() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.city"|trans }}</strong></td>
+            <td>{{ client.getCity() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.address"|trans }}</strong></td>
+            <td>{{ client.getAddress() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.email"|trans }}</strong></td>
+            <td>{{ client.getEmail() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.website"|trans }}</strong></td>
+            <td>{{ client.getWebsite() }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ "form_catalog.text"|trans }}</strong></td>
+            <td>{{ client.getText() }}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

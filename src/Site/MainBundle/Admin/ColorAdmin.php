@@ -14,29 +14,21 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 
-class CatalogsAdmin extends Admin
+class ColorAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('zone', 'entity', array(
-                'required' => false,
-                'label' => 'Zone',
-                'class' => 'SiteMainBundle:ZoneCatalogs'
-            ))
-            ->add('type', 'choice', array(
+            ->add('colorGroup', 'entity', array(
                 'required' => true,
-                'label' => 'Type',
-                'choices' => array(
-                    0 => 'catalog',
-                    1 => 'pricelist'
-                )
+                'label' => 'Color Group',
+                'class' => 'SiteMainBundle:ColorGroup'
             ))
-            ->add('title', 'text', array('label' => 'Header EN'))
-            ->add('title_it', 'text', array('label' => 'Header IT'))
-            ->add('title_ru', 'text', array('label' => 'Header RU'))
-            ->add('title_cn', 'text', array('label' => 'Header CN'))
+            ->add('title', 'text', array('label' => 'Title EN'))
+            ->add('title_it', 'text', array('label' => 'Title IT'))
+            ->add('title_ru', 'text', array('label' => 'Title RU'))
+            ->add('title_cn', 'text', array('label' => 'Title CN'))
             ->add('description', 'textarea', array('label' => 'Description EN'))
             ->add('description_it', 'textarea', array('label' => 'Description IT'))
             ->add('description_ru', 'textarea', array('label' => 'Description RU'))
@@ -47,8 +39,7 @@ class CatalogsAdmin extends Admin
                     'min' => 0
                 )
             ))
-            ->add('file', 'file', array('label' => 'PDF', 'required' => false))
-            ->add('photoFile', 'file', array('label' => 'Photo Preview', 'required' => false));
+            ->add('file', 'file', array('label' => 'Image', 'required' => false));
     }
 
     // Fields to be shown on filter forms
@@ -62,17 +53,9 @@ class CatalogsAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title', 'text', array('label' => 'Header'))
+            ->addIdentifier('title', 'text', array('label' => 'Title'))
             ->add('position', 'text', array('label' => 'Position', 'editable' => true))
-            ->add('zone', null, array('label' => 'Zone'))
-            ->add('type', 'choice', array(
-                'label' => 'Type',
-                'editable' => true,
-                'choices' => array(
-                    0 => 'catalog',
-                    1 => 'pricelist'
-                )
-            ));
+            ->add('colorGroup', null, array('label' => 'Color Group'));
     }
 
     public function validate(ErrorElement $errorElement, $object)
@@ -84,17 +67,16 @@ class CatalogsAdmin extends Admin
             ->end();
     }
 
-    public function prePersist($catalogs) {
-        $this->saveFile($catalogs);
+    public function prePersist($color) {
+        $this->saveFile($color);
     }
 
-    public function preUpdate($catalogs) {
-        $this->saveFile($catalogs);
+    public function preUpdate($color) {
+        $this->saveFile($color);
     }
 
-    public function saveFile($catalogs) {
+    public function saveFile($color) {
         $basepath = $this->getRequest()->getBasePath();
-        $catalogs->upload($basepath);
-        $catalogs->photoUpload($basepath);
+        $color->upload($basepath);
     }
 } 

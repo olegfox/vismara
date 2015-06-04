@@ -1,32 +1,45 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
+{% from 'SiteMainBundle:Client:macros.html.twig' import one %}
+{% from 'SiteMainBundle:Client:macros.html.twig' import colorList %}
+
 {% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
 {% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
 {% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    {% if page.background.id is defined %}
-        <style type="text/css">
-            body {
-                background: url("{% path page.background, 'reference' %}");
-                background-size: cover;
-            }
-        </style>
-    {% endif %}
-{% endblock %}
 
 {% block slider %}
 
 {% endblock %}
 
 {% block content %}
-    <div class="bottombox">
+    <div class="bottombox bottombox-catalog">
         <div class="c950">
-            <h2>{{ 'Downloads'|trans }}</h2>
-            {% for catalog in catalogs %}
-                <a href="/catalogs/{{ catalog.filename }}" class="iconlink" id="download"><strong>{{ catalog.title }}</strong></a>
-            {% endfor %}
+            {# Каталоги #}
+            <h2>{{ 'Catalogs'|trans }}</h2>
+            <div class="boxs">{% for catalog in catalogs %}{{ one(catalog) }}{% endfor %}</div>
+        </div>
+        <div class="c950">
+            {# Прайслисты #}
+            <h2>{{ 'Pricelists'|trans }}</h2>
+            <div class="boxs">{% for pricelist in pricelists %}{{ one(pricelist) }}{% endfor %}</div>
+        </div>
+        <div class="c950">isma
+            {# Colors #}
+            {#{{ colorList(colorGroups) }}#}
+            <div class="colors">
+                <h2>Clothes</h2>
+                <img src="{{ asset('sitemain/img/colors/clothes.jpg') }}" alt="" width="100%"/>
+                <h2>Desire Samples</h2>
+                <img src="{{ asset('sitemain/img/colors/desire samples.jpg') }}" alt="" width="100%"/>
+                <h2>Lacquer Color</h2>
+                <img src="{{ asset('sitemain/img/colors/lacquer color.jpg') }}" alt="" width="100%"/>
+                <h2>Leathers</h2>
+                <img src="{{ asset('sitemain/img/colors/leathers.jpg') }}" alt="" width="100%"/>
+                <h2>Metallic Leaf</h2>
+                <img src="{{ asset('sitemain/img/colors/metallic leaf.jpg') }}" alt="" width="100%"/>
+                <h2>Woods</h2>
+                <img src="{{ asset('sitemain/img/colors/woods.jpg') }}" alt="" width="100%"/>
+            </div>
         </div>
     </div>
 {% endblock %}

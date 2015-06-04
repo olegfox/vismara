@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Site\MainBundle\Entity\Client;
-use Site\MainBundle\Form\Type\FeedbackCatalogType;
+use Site\MainBundle\Form\Type\ClientType;
 use Site\MainBundle\Entity\ClientManager;
 
 class ClientController extends Controller
@@ -66,7 +66,7 @@ class ClientController extends Controller
                 $token = new UsernamePasswordToken($client, null, 'default', array('ROLE_USER'));
                 $this->get('security.context')->setToken($token);
 
-                return $this->redirect($this->generateUrl('client_catalogs'));
+                return $this->redirect($this->generateUrl('client_catalogs', array('slug' => $client->getZone()->getSlug())));
             }
 
         }
@@ -83,7 +83,7 @@ class ClientController extends Controller
 
     public function registerAction(Request $request){
         $client = new Client();
-        $form = $this->createForm(new FeedbackCatalogType(), $client);
+        $form = $this->createForm(new ClientType(), $client);
 
         if($request->isMethod("POST")){
             $form->handleRequest($request);
@@ -120,12 +120,16 @@ class ClientController extends Controller
         return $this->render('SiteMainBundle:Client:message.html.twig', $params);
     }
 
-    public function catalogsAction(){
-        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Catalogs")->findAll();
+    public function catalogsAction($slug){
+        $pricelists = $this->getDoctrine()->getRepository("SiteMainBundle:Catalogs")->findBySlugZone($slug);
+        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Catalogs")->findCatalogs();;
+        $colorGroups = $this->getDoctrine()->getRepository("SiteMainBundle:ColorGroup")->findAll();
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogue'));
 
         $params = array(
             "catalogs" => $catalogs,
+            "pricelists" => $pricelists,
+            "colorGroups" => $colorGroups,
             "page" => $page
         );
         return $this->render('SiteMainBundle:Client:catalogs.html.twig', $params);

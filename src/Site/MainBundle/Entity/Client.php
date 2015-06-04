@@ -123,6 +123,12 @@ class Client implements UserInterface, \Serializable
     private $isActive;
 
     /**
+     * @ORM\ManyToOne(targetEntity="ZoneCatalogs", inversedBy="client")
+     * @ORM\JoinColumn(name="id_zone",  referencedColumnName="id")
+     */
+    private $zone;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created", type="datetime")
      */
@@ -549,5 +555,28 @@ class Client implements UserInterface, \Serializable
     public function getPasswordText()
     {
         return $this->passwordText;
+    }
+
+    /**
+     * Set zone
+     *
+     * @param \Site\MainBundle\Entity\ZoneCatalogs $zone
+     * @return Client
+     */
+    public function setZone(\Site\MainBundle\Entity\ZoneCatalogs $zone = null)
+    {
+        $this->zone = $zone;
+
+        return $this;
+    }
+
+    /**
+     * Get zone
+     *
+     * @return \Site\MainBundle\Entity\ZoneCatalogs
+     */
+    public function getZone()
+    {
+        return $this->zone;
     }
 }

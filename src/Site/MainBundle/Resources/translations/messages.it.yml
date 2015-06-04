@@ -30,6 +30,7 @@ form_catalog:
   no: no
   password: password
   login: Ingresso
+  zone: Zona
   message_register: Grazie per esserti registrato! Nella tua e-mail sarà inviata con una password per accedere alla pagina con un elenco di directory.
   open_catalog: Vai al catalogo
 
@@ -58,3 +59,4 @@ Get the catalog: Per accedere alla directory, il tuo indirizzo email. vi inviere
 phone: phone
 fax: fax
 watch video: guarda un video
+cookie_privacy: Questo sito web utilizza i cookie per essere sicuri di ottenere la migliore esperienza sul nostro sito
