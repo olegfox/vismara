@@ -174,6 +174,12 @@ class Gallery
     private $dark = false;
 
     /**
+     * @ORM\ManyToOne(targetEntity="CategoryGallery", inversedBy="gallery")
+     * @ORM\JoinColumn(name="id_category",  referencedColumnName="id")
+     */
+    private $category;
+
+    /**
      * Get id
      *
      * @return integer
@@ -881,5 +887,28 @@ class Gallery
     public function getTextCn()
     {
         return $this->text_cn;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Site\MainBundle\Entity\CategoryGallery $category
+     * @return Gallery
+     */
+    public function setCategory(\Site\MainBundle\Entity\CategoryGallery $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Site\MainBundle\Entity\CategoryGallery 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

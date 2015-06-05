@@ -10,6 +10,16 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.categoryGallery:
+        class: Site\MainBundle\Admin\CategoryGalleryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category Gallery" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\CategoryGallery
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
     sonata.admin.gallery:
         class: Site\MainBundle\Admin\GalleryAdmin
         tags:

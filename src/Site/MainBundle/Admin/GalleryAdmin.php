@@ -20,6 +20,11 @@ class GalleryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('category', 'entity', array(
+                'required' => true,
+                'label' => 'Category',
+                'class' => 'SiteMainBundle:CategoryGallery'
+            ))
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
