@@ -162,6 +162,9 @@ sonata_admin:
         Site_gallery:
           label: Collections
           items: [sonata.admin.gallery]
+        Site_product:
+          label: Products
+          items: [sonata.admin.product]
         Site_slider:
           label: Slider
           items: [sonata.admin.slider]

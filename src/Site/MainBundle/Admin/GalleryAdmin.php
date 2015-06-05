@@ -20,16 +20,6 @@ class GalleryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('style', 'entity', array(
-                'required' => true,
-                'label' => 'Style',
-                'class' => 'SiteMainBundle:StyleGallery'
-            ))
-            ->add('category', 'entity', array(
-                'required' => true,
-                'label' => 'Category',
-                'class' => 'SiteMainBundle:CategoryGallery'
-            ))
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
@@ -171,9 +161,7 @@ class GalleryAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title', 'text', array('label' => 'Заголовок'))
-            ->add('position', 'text', array('label' => 'Позиция', 'editable' => true))
-            ->add('category', null, array('label' => 'Category'))
-            ->add('style', null, array('label' => 'Style'));
+            ->add('position', 'text', array('label' => 'Позиция', 'editable' => true));
     }
 
     public function validate(ErrorElement $errorElement, $object)

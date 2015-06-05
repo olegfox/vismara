@@ -1,0 +1,26 @@
+{% if products is defined %}
+    {% for product in products %}
+        {% if product.category.id is defined %}
+            <div class="product">
+                <a href="#" class="zoom" id="zoom">
+                    <img src="{{ image('.'~media_public_url(product.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
+                    <div class="wrap_name">
+                        <div class="name">
+                            <div>
+                                {% if app.request.locale == "en" %}
+                                    {{ product.title }}
+                                {% elseif app.request.locale == "it" %}
+                                    {{ product.titleIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ product.titleCn }}
+                                {% elseif app.request.locale == "ru" %}
+                                    {{ product.titleRu }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}

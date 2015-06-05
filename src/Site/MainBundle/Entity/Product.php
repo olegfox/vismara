@@ -7,12 +7,12 @@ use Site\MainBundle\Translitor\Translitor;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Site\MainBundle\Entity\CategoryGallery
+ * Site\MainBundle\Entity\Product
  *
- * @ORM\Table(name="category_gallery")
- * @ORM\Entity
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\ProductRepository")
  */
-class CategoryGallery
+class Product
 {
 
     /**
@@ -114,19 +114,16 @@ class CategoryGallery
     private $position;
 
     /**
-     * @ORM\OneToMany(targetEntity="Product", cascade={"persist"}, mappedBy="category")
+     * @ORM\ManyToOne(targetEntity="CategoryGallery", inversedBy="products")
+     * @ORM\JoinColumn(name="id_category",  referencedColumnName="id")
      */
-    private $products;
+    private $category;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @ORM\ManyToOne(targetEntity="StyleGallery", inversedBy="products")
+     * @ORM\JoinColumn(name="id_style",  referencedColumnName="id")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $style;
 
     /**
      * Set title
@@ -148,7 +145,7 @@ class CategoryGallery
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -156,10 +153,20 @@ class CategoryGallery
     }
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set title_it
      *
      * @param string $titleIt
-     * @return CategoryGallery
+     * @return Product
      */
     public function setTitleIt($titleIt)
     {
@@ -182,7 +189,7 @@ class CategoryGallery
      * Set title_ru
      *
      * @param string $titleRu
-     * @return CategoryGallery
+     * @return Product
      */
     public function setTitleRu($titleRu)
     {
@@ -205,7 +212,7 @@ class CategoryGallery
      * Set title_cn
      *
      * @param string $titleCn
-     * @return CategoryGallery
+     * @return Product
      */
     public function setTitleCn($titleCn)
     {
@@ -228,7 +235,7 @@ class CategoryGallery
      * Set keyword
      *
      * @param string $keyword
-     * @return CategoryGallery
+     * @return Product
      */
     public function setKeyword($keyword)
     {
@@ -251,7 +258,7 @@ class CategoryGallery
      * Set keyword_it
      *
      * @param string $keywordIt
-     * @return CategoryGallery
+     * @return Product
      */
     public function setKeywordIt($keywordIt)
     {
@@ -274,7 +281,7 @@ class CategoryGallery
      * Set keyword_ru
      *
      * @param string $keywordRu
-     * @return CategoryGallery
+     * @return Product
      */
     public function setKeywordRu($keywordRu)
     {
@@ -297,7 +304,7 @@ class CategoryGallery
      * Set keyword_cn
      *
      * @param string $keywordCn
-     * @return CategoryGallery
+     * @return Product
      */
     public function setKeywordCn($keywordCn)
     {
@@ -317,129 +324,10 @@ class CategoryGallery
     }
 
     /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return CategoryGallery
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return CategoryGallery
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return CategoryGallery
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime 
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
-     * Set position
-     *
-     * @param integer $position
-     * @return CategoryGallery
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return integer 
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * Set preview
-     *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $preview
-     * @return CategoryGallery
-     */
-    public function setPreview(\Application\Sonata\MediaBundle\Entity\Media $preview = null)
-    {
-        $this->preview = $preview;
-
-        return $this;
-    }
-
-    /**
-     * Get preview
-     *
-     * @return \Application\Sonata\MediaBundle\Entity\Media 
-     */
-    public function getPreview()
-    {
-        return $this->preview;
-    }
-
-    public function __toString(){
-        return $this->title;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
-     * @return CategoryGallery
+     * @return Product
      */
     public function setDescription($description)
     {
@@ -462,7 +350,7 @@ class CategoryGallery
      * Set description_it
      *
      * @param string $descriptionIt
-     * @return CategoryGallery
+     * @return Product
      */
     public function setDescriptionIt($descriptionIt)
     {
@@ -485,7 +373,7 @@ class CategoryGallery
      * Set description_ru
      *
      * @param string $descriptionRu
-     * @return CategoryGallery
+     * @return Product
      */
     public function setDescriptionRu($descriptionRu)
     {
@@ -508,7 +396,7 @@ class CategoryGallery
      * Set description_cn
      *
      * @param string $descriptionCn
-     * @return CategoryGallery
+     * @return Product
      */
     public function setDescriptionCn($descriptionCn)
     {
@@ -526,44 +414,165 @@ class CategoryGallery
     {
         return $this->description_cn;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add products
+     * Set slug
      *
-     * @param \Site\MainBundle\Entity\Product $products
-     * @return CategoryGallery
+     * @param string $slug
+     * @return Product
      */
-    public function addProduct(\Site\MainBundle\Entity\Product $products)
+    public function setSlug($slug)
     {
-        $this->products[] = $products;
+        $this->slug = $slug;
 
         return $this;
     }
 
     /**
-     * Remove products
+     * Get slug
      *
-     * @param \Site\MainBundle\Entity\Product $products
+     * @return string 
      */
-    public function removeProduct(\Site\MainBundle\Entity\Product $products)
+    public function getSlug()
     {
-        $this->products->removeElement($products);
+        return $this->slug;
     }
 
     /**
-     * Get products
+     * Set created
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param \DateTime $created
+     * @return Product
      */
-    public function getProducts()
+    public function setCreated($created)
     {
-        return $this->products;
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Product
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Product
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set preview
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $preview
+     * @return Product
+     */
+    public function setPreview(\Application\Sonata\MediaBundle\Entity\Media $preview = null)
+    {
+        $this->preview = $preview;
+
+        return $this;
+    }
+
+    /**
+     * Get preview
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getPreview()
+    {
+        return $this->preview;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Site\MainBundle\Entity\CategoryGallery $category
+     * @return Product
+     */
+    public function setCategory(\Site\MainBundle\Entity\CategoryGallery $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Site\MainBundle\Entity\CategoryGallery 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set style
+     *
+     * @param \Site\MainBundle\Entity\StyleGallery $style
+     * @return Product
+     */
+    public function setStyle(\Site\MainBundle\Entity\StyleGallery $style = null)
+    {
+        $this->style = $style;
+
+        return $this;
+    }
+
+    /**
+     * Get style
+     *
+     * @return \Site\MainBundle\Entity\StyleGallery 
+     */
+    public function getStyle()
+    {
+        return $this->style;
     }
 }

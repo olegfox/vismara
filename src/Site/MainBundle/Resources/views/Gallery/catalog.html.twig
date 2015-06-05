@@ -1,29 +1,27 @@
 {% if catalogs is defined %}
     {% for catalog in catalogs %}
-        {% if catalog.category.id is defined %}
-            <div>
-                <a href="{{ path('Site_main_gallery_one', {category: catalog.category.slug, slug : catalog.slug}) }}" class="zoom" id="zoom">
-                    <img src="{{ image('.'~media_public_url(catalog.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
+        <div>
+            <a href="{{ path('Site_main_gallery_one', {slug : catalog.slug}) }}" class="zoom" id="zoom">
+                <img src="{{ image('.'~media_public_url(catalog.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
 
-                    <div class="wrap_name">
-                        <div class="name{% if catalog.hideDark %} nameHide{% endif %}">
-                            <div>
-                                {% if catalog.hideTitle == false %}
-                                    {% if app.request.locale == "en" %}
-                                        {{ catalog.title }}
-                                    {% elseif app.request.locale == "it" %}
-                                        {{ catalog.titleIt }}
-                                    {% elseif app.request.locale == "cn" %}
-                                        {{ catalog.titleCn }}
-                                    {% elseif app.request.locale == "ru" %}
-                                        {{ catalog.titleRu }}
-                                    {% endif %}
+                <div class="wrap_name">
+                    <div class="name{% if catalog.hideDark %} nameHide{% endif %}">
+                        <div>
+                            {% if catalog.hideTitle == false %}
+                                {% if app.request.locale == "en" %}
+                                    {{ catalog.title }}
+                                {% elseif app.request.locale == "it" %}
+                                    {{ catalog.titleIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ catalog.titleCn }}
+                                {% elseif app.request.locale == "ru" %}
+                                    {{ catalog.titleRu }}
                                 {% endif %}
-                            </div>
+                            {% endif %}
                         </div>
                     </div>
-                </a>
-            </div>
-        {% endif %}
+                </div>
+            </a>
+        </div>
     {% endfor %}
 {% endif %}

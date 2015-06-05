@@ -4,7 +4,7 @@ namespace Site\MainBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-class GalleryRepository extends EntityRepository
+class ProductRepository extends EntityRepository
 {
     public function findByStyle($filter = "all", $category = null)
     {
@@ -13,11 +13,11 @@ class GalleryRepository extends EntityRepository
         if($filter != 'all'){
             $style = $em->getRepository('SiteMainBundle:StyleGallery')->findOneBySlug($filter);
             $query = $em->createQuery('
-                SELECT g FROM SiteMainBundle:Gallery g
-                LEFT JOIN g.category cat
-                LEFT JOIN g.style style
+                SELECT p FROM SiteMainBundle:Product p
+                LEFT JOIN p.category cat
+                LEFT JOIN p.style style
                 WHERE cat =:category AND style =:style
-                ORDER BY g.position ASC
+                ORDER BY p.position ASC
             ')
             ->setParameters(
                 array(
@@ -27,10 +27,10 @@ class GalleryRepository extends EntityRepository
             );
         }else{
             $query = $em->createQuery('
-                SELECT g FROM SiteMainBundle:Gallery g
-                LEFT JOIN g.category cat
+                SELECT p FROM SiteMainBundle:Product p
+                LEFT JOIN p.category cat
                 WHERE cat =:category
-                ORDER BY g.position ASC
+                ORDER BY p.position ASC
             ')
                 ->setParameters(
                     array(

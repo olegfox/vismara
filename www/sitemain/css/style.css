@@ -1232,5 +1232,23 @@ span.cf-name {
         .wrapper-breadcrumbs .breadcrumbs ul li a {
           text-transform: uppercase;
           color: #000; }
+          .wrapper-breadcrumbs .breadcrumbs ul li a:hover {
+            color: #ffd40d;
+            text-shadow: -2px 0px 3px rgba(0, 0, 0, 0.6); }
+
+.product .wrap_name {
+  height: 40px !important;
+  top: 0 !important;
+  bottom: 0;
+  left: 35px;
+  right: 35px;
+  margin: auto;
+  width: auto !important; }
+.product .name {
+  font-size: 16px;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.6); }
+  .product .name:hover {
+    background: rgba(0, 0, 0, 0.6); }
 
 /*# sourceMappingURL=style.css.map */

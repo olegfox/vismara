@@ -1,7 +1,7 @@
 {% macro category(categories) %}
     {% for cat in categories %}
         <div>
-            <a href="{{ path('Site_main_gallery', {category : cat.slug, filter: 'all'}) }}" class="zoom" id="zoom">
+            <a href="{{ path('Site_main_products', {category : cat.slug, filter: 'all'}) }}" class="zoom" id="zoom">
                 <img src="{{ image('.'~media_public_url(cat.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
 
                 <div class="wrap_name">

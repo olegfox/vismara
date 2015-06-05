@@ -66,7 +66,7 @@ class MainController extends Controller
         return $this->render('SiteMainBundle:Main:index.html.twig', $params);
     }
 
-    public function collectionOneAction($category, $slug, $slugImage = ''){
+    public function collectionOneAction($slug, $slugImage = ''){
         $catalog = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findOneBy(array('slug' => $slug));
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'collections'));
         $images = $this->getDoctrine()->getRepository("SiteMainBundle:Image")->findBy(array('gallery' => $catalog), array('position' => 'asc'));
@@ -86,16 +86,11 @@ class MainController extends Controller
         return $this->render('SiteMainBundle:Gallery:one.html.twig', $params);
     }
 
-    public function collectionsAction($filter, $category){
-        $category = $this->getDoctrine()->getRepository("SiteMainBundle:CategoryGallery")->findOneBy(array('slug' => $category));
-        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findByStyle($filter, $category);
+    public function collectionsAction(){
+        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findAll();
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'collections'));
-        $filters = $this->getDoctrine()->getRepository("SiteMainBundle:StyleGallery")->findAll();
         $params = array(
             "catalogs" => $catalogs,
-            "category" => $category,
-            "filter" => $filter,
-            "filters" => $filters,
             "page" => $page
         );
         return $this->render('SiteMainBundle:Gallery:index.html.twig', $params);

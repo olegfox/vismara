@@ -10,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Site\MainBundle\Entity\Gallery
  *
  * @ORM\Table(name="gallery")
- * @ORM\Entity(repositoryClass="Site\MainBundle\Repository\GalleryRepository")
+ * @ORM\Entity
  */
 class Gallery
 {
@@ -172,18 +172,6 @@ class Gallery
      * @ORM\Column(type="boolean")
      */
     private $dark = false;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="CategoryGallery", inversedBy="gallery")
-     * @ORM\JoinColumn(name="id_category",  referencedColumnName="id")
-     */
-    private $category;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="StyleGallery", inversedBy="gallery")
-     * @ORM\JoinColumn(name="id_style",  referencedColumnName="id")
-     */
-    private $style;
 
     /**
      * Get id
@@ -893,51 +881,5 @@ class Gallery
     public function getTextCn()
     {
         return $this->text_cn;
-    }
-
-    /**
-     * Set category
-     *
-     * @param \Site\MainBundle\Entity\CategoryGallery $category
-     * @return Gallery
-     */
-    public function setCategory(\Site\MainBundle\Entity\CategoryGallery $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \Site\MainBundle\Entity\CategoryGallery 
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * Set style
-     *
-     * @param \Site\MainBundle\Entity\StyleGallery $style
-     * @return Gallery
-     */
-    public function setStyle(\Site\MainBundle\Entity\StyleGallery $style = null)
-    {
-        $this->style = $style;
-
-        return $this;
-    }
-
-    /**
-     * Get style
-     *
-     * @return \Site\MainBundle\Entity\StyleGallery 
-     */
-    public function getStyle()
-    {
-        return $this->style;
     }
 }

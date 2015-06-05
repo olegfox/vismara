@@ -69,17 +69,9 @@ class StyleGallery
     private $position;
 
     /**
-     * @ORM\OneToMany(targetEntity="Gallery", cascade={"persist"}, mappedBy="style")
+     * @ORM\OneToMany(targetEntity="Product", cascade={"persist"}, mappedBy="style")
      */
-    private $gallery;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->gallery = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $products;
 
     /**
      * Get id
@@ -279,40 +271,47 @@ class StyleGallery
         return $this->position;
     }
 
+    public function __toString(){
+        return $this->title;
+    }
     /**
-     * Add gallery
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add products
      *
-     * @param \Site\MainBundle\Entity\Gallery $gallery
+     * @param \Site\MainBundle\Entity\Product $products
      * @return StyleGallery
      */
-    public function addGallery(\Site\MainBundle\Entity\Gallery $gallery)
+    public function addProduct(\Site\MainBundle\Entity\Product $products)
     {
-        $this->gallery[] = $gallery;
+        $this->products[] = $products;
 
         return $this;
     }
 
     /**
-     * Remove gallery
+     * Remove products
      *
-     * @param \Site\MainBundle\Entity\Gallery $gallery
+     * @param \Site\MainBundle\Entity\Product $products
      */
-    public function removeGallery(\Site\MainBundle\Entity\Gallery $gallery)
+    public function removeProduct(\Site\MainBundle\Entity\Product $products)
     {
-        $this->gallery->removeElement($gallery);
+        $this->products->removeElement($products);
     }
 
     /**
-     * Get gallery
+     * Get products
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGallery()
+    public function getProducts()
     {
-        return $this->gallery;
-    }
-
-    public function __toString(){
-        return $this->title;
+        return $this->products;
     }
 }

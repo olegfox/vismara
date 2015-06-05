@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 class CategoryCollectionsController extends Controller
 {
     /**
-     * Список категорий коллекций
+     * Список категорий продуктов
      *
      * @return Response
      */
     public function categoriesAction(){
         $categories = $this->getDoctrine()->getRepository("SiteMainBundle:CategoryGallery")->findBy(array(), array('position' => 'asc'));
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'collections'));
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'products'));
         $params = array(
             "categories" => $categories,
             "page" => $page
