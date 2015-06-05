@@ -15,14 +15,20 @@ image_upload:
     pattern:  /admin/image_upload/
     defaults: { _controller: SiteMainBundle:Image:upload }
 
+Site_main_category_collections:
+    pattern:  /{_locale}/page/category/
+    defaults: { _controller: SiteMainBundle:CategoryCollections:categories}
+    requirements:
+            _locale: en|it|ru|cn
+
 Site_main_gallery:
-    pattern:  /{_locale}/page/collections/
-    defaults: { _controller: SiteMainBundle:Main:collections}
+    pattern:  /{_locale}/page/{category}/collections/{filter}
+    defaults: { _controller: SiteMainBundle:Main:collections, filter: 'all'}
     requirements:
             _locale: en|it|ru|cn
 
 Site_main_gallery_one:
-    pattern:  /{_locale}/page/collections/{slug}/
+    pattern:  /{_locale}/page/{category}/collections/{slug}/
     defaults: { _controller: SiteMainBundle:Main:collectionOne}
     requirements:
             _locale: en|it|ru|cn

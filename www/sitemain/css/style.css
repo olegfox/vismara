@@ -1204,4 +1204,33 @@ span.cf-name {
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important; }
 
+.wrapper-breadcrumbs {
+  background: #dcdcdc; }
+  .wrapper-breadcrumbs .breadcrumbs {
+    margin: 0 auto;
+    max-width: 835px; }
+    .wrapper-breadcrumbs .breadcrumbs ul {
+      display: inline-block;
+      width: 50%;
+      padding: 0;
+      margin: 0; }
+      .wrapper-breadcrumbs .breadcrumbs ul.right {
+        text-align: right; }
+        .wrapper-breadcrumbs .breadcrumbs ul.right li span {
+          text-decoration: underline; }
+          .wrapper-breadcrumbs .breadcrumbs ul.right li span.line {
+            text-decoration: none; }
+      .wrapper-breadcrumbs .breadcrumbs ul li {
+        display: inline-block; }
+        .wrapper-breadcrumbs .breadcrumbs ul li span {
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          text-transform: uppercase; }
+          .wrapper-breadcrumbs .breadcrumbs ul li span.line {
+            padding: 0px 5px; }
+        .wrapper-breadcrumbs .breadcrumbs ul li a {
+          text-transform: uppercase;
+          color: #000; }
+
 /*# sourceMappingURL=style.css.map */

@@ -156,6 +156,9 @@ sonata_admin:
         Site_categoryGallery:
           label: Category Collections
           items: [sonata.admin.categoryGallery]
+        Site_styleGallery:
+          label: Styles Collections
+          items: [sonata.admin.styleGallery]
         Site_gallery:
           label: Collections
           items: [sonata.admin.gallery]

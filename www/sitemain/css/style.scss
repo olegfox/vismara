@@ -1477,4 +1477,47 @@ span.cf-name{
   -webkit-border-radius: 0px!important;;
 }
 
+// Breadcrumbs gallery
+.wrapper-breadcrumbs{
+  background: #dcdcdc;
+  .breadcrumbs{
+    margin: 0 auto;
+    max-width: 835px;
+    ul{
+      display: inline-block;
+      width: 50%;
+      padding: 0;
+      margin: 0;
+      &.right{
+        text-align: right;
+        li{
+          span{
+            text-decoration: underline;
+            &.line{
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      li{
+        display: inline-block;
+        span{
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          text-transform: uppercase;
+          &.line{
+            padding: 0px 5px;
+          }
+        }
+        a{
+          text-transform: uppercase;
+          color: #000;
+        }
+      }
+    }
+  }
+}
+// end Breadcrumbs gallery
+
 

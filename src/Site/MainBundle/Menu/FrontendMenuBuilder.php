@@ -33,7 +33,7 @@ class FrontendMenuBuilder extends ContainerAware
             if ($s->getId() != 1) {
                 if($s->getSlug() == 'collections'){
                     $menu->addChild($title, array(
-                        'route' => 'Site_main_gallery'
+                        'route' => 'Site_main_category_collections'
                     ));
                 }elseif($s->getSlug() == 'news'){
 //                    if($locale != 'ru'){

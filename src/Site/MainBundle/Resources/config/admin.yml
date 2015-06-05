@@ -10,10 +10,20 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.styleGallery:
+        class: Site\MainBundle\Admin\StyleGalleryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Styles Collections" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\StyleGallery
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
     sonata.admin.categoryGallery:
         class: Site\MainBundle\Admin\CategoryGalleryAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category Gallery" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category Collections" }
         arguments:
             - ~
             - Site\MainBundle\Entity\CategoryGallery
