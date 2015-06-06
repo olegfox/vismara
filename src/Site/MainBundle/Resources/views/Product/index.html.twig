@@ -7,19 +7,19 @@
 {% block stylesheets %}
     {{ parent() }}
 
-        <style type="text/css">
-            {% if page.background2.id is defined %}
-            .wrap {
-                background: url("{% path page.background2, 'reference' %}") top center;
-            }
-            {% endif %}
-            {% if page.background.id is defined %}
-            .wrapper-img {
-                background: url("{% path page.background, 'reference' %}") top center;
-            }
-            {% endif %}
-        </style>
-
+    <style type="text/css">
+        {% if page.background2.id is defined %}
+        .wrap {
+            background: url("{% path page.background2, 'reference' %}") top center;
+        }
+        {% endif %}
+        {% if page.background.id is defined %}
+        .wrapper-img {
+            background: url("{% path page.background, 'reference' %}") top center;
+        }
+        {% endif %}
+    </style>
+    <link rel="stylesheet" href="{{ asset('sitemain/js/wow/animate.min.css') }}" />
 {% endblock %}
 
 {% block slider %}
@@ -129,4 +129,10 @@
             </div>
         </div>
     {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('sitemain/js/wow/wow.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('sitemain/js/product.js') }}"></script>
 {% endblock %}

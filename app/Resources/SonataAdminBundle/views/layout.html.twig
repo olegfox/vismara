@@ -28,7 +28,9 @@
     {% if app.request.attributes.get('_route') == 'admin_site_main_gallery_edit' or
           app.request.attributes.get('_route') == 'admin_site_main_gallery_create' or
           app.request.attributes.get('_route') == 'admin_site_main_newsgallery_edit' or
-          app.request.attributes.get('_route') == 'admin_site_main_newsgallery_create'
+          app.request.attributes.get('_route') == 'admin_site_main_newsgallery_create' or
+          app.request.attributes.get('_route') == 'admin_site_main_product_edit' or
+          app.request.attributes.get('_route') == 'admin_site_main_product_create'
     %}
         <script type="text/javascript" src="{{ asset('sitemain/js/init_uploadify.js') }}"></script>
     {% endif %}

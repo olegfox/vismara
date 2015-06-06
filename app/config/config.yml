@@ -195,6 +195,9 @@ sonata_admin:
         Site_newsGalleryRu:
           label: NewsRu
           items: [sonata.admin.newsGalleryRu]
+        Site_newsGalleryCn:
+          label: NewsCn
+          items: [sonata.admin.newsGalleryCn]
         Site_clients:
           label: Clients
           items: [sonata.admin.client]

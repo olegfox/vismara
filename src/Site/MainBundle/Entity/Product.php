@@ -83,6 +83,26 @@ class Product
     private $description_cn = "";
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $text;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text_cn;
+
+    /**
      * @ORM\Column(type="text", nullable = true)
      */
     private $slug = "";
@@ -91,6 +111,11 @@ class Product
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $preview;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="product", orphanRemoval=true)
+     */
+    private $images;
 
     /**
      * @var datetime $created
@@ -574,5 +599,148 @@ class Product
     public function getStyle()
     {
         return $this->style;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Product
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set text_it
+     *
+     * @param string $textIt
+     * @return Product
+     */
+    public function setTextIt($textIt)
+    {
+        $this->text_it = $textIt;
+
+        return $this;
+    }
+
+    /**
+     * Get text_it
+     *
+     * @return string 
+     */
+    public function getTextIt()
+    {
+        return $this->text_it;
+    }
+
+    /**
+     * Set text_ru
+     *
+     * @param string $textRu
+     * @return Product
+     */
+    public function setTextRu($textRu)
+    {
+        $this->text_ru = $textRu;
+
+        return $this;
+    }
+
+    /**
+     * Get text_ru
+     *
+     * @return string 
+     */
+    public function getTextRu()
+    {
+        return $this->text_ru;
+    }
+
+    /**
+     * Set text_cn
+     *
+     * @param string $textCn
+     * @return Product
+     */
+    public function setTextCn($textCn)
+    {
+        $this->text_cn = $textCn;
+
+        return $this;
+    }
+
+    /**
+     * Get text_cn
+     *
+     * @return string 
+     */
+    public function getTextCn()
+    {
+        return $this->text_cn;
+    }
+
+    /**
+     * Add images
+     *
+     * @param \Site\MainBundle\Entity\Image $images
+     * @return Product
+     */
+    public function addImage(\Site\MainBundle\Entity\Image $images)
+    {
+        $this->images[] = $images;
+
+        return $this;
+    }
+
+    /**
+     * Remove images
+     *
+     * @param \Site\MainBundle\Entity\Image $images
+     */
+    public function removeImage(\Site\MainBundle\Entity\Image $images)
+    {
+        $this->images->removeElement($images);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function getGallery()
+    {
+        return $this->images;
+    }
+
+    public function setGallery()
+    {
+
+        return $this;
     }
 }

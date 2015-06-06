@@ -2,6 +2,7 @@
 
 namespace Site\MainBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ProductController extends Controller
@@ -26,5 +27,24 @@ class ProductController extends Controller
             "page" => $page
         );
         return $this->render('SiteMainBundle:Product:index.html.twig', $params);
+    }
+
+    /**
+     * Страница с продуктом
+     *
+     * @param $slug
+     * @return string
+     */
+    public function oneAction($slug){
+        $product = $this->getDoctrine()->getRepository("SiteMainBundle:Product")->findOneBySlug($slug);
+
+        if (!$product) {
+            throw $this->createNotFoundException("Not found product");
+        }
+
+        $params = array(
+            "product" => $product
+        );
+        return new Response($this->renderView("SiteMainBundle:Product:window.html.twig", $params), 200);
     }
 }

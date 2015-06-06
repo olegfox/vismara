@@ -53,6 +53,64 @@ class ProductAdmin extends Admin
                 'provider' => 'sonata.media.provider.image',
                 'context' => 'default',
                 'label' => 'Previews'
+            ))
+            ->add('text', 'textarea', array(
+                'label' => 'Text EN',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_it', 'textarea', array(
+                'label' => 'Text IT',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_ru', 'textarea', array(
+                'label' => 'Text RU',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_cn', 'textarea', array(
+                'label' => 'Text CN',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('images', 'sonata_type_collection',
+                array(
+                    'required' => false,
+                    'by_reference' => false,
+                    'label' => 'Images'
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'allow_delete' => true,
+                    'targetEntity' => 'Site\MainBundle\Entity\Image'
+                )
+            )
+            ->add('gallery', 'file', array(
+                'data_class' => null,
+                'required' => false,
+                'attr' => array(
+                    'class' => 'uploadify',
+                    'multiple' => true
+                ),
+                'label' => ' ',
             ));
     }
 

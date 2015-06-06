@@ -27,6 +27,12 @@ Site_main_products:
     requirements:
             _locale: en|it|ru|cn
 
+Site_main_product_one:
+    pattern:  /{_locale}/product/{slug}
+    defaults: { _controller: SiteMainBundle:Product:one}
+    requirements:
+            _locale: en|it|ru|cn
+
 Site_main_gallery:
     pattern:  /{_locale}/page/collections/
     defaults: { _controller: SiteMainBundle:Main:collections}

@@ -1,0 +1,60 @@
+{% if product is defined %}
+    <div class="wrap-window-product">
+        <div class="left wowload fadeInLeft"></div>
+        <div class="right wowload fadeInRight"></div>
+        <div class="window-product wowload bounceInUp">
+            <div class="close"></div>
+            <div class="box-product">
+                <div class="gallery-list">
+                    <ul>
+                        <li>
+                            <a href="javascript:showThumbnailProduct('{{ asset('.'~media_public_url(product.preview, 'reference')) }}');">
+                                <img src="{{ image('.'~media_public_url(product.preview, 'reference')).cropResize(120) }}" alt=""/>
+                            </a>
+                        </li>
+                        {% for i in product.images %}
+                            <li>
+                                <a href="javascript:showThumbnailProduct('{{ asset(i.src) }}');">
+                                    <img src="{{ image(i.src).cropResize(120) }}" alt=""/>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="image">
+                    <div class="table">
+                        <div class="table-cell">
+                            <img src="{{ asset('.'~media_public_url(product.preview, 'reference')) }}" alt=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <h1>
+                        {% if app.request.locale == "en" %}
+                            {{ product.title }}
+                        {% elseif app.request.locale == "it" %}
+                            {{ product.titleIt }}
+                        {% elseif app.request.locale == "cn" %}
+                            {{ product.titleCn }}
+                        {% elseif app.request.locale == "ru" %}
+                            {{ product.titleRu }}
+                        {% endif %}
+                    </h1>
+                    {% if app.request.locale == "en" %}
+                        {{ product.text|raw }}
+                    {% elseif app.request.locale == "it" %}
+                        {{ product.textIt|raw }}
+                    {% elseif app.request.locale == "cn" %}
+                        {{ product.textCn|raw }}
+                    {% elseif app.request.locale == "ru" %}
+                        {{ product.textRu|raw }}
+                    {% endif %}
+                </div>
+
+                <button>{{ 'send request'|trans }}</button>
+            </div>
+        </div>
+    </div>
+{% endif %}

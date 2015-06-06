@@ -42,7 +42,7 @@ class ClientManager
             ->setFrom(array('kontakti@vismara.it' => "VismaraDesign New Register"))
             ->setTo('kontakti@vismara.it')
             ->setBody(
-                $this->renderView(
+                $this->controller->renderView(
                     'SiteMainBundle:Client:register.message.html.twig',
                     array(
                         'client' => $client
@@ -50,7 +50,7 @@ class ClientManager
                 )
                 , 'text/html'
             );
-        $this->get('mailer')->send($swift);
+        $this->controller->get('mailer')->send($swift);
 
 		return $client;
 	}

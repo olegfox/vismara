@@ -17,7 +17,7 @@ services:
         arguments:
             - ~
             - Site\MainBundle\Entity\Product
-            - ~
+            - 'SiteMainBundle:ProductAdmin'
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
     sonata.admin.styleGallery:
