@@ -1397,7 +1397,8 @@ span.cf-name{
   color: #A08866;
   font-family: 'proxi-semi',helvetica,arial,sans-serif;
   display: block;
-  height: 14px;
+  height: auto;
+  min-height: 14px;
   margin-top: 16px;
 }
 .cf-m-info-cat-name {

@@ -60,3 +60,7 @@ phone: phone
 fax: fax
 watch video: guarda un video
 cookie_privacy: Questo sito web utilizza i cookie per essere sicuri di ottenere la migliore esperienza sul nostro sito
+client_message_email: E-MAIL:
+client_message_password: PASSWORD:
+client_message_header: <p>Gentile Cliente,</p><p>di seguito i dati di accesso per entrare nella sezione privata del sito vismara.it:</p>
+client_message_footer: <p>Buona visione!</p><p>Per qualsiasi chiarimento o richiesta vi prego di scriverci a: kontakti@vismara.it</p><p>A presto,</p><p>Vismara Design team</p>

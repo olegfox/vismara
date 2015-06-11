@@ -5,18 +5,46 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{{ 'PASSWORD'|trans }} VismaraDesign</title>
 </head>
-<body style="margin: 0px; width: 700px; font-family: Arial; letter-spacing: 2px;">
+<body style="margin: 0px; width: 700px; font-family: Arial;">
 <div class="content">
-    <table class="table" style="border-collapse: collapse;">
-        <tr>
-            <td><strong>{{ "form_catalog.email"|trans }}</strong></td>
-            <td>{{ client.getEmail() }}</td>
-        </tr>
-        <tr>
-            <td><strong>{{ "form_catalog.password"|trans }}</strong></td>
-            <td>{{ client.getPasswordText() }}</td>
-        </tr>
-    </table>
+
+    {{ 'client_message_header'|trans({}, "messages", locale)|raw }}
+
+    <p><a href="{{ path('client_login', {_locale: locale}) }}">{{ url('client_login', {_locale: locale}) }}</a></p>
+
+    <p><strong>{{ 'client_message_email'|trans({}, "messages", locale) }}</strong><a href="mailto:{{ client.getEmail() }}">{{ client.getEmail() }}</a></p>
+
+    <p><strong>{{ 'client_message_password'|trans({}, "messages", locale) }}</strong>{{ client.getPasswordText() }}</p>
+
+    {{ 'client_message_footer'|trans({}, "messages", locale)|raw }}
+
+    <p>Follow us on:</p>
+
+    <p><a href="http://instagram.com/vismaradesignitaly/">http://instagram.com/vismaradesignitaly/</a></p>
+
+    <p><a href="https://twitter.com/VismaraDesignIt">https://twitter.com/VismaraDesignIt</a></p>
+
+    <p><a href="https://www.facebook.com/VismaraDesign">https://www.facebook.com/VismaraDesign</a></p>
+
+    <p><a href="http://it.pinterest.com/VismaraDesign1/">http://it.pinterest.com/VismaraDesign1/</a></p>
+
+    <p>&nbsp;</p>
+
+    <p>ID WeChat: VismaraDesignAmbra</p>
+
+    <p>&nbsp;</p>
+
+    <p>VISMARA<strong>DESIGN</strong></p>
+
+    <p>Via Carducci n&deg; 3<br />
+        20822 Seveso - MB - Italy<br />
+        ITALY</p>
+
+    <p>Ph.+39-0362 503726</p>
+
+    <p>Fax +39-0362 551452</p>
+
+    <p><a href="http://www.vismara.it/">http://www.vismara.it</a></p>
 </div>
 </body>
 </html>

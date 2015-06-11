@@ -134,4 +134,8 @@ class ClientController extends Controller
         );
         return $this->render('SiteMainBundle:Client:catalogs.html.twig', $params);
     }
+
+    public function redirectAction(){
+        return $this->redirect($this->generateUrl('client_login'), 302);
+    }
 }

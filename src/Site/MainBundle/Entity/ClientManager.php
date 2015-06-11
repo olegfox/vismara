@@ -28,12 +28,14 @@ class ClientManager
 	{
 		$factory = $this->controller->get('security.encoder_factory');
 		$encoder = $factory->getEncoder($client);
+        $locale = $this->controller->get('request')->getLocale();
 
         $client->setUsername($client->getEmail());
         $passwordText = $client->getZone()->getPasswordText();
 		$password = $encoder->encodePassword($passwordText, $client->getSalt());
         $client->setPassword($password);
         $client->setPasswordText($passwordText);
+        $client->setLocale($locale);
 		$this->em->persist($client);
 		$this->em->flush();
 
@@ -42,7 +44,7 @@ class ClientManager
             ->setFrom(array('kontakti@vismara.it' => "VismaraDesign New Register"))
             ->setTo('kontakti@vismara.it')
             ->setBody(
-                $this->renderView(
+                $this->controller->renderView(
                     'SiteMainBundle:Client:register.message.html.twig',
                     array(
                         'client' => $client
@@ -50,7 +52,7 @@ class ClientManager
                 )
                 , 'text/html'
             );
-        $this->get('mailer')->send($swift);
+        $this->controller->get('mailer')->send($swift);
 
 		return $client;
 	}

@@ -60,3 +60,7 @@ phone: 电话
 fax: 传真
 watch video: 观看视频
 cookie_privacy: 本网站使用Cookies来确保您获得我们网站上的最佳体验
+client_message_email: E-MAIL:
+client_message_password: PASSWORD:
+client_message_header: <p>Dear Guest,</p><p>please find following log in data to enter in vismara.it reserved area:</p>
+client_message_footer: <p>Enjoy our catalogues!</p><p>For any further requests please write to: kontakti@vismara.it</p><p>Keep in touch,</p><p>Vismara Design team</p>

@@ -45,7 +45,8 @@ class ClientAdminController extends Controller
                             $this->renderView(
                                 'SiteMainBundle:Client:email.message.html.twig',
                                 array(
-                                    'client' => $object
+                                    'client' => $object,
+                                    'locale' => $object->getLocale()
                                 )
                             )
                             , 'text/html'

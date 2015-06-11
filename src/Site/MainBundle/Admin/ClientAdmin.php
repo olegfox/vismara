@@ -36,6 +36,7 @@ class ClientAdmin extends Admin
             ->add('email', 'email', array('label' => 'E-mail'))
             ->add('website', 'text', array('label' => 'Website'))
             ->add('text', 'textarea', array('label' => 'Text'))
+            ->add('locale', 'text', array('label' => 'Locale'))
             ->add('isActive', 'choice', array(
                 'required' => true,
                 'label' => 'Active',

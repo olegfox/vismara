@@ -134,6 +134,11 @@ class Client implements UserInterface, \Serializable
      */
     private $created;
 
+    /**
+     * @ORM\Column(type="string", length=2)
+     */
+    private $locale;
+
     public function __construct()
     {
         $this->isActive = false;
@@ -578,5 +583,28 @@ class Client implements UserInterface, \Serializable
     public function getZone()
     {
         return $this->zone;
+    }
+
+    /**
+     * Set locale
+     *
+     * @param string $locale
+     * @return Client
+     */
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Get locale
+     *
+     * @return string 
+     */
+    public function getLocale()
+    {
+        return $this->locale;
     }
 }

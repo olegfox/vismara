@@ -62,4 +62,11 @@ news:
 #         клиенты
 client:
     resource: @SiteMainBundle/Resources/config/client.yml
-    prefix: /client
+    prefix: /{_locale}/client
+    requirements:
+            _locale: en|it|ru|cn
+
+client_login_redirect:
+    pattern:  /client/login
+    defaults: { _controller: SiteMainBundle:Client:redirect }
+

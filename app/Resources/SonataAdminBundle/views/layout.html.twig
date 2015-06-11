@@ -28,7 +28,13 @@
     {% if app.request.attributes.get('_route') == 'admin_site_main_gallery_edit' or
           app.request.attributes.get('_route') == 'admin_site_main_gallery_create' or
           app.request.attributes.get('_route') == 'admin_site_main_newsgallery_edit' or
-          app.request.attributes.get('_route') == 'admin_site_main_newsgallery_create'
+          app.request.attributes.get('_route') == 'admin_site_main_newsgallery_create' or
+          app.request.attributes.get('_route') == 'admin_site_main_newsgalleryit_edit' or
+          app.request.attributes.get('_route') == 'admin_site_main_newsgalleryit_create' or
+          app.request.attributes.get('_route') == 'admin_site_main_newsgalleryru_edit' or
+          app.request.attributes.get('_route') == 'admin_site_main_newsgalleryru_create' or
+          app.request.attributes.get('_route') == 'admin_site_main_newsgallerycn_edit' or
+          app.request.attributes.get('_route') == 'admin_site_main_newsgallerycn_create'
     %}
         <script type="text/javascript" src="{{ asset('sitemain/js/init_uploadify.js') }}"></script>
     {% endif %}
