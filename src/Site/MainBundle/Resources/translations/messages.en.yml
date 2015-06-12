@@ -34,6 +34,10 @@ form_catalog:
   message_register: Thank you for registering! In your e-mail will be sent with a password to log on to the page with a list of directories.
   open_catalog: Go to the catalog
 
+product:
+  sizes: Sizes
+  colors: Color options
+
 Downloads: Downloads
 collection: collection
 RESERVED FOR COMPANIES: FOR COMPANIES

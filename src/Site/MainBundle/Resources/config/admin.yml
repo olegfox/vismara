@@ -20,6 +20,16 @@ services:
             - 'SiteMainBundle:ProductAdmin'
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.colorProduct:
+        class: Site\MainBundle\Admin\ColorProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Color" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\ColorProduct
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
     sonata.admin.styleGallery:
         class: Site\MainBundle\Admin\StyleGalleryAdmin
         tags:

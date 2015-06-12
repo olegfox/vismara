@@ -33,6 +33,7 @@ class ProductAdminController extends Controller
             if ($isFormValid && (!$this->isInPreviewMode() || $this->isPreviewApproved())) {
                 $this->admin->create($object);
                 $product = $object;
+//              Gallery Image
                 $imagesJson = $this->get('request')->get('gallery');
                 if ($imagesJson != "") {
                     $images = json_decode($imagesJson);

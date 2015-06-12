@@ -118,6 +118,11 @@ class Product
     private $images;
 
     /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    private $collectionImage;
+
+    /**
      * @var datetime $created
      *
      * @Gedmo\Timestampable(on="create")
@@ -149,6 +154,31 @@ class Product
      * @ORM\JoinColumn(name="id_style",  referencedColumnName="id")
      */
     private $style;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $size;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $size_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $size_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $size_cn;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ColorProduct", cascade={"persist", "remove"}, mappedBy="product", orphanRemoval=true)
+     */
+    private $colors;
 
     /**
      * Set title
@@ -742,5 +772,154 @@ class Product
     {
 
         return $this;
+    }
+
+    /**
+     * Set size
+     *
+     * @param string $size
+     * @return Product
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * Get size
+     *
+     * @return string 
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * Set size_it
+     *
+     * @param string $sizeIt
+     * @return Product
+     */
+    public function setSizeIt($sizeIt)
+    {
+        $this->size_it = $sizeIt;
+
+        return $this;
+    }
+
+    /**
+     * Get size_it
+     *
+     * @return string 
+     */
+    public function getSizeIt()
+    {
+        return $this->size_it;
+    }
+
+    /**
+     * Set size_ru
+     *
+     * @param string $sizeRu
+     * @return Product
+     */
+    public function setSizeRu($sizeRu)
+    {
+        $this->size_ru = $sizeRu;
+
+        return $this;
+    }
+
+    /**
+     * Get size_ru
+     *
+     * @return string 
+     */
+    public function getSizeRu()
+    {
+        return $this->size_ru;
+    }
+
+    /**
+     * Set size_cn
+     *
+     * @param string $sizeCn
+     * @return Product
+     */
+    public function setSizeCn($sizeCn)
+    {
+        $this->size_cn = $sizeCn;
+
+        return $this;
+    }
+
+    /**
+     * Get size_cn
+     *
+     * @return string 
+     */
+    public function getSizeCn()
+    {
+        return $this->size_cn;
+    }
+
+
+    /**
+     * Add colors
+     *
+     * @param \Site\MainBundle\Entity\ColorProduct $colors
+     * @return Product
+     */
+    public function addColor(\Site\MainBundle\Entity\ColorProduct $colors)
+    {
+        $this->colors[] = $colors;
+
+        return $this;
+    }
+
+    /**
+     * Remove colors
+     *
+     * @param \Site\MainBundle\Entity\ColorProduct $colors
+     */
+    public function removeColor(\Site\MainBundle\Entity\ColorProduct $colors)
+    {
+        $this->colors->removeElement($colors);
+    }
+
+    /**
+     * Get colors
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getColors()
+    {
+        return $this->colors;
+    }
+
+    /**
+     * Set collectionImage
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $collectionImage
+     * @return Product
+     */
+    public function setCollectionImage(\Application\Sonata\MediaBundle\Entity\Media $collectionImage = null)
+    {
+        $this->collectionImage = $collectionImage;
+
+        return $this;
+    }
+
+    /**
+     * Get collectionImage
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getCollectionImage()
+    {
+        return $this->collectionImage;
     }
 }

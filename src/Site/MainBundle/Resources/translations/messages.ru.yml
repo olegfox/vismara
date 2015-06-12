@@ -34,6 +34,11 @@ form_catalog:
   message_register: Спасибо за регистрацию! На вашу почту будет отправлено письмо с паролем для входа на страницу со списком каталогов.
   open_catalog: Перейти в каталог
 
+product:
+  sizes: Размеры
+  colors: Варианты цвета
+
+
 Downloads: Загрузки
 collection: коллекции
 RESERVED FOR COMPANIES: ДЛЯ КОМПАНИЙ

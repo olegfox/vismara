@@ -1351,9 +1351,11 @@ span.cf-name {
         top: 70px;
         bottom: 165px;
         width: 500px;
-        padding-left: 20px;
-        overflow-y: auto;
-        overflow-x: hidden; }
+        padding-left: 20px; }
+        .wrap-window-product .window-product .box-product .description .text {
+          max-height: 145px;
+          overflow-y: auto;
+          overflow-x: hidden; }
         @media (max-width: 1200px) {
           .wrap-window-product .window-product .box-product .description {
             width: 250px; } }

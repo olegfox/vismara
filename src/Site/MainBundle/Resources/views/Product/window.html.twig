@@ -31,6 +31,11 @@
                 </div>
 
                 <div class="description">
+                    {% if product.collectionImage.id is defined %}
+                    <div class="collection-image">
+                        <img src="{{ image('.'~media_public_url(product.collectionImage, 'reference')).cropResize(200) }}" alt=""/>
+                    </div>
+                    {% endif %}
                     <h1>
                         {% if app.request.locale == "en" %}
                             {{ product.title }}
@@ -42,14 +47,83 @@
                             {{ product.titleRu }}
                         {% endif %}
                     </h1>
-                    {% if app.request.locale == "en" %}
-                        {{ product.text|raw }}
-                    {% elseif app.request.locale == "it" %}
-                        {{ product.textIt|raw }}
-                    {% elseif app.request.locale == "cn" %}
-                        {{ product.textCn|raw }}
-                    {% elseif app.request.locale == "ru" %}
-                        {{ product.textRu|raw }}
+                    <div class="text">
+                        {% if app.request.locale == "en" %}
+                            {{ product.text|raw }}
+                        {% elseif app.request.locale == "it" %}
+                            {{ product.textIt|raw }}
+                        {% elseif app.request.locale == "cn" %}
+                            {{ product.textCn|raw }}
+                        {% elseif app.request.locale == "ru" %}
+                            {{ product.textRu|raw }}
+                        {% endif %}
+                    </div>
+                    {% if product.colors|length > 0 %}
+                        <div class="colors">
+                            <h2>{{ 'product.colors'|trans }}</h2>
+                            <div class="collection-thumb">
+                                <div>
+                                    {% for color in product.colors %}<div class="content-collection">
+                                        <div class="cf-image-name">
+                            <span>
+                                <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
+                            </span>
+                                <span class="cf-name">
+                                    {% if app.request.locale == "en" %}
+                                        {{ color.title }}
+                                    {% elseif app.request.locale == "it" %}
+                                        {{ color.titleIt }}
+                                    {% elseif app.request.locale == "cn" %}
+                                        {{ color.titleCn }}
+                                    {% elseif app.request.locale == "ru" %}
+                                        {{ color.titleRu }}
+                                    {% endif %}
+                                </span>
+                                        </div>
+
+                                        <div class="cf-m-info">
+                                            <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
+                                <span class="cf-m-info-prod-name">
+                                    {% if app.request.locale == "en" %}
+                                        {{ color.title }}
+                                    {% elseif app.request.locale == "it" %}
+                                        {{ color.titleIt }}
+                                    {% elseif app.request.locale == "cn" %}
+                                        {{ color.titleCn }}
+                                    {% elseif app.request.locale == "ru" %}
+                                        {{ color.titleRu }}
+                                    {% endif %}
+                                </span>
+                                <span class="cf-m-info-descr">
+                                    {% if app.request.locale == "en" %}
+                                        {{ color.description }}
+                                    {% elseif app.request.locale == "it" %}
+                                        {{ color.descriptionIt }}
+                                    {% elseif app.request.locale == "cn" %}
+                                        {{ color.descriptionCn }}
+                                    {% elseif app.request.locale == "ru" %}
+                                        {{ color.descriptionRu }}
+                                    {% endif %}
+                                </span>
+                                        </div>
+                                        </div>{% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if product.size|length > 0 %}
+                        <div class="size">
+                            <h2>{{ 'product.sizes'|trans }}</h2>
+                            {% if app.request.locale == "en" %}
+                                {{ product.size|raw }}
+                            {% elseif app.request.locale == "it" %}
+                                {{ product.sizeIt|raw }}
+                            {% elseif app.request.locale == "cn" %}
+                                {{ product.sizeCn|raw }}
+                            {% elseif app.request.locale == "ru" %}
+                                {{ product.sizeRu|raw }}
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div>
 

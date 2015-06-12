@@ -34,6 +34,10 @@ form_catalog:
   message_register: 感谢您注册！在您的电子邮件将与密码登录到该页面目录的列表进行发送。
   open_catalog: 转到目录
 
+product:
+  sizes: 尺寸
+  colors: 颜色选择
+
 Downloads: 下载
 collection: 产品系列
 RESERVED FOR COMPANIES: 公司用户

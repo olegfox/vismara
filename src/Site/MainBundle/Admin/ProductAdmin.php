@@ -20,6 +20,14 @@ class ProductAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('collectionImage', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'data_class'   =>  'Application\Sonata\MediaBundle\Entity\Media',
+                'validation_groups' => array('Default', 'image'),
+                'cascade_validation' => true,
+                'context' => 'default',
+                'label' => 'Collection Image'
+            ))
             ->add('style', 'entity', array(
                 'required' => true,
                 'label' => 'Style',
@@ -42,6 +50,10 @@ class ProductAdmin extends Admin
             ->add('description_it', 'textarea', array('label' => 'Description IT'))
             ->add('description_ru', 'textarea', array('label' => 'Description RU'))
             ->add('description_cn', 'textarea', array('label' => 'Description CN'))
+            ->add('size', 'textarea', array('label' => 'Size EN'))
+            ->add('size_it', 'textarea', array('label' => 'Size IT'))
+            ->add('size_ru', 'textarea', array('label' => 'Size RU'))
+            ->add('size_cn', 'textarea', array('label' => 'Size CN'))
             ->add('position', 'number', array(
                 'label' => 'Position',
                 'required' => false,
@@ -111,7 +123,45 @@ class ProductAdmin extends Admin
                     'multiple' => true
                 ),
                 'label' => ' ',
-            ));
+            ))
+            ->add('colors', 'sonata_type_collection',
+                array(
+                    'required' => false,
+                    'by_reference' => false,
+                    'label' => 'Color'
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'allow_delete' => true,
+                    'targetEntity' => 'Site\MainBundle\Entity\ColorProduct'
+                )
+            );
+    }
+
+    public function prePersist($product)
+    {
+        if ($product->getColors()) {
+            foreach ($product->getColors() as $color) {
+                $color->setProduct($product);
+                $this->saveFile($color);
+            }
+        }
+    }
+
+    public function preUpdate($product)
+    {
+        if ($product->getColors()) {
+            foreach ($product->getColors() as $color) {
+                $color->setProduct($product);
+                $this->saveFile($color);
+            }
+        }
+    }
+
+    public function saveFile($color) {
+        $basepath = $this->getRequest()->getBasePath();
+        $color->upload($basepath);
     }
 
     // Fields to be shown on filter forms

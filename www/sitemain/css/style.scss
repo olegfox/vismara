@@ -1661,8 +1661,11 @@ span.cf-name{
         bottom: 165px;
         width: 500px;
         padding-left: 20px;
-        overflow-y: auto;
-        overflow-x: hidden;
+        .text{
+          max-height: 145px;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
         @media (max-width: 1200px){
           width: 250px;
         }
