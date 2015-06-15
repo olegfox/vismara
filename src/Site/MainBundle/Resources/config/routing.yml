@@ -80,4 +80,6 @@ news:
 #         клиенты
 client:
     resource: @SiteMainBundle/Resources/config/client.yml
-    prefix: /client
+    prefix: /{_locale}/client
+    requirements:
+            _locale: en|it|ru|cn
