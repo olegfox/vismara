@@ -139,4 +139,12 @@ class Feedback
 
         return $this;
     }
+
+    public function getAccept(){
+
+    }
+
+    public function setAccept($accept){
+
+    }
 }

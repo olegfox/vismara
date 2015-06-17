@@ -585,25 +585,10 @@ ul {
   width: 100% !important;
   height: 100% !important;
   display: table !important;
+  background: rgba(0, 0, 0, 0.10);
   zoom: 0;
-  filter: alpha(opacity=0);
-  opacity: 0;
-//  -webkit-transition: opacity .5s ease-in-out;
-//  -moz-transition: opacity .5s ease-in-out;
-//  -ms-transition: opacity .5s ease-in-out;
-//  -o-transition: opacity .5s ease-in-out;
-//  transition: opacity .5s ease-in-out;
-  &:hover {
-    background: rgba(0, 0, 0, 0.10);
-    zoom: 0;
-    filter: alpha(opacity=10);
-    opacity: 1;
-//    -webkit-transition: opacity .5s ease-in-out;
-//    -moz-transition: opacity .5s ease-in-out;
-//    -ms-transition: opacity .5s ease-in-out;
-//    -o-transition: opacity .5s ease-in-out;
-//    transition: opacity .5s ease-in-out;
-  }
+  filter: alpha(opacity=10);
+  opacity: 1;
   &.nameHide {
     background: none;
   }
@@ -1528,10 +1513,10 @@ span.cf-name{
 .product{
   .wrap_name{
     height: 40px!important;
-    top: 0!important;
+    top: auto!important;
     bottom: 0;
-    left: 35px;
-    right: 35px;
+    left: 0px;
+    right: 0px;
     margin: auto;
     width: auto!important;
   }
@@ -1661,16 +1646,18 @@ span.cf-name{
         bottom: 165px;
         width: 500px;
         padding-left: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
         .text{
-          max-height: 145px;
-          overflow-y: auto;
-          overflow-x: hidden;
+          font-size: 14px;
         }
         @media (max-width: 1200px){
           width: 250px;
         }
         h1{
-          font-size: 24px;
+          font-size: 16px;
+          line-height: 1;
+          letter-spacing: 3px;
           margin: -9px 0px 15px 0px;
           text-transform: uppercase;
           @media all\0 {
@@ -1679,6 +1666,28 @@ span.cf-name{
         }
         p{
 
+        }
+        h2{
+          font-size: 16px;
+          line-height: 1;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+        }
+        div.collection-thumb{
+          margin: 0px -15px;
+          .content-collection{
+            margin: 0px 15px;
+          }
+        }
+        .cf-m-info{
+          width: 150px;
+          img{
+            width: 150px;
+          }
+        }
+        .collection-thumb .content-collection:hover .cf-m-info, .collection-thumb .content-collection.over .cf-m-info{
+          left: -20px;
+          top: -50px;
         }
       }
       button{
@@ -1706,4 +1715,14 @@ span.cf-name{
 }
 // end Product
 
+.accept{
+  label{
+    display: table-cell;
+    text-transform: none!important;
+  }
+  input{
+    display: table-cell;
+    width: auto!important;
+  }
+}
 

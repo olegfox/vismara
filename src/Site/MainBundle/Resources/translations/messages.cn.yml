@@ -8,6 +8,7 @@ form:
   message: 请输入信息
   first_name: 姓名
   second_name: 姓氏
+  accept: Il Cliente è informato e acconsente che Vismara Design, ai sensi dell'arti. 13 delle Legge n. 45 del 26 febbraio 2004, di conversione con modifiche dell'art.3 del D.L. 24/02.2003, n.354, tratti
 
 form_catalog:
   head: 若需获得产品目录，请先注册

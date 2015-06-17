@@ -363,4 +363,12 @@ class FeedbackCatalog
     {
         return $this->text;
     }
+
+    public function getAccept(){
+
+    }
+
+    public function setAccept($accept){
+
+    }
 }

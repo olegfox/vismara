@@ -579,4 +579,12 @@ class Client implements UserInterface, \Serializable
     {
         return $this->zone;
     }
+
+    public function getAccept(){
+
+    }
+
+    public function setAccept($accept){
+
+    }
 }

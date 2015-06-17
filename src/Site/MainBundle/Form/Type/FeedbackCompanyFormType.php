@@ -86,7 +86,8 @@ class FeedbackCompanyFormType extends AbstractType
                     "cols" => "40",
                     "rows" => "5"
                 )
-            ));
+            ))
+        ;
     }
 
     public function getName()
