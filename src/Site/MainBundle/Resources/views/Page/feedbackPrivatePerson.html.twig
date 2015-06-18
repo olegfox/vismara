@@ -36,6 +36,10 @@
                         {{ form_widget(form.message) }}<span>*</span>
                         </div>
                         <div class="form-actions clearfix">
+                            <div class="accept">
+                                {{ form_label(form.accept) }}
+                                {{ form_widget(form.accept) }}
+                            </div>
                             <button type="button" id="submit" class="btn btn-success btn-lg"
                                     ng-disabled="form.$invalid || (user.email != user.email2)"
                                     ng-click="submit()">{{ 'Send'|trans }}</button>

@@ -21,7 +21,7 @@ class Client implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25, unique=true)
+     * @ORM\Column(type="string", length=25, unique=false)
      */
     private $username;
 
@@ -606,5 +606,13 @@ class Client implements UserInterface, \Serializable
     public function getLocale()
     {
         return $this->locale;
+    }
+
+    public function getAccept(){
+
+    }
+
+    public function setAccept($accept){
+
     }
 }

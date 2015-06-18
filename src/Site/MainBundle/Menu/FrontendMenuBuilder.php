@@ -35,6 +35,14 @@ class FrontendMenuBuilder extends ContainerAware
                     $menu->addChild($title, array(
                         'route' => 'Site_main_gallery'
                     ));
+                }elseif($s->getSlug() == 'products'){
+                    $m = $menu->addChild($title, array(
+                        'route' => 'Site_main_category_products'
+                    ));
+
+                    if($routeName == 'Site_main_products'){
+                        $m->setCurrent(true);
+                    }
                 }elseif($s->getSlug() == 'news'){
 //                    if($locale != 'ru'){
                         $menu->addChild($title, array(

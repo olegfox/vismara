@@ -1,0 +1,54 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% from 'SiteMainBundle:CategoryCollections:macros.html.twig' import category %}
+
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+        <style type="text/css">
+            {% if page.background2.id is defined %}
+            .wrap {
+                background: url("{% path page.background2, 'reference' %}") top center;
+            }
+            {% endif %}
+            {% if page.background.id is defined %}
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+            {% endif %}
+        </style>
+
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper-collection catalog layout-max">
+        <div class="layout">
+            <div class="gallery group">
+                {{ category(categories) }}
+            </div>
+        </div>
+    </div>
+    {% if page is defined %}
+        <div class="wrap_content">
+            <div class="content catalog">
+                {% if app.request.locale == "en" %}
+                    {{ page.text|raw }}
+                {% elseif app.request.locale == "it" %}
+                    {{ page.textIt|raw }}
+                {% elseif app.request.locale == "cn" %}
+                    {{ page.textCn|raw }}
+                {% elseif app.request.locale == "ru" %}
+                    {{ page.textRu|raw }}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% macro category(categories) %}
+    {% for cat in categories %}
+        <div>
+            <a href="{{ path('Site_main_products', {category : cat.slug, filter: 'all'}) }}" class="zoom" id="zoom">
+                <img src="{{ image('.'~media_public_url(cat.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
+
+                <div class="wrap_name">
+                    <div class="name">
+                        <div>
+                            {% if app.request.locale == "en" %}
+                                {{ cat.title }}
+                            {% elseif app.request.locale == "it" %}
+                                {{ cat.titleIt }}
+                            {% elseif app.request.locale == "cn" %}
+                                {{ cat.titleCn }}
+                            {% elseif app.request.locale == "ru" %}
+                                {{ cat.titleRu }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+{% endmacro %}

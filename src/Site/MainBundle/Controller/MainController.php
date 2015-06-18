@@ -87,7 +87,7 @@ class MainController extends Controller
     }
 
     public function collectionsAction(){
-        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findBy(array(), array('position' => 'asc'));
+        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findAll();
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'collections'));
         $params = array(
             "catalogs" => $catalogs,

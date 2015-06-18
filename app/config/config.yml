@@ -153,9 +153,18 @@ sonata_admin:
         Site_menu:
           label: Menu
           items: [sonata.admin.menu]
+        Site_categoryGallery:
+          label: Category Collections
+          items: [sonata.admin.categoryGallery]
+        Site_styleGallery:
+          label: Styles Collections
+          items: [sonata.admin.styleGallery]
         Site_gallery:
           label: Collections
           items: [sonata.admin.gallery]
+        Site_product:
+          label: Products
+          items: [sonata.admin.product]
         Site_slider:
           label: Slider
           items: [sonata.admin.slider]
@@ -186,6 +195,9 @@ sonata_admin:
         Site_newsGalleryRu:
           label: NewsRu
           items: [sonata.admin.newsGalleryRu]
+        Site_newsGalleryCn:
+          label: NewsCn
+          items: [sonata.admin.newsGalleryCn]
         Site_clients:
           label: Clients
           items: [sonata.admin.client]

@@ -26,8 +26,8 @@
             <h2>
                 {{ "form_catalog.head"|trans }}<br/><br/>
                 {{ "form_catalog.head_link"|trans }}<br/><br/>
-                <a class="button_register" href="{{ path('client_register') }}">{{ "form_catalog.head_link2"|trans }}</a>
-                <a class="button_register" href="{{ path('client_login') }}">{{ "form_catalog.login"|trans }}</a>
+                <a class="button_register" href="{{ path('client_register', { _locale: app.request.locale }) }}">{{ "form_catalog.head_link2"|trans }}</a>
+                <a class="button_register" href="{{ path('client_login', { _locale: app.request.locale }) }}">{{ "form_catalog.login"|trans }}</a>
             </h2>
         </div>
     </div>

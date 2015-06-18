@@ -25,6 +25,7 @@
         </div>
         <div class="c950">
             {# Colors #}
+<<<<<<< HEAD
             {% if page is defined %}
                 {% if app.request.locale == 'en' %}
                     {{ page.text|raw }}
@@ -51,6 +52,9 @@
                 {#<h2>Woods</h2>#}
                 {#<img src="{{ asset('sitemain/img/colors/woods.jpg') }}" alt="" width="100%"/>#}
             {#</div>#}
+=======
+            {{ colorList(colorGroups) }}
+>>>>>>> products
         </div>
     </div>
 {% endblock %}

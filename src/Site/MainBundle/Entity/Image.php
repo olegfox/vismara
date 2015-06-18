@@ -111,6 +111,12 @@ class Image
     private $newsCn;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="images")
+     * @ORM\JoinColumn(name="id_product",  referencedColumnName="id")
+     */
+    private $product;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position;
@@ -578,5 +584,28 @@ class Image
     public function getNewsCn()
     {
         return $this->newsCn;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \Site\MainBundle\Entity\Product $product
+     * @return Image
+     */
+    public function setProduct(\Site\MainBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Site\MainBundle\Entity\Product 
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

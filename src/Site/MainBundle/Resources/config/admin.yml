@@ -10,6 +10,46 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.product:
+        class: Site\MainBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Product" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\Product
+            - 'SiteMainBundle:ProductAdmin'
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.colorProduct:
+        class: Site\MainBundle\Admin\ColorProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Color" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\ColorProduct
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.styleGallery:
+        class: Site\MainBundle\Admin\StyleGalleryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Styles Collections" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\StyleGallery
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
+    sonata.admin.categoryGallery:
+        class: Site\MainBundle\Admin\CategoryGalleryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category Collections" }
+        arguments:
+            - ~
+            - Site\MainBundle\Entity\CategoryGallery
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteMainBundle]]
     sonata.admin.gallery:
         class: Site\MainBundle\Admin\GalleryAdmin
         tags:

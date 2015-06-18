@@ -1,0 +1,138 @@
+{% extends 'SiteMainBundle::layout.html.twig' %}
+
+{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
+{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style type="text/css">
+        {% if page.background2.id is defined %}
+        .wrap {
+            background: url("{% path page.background2, 'reference' %}") top center;
+        }
+        {% endif %}
+        {% if page.background.id is defined %}
+        .wrapper-img {
+            background: url("{% path page.background, 'reference' %}") top center;
+        }
+        {% endif %}
+    </style>
+    <link rel="stylesheet" href="{{ asset('sitemain/js/wow/animate.min.css') }}" />
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+    {# Хлебные крошки #}
+    <div class="wrapper-breadcrumbs">
+        <div class="breadcrumbs">
+            <ul>
+               <li>
+                   <span>
+                       <a href="{{ path('Site_main_category_products') }}">
+                           {% if app.request.locale == "en" %}
+                               {{ page.title }}
+                           {% elseif app.request.locale == "it" %}
+                               {{ page.titleIt }}
+                           {% elseif app.request.locale == "cn" %}
+                               {{ page.titleCn }}
+                           {% elseif app.request.locale == "ru" %}
+                               {{ page.titleRu }}
+                           {% endif %}
+                       </a>
+                   </span>
+                   <span class="line">/</span>
+               </li>
+               <li>
+                   <span>
+                       {% if app.request.locale == "en" %}
+                           {{ category.title }}
+                       {% elseif app.request.locale == "it" %}
+                           {{ category.titleIt }}
+                       {% elseif app.request.locale == "cn" %}
+                           {{ category.titleCn }}
+                       {% elseif app.request.locale == "ru" %}
+                           {{ category.titleRu }}
+                       {% endif %}
+                   </span>
+               </li>
+            </ul><ul class="filter right">
+                <li>
+                   {% if filter == 'all' %}
+                       <span>all</span>
+                   {% else %}
+                       <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'filter': 'all'})) }}">all</a>
+                   {% endif %}
+                    <span class="line">/</span>
+                </li>
+                {% for f in filters %}
+                    <li>
+                       {% if filter == f.slug %}
+                           <span>
+                              {% if app.request.locale == "en" %}
+                                  {{ f.title }}
+                              {% elseif app.request.locale == "it" %}
+                                  {{ f.titleIt }}
+                              {% elseif app.request.locale == "cn" %}
+                                  {{ f.titleCn }}
+                              {% elseif app.request.locale == "ru" %}
+                                  {{ f.titleRu }}
+                              {% endif %}
+                           </span>
+                       {% else %}
+                           <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'filter': f.slug})) }}">
+                               {% if app.request.locale == "en" %}
+                                   {{ f.title }}
+                               {% elseif app.request.locale == "it" %}
+                                   {{ f.titleIt }}
+                               {% elseif app.request.locale == "cn" %}
+                                   {{ f.titleCn }}
+                               {% elseif app.request.locale == "ru" %}
+                                   {{ f.titleRu }}
+                               {% endif %}
+                           </a>
+                       {% endif %}
+
+                        {% if loop.last == false %}
+                            <span class="line">/</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {# end Хлебные крошки #}
+
+    <div class="wrapper-collection catalog layout-max">
+        <div class="layout">
+            <div class="gallery group">
+                {% include 'SiteMainBundle:Product:catalog.html.twig' %}
+            </div>
+        </div>
+    </div>
+    {% if page is defined %}
+        <div class="wrap_content">
+            <div class="content catalog">
+                {% if app.request.locale == "en" %}
+                    {{ page.text|raw }}
+                {% elseif app.request.locale == "it" %}
+                    {{ page.textIt|raw }}
+                {% elseif app.request.locale == "cn" %}
+                    {{ page.textCn|raw }}
+                {% elseif app.request.locale == "ru" %}
+                    {{ page.textRu|raw }}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('sitemain/js/wow/wow.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('sitemain/js/product.js') }}"></script>
+{% endblock %}

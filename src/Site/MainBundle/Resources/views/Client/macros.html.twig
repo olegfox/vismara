@@ -1,9 +1,4 @@
 {% macro one(catalog) %}<div class="wrap-box"><div class="box">
-        <img src="{{ image(catalog.photoWebPath).zoomCrop(200, 267).jpeg(100) }}" alt=""/>
-        <div class="buttons">
-            <a href="/catalogs/{{ catalog.filename }}" class="download iconlink" download="{{ catalog.filename }}"></a>
-            <a href="/catalogs/{{ catalog.filename }}" class="view iconlink" target="_blank"></a>
-        </div>
         <strong>
             {% if app.request.locale == "en" %}
                 {{ catalog.title }}
@@ -26,6 +21,11 @@
                 {{ catalog.descriptionRu }}
             {% endif %}
         </p>
+        <img src="{{ image(catalog.photoWebPath).zoomCrop(200, 267).jpeg(100) }}" alt=""/>
+        <div class="buttons">
+            <a href="/catalogs/{{ catalog.filename }}" class="download iconlink" download="{{ catalog.filename }}"></a>
+            <a href="/catalogs/{{ catalog.filename }}" class="view iconlink" target="_blank"></a>
+        </div>
     </div></div>{% endmacro %}
 
 {% macro colorList(colorGroups) %}

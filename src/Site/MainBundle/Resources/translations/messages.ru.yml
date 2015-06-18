@@ -8,6 +8,7 @@ form:
   message: Текст
   first_name: Имя
   second_name: Фамилия
+  accept: Il Cliente è informato e acconsente che Vismara Design, ai sensi dell'arti. 13 delle Legge n. 45 del 26 febbraio 2004, di conversione con modifiche dell'art.3 del D.L. 24/02.2003, n.354, tratti
 
 form_catalog:
   head: Для того, чтобы получить доступ к нашему каталогу продукции, вам необходимо зарегистрироваться.
@@ -33,6 +34,11 @@ form_catalog:
   zone: Зона
   message_register: Спасибо за регистрацию! На вашу почту будет отправлено письмо с паролем для входа на страницу со списком каталогов.
   open_catalog: Перейти в каталог
+
+product:
+  sizes: Размеры
+  colors: Варианты цвета
+
 
 Downloads: Загрузки
 collection: коллекции
@@ -61,3 +67,4 @@ client_message_email: E-MAIL:
 client_message_password: ПАРОЛЬ:
 client_message_header: <p>Уважаемые Клиенты,</p><p>ниже пароль и логин для входа в закрытый раздел на сайте vismara.it:</p>
 client_message_footer: <p>Приятного просмотра.</p><p>В случае возникновения любых вопросов просим писать на почту: <a href="mailto:">kontakti@vismara.it</p><p>С уважением,</p><p>Vismara Design team</p>
+cookie_privacy: Этот веб-сайт использует куки для того, чтобы улучшить работу на нашем сайте

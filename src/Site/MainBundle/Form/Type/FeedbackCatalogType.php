@@ -144,7 +144,15 @@ class FeedbackCatalogType extends AbstractType
                     "cols" => "40",
                     "rows" => "5"
                 )
-            ));
+            ))
+            ->add('accept', 'checkbox', array(
+                'required' => true,
+                'label' => 'form.accept',
+                'attr' => array(
+                    "ng-model" => "user.accept"
+                )
+            ))
+            ;
     }
 
     public function getName()

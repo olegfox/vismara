@@ -14,17 +14,12 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 
-class ColorAdmin extends Admin
+class ColorProductAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('colorGroup', 'entity', array(
-                'required' => false,
-                'label' => 'Color Group',
-                'class' => 'SiteMainBundle:ColorGroup'
-            ))
             ->add('title', 'text', array('label' => 'Title EN'))
             ->add('title_it', 'text', array('label' => 'Title IT'))
             ->add('title_ru', 'text', array('label' => 'Title RU'))
@@ -54,8 +49,7 @@ class ColorAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title', 'text', array('label' => 'Title'))
-            ->add('position', 'text', array('label' => 'Position', 'editable' => true))
-            ->add('colorGroup', null, array('label' => 'Color Group'));
+            ->add('position', 'text', array('label' => 'Position', 'editable' => true));
     }
 
     public function validate(ErrorElement $errorElement, $object)
