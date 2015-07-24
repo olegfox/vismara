@@ -9,6 +9,8 @@ form:
   first_name: NOME
   second_name: Cognome
   accept: Il Cliente è informato e acconsente che Vismara Design, ai sensi dell'arti. 13 delle Legge n. 45 del 26 febbraio 2004, di conversione con modifiche dell'art.3 del D.L. 24/02.2003, n.354, tratti
+  accept_yes: acconsento
+  accept_no: non acconsento
 
 form_catalog:
   head: Per poter accedere al nostro catalogo prodotti, è necessario registrarsi.
@@ -69,4 +71,5 @@ client_message_email: E-MAIL:
 client_message_password: PASSWORD:
 client_message_header: <p>Gentile Cliente,</p><p>di seguito i dati di accesso per entrare nella sezione privata del sito vismara.it:</p>
 client_message_footer: <p>Buona visione!</p><p>Per qualsiasi chiarimento o richiesta vi prego di scriverci a: kontakti@vismara.it</p><p>A presto,</p><p>Vismara Design team</p>
-cookie_privacy: Questo sito web utilizza i cookie per essere sicuri di ottenere la migliore esperienza sul nostro sito
+cookie_privacy: Questo sito utilizza cookie tecnici, per offrire una migliore esperienza di navigazione. Per conoscere la nostra policy o negare il consenso al loro utilizzo
+cookie_privacy_link: clicca qui

@@ -1,4 +1,7 @@
 (function () {
+    $('#accept').removeAttr('ng-model');
+    $('#accept input[type="radio"]').attr('ng-model', 'user.accept');
+
     var client = angular.module('client', ['ng.shims.placeholder']).config(function($interpolateProvider){
             $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
         }

@@ -25,7 +25,6 @@
         </div>
         <div class="c950">
             {# Colors #}
-<<<<<<< HEAD
             {% if page is defined %}
                 {% if app.request.locale == 'en' %}
                     {{ page.text|raw }}
@@ -38,23 +37,6 @@
                 {% endif %}
             {% endif %}
             {{ colorList(colorGroups) }}
-            {#<div class="colors">#}
-                {#<h2>Clothes</h2>#}
-                {#<img src="{{ asset('sitemain/img/colors/clothes.jpg') }}" alt="" width="100%"/>#}
-                {#<h2>Desire Samples</h2>#}
-                {#<img src="{{ asset('sitemain/img/colors/desire samples.jpg') }}" alt="" width="100%"/>#}
-                {#<h2>Lacquer Color</h2>#}
-                {#<img src="{{ asset('sitemain/img/colors/lacquer color.jpg') }}" alt="" width="100%"/>#}
-                {#<h2>Leathers</h2>#}
-                {#<img src="{{ asset('sitemain/img/colors/leathers.jpg') }}" alt="" width="100%"/>#}
-                {#<h2>Metallic Leaf</h2>#}
-                {#<img src="{{ asset('sitemain/img/colors/metallic leaf.jpg') }}" alt="" width="100%"/>#}
-                {#<h2>Woods</h2>#}
-                {#<img src="{{ asset('sitemain/img/colors/woods.jpg') }}" alt="" width="100%"/>#}
-            {#</div>#}
-=======
-            {{ colorList(colorGroups) }}
->>>>>>> products
         </div>
     </div>
 {% endblock %}

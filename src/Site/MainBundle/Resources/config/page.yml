@@ -1,5 +1,5 @@
 Site_main_catalogs:
-    pattern:  /catalogue/
+    pattern:  /catalogue_log-in/
     defaults: { _controller: SiteMainBundle:Main:catalogs}
 
 #Site_main_feedback:

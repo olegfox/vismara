@@ -8,7 +8,9 @@ form:
   message: Текст
   first_name: Имя
   second_name: Фамилия
-  accept: Il Cliente è informato e acconsente che Vismara Design, ai sensi dell'arti. 13 delle Legge n. 45 del 26 febbraio 2004, di conversione con modifiche dell'art.3 del D.L. 24/02.2003, n.354, tratti
+  accept: According to Art. 13 D. Decree Law No. 196/03 my data will be processed electronically and used for sending commercial information and / or statistic, advertising and opinion polls. In the specific case can be used to communicate the presence of new online catalog or my other news related to Vismara Design.
+  accept_yes: I accept
+  accept_no: Decline
 
 form_catalog:
   head: Для того, чтобы получить доступ к нашему каталогу продукции, вам необходимо зарегистрироваться.
@@ -67,4 +69,5 @@ client_message_email: E-MAIL:
 client_message_password: ПАРОЛЬ:
 client_message_header: <p>Уважаемые Клиенты,</p><p>ниже пароль и логин для входа в закрытый раздел на сайте vismara.it:</p>
 client_message_footer: <p>Приятного просмотра.</p><p>В случае возникновения любых вопросов просим писать на почту: <a href="mailto:">kontakti@vismara.it</p><p>С уважением,</p><p>Vismara Design team</p>
-cookie_privacy: Этот веб-сайт использует куки для того, чтобы улучшить работу на нашем сайте
+cookie_privacy: This website use technical cookie, to offer   The best web experience. To know our policy or to deny the consent of their use
+cookie_privacy_link: click here

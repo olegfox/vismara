@@ -647,4 +647,11 @@ class Catalogs
         // clean up the file property as you won't need it anymore
         $this->photoFile = null;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 }

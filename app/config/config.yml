@@ -21,7 +21,7 @@ framework:
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
-        cookie_lifetime: 3600
+        cookie_lifetime: 31536000
     fragments:       ~
     http_method_override: true
     serializer:
@@ -154,10 +154,10 @@ sonata_admin:
           label: Menu
           items: [sonata.admin.menu]
         Site_categoryGallery:
-          label: Category Collections
+          label: Category Products
           items: [sonata.admin.categoryGallery]
         Site_styleGallery:
-          label: Styles Collections
+          label: Styles Products
           items: [sonata.admin.styleGallery]
         Site_gallery:
           label: Collections

@@ -8,7 +8,9 @@ form:
   message: 请输入信息
   first_name: 姓名
   second_name: 姓氏
-  accept: Il Cliente è informato e acconsente che Vismara Design, ai sensi dell'arti. 13 delle Legge n. 45 del 26 febbraio 2004, di conversione con modifiche dell'art.3 del D.L. 24/02.2003, n.354, tratti
+  accept: According to Art. 13 D. Decree Law No. 196/03 my data will be processed electronically and used for sending commercial information and / or statistic, advertising and opinion polls. In the specific case can be used to communicate the presence of new online catalog or my other news related to Vismara Design.
+  accept_yes: I accept
+  accept_no: Decline
 
 form_catalog:
   head: 若需获得产品目录，请先注册
@@ -69,4 +71,5 @@ client_message_email: E-MAIL:
 client_message_password: PASSWORD:
 client_message_header: <p>Dear Guest,</p><p>please find following log in data to enter in vismara.it reserved area:</p>
 client_message_footer: <p>Enjoy our catalogues!</p><p>For any further requests please write to: kontakti@vismara.it</p><p>Keep in touch,</p><p>Vismara Design team</p>
-cookie_privacy: 本网站使用Cookies来确保您获得我们网站上的最佳体验
+cookie_privacy: This website use technical cookie, to offer   The best web experience. To know our policy or to deny the consent of their use
+cookie_privacy_link: click here

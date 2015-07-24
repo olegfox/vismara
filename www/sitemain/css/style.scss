@@ -356,6 +356,9 @@ ul {
   display: inline-block;
   line-height: 52px;
   line-height: 50 px\0;
+  &.hide{
+   display: none;
+  }
 }
 
 .nav li.last {
@@ -616,6 +619,7 @@ ul {
     bottom: 0;
   }
   .footer_text {
+    display: table;
     position: relative;
     background: none;
     line-height: 138px;
@@ -625,6 +629,16 @@ ul {
     text-transform: uppercase;
     z-index: 2;
     overflow: hidden;
+    p{
+      display: table-cell;
+      line-height: 20px;
+      margin: 0;
+      vertical-align: middle;
+      a{
+        color: #fff;
+        text-decoration: underline;
+      }
+    }
   }
   div {
     position: absolute;
@@ -1102,7 +1116,7 @@ a.facebook {
   .pull-right{
     text-align: right;
   }
-  input {
+  input[type="text"], input[type="email"] {
     font-family: Arial;
     font-size: 16px;
     width: 331px;
@@ -1655,6 +1669,9 @@ span.cf-name{
         padding-left: 20px;
         overflow-y: auto;
         overflow-x: hidden;
+        .collection-image{
+          margin-bottom: 40px;
+        }
         .text{
           font-size: 14px;
         }
@@ -1724,12 +1741,23 @@ span.cf-name{
 
 .accept{
   label{
-    display: table-cell;
     text-transform: none!important;
   }
-  input{
-    display: table-cell;
-    width: auto!important;
+  #accept{
+    padding: 10px 0px 20px 0px;
+    label{
+      display: inline-block!important;
+      text-transform: none!important;
+      padding-left: 0px;
+      margin-bottom: 0px!important;
+      margin-right: 40px;
+    }
+    input[type="radio"]{
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      margin-right: 5px;
+    }
   }
 }
 

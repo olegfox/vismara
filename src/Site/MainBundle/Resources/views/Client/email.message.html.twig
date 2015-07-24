@@ -10,7 +10,7 @@
 
     {{ 'client_message_header'|trans({}, "messages", locale)|raw }}
 
-    <p><a href="{{ path('client_login', {_locale: locale}) }}">{{ url('client_login', {_locale: locale}) }}</a></p>
+    <p><a href="{{ url('client_login', {_locale: locale}) }}">{{ url('client_login', {_locale: locale}) }}</a></p>
 
     <p><strong>{{ 'client_message_email'|trans({}, "messages", locale) }}</strong><a href="mailto:{{ client.getEmail() }}">{{ client.getEmail() }}</a></p>
 

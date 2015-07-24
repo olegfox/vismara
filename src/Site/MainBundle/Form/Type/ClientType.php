@@ -144,9 +144,15 @@ class ClientType extends AbstractType
                     "rows" => "5"
                 )
             ))
-            ->add('accept', 'checkbox', array(
+            ->add('accept', 'choice', array(
                 'required' => true,
                 'label' => 'form.accept',
+                'multiple' => false,
+                'expanded' => true,
+                'choices' => array(
+                    1 => 'form.accept_yes',
+                    0 => 'form.accept_no',
+                ),
                 'attr' => array(
                     "ng-model" => "user.accept"
                 )

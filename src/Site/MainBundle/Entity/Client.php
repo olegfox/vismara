@@ -21,7 +21,7 @@ class Client implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25, unique=false)
+     * @ORM\Column(type="string", length=100, unique=false)
      */
     private $username;
 

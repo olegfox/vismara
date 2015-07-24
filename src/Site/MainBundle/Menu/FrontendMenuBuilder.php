@@ -40,6 +40,10 @@ class FrontendMenuBuilder extends ContainerAware
                         'route' => 'Site_main_category_products'
                     ));
 
+                    $m->setAttributes(array(
+                        'class' => 'hide'
+                    ));
+
                     if($routeName == 'Site_main_products'){
                         $m->setCurrent(true);
                     }
@@ -55,11 +59,17 @@ class FrontendMenuBuilder extends ContainerAware
                         'routeParameters' => array('slug' => $s->getSlug(), '_locale' => $locale)
                     ));
 
-                    if( ($s->getSlug() == 'catalogue' && $routeName == 'client_catalogs') ||
-                        ($s->getSlug() == 'catalogue' && $routeName == 'client_login') ||
-                        ($s->getSlug() == 'catalogue' && $routeName == 'client_register') ||
-                        ($s->getSlug() == 'catalogue' && $routeName == 'client_register_complete')){
+                    if( ($s->getSlug() == 'catalogue_log-in' && $routeName == 'client_catalogs') ||
+                        ($s->getSlug() == 'catalogue_log-in' && $routeName == 'client_login') ||
+                        ($s->getSlug() == 'catalogue_log-in' && $routeName == 'client_register') ||
+                        ($s->getSlug() == 'catalogue_log-in' && $routeName == 'client_register_complete')){
                         $m->setCurrent(true);
+                    }
+
+                    if($s->getSlug() == 'cookie'){
+                        $m->setAttributes(array(
+                            'class' => 'hide'
+                        ));
                     }
                 }
             }else{

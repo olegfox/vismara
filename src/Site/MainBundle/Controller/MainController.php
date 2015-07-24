@@ -87,7 +87,7 @@ class MainController extends Controller
     }
 
     public function collectionsAction(){
-        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findAll();
+        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findBy(array(), array('position' => 'ASC'));
         $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'collections'));
         $params = array(
             "catalogs" => $catalogs,
@@ -102,7 +102,7 @@ class MainController extends Controller
             return $this->redirect($this->generateUrl('client_catalogs', array('slug' => $user->getZone()->getSlug())));
         }
 
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogue'));
+        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->findOneBy(array('slug' => 'catalogue_log-in'));
 
         $params = array(
             "page" => $page

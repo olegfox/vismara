@@ -17,7 +17,7 @@
     <script src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.1.0.2.min.js"></script>
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
-        window.cookieconsent_options = {"message":"{{ "cookie_privacy"|trans }}","dismiss":"OK","learnMore":"More info","link":null,"theme":"dark-bottom"};
+        window.cookieconsent_options = {"message":"{{ "cookie_privacy"|trans }}","dismiss":"OK","learnMore":"{{ "cookie_privacy_link"|trans }}","link":"{{ url('Site_main_page', {slug: 'cookie'}) }}","theme":"dark-bottom"};
     </script>
 {% endblock %}
 {% block body %}
@@ -89,7 +89,7 @@
                     {% endif %}
                 {% endif %}
                 <div class="footer_text">
-                    VISMARA DESIGN  <span class="icon_reg"><span>&reg;</span></span>   Via Carducci n° 3    20822 Seveso - MB - Italy. All rights reserved.
+                    <p>Vismara F.lli S.n.c. Via Carducci 3 20822 Seveso (MB) ITALY P.IVA IT 00687510966 Rea C.C.I.A.A.  di Monza e Brianza:554716 <a href="{{ path('Site_main_page', {slug : 'cookie'}) }}">privacy & legal notices</a></p>
                 </div>
             </div>
         {% endblock %}

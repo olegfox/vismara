@@ -31,10 +31,12 @@
                 </div>
 
                 <div class="description">
-                    {% if product.collectionImage.id is defined %}
-                    <div class="collection-image">
-                        <img src="{{ image('.'~media_public_url(product.collectionImage, 'reference')).cropResize(200) }}" alt=""/>
-                    </div>
+                    {% if product.collection.id is defined %}
+                        {% if product.collection.collectionImage.id is defined %}
+                        <div class="collection-image">
+                            <img src="{{ image('.'~media_public_url(product.collection.collectionImage, 'reference')).cropResize(200) }}" alt=""/>
+                        </div>
+                        {% endif %}
                     {% endif %}
                     <h1>
                         {% if app.request.locale == "en" %}

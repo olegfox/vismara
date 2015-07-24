@@ -118,11 +118,6 @@ class Product
     private $images;
 
     /**
-     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
-     */
-    private $collectionImage;
-
-    /**
      * @var datetime $created
      *
      * @Gedmo\Timestampable(on="create")
@@ -179,6 +174,12 @@ class Product
      * @ORM\OneToMany(targetEntity="ColorProduct", cascade={"persist", "remove"}, mappedBy="product", orphanRemoval=true)
      */
     private $colors;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="products")
+     * @ORM\JoinColumn(name="id_gallery",  referencedColumnName="id")
+     */
+    private $collection;
 
     /**
      * Set title
@@ -901,25 +902,25 @@ class Product
     }
 
     /**
-     * Set collectionImage
+     * Set collection
      *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $collectionImage
+     * @param \Site\MainBundle\Entity\Gallery $collection
      * @return Product
      */
-    public function setCollectionImage(\Application\Sonata\MediaBundle\Entity\Media $collectionImage = null)
+    public function setCollection(\Site\MainBundle\Entity\Gallery $collection = null)
     {
-        $this->collectionImage = $collectionImage;
+        $this->collection = $collection;
 
         return $this;
     }
 
     /**
-     * Get collectionImage
+     * Get collection
      *
-     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     * @return \Site\MainBundle\Entity\Gallery 
      */
-    public function getCollectionImage()
+    public function getCollection()
     {
-        return $this->collectionImage;
+        return $this->collection;
     }
 }

@@ -174,6 +174,16 @@ class Gallery
     private $dark = false;
 
     /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    private $collectionImage;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Product", cascade={"persist"}, mappedBy="gallery")
+     */
+    private $products;
+
+    /**
      * Get id
      *
      * @return integer
@@ -881,5 +891,65 @@ class Gallery
     public function getTextCn()
     {
         return $this->text_cn;
+    }
+
+    /**
+     * Set collectionImage
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $collectionImage
+     * @return Gallery
+     */
+    public function setCollectionImage(\Application\Sonata\MediaBundle\Entity\Media $collectionImage = null)
+    {
+        $this->collectionImage = $collectionImage;
+
+        return $this;
+    }
+
+    /**
+     * Get collectionImage
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getCollectionImage()
+    {
+        return $this->collectionImage;
+    }
+
+    /**
+     * Add products
+     *
+     * @param \Site\MainBundle\Entity\Product $products
+     * @return Gallery
+     */
+    public function addProduct(\Site\MainBundle\Entity\Product $products)
+    {
+        $this->products[] = $products;
+
+        return $this;
+    }
+
+    /**
+     * Remove products
+     *
+     * @param \Site\MainBundle\Entity\Product $products
+     */
+    public function removeProduct(\Site\MainBundle\Entity\Product $products)
+    {
+        $this->products->removeElement($products);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    public function __toString(){
+        return $this->title;
     }
 }

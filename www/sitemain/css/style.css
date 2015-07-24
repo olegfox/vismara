@@ -275,6 +275,8 @@ ul {
   display: inline-block;
   line-height: 52px;
   line-height: 50 px\0; }
+  .nav li.hide {
+    display: none; }
 
 .nav li.last {
   width: 100%;
@@ -494,6 +496,7 @@ ul {
     position: absolute;
     bottom: 0; }
   .wrapper-img .footer_text {
+    display: table;
     position: relative;
     background: none;
     line-height: 138px;
@@ -503,6 +506,14 @@ ul {
     text-transform: uppercase;
     z-index: 2;
     overflow: hidden; }
+    .wrapper-img .footer_text p {
+      display: table-cell;
+      line-height: 20px;
+      margin: 0;
+      vertical-align: middle; }
+      .wrapper-img .footer_text p a {
+        color: #fff;
+        text-decoration: underline; }
   .wrapper-img div {
     position: absolute;
     height: 100%;
@@ -874,7 +885,7 @@ a.facebook {
     vertical-align: top; }
   #catalogFeedback .pull-right {
     text-align: right; }
-  #catalogFeedback input {
+  #catalogFeedback input[type="text"], #catalogFeedback input[type="email"] {
     font-family: Arial;
     font-size: 16px;
     width: 331px;
@@ -1356,6 +1367,8 @@ span.cf-name {
         padding-left: 20px;
         overflow-y: auto;
         overflow-x: hidden; }
+        .wrap-window-product .window-product .box-product .description .collection-image {
+          margin-bottom: 40px; }
         .wrap-window-product .window-product .box-product .description .text {
           font-size: 14px; }
         @media (max-width: 1200px) {
@@ -1406,10 +1419,19 @@ span.cf-name {
           outline: 0; }
 
 .accept label {
-  display: table-cell;
   text-transform: none !important; }
-.accept input {
-  display: table-cell;
-  width: auto !important; }
+.accept #accept {
+  padding: 10px 0px 20px 0px; }
+  .accept #accept label {
+    display: inline-block !important;
+    text-transform: none !important;
+    padding-left: 0px;
+    margin-bottom: 0px !important;
+    margin-right: 40px; }
+  .accept #accept input[type="radio"] {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin-right: 5px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -27,6 +27,10 @@ security:
         admin:
             pattern:            /admin(.*)
             context:            user
+            remember_me:
+                key:      "%secret%"
+                lifetime: 604800 # 1 week in seconds
+                path:     /
             form_login:
                 provider:       fos_userbundle
                 login_path:     /admin/login

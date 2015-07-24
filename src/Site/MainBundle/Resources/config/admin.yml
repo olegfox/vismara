@@ -33,7 +33,7 @@ services:
     sonata.admin.styleGallery:
         class: Site\MainBundle\Admin\StyleGalleryAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Styles Collections" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Styles Products" }
         arguments:
             - ~
             - Site\MainBundle\Entity\StyleGallery
@@ -43,7 +43,7 @@ services:
     sonata.admin.categoryGallery:
         class: Site\MainBundle\Admin\CategoryGalleryAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category Collections" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category Products" }
         arguments:
             - ~
             - Site\MainBundle\Entity\CategoryGallery

@@ -20,6 +20,14 @@ class GalleryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('collectionImage', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'data_class'   =>  'Application\Sonata\MediaBundle\Entity\Media',
+                'validation_groups' => array('Default', 'image'),
+                'cascade_validation' => true,
+                'context' => 'default',
+                'label' => 'Collection Image'
+            ))
             ->add('title', 'text', array('label' => 'Header EN'))
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
