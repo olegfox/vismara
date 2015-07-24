@@ -106,6 +106,13 @@ class ProductAdminController extends Controller
                 }
                 $em->flush();
             }
+
+            foreach($product->getImages() as $image){
+                if($image->getImageName() != ''){
+                    $pathinfo = pathinfo($image->getMinSrc());
+                    rename($image->getMinSrc(), 'uploads/' . $image->getImageName() . '.' . $pathinfo['extension']);
+                }
+            }
         }
         return $result;
     }

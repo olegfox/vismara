@@ -22,6 +22,7 @@ class ImageAdmin extends Admin
     {
         $formMapper
             ->add('src', 'text', array('label' => 'Path', 'read_only' => true))
+            ->add('imageName', 'text', array('label' => 'Name Image File'))
             ->add('title', 'text', array('label' => 'Title EN'))
             ->add('title_it', 'text', array('label' => 'Title IT'))
             ->add('title_ru', 'text', array('label' => 'Title RU'))

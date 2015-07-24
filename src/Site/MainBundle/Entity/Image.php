@@ -122,6 +122,11 @@ class Image
     private $position;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $imageName = "";
+
+    /**
      * Get id
      *
      * @return integer 
@@ -607,5 +612,28 @@ class Image
     public function getProduct()
     {
         return $this->product;
+    }
+
+    /**
+     * Set imageName
+     *
+     * @param string $imageName
+     * @return Image
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return string 
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
     }
 }
