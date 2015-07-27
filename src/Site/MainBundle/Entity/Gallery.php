@@ -104,6 +104,7 @@ class Gallery
 
     /**
      * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="gallery", orphanRemoval=true)
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $images;
 

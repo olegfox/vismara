@@ -22,6 +22,7 @@ class ImageAdminController extends Controller
             unlink($object->getSrc());
             unlink($object->getMinSrc());
         }
+
         //return parent::deleteAction($id);
     }
 }

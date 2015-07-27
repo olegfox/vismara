@@ -117,11 +117,27 @@ class GalleryAdminController extends Controller
                         ->save("uploads/min" . $image);
                     $imageObject->setMinSrc("uploads/min" . $image);
                     $imageObject->setGallery($gallery);
+
+                    $em = $this->getDoctrine()->getManager();
+                    $query = $em->createQuery('SELECT i.position FROM SiteMainBundle:Image i ORDER BY i.position DESC');
+                    $lastPosition = $query->setFirstResult(0)->setMaxResults(1)->getSingleScalarResult();
+                    $imageObject->setPosition($lastPosition + 1);
+
                     $em->persist($imageObject);
                 }
                 $em->flush();
             }
         }
+
+        foreach($gallery->getImages() as $image){
+            if($image->getImageName() != ''){
+                $pathinfo = pathinfo($image->getMinSrc());
+                if(!file_exists('uploads/' . $image->getImageName() . '.' . $pathinfo['extension'])){
+                    rename($image->getMinSrc(), 'uploads/' . $image->getImageName() . '.' . $pathinfo['extension']);
+                }
+            }
+        }
+
         return $result;
     }
 }
