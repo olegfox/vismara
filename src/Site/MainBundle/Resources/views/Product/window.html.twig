@@ -7,14 +7,16 @@
             <div class="box-product">
                 <div class="gallery-list">
                     <ul>
-                        <li>
-                            <a href="javascript:showThumbnailProduct('{{ asset('.'~media_public_url(product.preview, 'reference')) }}');">
-                                <img src="{{ image('.'~media_public_url(product.preview, 'reference')).cropResize(120) }}" alt=""/>
-                            </a>
-                        </li>
+                        {% if product.preview.id is defined %}
+                            <li>
+                                <a href="javascript:showThumbnailProduct('{{ asset('.'~media_public_url(product.preview, 'reference')) }}', true);">
+                                    <img src="{{ image('.'~media_public_url(product.preview, 'reference')).cropResize(120) }}" alt=""/>
+                                </a>
+                            </li>
+                        {% endif %}
                         {% for i in product.images %}
                             <li>
-                                <a href="javascript:showThumbnailProduct('{{ asset(i.src) }}');">
+                                <a href="javascript:showThumbnailProduct('{{ asset(i.src) }}', false);">
                                     <img src="{{ image(i.src).cropResize(120) }}" alt=""/>
                                 </a>
                             </li>
@@ -25,7 +27,9 @@
                 <div class="image">
                     <div class="table">
                         <div class="table-cell">
-                            <img src="{{ asset('.'~media_public_url(product.preview, 'reference')) }}" alt=""/>
+                            {% if product.preview.id is defined %}
+                                <img src="{{ asset('.'~media_public_url(product.preview, 'reference')) }}" alt=""/>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

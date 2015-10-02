@@ -3,7 +3,11 @@
         {% if product.category.id is defined %}
             <div class="product">
                 <a href="#" onclick="showProduct(this); return false;" data-html="{{ render(url('Site_main_product_one', {slug: product.slug}))|json_encode }}" class="zoom" id="zoom">
-                    <img src="{{ image('.'~media_public_url(product.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
+                    {% if product.preview.id is defined %}
+                        <img src="{{ image('.'~media_public_url(product.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
+                    {% else %}
+                        <img src="{{ image('sitemain/img/bg80.png').zoomCrop(500, 403) }}" alt=""/>
+                    {% endif %}
                     <div class="wrap_name">
                         <div class="name">
                             <div>

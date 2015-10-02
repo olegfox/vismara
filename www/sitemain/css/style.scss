@@ -1116,7 +1116,7 @@ a.facebook {
   .pull-right{
     text-align: right;
   }
-  input[type="text"], input[type="email"] {
+  input[type="text"], input[type="email"], input[type="password"] {
     font-family: Arial;
     font-size: 16px;
     width: 331px;
@@ -1674,6 +1674,8 @@ span.cf-name{
         }
         .text{
           font-size: 14px;
+          text-align: justify;
+          text-transform: uppercase;
         }
         @media (max-width: 1200px){
           width: 250px;

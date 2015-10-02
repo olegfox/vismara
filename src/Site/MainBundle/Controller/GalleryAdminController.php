@@ -97,11 +97,11 @@ class GalleryAdminController extends Controller
     {
         $result = parent::editAction($id);
         $gallery = $this->admin->getObject($this->get('request')->get($this->admin->getIdParameter()));
+        $em = $this->getDoctrine()->getManager();
         if ($this->get('request')->getMethod() == 'POST') {
             $imagesJson = $this->get('request')->get('gallery');
             if ($imagesJson != "") {
                 $images = json_decode($imagesJson);
-                $em = $this->getDoctrine()->getManager();
                 foreach ($images as $image) {
                     $imageObject = new Image();
                     $imageObject->setMimeType(mime_content_type("uploads/" . $image));
@@ -119,8 +119,14 @@ class GalleryAdminController extends Controller
                     $imageObject->setGallery($gallery);
 
                     $em = $this->getDoctrine()->getManager();
-                    $query = $em->createQuery('SELECT i.position FROM SiteMainBundle:Image i ORDER BY i.position DESC');
-                    $lastPosition = $query->setFirstResult(0)->setMaxResults(1)->getSingleScalarResult();
+                    $query = $em->createQuery('SELECT i FROM SiteMainBundle:Image i ORDER BY i.position DESC');
+                    try{
+                        $res = $query->setFirstResult(0)->setMaxResults(1)->getOneOrNullResult();
+                        $lastPosition = $res->getPosition();
+                    } catch(Exception $e) {
+                        $lastPosition = 0;
+                    }
+
                     $imageObject->setPosition($lastPosition + 1);
 
                     $em->persist($imageObject);
@@ -132,8 +138,11 @@ class GalleryAdminController extends Controller
         foreach($gallery->getImages() as $image){
             if($image->getImageName() != ''){
                 $pathinfo = pathinfo($image->getMinSrc());
-                if(!file_exists('uploads/' . $image->getImageName() . '.' . $pathinfo['extension'])){
-                    rename($image->getMinSrc(), 'uploads/' . $image->getImageName() . '.' . $pathinfo['extension']);
+                $newFileName = 'uploads/' . $image->getImageName() . '.' . $pathinfo['extension'];
+                if(!file_exists($newFileName)){
+                    rename($image->getMinSrc(), $newFileName);
+                    $image->setMinSrc($newFileName);
+                    $em->flush();
                 }
             }
         }

@@ -3,12 +3,11 @@ $(function () {
         image = [],
         i = 0;
     $('.uploadify').parent().append("<input type='hidden' name='gallery' class='gallery' />");
-    $('.uploadify').uploadify({
+    $('.uploadify').uploadifive({
         'auto': false,
         'fileTypeDesc' : 'Image Files',
         'fileTypeExts' : '*.gif; *.jpg; *.png',
-        'swf': '/sitemain/js/uploadify/uploadify.swf',
-        'uploader': '/sitemain/js/uploadify/uploadify.php',
+        'uploadScript': '/sitemain/js/uploadifive/uploadifive.php',
         'onQueueComplete': function (queueData) {
             uploadEnd = 1;
             $(".gallery").val(JSON.stringify(image));
@@ -17,17 +16,18 @@ $(function () {
         'onUploadError': function (file, errorCode, errorMsg, errorString) {
             alert('Файл ' + file.name + ' не может быть загружен: ' + errorString);
         },
-        'onUploadSuccess': function (file, data, response) {
+        'onUploadComplete': function (file, data, response) {
             image[i] = data;
             i++;
         }
     });
+
     $("button[type='submit']").click(function () {
         $("form .type-button").remove();
         $("form").prepend("<input type='hidden' class='type-button' name='"+$(this).attr("name")+"' value='1' />");
         $("form").submit(function(){
-            if (uploadEnd == 0 && $(".uploadify-queue *").length > 0) {
-                $('.uploadify').uploadify('upload', '*');
+            if (uploadEnd == 0 && $(".uploadifive-queue *").length > 0) {
+                $('.uploadify').uploadifive('upload');
                 return false;
             }
         });

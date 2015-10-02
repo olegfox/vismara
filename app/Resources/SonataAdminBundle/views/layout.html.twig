@@ -9,7 +9,7 @@
     {#<link rel="stylesheet" href="{{ asset('bundles/sonatamarkitup/markitup/markitup/sets/textile/style.css') }}" type="text/css" media="all" />#}
     <link rel="stylesheet" href="{{ asset('sitemain/css/redactor/redactor.css') }}" type="text/css"/>
     <link href="{{ asset('sitemain/css/admin.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('sitemain/js/uploadify/uploadify.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('sitemain/js/uploadifive/uploadifive.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 {% block javascripts %}
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="{{ asset('sitemain/js/redactor/plugins/fontsize/fontsize.js') }}"></script>
     <script type="text/javascript" src="{{ asset('sitemain/js/redactor/plugins/fontfamily/fontfamily.js') }}"></script>
     <script type="text/javascript" src="{{ asset('sitemain/js/redactor/init_redactor.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('sitemain/js/uploadify/jquery.uploadify.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('sitemain/js/uploadifive/jquery.uploadifive.min.js') }}"></script>
     {% if app.request.attributes.get('_route') == 'admin_site_main_gallery_edit' or
           app.request.attributes.get('_route') == 'admin_site_main_gallery_create' or
           app.request.attributes.get('_route') == 'admin_site_main_newsgallery_edit' or

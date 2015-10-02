@@ -90,6 +90,7 @@ class ProductAdminController extends Controller
     {
         $result = parent::editAction($id);
         $product = $this->admin->getObject($this->get('request')->get($this->admin->getIdParameter()));
+        $lastPosition = -1;
         if ($this->get('request')->getMethod() == 'POST') {
             $imagesJson = $this->get('request')->get('gallery');
             if ($imagesJson != "") {
@@ -102,6 +103,29 @@ class ProductAdminController extends Controller
                     $imageObject->setSrc("uploads/" . $image);
                     $imageObject->setMinSrc("uploads/" . $image);
                     $imageObject->setProduct($product);
+
+                    $em = $this->getDoctrine()->getManager();
+
+                    if($lastPosition == -1){
+                        $query = $em->createQuery('SELECT i FROM SiteMainBundle:Image i LEFT JOIN i.product p WHERE p.id = :productId ORDER BY i.position DESC');
+                        $query = $query->setParameters(array('productId' => $product->getId()));
+                        try{
+                            $res = $query->setFirstResult(0)->setMaxResults(1)->getOneOrNullResult();
+                            if(is_object($res)){
+                                $lastPosition = $res->getPosition();
+                            }else{
+                                $lastPosition = 0;
+                            }
+                        } catch(Exception $e) {
+                            $lastPosition = 0;
+                        }
+                    }
+
+                    $lastPosition = $lastPosition + 1;
+
+                    $imageObject->setPosition($lastPosition);
+
+
                     $em->persist($imageObject);
                 }
                 $em->flush();

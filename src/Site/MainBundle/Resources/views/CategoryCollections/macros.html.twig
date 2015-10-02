@@ -2,8 +2,11 @@
     {% for cat in categories %}
         <div>
             <a href="{{ path('Site_main_products', {category : cat.slug, filter: 'all'}) }}" class="zoom" id="zoom">
-                <img src="{{ image('.'~media_public_url(cat.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
-
+                {% if cat.preview.id is defined %}
+                    <img src="{{ image('.'~media_public_url(cat.preview, 'reference')).zoomCrop(500, 403) }}" alt=""/>
+                {% else %}
+                    <img src="{{ image('sitemain/img/bg80.png').zoomCrop(500, 403) }}" alt=""/>
+                {% endif %}
                 <div class="wrap_name">
                     <div class="name">
                         <div>

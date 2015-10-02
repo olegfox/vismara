@@ -6,6 +6,11 @@ use Doctrine\ORM\EntityRepository;
 
 class ProductRepository extends EntityRepository
 {
+    public function findAll()
+    {
+        return $this->findBy(array(), array('position' => 'asc'));
+    }
+
     public function findByStyle($filter = "all", $category = null)
     {
         $em = $this->getEntityManager();

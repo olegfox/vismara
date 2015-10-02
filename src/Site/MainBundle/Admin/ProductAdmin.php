@@ -165,7 +165,10 @@ class ProductAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title', null, array('label' => 'Заголовок'));
+            ->add('title', null, array('label' => 'Header EN'))
+            ->add('collection', null, array('label' => 'Collection'))
+            ->add('style', null, array('label' => 'Style'))
+            ->add('category', null, array('label' => 'Category'));
     }
 
     // Fields to be shown on lists

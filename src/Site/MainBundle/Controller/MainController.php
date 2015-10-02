@@ -110,6 +110,10 @@ class MainController extends Controller
         return $this->render('SiteMainBundle:Catalogs:index.html.twig', $params);
     }
 
+    public function catalogsOldAction(){
+        return $this->redirect($this->generateUrl('Site_main_catalogs'), 302);
+    }
+
     public function generateImagesAction(){
         set_time_limit(0);
         $gallery = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findAll();

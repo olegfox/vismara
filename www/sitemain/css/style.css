@@ -885,7 +885,7 @@ a.facebook {
     vertical-align: top; }
   #catalogFeedback .pull-right {
     text-align: right; }
-  #catalogFeedback input[type="text"], #catalogFeedback input[type="email"] {
+  #catalogFeedback input[type="text"], #catalogFeedback input[type="email"], #catalogFeedback input[type="password"] {
     font-family: Arial;
     font-size: 16px;
     width: 331px;
@@ -1370,7 +1370,9 @@ span.cf-name {
         .wrap-window-product .window-product .box-product .description .collection-image {
           margin-bottom: 40px; }
         .wrap-window-product .window-product .box-product .description .text {
-          font-size: 14px; }
+          font-size: 14px;
+          text-align: justify;
+          text-transform: uppercase; }
         @media (max-width: 1200px) {
           .wrap-window-product .window-product .box-product .description {
             width: 250px; } }
