@@ -33,6 +33,6 @@ class SliderRepository extends EntityRepository
             ->setParameter('lang', $langNumber)
             ->getResult();
 
-        return $this->findBy(array('lang' => $langNumber), array('position' => 'ASC'));
+//        return $this->findBy(array('lang' => $langNumber), array('position' => 'ASC'));
     }
 }

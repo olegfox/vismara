@@ -47,7 +47,7 @@ class NewsGalleryCn
     private $text;
 
     /**
-     * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="newsRu", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Image", cascade={"persist", "remove"}, mappedBy="newsCn", orphanRemoval=true)
      */
     private $images;
 

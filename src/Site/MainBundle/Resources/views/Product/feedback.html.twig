@@ -1,0 +1,15 @@
+<form name="form" action="{{ path('Site_main_product_feedback') }}" method="post" novalidate>
+        {{ form_widget(form.firstname) }}<span>*</span>
+        {{ form_widget(form.lastname) }}<span>*</span>
+        {{ form_widget(form.country) }}<span>*</span>
+        {% for e in form.email %}
+            {{ form_widget(e) }}<span>*</span>
+        {% endfor %}
+        {{ form_widget(form.phone) }}
+        <button type="button" id="submit" class="btn btn-success btn-lg">{{ 'Send'|trans }}</button>
+        <button type="button" id="back" class="btn btn-success btn-lg">{{ 'Back'|trans }}</button>
+        <div class="successfully hide">{{ 'Letter has been sent successfully!'|trans }}</div>
+        {{ form_errors(form) }}
+        {{ form_end(form) }}
+    </div>
+</form>

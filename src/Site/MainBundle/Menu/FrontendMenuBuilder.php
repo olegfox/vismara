@@ -40,9 +40,9 @@ class FrontendMenuBuilder extends ContainerAware
                         'route' => 'Site_main_category_products'
                     ));
 
-                    $m->setAttributes(array(
-                        'class' => 'hide'
-                    ));
+//                    $m->setAttributes(array(
+//                        'class' => 'hide'
+//                    ));
 
                     if($routeName == 'Site_main_products'){
                         $m->setCurrent(true);

@@ -1,8 +1,8 @@
 {% if product is defined %}
     <div class="wrap-window-product">
-        <div class="left wowload fadeInLeft"></div>
-        <div class="right wowload fadeInRight"></div>
-        <div class="window-product wowload bounceInUp">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="window-product">
             <div class="close"></div>
             <div class="box-product">
                 <div class="gallery-list">
@@ -31,6 +31,8 @@
                                 <img src="{{ asset('.'~media_public_url(product.preview, 'reference')) }}" alt=""/>
                             {% endif %}
                         </div>
+                        <div class="n-left"></div>
+                        <div class="n-right"></div>
                     </div>
                 </div>
 
@@ -121,19 +123,23 @@
                         <div class="size">
                             <h2>{{ 'product.sizes'|trans }}</h2>
                             {% if app.request.locale == "en" %}
-                                {{ product.size|raw }}
+                                {{ product.size|raw|nl2br }}
                             {% elseif app.request.locale == "it" %}
-                                {{ product.sizeIt|raw }}
+                                {{ product.sizeIt|raw|nl2br }}
                             {% elseif app.request.locale == "cn" %}
-                                {{ product.sizeCn|raw }}
+                                {{ product.sizeCn|raw|nl2br }}
                             {% elseif app.request.locale == "ru" %}
-                                {{ product.sizeRu|raw }}
+                                {{ product.sizeRu|raw|nl2br }}
                             {% endif %}
                         </div>
                     {% endif %}
                 </div>
 
-                <button>{{ 'send request'|trans }}</button>
+                <div class="form">
+                    {% include 'SiteMainBundle:Product:feedback.html.twig' %}
+                </div>
+
+                <button class="sendMessage">{{ 'send request'|trans }}</button>
             </div>
         </div>
     </div>

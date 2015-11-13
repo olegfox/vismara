@@ -17,17 +17,17 @@ form_catalog:
   head_link: La registrazione è gratuita!
   head_link2: registro
   company_name: NOME DELLA SOCIETA’
-  privat_contact: CONTATTO PRIVATO:
-  contact_name: NOME E COGNOME:
-  your_task: MANSIONE:
-  company_field: Company field:
-  country: STATO’:
-  city: CITTA:
-  address: INDIRIZZO:
-  email: E-MAIL:
-  confirm_email: CONFIRMA E-MAIL:
-  website: SITO WEB:
-  requested_password: RICHIEDI PASSWORD:
+  privat_contact: CONTATTO PRIVATO
+  contact_name: NOME E COGNOME
+  your_task: MANSIONE
+  company_field: Company field
+  country: STATO
+  city: CITTA
+  address: INDIRIZZO
+  email: E-MAIL
+  confirm_email: CONFIRMA E-MAIL
+  website: SITO WEB
+  requested_password: RICHIEDI PASSWORD
   text: TESTO
   yes: si
   no: no
@@ -46,7 +46,7 @@ collection: collezioni
 RESERVED FOR COMPANIES: PER SOCIETA’
 RESERVED FOR INDIVIDUALS: PER PRIVATI
 PROCESSING OF PERSONAL DATA (PRIVACY POLICY): TRATTAMENTO DEI DATI PERSONALI (PRIVACY POLICY)
-Send: Inviare
+Send: Invia
 contacts: contatti
 e-mail: e-mail
 Letter from site: Lettera del sito
@@ -73,3 +73,6 @@ client_message_header: <p>Gentile Cliente,</p><p>di seguito i dati di accesso pe
 client_message_footer: <p>Buona visione!</p><p>Per qualsiasi chiarimento o richiesta vi prego di scriverci a: kontakti@vismara.it</p><p>A presto,</p><p>Vismara Design team</p>
 cookie_privacy: Questo sito utilizza cookie tecnici, per offrire una migliore esperienza di navigazione. Per conoscere la nostra policy o negare il consenso al loro utilizzo
 cookie_privacy_link: clicca qui
+Product: Prodotto
+Back: Indietro
+Phone: Telefono

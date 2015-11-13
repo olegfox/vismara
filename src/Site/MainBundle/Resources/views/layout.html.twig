@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('sitemain/css/style.css') }}"/>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
 
@@ -12,13 +11,6 @@
     <!--[if lte IE 8]>
     <link rel="stylesheet" type="text/css" href="{{ asset('sitemain/css/ie8.css') }}" media="screen">
     <![endif]-->
-    <link rel="stylesheet" href="{{ asset('sitemain/css/form.css') }}"/>
-    <!-- Minified Cookie Consent served from our CDN -->
-    <script src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.1.0.2.min.js"></script>
-    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-    <script type="text/javascript">
-        window.cookieconsent_options = {"message":"{{ "cookie_privacy"|trans }}","dismiss":"OK","learnMore":"{{ "cookie_privacy_link"|trans }}","link":"{{ url('Site_main_page', {slug: 'cookie'}) }}","theme":"dark-bottom"};
-    </script>
 {% endblock %}
 {% block body %}
     <script>
@@ -128,8 +120,16 @@
     <script src='{{ asset('sitemain/js/photoswipe/lib/jquery-1.6.1.min.js') }}'></script>
 {% endblock %}
 {% block javascripts %}
+    <link rel="stylesheet" href="{{ asset('sitemain/css/style.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('sitemain/css/form.css') }}"/>
     <!-- script -->
     {#<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js'></script>#}
+    <!-- Minified Cookie Consent served from our CDN -->
+    <script src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.1.0.2.min.js"></script>
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+        window.cookieconsent_options = {"message":"{{ "cookie_privacy"|trans }}","dismiss":"OK","learnMore":"{{ "cookie_privacy_link"|trans }}","link":"{{ url('Site_main_page', {slug: 'cookie'}) }}","theme":"dark-bottom"};
+    </script>
     <script src="{{ asset("sitemain/js/jquery.placeholder.js") }}"></script>
     <script type="text/javascript">
         function showMenu(object){

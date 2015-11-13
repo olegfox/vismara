@@ -1,30 +1,34 @@
 {% macro one(catalog) %}<div class="wrap-box"><div class="box">
-        <strong>
-            {% if app.request.locale == "en" %}
-                {{ catalog.title }}
-            {% elseif app.request.locale == "it" %}
-                {{ catalog.titleIt }}
-            {% elseif app.request.locale == "cn" %}
-                {{ catalog.titleCn }}
-            {% elseif app.request.locale == "ru" %}
-                {{ catalog.titleRu }}
-            {% endif %}
-        </strong>
-        <p>
-            {% if app.request.locale == "en" %}
-                {{ catalog.description }}
-            {% elseif app.request.locale == "it" %}
-                {{ catalog.descriptionIt }}
-            {% elseif app.request.locale == "cn" %}
-                {{ catalog.descriptionCn }}
-            {% elseif app.request.locale == "ru" %}
-                {{ catalog.descriptionRu }}
-            {% endif %}
-        </p>
-        <img src="{{ image(catalog.photoWebPath).zoomCrop(200, 267).jpeg(100) }}" alt=""/>
-        <div class="buttons">
-            <a href="/catalogs/{{ catalog.filename }}" class="download iconlink" download="{{ catalog.filename }}"></a>
-            <a href="/catalogs/{{ catalog.filename }}" class="view iconlink" target="_blank"></a>
+        <div class="block-left">
+            <img src="{{ image(catalog.photoWebPath).zoomCrop(200, 267).jpeg(100) }}" alt=""/>
+        </div>
+        <div class="block-right">
+            <strong>
+                {% if app.request.locale == "en" %}
+                    {{ catalog.title }}
+                {% elseif app.request.locale == "it" %}
+                    {{ catalog.titleIt }}
+                {% elseif app.request.locale == "cn" %}
+                    {{ catalog.titleCn }}
+                {% elseif app.request.locale == "ru" %}
+                    {{ catalog.titleRu }}
+                {% endif %}
+            </strong>
+            <p>
+                {% if app.request.locale == "en" %}
+                    {{ catalog.description }}
+                {% elseif app.request.locale == "it" %}
+                    {{ catalog.descriptionIt }}
+                {% elseif app.request.locale == "cn" %}
+                    {{ catalog.descriptionCn }}
+                {% elseif app.request.locale == "ru" %}
+                    {{ catalog.descriptionRu }}
+                {% endif %}
+            </p>
+            <div class="buttons">
+                <a href="/catalogs/{{ catalog.filename }}" class="download iconlink" download="{{ catalog.filename }}"></a>
+                <a href="/catalogs/{{ catalog.filename }}" class="view iconlink" target="_blank"></a>
+            </div>
         </div>
     </div></div>{% endmacro %}
 

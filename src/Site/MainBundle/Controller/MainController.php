@@ -55,11 +55,21 @@ class MainController extends Controller
     public function indexAction()
     {
         $locale = $this->get('request')->getLocale();
-        $page = $this->getDoctrine()->getRepository("SiteMainBundle:Menu")->find(1);
+        $em = $this->getDoctrine()->getManager();
+
+        $page = $em->createQuery('SELECT m FROM SiteMainBundle:Menu m WHERE m = :id')
+            ->setParameters(array(
+                'id' => 1
+            ))
+            ->getResult();
+
         $sliders = $this->getDoctrine()->getRepository("SiteMainBundle:Slider")->findByLang($locale);
-        $catalogs = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findBy(array(), array('position' => 'asc'));
+
+        $catalogs = $em->createQuery('SELECT g FROM SiteMainBundle:Gallery g ORDER BY g.position ASC')
+            ->getResult();
+
         $params = array(
-            "page" => $page,
+            "page" => $page[0],
             "sliders" => $sliders,
             "catalogs" => $catalogs
         );

@@ -6,29 +6,13 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('sitemain/css/flexslider.css') }}" rel="stylesheet">
-    <style type="text/css">
-        .flexslider{
-            width: 100%;
-            padding: 0;
-            overflow: hidden!important;
-            margin: -50px auto 0px;
-            z-index: 0;
-            max-width: inherit;
-        }
-        .flex-direction-nav{
-            display: none;
-        }
-    </style>
     {% if page.background.id is defined %}
-    <style type="text/css">
-        .wrapper-img {
-            background: url("{% path page.background, 'reference' %}") top center;
-        }
-    </style>
+        <style type="text/css">
+            .wrapper-img {
+                background: url("{% path page.background, 'reference' %}") top center;
+            }
+        </style>
     {% endif %}
-    <link rel="stylesheet" href="{{ asset('sitemain/js/fancybox/source/jquery.fancybox.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('sitemain/js/fancybox/source/helpers/jquery.fancybox-buttons.css') }}"/>
 {% endblock %}
     {% block slider %}
         {% if sliders is defined %}
@@ -88,12 +72,28 @@
 {% endblock %}
 
 {% block javascriptsTop %}
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 {% endblock %}
 
 {% block javascripts %}
     <!-- script -->
     {{ parent() }}
+    <link href="{{ asset('sitemain/css/flexslider.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('sitemain/js/fancybox/source/jquery.fancybox.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('sitemain/js/fancybox/source/helpers/jquery.fancybox-buttons.min.css') }}"/>
+    <style type="text/css">
+        .flexslider{
+            width: 100%;
+            padding: 0;
+            overflow: hidden!important;
+            margin: -50px auto 0px;
+            z-index: 0;
+            max-width: inherit;
+        }
+        .flex-direction-nav{
+            display: none;
+        }
+    </style>
     <script src="{{ asset('sitemain/js/jquery.flexslider-min.js') }}"></script>
     <script type="text/javascript"
             src="{{ asset('sitemain/js/fancybox/source/jquery.fancybox.pack.js') }}"></script>

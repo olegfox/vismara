@@ -267,7 +267,6 @@ ul {
 .nav ul {
   margin: 0px auto;
   padding: 0;
-  width: 835px;
   text-align: justify;
   height: 50px; }
 
@@ -375,7 +374,9 @@ ul {
   padding-bottom: 45px;
   padding-top: 19px; }
   .wrapper-collection.catalog .gallery.group {
-    margin-top: 0px; }
+    margin-top: 0px;
+    text-align: center;
+    font-size: 0; }
 
 .collection {
   padding: 27px 0 201px 0px; }
@@ -393,7 +394,8 @@ ul {
 .gallery {
   position: relative; }
   .gallery.group {
-    margin-top: 19px; }
+    margin-top: 19px;
+    font-size: 0; }
   .gallery .play {
     display: block;
     position: absolute;
@@ -410,8 +412,8 @@ ul {
       bottom: 0;
       margin: auto; }
 
-.gallery div {
-  float: left;
+.gallery > div {
+  display: inline-block;
   position: relative;
   width: 33.33%; }
 
@@ -419,8 +421,8 @@ ul {
   display: block;
   position: relative;
   overflow: hidden;
-  margin: 3px;
-  z-index: 0; }
+  z-index: 0;
+  margin: 3px; }
   .gallery div a.fancybox {
     position: absolute;
     top: 0px;
@@ -635,7 +637,7 @@ ul {
 .content .leftText {
   max-width: 100%; }
   .content .leftText .images {
-    padding: 0 7px 15px 7px; }
+    padding: 0 3px 15px 3px; }
 
 .content .leftText .image {
   padding: 0 1%; }
@@ -763,31 +765,47 @@ a.facebook {
       text-transform: uppercase;
       letter-spacing: 1px; }
   .bottombox .boxs {
-    margin: 0px -10px; }
+    margin: 0px -64px; }
     .bottombox .boxs .wrap-box {
       display: inline-block;
-      width: 25%;
+      width: 50%;
       margin-bottom: 30px;
       vertical-align: top; }
       .bottombox .boxs .wrap-box .box {
-        margin: 0px 10px; }
+        margin: 0px 64px;
+        font-size: 0; }
+        .bottombox .boxs .wrap-box .box .block-left {
+          display: inline-block;
+          width: 40%;
+          vertical-align: top; }
+        .bottombox .boxs .wrap-box .box .block-right {
+          display: inline-block;
+          width: 60%;
+          vertical-align: top; }
         .bottombox .boxs .wrap-box .box a {
           font-size: 14px;
           text-transform: uppercase;
           text-decoration: none; }
         .bottombox .boxs .wrap-box .box strong {
+          display: block;
           color: #000;
-          text-transform: uppercase; }
+          font-size: 14px;
+          text-transform: uppercase;
+          padding-left: 20px;
+          margin-top: -4px;
+          margin-bottom: 10px; }
         .bottombox .boxs .wrap-box .box p {
           color: #000;
           margin: 0;
-          font-size: 0.6em; }
+          font-size: 8px;
+          padding-left: 20px; }
         .bottombox .boxs .wrap-box .box img {
           border: solid 1px;
-          margin-top: 10px;
+          margin-top: 0px;
           width: 100%; }
         .bottombox .boxs .wrap-box .box .buttons {
-          text-align: center;
+          text-align: left;
+          margin-left: 20px;
           margin-top: 10px;
           margin-bottom: 10px; }
           .bottombox .boxs .wrap-box .box .buttons .iconlink {
@@ -795,7 +813,7 @@ a.facebook {
             width: 29px;
             height: 20px;
             color: #000;
-            margin: 0px 10px; }
+            margin: 0px 10px 0px 0px; }
             .bottombox .boxs .wrap-box .box .buttons .iconlink.download {
               background: url(/sitemain/img/pdf_buttons.png) no-repeat 0 0; }
             .bottombox .boxs .wrap-box .box .buttons .iconlink.view {
@@ -1281,14 +1299,14 @@ span.cf-name {
     bottom: 0px;
     margin: auto 0;
     width: 38px;
-    height: 92px;
-    background: url("../img/icon-product.png") 0px 0px no-repeat;
+    height: 206px;
+    background: url("../img/icon-product.png") 0px center no-repeat;
     cursor: pointer; }
     @media (max-width: 1200px) {
       .wrap-window-product .left {
         width: 30px;
-        height: 83px;
-        background: url("../img/icon-product.png") 0px 0px no-repeat;
+        height: 197px;
+        background: url("../img/icon-product.png") 0px center no-repeat;
         background-size: cover; } }
   .wrap-window-product .right {
     position: absolute;
@@ -1297,15 +1315,37 @@ span.cf-name {
     bottom: 0px;
     margin: auto 0;
     width: 38px;
-    height: 92px;
-    background: url("../img/icon-product.png") -38px 0px no-repeat;
+    height: 206px;
+    background: url("../img/icon-product.png") -38px center no-repeat;
     cursor: pointer; }
     @media (max-width: 1200px) {
       .wrap-window-product .right {
         width: 30px;
-        height: 83px;
-        background: url("../img/icon-product.png") -38px 0px no-repeat;
+        height: 197px;
+        background: url("../img/icon-product.png") -132px center no-repeat;
         background-size: cover; } }
+  .wrap-window-product .n-left {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0px;
+    margin: auto 0;
+    width: 14px;
+    height: 80px;
+    background: url("../img/icon-product.png") 0px center no-repeat;
+    background-size: cover;
+    cursor: pointer; }
+  .wrap-window-product .n-right {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0px;
+    margin: auto 0;
+    width: 14px;
+    height: 80px;
+    background: url("../img/icon-product.png") -52px center no-repeat;
+    background-size: cover;
+    cursor: pointer; }
   .wrap-window-product .window-product {
     position: absolute;
     width: 90%;
@@ -1315,8 +1355,7 @@ span.cf-name {
     top: 0px;
     bottom: 0px;
     margin: auto;
-    background: #fff;
-    visibility: hidden; }
+    background: #fff; }
     .wrap-window-product .window-product .close {
       position: absolute;
       right: 22.5px;
@@ -1367,6 +1406,10 @@ span.cf-name {
         padding-left: 20px;
         overflow-y: auto;
         overflow-x: hidden; }
+        .wrap-window-product .window-product .box-product .description ul {
+          list-style-type: disc; }
+        .wrap-window-product .window-product .box-product .description * {
+          padding-right: 14px; }
         .wrap-window-product .window-product .box-product .description .collection-image {
           margin-bottom: 40px; }
         .wrap-window-product .window-product .box-product .description .text {
@@ -1401,24 +1444,68 @@ span.cf-name {
         .wrap-window-product .window-product .box-product .description .collection-thumb .content-collection:hover .cf-m-info, .wrap-window-product .window-product .box-product .description .collection-thumb .content-collection.over .cf-m-info {
           left: -20px;
           top: -50px; }
-      .wrap-window-product .window-product .box-product button {
+      .wrap-window-product .window-product .box-product .form {
+        display: none;
         position: absolute;
-        right: 325px;
-        bottom: 70px;
-        color: #000;
-        font-size: 18px;
-        width: 255px;
-        height: 65px;
-        background: #adadad;
-        margin-top: 30px;
-        text-transform: uppercase;
-        border: 0; }
-        @media (max-width: 1200px) {
-          .wrap-window-product .window-product .box-product button {
-            width: 250px;
-            right: 70px; } }
-        .wrap-window-product .window-product .box-product button:focus {
-          outline: 0; }
+        right: 70px;
+        top: 70px;
+        bottom: 165px;
+        width: 500px;
+        padding-left: 20px;
+        overflow-y: auto;
+        overflow-x: hidden; }
+        .wrap-window-product .window-product .box-product .form label {
+          font-family: Arial;
+          font-size: 16px;
+          color: #fff;
+          text-transform: uppercase;
+          margin-bottom: 17px;
+          display: block; }
+        .wrap-window-product .window-product .box-product .form .successfully {
+          font-family: Arial;
+          font-size: 16px;
+          color: #000;
+          text-transform: uppercase;
+          width: 800px;
+          line-height: 38px; }
+        .wrap-window-product .window-product .box-product .form input {
+          font-family: Arial;
+          font-size: 16px;
+          width: 260px;
+          height: 14px;
+          border: 0;
+          padding: 12px;
+          margin-bottom: 20px;
+          text-transform: uppercase;
+          display: inline-block;
+          vertical-align: top;
+          color: #858686;
+          font-weight: bold;
+          border: #000 solid 2px; }
+          .wrap-window-product .window-product .box-product .form input.error {
+            border: red solid 2px; }
+        .wrap-window-product .window-product .box-product .form span {
+          margin-left: -15px; }
+    .wrap-window-product .window-product button.sendMessage {
+      position: absolute;
+      background: url("/sitemain/img/icon-email.png") 0 0 no-repeat;
+      background-size: cover;
+      right: 480px;
+      bottom: 70px;
+      color: #000;
+      font-size: 0px;
+      width: 86px;
+      height: 65px;
+      margin-top: 30px;
+      text-transform: uppercase;
+      border: 0;
+      content: '';
+      cursor: pointer; }
+      @media (max-width: 1200px) {
+        .wrap-window-product .window-product button.sendMessage {
+          right: 70px; } }
+      .wrap-window-product .window-product button.sendMessage:focus {
+        outline: 0; }
 
 .accept label {
   text-transform: none !important; }

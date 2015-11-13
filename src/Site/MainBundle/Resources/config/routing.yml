@@ -23,9 +23,22 @@ Site_main_category_products:
 
 Site_main_products:
     pattern:  /{_locale}/page/category/{category}/products/{filter}/
-    defaults: { _controller: SiteMainBundle:Product:index, filter: 'all'}
+    defaults: { _controller: SiteMainBundle:Product:index, filter: 'contemporary'}
     requirements:
             _locale: en|it|ru|cn
+
+Site_main_products_one:
+    pattern:  /{_locale}/page/category/{category}/products/{filter}/{slug}
+    defaults: { _controller: SiteMainBundle:Product:index, filter: 'contemporary'}
+    requirements:
+            _locale: en|it|ru|cn
+
+Site_main_product_feedback:
+    pattern:  /{_locale}/product/feedback
+    defaults: { _controller: SiteMainBundle:Product:feedback}
+    requirements:
+            _locale: en|it|ru|cn
+            _method: post
 
 Site_main_product_one:
     pattern:  /{_locale}/product/{slug}

@@ -1,3 +1,5 @@
+<? ob_start ("ob_gzhandler"); ?>
+
 <?php
 
 use Symfony\Component\ClassLoader\ApcClassLoader;

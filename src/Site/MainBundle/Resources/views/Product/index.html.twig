@@ -1,8 +1,74 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
-{% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
-{% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
+{% block title %}
+    {% if product.id is defined %}
+        {% if app.request.locale == "it" %}
+            {{ product.titleIt }}
+        {% elseif app.request.locale == "ru" %}
+            {{ product.titleRu }}
+        {% elseif app.request.locale == "cn" %}
+            {{ product.titleCn }}
+        {% else %}
+            {{ product.title }}
+        {% endif %}
+    {% else %}
+        {% if app.request.locale == "it" %}
+            {{ page.titleIt }}
+        {% elseif app.request.locale == "ru" %}
+            {{ page.titleRu }}
+        {% elseif app.request.locale == "cn" %}
+            {{ page.titleCn }}
+        {% else %}
+            {{ page.title }}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block keywords %}
+    {% if product.id is defined %}
+        {% if app.request.locale == "it" %}
+            {{ product.keywordIt }}
+        {% elseif app.request.locale == "ru" %}
+            {{ product.keywordRu }}
+        {% elseif app.request.locale == "cn" %}
+            {{ product.keywordCn }}
+        {% else %}
+            {{ product.keyword }}
+        {% endif %}
+    {% else %}
+        {% if app.request.locale == "it" %}
+            {{ page.keywordIt }}
+        {% elseif app.request.locale == "ru" %}
+            {{ page.keywordRu }}
+        {% elseif app.request.locale == "cn" %}
+            {{ page.keywordCn }}
+        {% else %}
+            {{ page.keyword }}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block description %}
+    {% if product.id is defined %}
+        {% if app.request.locale == "it" %}
+            {{ product.descriptionIt }}
+        {% elseif app.request.locale == "ru" %}
+            {{ product.descriptionRu }}
+        {% elseif app.request.locale == "cn" %}
+            {{ product.descriptionCn }}
+        {% else %}
+            {{ product.description }}
+        {% endif %}
+    {% else %}
+        {% if app.request.locale == "it" %}
+            {{ page.descriptionIt }}
+        {% elseif app.request.locale == "ru" %}
+            {{ page.descriptionRu }}
+        {% elseif app.request.locale == "cn" %}
+            {{ page.descriptionCn }}
+        {% else %}
+            {{ page.description }}
+        {% endif %}
+    {% endif %}
+{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -61,14 +127,14 @@
                    </span>
                </li>
             </ul><ul class="filter right">
-                <li>
-                   {% if filter == 'all' %}
-                       <span>all</span>
-                   {% else %}
-                       <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'filter': 'all'})) }}">all</a>
-                   {% endif %}
-                    <span class="line">/</span>
-                </li>
+                {#<li>#}
+                   {#{% if filter == 'all' %}#}
+                       {#<span>all</span>#}
+                   {#{% else %}#}
+                       {#<a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'filter': 'all'})) }}">all</a>#}
+                   {#{% endif %}#}
+                    {#<span class="line">/</span>#}
+                {#</li>#}
                 {% for f in filters %}
                     <li>
                        {% if filter == f.slug %}
@@ -135,4 +201,9 @@
     {{ parent() }}
     <script type="text/javascript" src="{{ asset('sitemain/js/wow/wow.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('sitemain/js/product.js') }}"></script>
+    {% if app.request.attributes.get('_route') == 'Site_main_products_one' %}
+        <script type="text/javascript">
+            $("*[href='{{ path('Site_main_products_one', {category : app.request.get('category'), filter: app.request.get('filter'), slug : product.slug}) }}']").click();
+        </script>
+    {% endif %}
 {% endblock %}
