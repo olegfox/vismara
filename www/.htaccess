@@ -96,3 +96,13 @@ BrowserMatch "Mozilla/4.[0-9]{2}" force-no-vary
 </ifmodule>
 
 AddOutputFilterByType DEFLATE text/css text/html text/plain text/xml image/png
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+ Header set Connection keep-alive
+</IfModule>

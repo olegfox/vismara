@@ -1,6 +1,6 @@
 {% extends 'SiteMainBundle::layout.html.twig' %}
 
-{% block title %}{% if app.request.locale == "it" %}{{ page.titleIt }}{% elseif app.request.locale == "ru" %}{{ page.titleRu }}{% elseif app.request.locale == "cn" %}{{ page.titleCn }}{% else %}{{ page.title }}{% endif %}{% endblock %}
+{% block title %}{% if app.request.locale == "it" %}{{ page.metaTitleIt }}{% elseif app.request.locale == "ru" %}{{ page.metaTitleRu }}{% elseif app.request.locale == "cn" %}{{ page.metaTitleCn }}{% else %}{{ page.metaTitle }}{% endif %}{% endblock %}
 {% block keywords %}{% if app.request.locale == "it" %}{{ page.keywordIt }}{% elseif app.request.locale == "ru" %}{{ page.keywordRu }}{% elseif app.request.locale == "cn" %}{{ page.keywordCn }}{% else %}{{ page.keyword }}{% endif %}{% endblock %}
 {% block description %}{% if app.request.locale == "it" %}{{ page.descriptionIt }}{% elseif app.request.locale == "ru" %}{{ page.descriptionRu }}{% elseif app.request.locale == "cn" %}{{ page.descriptionCn }}{% else %}{{ page.description }}{% endif %}{% endblock %}
 
@@ -43,10 +43,10 @@
     {% if page is defined %}
         <div class="wrapperContent {% if page.slug == 'company' %}wrapperContentBlack{% endif %}">
             <div class="content contentWhite {% if page.slug == 'company' %}contentBlack{% endif %}">
-                {% if maps is defined %}
+                {% if maps is defined and app.request.locale != "cn" %}
                     <div class="wrap_contacts">
                         <div class="contacts">
-                            <p>{{ 'contacts'|trans }}:</p>
+                            <p><strong>{{ 'contacts'|trans|upper }}:</strong></p>
                             {% if app.request.locale == "ru" %}
                                 <p class="flag"><img src="{{ asset('sitemain/img/ru_big.jpg') }}" alt="Россия" width="49px" height="32px"> <span>Россия: +7 495 225 70 30</span></p>
                                 <p class="flag"><img src="{{ asset('sitemain/img/uk_big.jpg') }}" alt="Украина" width="49px" height="32px"> <span>Украина: +38 098 606 24 35</span></p>
@@ -101,7 +101,7 @@
                 {% else %}
                 {% set img = '' %}
                 {% endif %}
-                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% elseif app.request.locale == 'it' %}{{ map.getNameIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getNameRu() }}{% elseif app.request.locale == 'cn' %}{{ map.getNameCn() }}{% endif %}</h4>', {{ map.getX() }}, {{ map.getY() }}],
+                ['{{ img|raw }}<h4>{% if app.request.locale == 'en' %}{{ map.getName() }}{% elseif app.request.locale == 'it' %}{{ map.getNameIt() }}{% elseif app.request.locale == 'ru' %}{{ map.getNameRu() }}{% elseif app.request.locale == 'cn' %}{{ map.getNameCn() }}{% endif %}</h4>', {{ map.getX() }}, {{ map.getY() }}, {{ map.flagCn ? 1 : 0 }}],
                 {% endfor %}
             ];
             myMap = new ymaps.Map("map", {
@@ -110,17 +110,32 @@
             });
             iconImageHreff = '';
             for (i = 0; i < evro.length; i++) {
-                iconImageHreff = '{{ asset('sitemain/img/icon.gif') }}';
-                myPlacemark = new ymaps.Placemark([evro[i][1], evro[i][2]], {
-                    content: evro[i][0],
-                    balloonContent: evro[i][0]
-                }, {
-                    iconImageHref: iconImageHreff,
-                    iconImageSize: [30, 16],
-                    iconImageOffset: [-14, -16],
-                    balloonCloseButton: false,
-                    hideIconOnBalloonOpen: false
-                });
+                // Если это китайский город, то устанавливаем китайскую эмблему
+                if(evro[i][3]){
+                    iconImageHreff = '{{ asset('sitemain/img/icon_cn.gif') }}';
+                    myPlacemark = new ymaps.Placemark([evro[i][1], evro[i][2]], {
+                        content: evro[i][0],
+                        balloonContent: evro[i][0]
+                    }, {
+                        iconImageHref: iconImageHreff,
+                        iconImageSize: [35, 32],
+                        iconImageOffset: [-19, -30],
+                        balloonCloseButton: false,
+                        hideIconOnBalloonOpen: false
+                    });
+                } else {
+                    iconImageHreff = '{{ asset('sitemain/img/icon.gif') }}';
+                    myPlacemark = new ymaps.Placemark([evro[i][1], evro[i][2]], {
+                        content: evro[i][0],
+                        balloonContent: evro[i][0]
+                    }, {
+                        iconImageHref: iconImageHreff,
+                        iconImageSize: [30, 16],
+                        iconImageOffset: [-14, -16],
+                        balloonCloseButton: false,
+                        hideIconOnBalloonOpen: false
+                    });
+                }
                 myMap.geoObjects.add(myPlacemark);
             }
 

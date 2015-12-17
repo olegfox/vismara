@@ -30,6 +30,13 @@ class MapAdmin extends Admin
             ->add('text_ru', 'text', array('label' => 'Text RU', 'required' => false))
             ->add('text_cn', 'text', array('label' => 'Text CN', 'required' => false))
             ->add('coord', 'text', array('label' => 'Coordinates'))
+            ->add('flagCn', 'choice', array(
+                'label' => 'China City?',
+                'choices' => array(
+                    false => 'No',
+                    true => 'Yes'
+                ),
+            ))
             ->add('img', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'data_class'   =>  'Application\Sonata\MediaBundle\Entity\Media',
@@ -51,7 +58,14 @@ class MapAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name', 'text', array('label' => 'Header'));
+            ->addIdentifier('name', 'text', array('label' => 'Header'))
+            ->addIdentifier('flagCn', 'choice', array(
+                'label' => 'China City?',
+                'choices' => array(
+                    false => 'No',
+                    true => 'Yes'
+                ),
+            ));
     }
 
     public function validate(ErrorElement $errorElement, $object)

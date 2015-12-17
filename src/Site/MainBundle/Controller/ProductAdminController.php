@@ -49,6 +49,22 @@ class ProductAdminController extends Controller
                     }
                     $em->flush();
                 }
+
+                $preview = $product->getPreview();
+
+                $previewFilename = $product->getPreview()->getMetadataValue('filename');
+
+                if($previewFilename != ''){
+
+                    $provider = $this->container->get($preview->getProviderName());
+
+                    $file = $provider->generatePublicUrl($preview, 'reference');
+
+                    $this->get('image.handling')->open('.' . $file)
+                        ->cropResize(1920, 1080)
+                        ->save('uploads/' . $previewFilename);
+                }
+
                 if ($this->isXmlHttpRequest()) {
                     return $this->renderJson(array(
                         'result' => 'ok',
@@ -91,11 +107,12 @@ class ProductAdminController extends Controller
         $result = parent::editAction($id);
         $product = $this->admin->getObject($this->get('request')->get($this->admin->getIdParameter()));
         $lastPosition = -1;
+        $em = $this->getDoctrine()->getManager();
         if ($this->get('request')->getMethod() == 'POST') {
             $imagesJson = $this->get('request')->get('gallery');
             if ($imagesJson != "") {
                 $images = json_decode($imagesJson);
-                $em = $this->getDoctrine()->getManager();
+
                 foreach ($images as $image) {
                     $imageObject = new Image();
                     $imageObject->setMimeType(mime_content_type("uploads/" . $image));
@@ -130,7 +147,37 @@ class ProductAdminController extends Controller
                 }
                 $em->flush();
             }
+
+            $preview = $product->getPreview();
+
+            $previewFilename = $product->getPreview()->getMetadataValue('filename');
+
+            if($previewFilename != ''){
+
+                $provider = $this->container->get($preview->getProviderName());
+
+                $file = $provider->generatePublicUrl($preview, 'reference');
+
+                $this->get('image.handling')->open('.' . $file)
+                    ->cropResize(1920, 1080)
+                    ->save('uploads/' . $previewFilename);
+            }
+
+            foreach($product->getImages() as $image){
+                if($image->getImageName() != ''){
+                    $pathinfo = pathinfo($image->getMinSrc());
+                    $newFileName = 'uploads/' . $image->getImageName() . '.' . $pathinfo['extension'];
+                    if(!file_exists($newFileName)){
+                        if(file_exists($image->getMinSrc())) {
+                            rename($image->getMinSrc(), $newFileName);
+                            $image->setMinSrc($newFileName);
+                            $em->flush();
+                        }
+                    }
+                }
+            }
         }
+
         return $result;
     }
 }

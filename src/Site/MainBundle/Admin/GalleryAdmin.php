@@ -32,6 +32,10 @@ class GalleryAdmin extends Admin
             ->add('title_it', 'text', array('label' => 'Header IT'))
             ->add('title_ru', 'text', array('label' => 'Header RU'))
             ->add('title_cn', 'text', array('label' => 'Header CN'))
+            ->add('metaTitle', 'text', array('label' => 'Meta Title EN'))
+            ->add('metaTitle_it', 'text', array('label' => 'Meta Title IT'))
+            ->add('metaTitle_ru', 'text', array('label' => 'Meta Title RU'))
+            ->add('metaTitle_cn', 'text', array('label' => 'Meta Title CN'))
             ->add('titleImg', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context' => 'default',

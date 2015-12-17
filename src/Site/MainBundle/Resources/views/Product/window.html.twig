@@ -1,23 +1,24 @@
 {% if product is defined %}
     <div class="wrap-window-product">
-        <div class="left"></div>
-        <div class="right"></div>
         <div class="window-product">
-            <div class="close"></div>
+            <div class="left"><div class="inner"></div></div>
+            <div class="right"><div class="inner"></div><div class="text">{{ 'next_product'|trans({}, "messages") }}</div></div>
+            <div class="close"><div class="inner"></div><div class="text">close</div></div>
+            <div class="close close2"><div class="inner"></div><div class="text">close</div></div>
             <div class="box-product">
                 <div class="gallery-list">
                     <ul>
                         {% if product.preview.id is defined %}
                             <li>
-                                <a href="javascript:showThumbnailProduct('{{ asset('.'~media_public_url(product.preview, 'reference')) }}', true);">
-                                    <img src="{{ image('.'~media_public_url(product.preview, 'reference')).cropResize(120) }}" alt=""/>
+                                <a href="javascript:showThumbnailProduct('{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}', true);">
+                                    <img src="{{ image('uploads/' ~ product.preview.getMetadataValue('filename')).cropResize(120) }}" alt=""/>
                                 </a>
                             </li>
                         {% endif %}
                         {% for i in product.images %}
                             <li>
-                                <a href="javascript:showThumbnailProduct('{{ asset(i.src) }}', false);">
-                                    <img src="{{ image(i.src).cropResize(120) }}" alt=""/>
+                                <a href="javascript:showThumbnailProduct('{{ asset(i.minSrc) }}', false);">
+                                    <img src="{{ image(i.minSrc).cropResize(120) }}" alt=""/>
                                 </a>
                             </li>
                         {% endfor %}
@@ -28,11 +29,13 @@
                     <div class="table">
                         <div class="table-cell">
                             {% if product.preview.id is defined %}
-                                <img src="{{ asset('.'~media_public_url(product.preview, 'reference')) }}" alt=""/>
+                                <div class="wrap-img">
+                                    <div class="n-left"></div>
+                                    <div class="n-right"></div>
+                                    <img src="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}" alt=""/>
+                                </div>
                             {% endif %}
                         </div>
-                        <div class="n-left"></div>
-                        <div class="n-right"></div>
                     </div>
                 </div>
 

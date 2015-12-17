@@ -3,23 +3,33 @@
 {% block title %}
     {% if product.id is defined %}
         {% if app.request.locale == "it" %}
-            {{ product.titleIt }}
+            {{ product.metaTitleIt }}
         {% elseif app.request.locale == "ru" %}
-            {{ product.titleRu }}
+            {{ product.metaTitleRu }}
         {% elseif app.request.locale == "cn" %}
-            {{ product.titleCn }}
+            {{ product.metaTitleCn }}
         {% else %}
-            {{ product.title }}
+            {{ product.metaTitle }}
+        {% endif %}
+    {% elseif category.id is defined %}
+        {% if app.request.locale == "it" %}
+            {{ category.metaTitleIt }}
+        {% elseif app.request.locale == "ru" %}
+            {{ category.metaTitleRu }}
+        {% elseif app.request.locale == "cn" %}
+            {{ category.metaTitleCn }}
+        {% else %}
+            {{ category.metaTitle }}
         {% endif %}
     {% else %}
         {% if app.request.locale == "it" %}
-            {{ page.titleIt }}
+            {{ page.metaTitleIt }}
         {% elseif app.request.locale == "ru" %}
-            {{ page.titleRu }}
+            {{ page.metaTitleRu }}
         {% elseif app.request.locale == "cn" %}
-            {{ page.titleCn }}
+            {{ page.metaTitleCn }}
         {% else %}
-            {{ page.title }}
+            {{ page.metaTitle }}
         {% endif %}
     {% endif %}
 {% endblock %}

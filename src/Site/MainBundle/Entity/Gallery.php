@@ -45,6 +45,26 @@ class Gallery
     /**
      * @ORM\Column(type="text")
      */
+    private $metaTitle;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $metaTitle_it;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $metaTitle_ru;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $metaTitle_cn;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $keyword;
 
     /**
@@ -952,5 +972,97 @@ class Gallery
 
     public function __toString(){
         return $this->title;
+    }
+
+    /**
+     * Set metaTitle
+     *
+     * @param string $metaTitle
+     * @return Gallery
+     */
+    public function setMetaTitle($metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get metaTitle
+     *
+     * @return string 
+     */
+    public function getMetaTitle()
+    {
+        return $this->metaTitle;
+    }
+
+    /**
+     * Set metaTitle_it
+     *
+     * @param string $metaTitleIt
+     * @return Gallery
+     */
+    public function setMetaTitleIt($metaTitleIt)
+    {
+        $this->metaTitle_it = $metaTitleIt;
+
+        return $this;
+    }
+
+    /**
+     * Get metaTitle_it
+     *
+     * @return string 
+     */
+    public function getMetaTitleIt()
+    {
+        return $this->metaTitle_it;
+    }
+
+    /**
+     * Set metaTitle_ru
+     *
+     * @param string $metaTitleRu
+     * @return Gallery
+     */
+    public function setMetaTitleRu($metaTitleRu)
+    {
+        $this->metaTitle_ru = $metaTitleRu;
+
+        return $this;
+    }
+
+    /**
+     * Get metaTitle_ru
+     *
+     * @return string 
+     */
+    public function getMetaTitleRu()
+    {
+        return $this->metaTitle_ru;
+    }
+
+    /**
+     * Set metaTitle_cn
+     *
+     * @param string $metaTitleCn
+     * @return Gallery
+     */
+    public function setMetaTitleCn($metaTitleCn)
+    {
+        $this->metaTitle_cn = $metaTitleCn;
+
+        return $this;
+    }
+
+    /**
+     * Get metaTitle_cn
+     *
+     * @return string 
+     */
+    public function getMetaTitleCn()
+    {
+        return $this->metaTitle_cn;
     }
 }

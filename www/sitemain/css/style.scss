@@ -325,10 +325,6 @@ ul {
 }
 
 /*-----------end header-----------*/
-.wrapper-slogan {
-  background: url("/sitemain/img/slogan-bg.jpg") top center no-repeat;
-}
-
 .wrapper-nav {
   background: #000;
   position: relative;
@@ -361,6 +357,12 @@ ul {
   }
 }
 
+.nav ul:after{
+  display: inline-block;
+  width: 100%;
+  content: ' ';
+}
+
 .nav li.last {
   width: 100%;
   height: 0;
@@ -380,6 +382,10 @@ ul {
 
 .nav li.current a {
   color: #ffd40d;
+}
+
+.flexslider{
+  margin-top: -50px!important;
 }
 
 .flexslider .text {
@@ -427,8 +433,8 @@ ul {
 }
 
 .slogan-title {
-  font-size: 36px;
-  line-height: 36px;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-align: center;
   font-weight: normal;
@@ -453,7 +459,6 @@ ul {
   color: #000000;
   letter-spacing: 1px;
   margin: 0 0 21px;
-  text-transform: uppercase;
 }
 
 /*-----------end main------------------------------*/
@@ -507,7 +512,6 @@ ul {
     width: 100%;
     height: 100%;
     top: 0;
-    background: rgba(0, 0, 0, 0.5);
     img{
       width: auto;
       position: absolute;
@@ -516,6 +520,7 @@ ul {
       top: 0;
       bottom: 0;
       margin: auto;
+      opacity: 0;
     }
   }
 }
@@ -614,10 +619,11 @@ ul {
 
 /*--------------end collection--------------*/
 .wrapper-img {
-  //  background: url("/sitemain/img/img-bg.jpg") top center;
-  height: 136px;
+  height: 57px;
   position: relative;
+  background: #000!important;
   &.wrapper-img-footer{
+    height: 57px;
     position: absolute;
     bottom: 0;
   }
@@ -629,7 +635,6 @@ ul {
     text-align: center;
     color: #fff;
     text-shadow: 1px 2px #000;
-    text-transform: uppercase;
     z-index: 2;
     overflow: hidden;
     p{
@@ -732,7 +737,7 @@ ul {
   max-width: 836px;
   margin: 0 auto;
   * {
-    text-transform: uppercase;
+//    text-transform: uppercase;
   }
   &.gallery-content {
     max-width: 100%;
@@ -911,6 +916,27 @@ a.facebook {
   a {
     display: inline-block;
     margin-left: 2px;
+    width: 27px;
+    height: 27px;
+    background-image: url('/sitemain/img/icone/social.png');
+    &.instagram{
+      background-position: 0px -74px;
+    }
+    &.fb{
+      background-position: 0px 0px;
+    }
+    &.youtube{
+      background-position: 0px -185px;
+    }
+    &.twitter{
+      background-position: 0px -148px;
+    }
+    &.pinterest{
+      background-position: 0px -111px;
+    }
+    &.google{
+      background-position: 0px -37px;
+    }
   }
 }
 
@@ -948,18 +974,19 @@ a.facebook {
     font-size: 18px;
     font-weight: normal;
     color: #fff;
-    text-transform: uppercase;
     letter-spacing: 1px;
     margin: 0 0 30px 0;
     width: 760px;
     line-height: 22px;
     a{
+      display: inline-block;
       font-family: Arial;
       font-size: 16px;
       font-weight: normal;
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin: 20px 20px 20px 0px;
     }
   }
   .boxs{
@@ -1053,9 +1080,6 @@ a.facebook {
         span{
           vertical-align: middle;
         }
-      }
-      &.email{
-        padding-top: 13px;
       }
     }
   }
@@ -1509,7 +1533,7 @@ span.cf-name{
   background: #dcdcdc;
   .breadcrumbs{
     margin: 0 auto;
-    max-width: 835px;
+    max-width: 1000px;
     ul{
       display: inline-block;
       width: 50%;
@@ -1583,37 +1607,60 @@ span.cf-name{
   zoom: 1;
   .left{
     position: absolute;
-    left: 10px;
+    left: 0px;
     top: 0;
     bottom: 0px;
     margin: auto 0;
-    width: 38px;
-    height: 206px;
-    background: url('../img/icon-product.png') 0px center no-repeat;
+    width: 95px;
     cursor: pointer;
-    @media (max-width: 1200px){
-      width: 30px;
-      height: 197px;
-      background: url("../img/icon-product.png") 0px center no-repeat;
-      background-size: cover;
+    background-color: #6b6b6b;
+    .inner{
+      position: absolute;
+      left: 0;
+      right: 0px;
+      top: 0;
+      bottom: 0px;
+      margin: auto;
+      background: url('../img/icon-product.png') 0px center no-repeat;
+      width: 31px;
+      height: 48px;
     }
+//    @media (max-width: 1200px){
+//      width: 30px;
+//      height: 197px;
+//      background: #6b6b6b url("../img/icon-product.png") 0px center no-repeat;
+//      background-size: cover;
+//    }
   }
   .right{
     position: absolute;
-    right: 10px;
+    right: 0px;
     top: 0;
     bottom: 0px;
     margin: auto 0;
-    width: 38px;
-    height: 206px;
-    background: url('../img/icon-product.png') -38px center no-repeat;
+    width: 95px;
     cursor: pointer;
-    @media (max-width: 1200px){
-      width: 30px;
-      height: 197px;
-      background: url("../img/icon-product.png") -132px center no-repeat;
-      background-size: cover;
+    background-color: #6b6b6b;
+    .inner{
+      position: absolute;
+      left: 0;
+      right: 0px;
+      top: 0;
+      bottom: 0px;
+      margin: auto;
+      background: url('../img/icon-product.png') -31px center no-repeat;
+      width: 31px;
+      height: 48px;
     }
+    .text{
+      display: none;
+    }
+//    @media (max-width: 1200px){
+//      width: 30px;
+//      height: 197px;
+//      background: #6b6b6b url("../img/icon-product.png") -132px center no-repeat;
+//      background-size: cover;
+//    }
   }
 
   .n-left{
@@ -1623,8 +1670,8 @@ span.cf-name{
     bottom: 0px;
     margin: auto 0;
     width: 14px;
-    height: 80px;
-    background: url('../img/icon-product.png') 0px center no-repeat;
+    height: 22px;
+    background: url('../img/left.png') 0 center no-repeat;
     background-size: cover;
     cursor: pointer;
   }
@@ -1635,15 +1682,15 @@ span.cf-name{
     bottom: 0px;
     margin: auto 0;
     width: 14px;
-    height: 80px;
-    background: url('../img/icon-product.png') -52px center no-repeat;
+    height: 22px;
+    background: url('../img/right.png') 0 center no-repeat;
     background-size: cover;
     cursor: pointer;
   }
   .window-product{
     position: absolute;
-    width: 90%;
-    height: 87%;
+    width: 100%;
+    height: 100%;
     left: 0px;
     right: 0px;
     top: 0px;
@@ -1652,16 +1699,33 @@ span.cf-name{
     background: #fff;
     .close{
       position: absolute;
-      right: 22.5px;
-      top: 22.5px;
-      width: 15px;
-      height: 15px;
-      background: url('../img/icon-product.png') -76px -37px no-repeat;
+      right: 0;
+      top: 0;
+      width: 95px;
+      height: 85px;
+      background-color: #000000;
       cursor: pointer;
       z-index: 2;
+      .inner{
+        position: absolute;
+        width: 29px;
+        height: 29px;
+        top: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background: url('../img/icon-product.png') -62px -9px no-repeat;
+      }
+      .text{
+        position: absolute;
+        top: 57px;
+        left: 21px;
+        color: #fff;
+        text-transform: uppercase;
+      }
     }
     .box-product{
-      padding: 70px;
+      padding: 70px 115px;
       .gallery-list{
         position: absolute;
         top: 70px;
@@ -1685,8 +1749,8 @@ span.cf-name{
         position: absolute;
         top: 70px;
         bottom: 70px;
-        left: 215px;
-        right: 590px;
+        left: 260px;
+        right: 635px;
         margin: auto;
         @media (max-width: 1200px){
           right: 340px;
@@ -1701,13 +1765,17 @@ span.cf-name{
             text-align: center;
           }
         }
-        img{
-          visibility: hidden;
+        .wrap-img{
+          position: relative;
+          display: inline-block;
+          img{
+            visibility: hidden;
+          }
         }
       }
       .description{
         position: absolute;
-        right: 70px;
+        right: 115px;
         top: 70px;
         bottom: 165px;
         width: 500px;
@@ -1726,7 +1794,6 @@ span.cf-name{
         .text{
           font-size: 14px;
           text-align: justify;
-          text-transform: uppercase;
         }
         @media (max-width: 1200px){
           width: 250px;
@@ -1770,9 +1837,9 @@ span.cf-name{
       .form{
         display: none;
         position: absolute;
-        right: 70px;
+        right: 115px;
         top: 70px;
-        bottom: 165px;
+        bottom: 70px;
         width: 500px;
         padding-left: 20px;
         overflow-y: auto;
@@ -1821,19 +1888,19 @@ span.cf-name{
     }
     button.sendMessage{
       position: absolute;
-      background: url('/sitemain/img/icon-email.png') 0 0 no-repeat;
-      background-size: cover;
-      right: 480px;
+      background: url('/sitemain/img/icon-email.png') 40px 6px no-repeat;
+      right: 363px;
       bottom: 70px;
       color: #000;
-      font-size: 0px;
-      width: 86px;
-      height: 65px;
+      width: 250px;
+      height: 40px;
       margin-top: 30px;
       text-transform: uppercase;
-      border: 0;
+      border: #000 solid 2px;
       content: '';
       cursor: pointer;
+      padding-left: 83px;
+      text-align: left;
       @media (max-width: 1200px){
         right: 70px;
       }
@@ -1867,3 +1934,205 @@ span.cf-name{
   }
 }
 
+@media screen and (max-width: 1450px) {
+  .wrap-window-product{
+    .window-product{
+      .box-product{
+        .image{
+          right: 535px;
+        }
+        .description{
+          width: 400px;
+        }
+      }
+      button.sendMessage{
+        right: 263px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .wrap-window-product{
+    .window-product{
+      .box-product{
+        .image{
+          right: 485px;
+        }
+        .description{
+          width: 350px;
+        }
+        .form{
+          width: 350px;
+        }
+      }
+      button.sendMessage{
+        right: 213px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+//  .wrap-window-product .window-product .box-product .gallery-list{
+//    display: none;
+//  }
+  .wrap-window-product{
+    .window-product{
+      .box-product{
+        .image{
+          right: 485px;
+        }
+        .description{
+          width: 320px;
+        }
+        .form{
+          width: 320px;
+        }
+      }
+      button.sendMessage{
+        right: 113px;
+      }
+    }
+  }
+//  .wrap-window-product .window-product .box-product .image{
+//    left: 125px;
+//    right: 385px;
+//  }
+//  .wrap-window-product .window-product button.sendMessage{
+//    right: 113px;
+//  }
+}
+
+@media screen and (max-width: 1100px) {
+  .wrap-window-product{
+    .window-product{
+      .box-product{
+        .gallery-list{
+          display: none;
+        }
+        .image{
+          left: 125px;
+          right: 485px;
+        }
+        .description{
+          width: 320px;
+        }
+      }
+      button.sendMessage{
+        right: 113px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .wrap-window-product {
+    height: 100%;
+    overflow-y: auto;
+    .n-left{
+      width: 14px;
+      height: 22px;
+      left: 10px;
+      background: url("../img/left.png") 0 center no-repeat;
+    }
+    .n-right{
+      width: 14px;
+      height: 22px;
+      right: 10px;
+      background: url("../img/right.png") 0 center no-repeat;
+    }
+    .left{
+      display: none!important;
+    }
+    .right{
+      width: 50%;
+      height: 55px;
+      background: #000000;
+      top: auto;
+      bottom: 0;
+      z-index: 1;
+      .inner{
+        display: none;
+      }
+      .text{
+        position: absolute;
+        display: block;
+        top: 15px;
+        left: 0;
+        right: 0;
+        font-size: 21px;
+        font-weight: 900;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+    .window-product {
+      position: relative;
+      min-height: 100%;
+      height: auto;
+      width: 100%;
+      .close{
+        width: 50%;
+        height: 55px;
+        &.close2{
+          background: #6b6b6b;
+          top: auto!important;
+          bottom: 0;
+          left: 0;
+        }
+        .inner{
+          display: none;
+        }
+        .text{
+          top: 15px;
+          bottom: 55px;
+          left: 0;
+          right: 0;
+          font-size: 21px;
+          font-weight: 900;
+          text-align: center;
+        }
+      }
+      button.sendMessage{
+        bottom: 105px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+      }
+      .box-product{
+        position: relative;
+        padding: 70px 30px 460px 30px;
+        .form{
+          background-color: #fff;
+          width: auto;
+          top: 85px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding-left: 0;
+        }
+        .gallery-list{
+          display: none;
+        }
+        .image{
+          height: 223px;
+          top: 85px;
+          bottom: auto;
+          left: 0;
+          right: 0;
+        }
+        .description{
+          position: relative;
+          padding-left: 0;
+          width: auto;
+          left: 0;
+          right: 0;
+          top: 265px;
+          bottom: 145px;
+        }
+      }
+    }
+  }
+}

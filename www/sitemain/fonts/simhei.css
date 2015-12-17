@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Simhei'; /* Имя шрифта */
+    src: url('./simhei.ttf'); /* Путь к файлу со шрифтом */
+}
+
+body {
+    font-family: 'Simhei';
+}
+
+.bottombox h2{
+    font-family: 'Simhei';
+}
+
+.cc_container{
+    font-family: 'Simhei';
+}

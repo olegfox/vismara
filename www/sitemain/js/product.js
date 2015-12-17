@@ -1,3 +1,18 @@
+function detectmob() {
+    if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+    ){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 function loadImage($img, width){
     $img.one("load", function() {
         if(width){
@@ -19,6 +34,11 @@ function showProduct(product, animate){
     var isEmpty = 0;
 
     animate = animate || 1;
+
+    if(detectmob()){
+        $('#mobileMeta').remove();
+        $('head').append('<meta id="mobileMeta" name="viewport" content="width=device-width, initial-scale=1"/>');
+    }
 
     if($(".wrap-window-product").length > 0){
         $(".wrap-window-product").remove();
@@ -47,7 +67,11 @@ function showProduct(product, animate){
         e.stopPropagation();
     });
 
-    $(".wrap-window-product, .wrap-window-product .close").unbind('click').click(function(){
+    $(".wrap-window-product, .wrap-window-product .close, .wrap-window-product, .wrap-window-product .close *").unbind('click').click(function(){
+        if(detectmob()){
+            $('#mobileMeta').remove();
+            $('head').append('<meta id="mobileMeta" name="viewport" content=""/>');
+        }
         $(".wrap-window-product").remove();
         window.history.back();
     });
@@ -115,11 +139,11 @@ function showProduct(product, animate){
         cropImage($img, 800);
     });
 
-    $(".wrap-window-product .right").unbind('click').click(function(){
+    $(".wrap-window-product .right, .wrap-window-product .right *").unbind('click').click(function(){
         showProduct($(product).parent().next().find('a:first'), 2);
     });
 
-    $(".wrap-window-product .left").unbind('click').click(function(){
+    $(".wrap-window-product .left, .wrap-window-product .left *").unbind('click').click(function(){
         showProduct($(product).parent().prev().find('a:first'), 2);
     });
 
@@ -148,7 +172,7 @@ function showProduct(product, animate){
     });
 
     // Кнопки переключения фотографий в окошке продукта
-    $(".wrap-window-product .n-left").click(function(){
+    $(".wrap-window-product .n-left, .wrap-window-product .n-left *").click(function(){
         var url = $(".wrap-window-product .table-cell img").attr('src');
 
         $(".wrap-window-product .gallery-list ul li a").each(function(i, e){
@@ -162,7 +186,7 @@ function showProduct(product, animate){
         });
     });
 
-    $(".wrap-window-product .n-right").click(function(){
+    $(".wrap-window-product .n-right, .wrap-window-product .n-right *").click(function(){
         var url = $(".wrap-window-product .table-cell img").attr('src');
 
         $(".wrap-window-product .gallery-list ul li a").each(function(i, e){

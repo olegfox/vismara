@@ -72,6 +72,11 @@ class Map
     private $img;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $flagCn = false;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -342,5 +347,28 @@ class Map
     public function getTextCn()
     {
         return $this->text_cn;
+    }
+
+    /**
+     * Set flagCn
+     *
+     * @param boolean $flagCn
+     * @return Map
+     */
+    public function setFlagCn($flagCn)
+    {
+        $this->flagCn = $flagCn;
+
+        return $this;
+    }
+
+    /**
+     * Get flagCn
+     *
+     * @return boolean 
+     */
+    public function getFlagCn()
+    {
+        return $this->flagCn;
     }
 }

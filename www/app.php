@@ -1,5 +1,3 @@
-<? ob_start ("ob_gzhandler"); ?>
-
 <?php
 
 use Symfony\Component\ClassLoader\ApcClassLoader;
@@ -17,15 +15,42 @@ $apcLoader->register(true);
 */
 
 require_once __DIR__.'/../app/AppKernel.php';
-//require_once __DIR__.'/../app/AppCache.php';
+require_once __DIR__.'/../app/AppCache.php';
+
+/*  start the output buffer  */
+ob_start('compress_page');
+
+/*  xhtml code below  */
 
 $kernel = new AppKernel('prod', false);
 $kernel->loadClassCache();
-//$kernel = new AppCache($kernel);
+$kernel = new AppCache($kernel);
 
 // When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
-//Request::enableHttpMethodParameterOverride();
+Request::enableHttpMethodParameterOverride();
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
+
+/*  end the buffer, echo the page content  */
+ob_end_flush();
+
+/*  function that gets rid of tabs, line breaks, and extra spaces  */
+function compress_page($buffer) {
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+}

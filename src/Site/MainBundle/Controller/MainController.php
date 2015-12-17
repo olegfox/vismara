@@ -126,22 +126,29 @@ class MainController extends Controller
 
     public function generateImagesAction(){
         set_time_limit(0);
-        $gallery = $this->getDoctrine()->getRepository("SiteMainBundle:Gallery")->findAll();
-        foreach($gallery as $g){
-            foreach($g->getImages() as $image){
-                $src = $image->getSrc();
-                $minSrc = $image->getMinSrc();
-                $this->get('image.handling')->open($src)
+        $products = $this->getDoctrine()->getRepository("SiteMainBundle:Product")->findAll();
+        $em = $this->getDoctrine()->getManager();
+
+        foreach($products as $product){
+            $preview = $product->getPreview();
+
+            $previewFilename = $product->getPreview()->getMetadataValue('filename');
+
+            if($previewFilename != ''){
+
+                $provider = $this->container->get($preview->getProviderName());
+
+                $file = $provider->generatePublicUrl($preview, 'reference');
+
+
+                $this->get('image.handling')->open('.' . $file)
                     ->cropResize(1920, 1080)
-                    ->save($src);
-                $width = $this->get('image.handling')->open($src)->width() - 170;
-                $height = $this->get('image.handling')->open($src)->height() - 48;
-                $this->get('image.handling')->open($src)
-                    ->merge($this->get('image.handling')->open("sitemain/img/water.png"), $width, $height, 170, 48)
-                    ->save($minSrc);
-                print $minSrc." ";
+                    ->save('uploads/' . $previewFilename);
             }
         }
+
+
+
         return new Response('Обновление завершено.');
     }
 }
