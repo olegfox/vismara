@@ -61,11 +61,13 @@ class MainController extends Controller
             ->setParameters(array(
                 'id' => 1
             ))
+            ->useResultCache(true, 3600, 'cacheId')
             ->getResult();
 
         $sliders = $this->getDoctrine()->getRepository("SiteMainBundle:Slider")->findByLang($locale);
 
         $catalogs = $em->createQuery('SELECT g FROM SiteMainBundle:Gallery g ORDER BY g.position ASC')
+            ->useResultCache(true, 3600, 'cacheId')
             ->getResult();
 
         $params = array(
@@ -93,6 +95,7 @@ class MainController extends Controller
 
             $params['image'] = $image;
         }
+
         return $this->render('SiteMainBundle:Gallery:one.html.twig', $params);
     }
 

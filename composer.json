@@ -28,7 +28,9 @@
         "sonata-project/formatter-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
         "gregwar/image-bundle": "dev-master",
-        "stof/doctrine-extensions-bundle" : "1.1.x-dev"
+        "stof/doctrine-extensions-bundle" : "1.1.x-dev",
+        "leaseweb/memcache-bundle": "*",
+        "kgilden/static-bundle": "~1.0"
     },
     "scripts": {
         "post-install-cmd": [

@@ -172,33 +172,56 @@ function showProduct(product, animate){
     });
 
     // Кнопки переключения фотографий в окошке продукта
-    $(".wrap-window-product .n-left, .wrap-window-product .n-left *").click(function(){
-        var url = $(".wrap-window-product .table-cell img").attr('src');
+    if(detectmob()) {
 
-        $(".wrap-window-product .gallery-list ul li a").each(function(i, e){
-            if($(e).attr('href').indexOf(url) != -1) {
-                if ($(e).parent().prev().find('a').attr('href') == undefined) {
-                    window.location.href = $(".wrap-window-product .gallery-list ul li a:last").attr('href');
-                } else {
-                    window.location.href = $(e).parent().prev().find('a').attr('href');
-                }
-            }
+        // Удалеяем галерею для веба с изображениями
+        $(".wrap-window-product .window-product .box-product .image .wrap-img").html("<div class='product-slider'></div>");
+
+        $(".wrap-window-product .window-product .box-product .gallery-list a").each(function(i, e) {
+            $(".wrap-window-product .window-product .box-product .image .wrap-img .product-slider").append("<div><img src='" + $(e).attr('data-img') + "'></div>");
         });
-    });
 
-    $(".wrap-window-product .n-right, .wrap-window-product .n-right *").click(function(){
-        var url = $(".wrap-window-product .table-cell img").attr('src');
-
-        $(".wrap-window-product .gallery-list ul li a").each(function(i, e){
-            if($(e).attr('href').indexOf(url) != -1){
-                if($(e).parent().next().find('a').attr('href') == undefined){
-                    window.location.href = $(".wrap-window-product .gallery-list ul li a:first").attr('href');
-                }else{
-                    window.location.href = $(e).parent().next().find('a').attr('href');
-                }
-            }
+        $(".wrap-window-product .window-product .box-product .image .wrap-img .product-slider img").css({
+            'visibility' : 'visible'
         });
-    });
+
+        $('.wrap-window-product .window-product .box-product .image .wrap-img .product-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true
+        });
+
+    } else {
+        $(".wrap-window-product .n-left, .wrap-window-product .n-left *").click(function(){
+            var url = $(".wrap-window-product .table-cell img").attr('src');
+
+            $(".wrap-window-product .gallery-list ul li a").each(function(i, e){
+                if($(e).attr('href').indexOf(url) != -1) {
+                    if ($(e).parent().prev().find('a').attr('href') == undefined) {
+                        window.location.href = $(".wrap-window-product .gallery-list ul li a:last").attr('href');
+                    } else {
+                        window.location.href = $(e).parent().prev().find('a').attr('href');
+                    }
+                }
+            });
+        });
+
+        $(".wrap-window-product .n-right, .wrap-window-product .n-right *").click(function(){
+            var url = $(".wrap-window-product .table-cell img").attr('src');
+
+            $(".wrap-window-product .gallery-list ul li a").each(function(i, e){
+                if($(e).attr('href').indexOf(url) != -1){
+                    if($(e).parent().next().find('a').attr('href') == undefined){
+                        window.location.href = $(".wrap-window-product .gallery-list ul li a:first").attr('href');
+                    }else{
+                        window.location.href = $(e).parent().next().find('a').attr('href');
+                    }
+                }
+            });
+        });
+    }
+
 
     //  Инициализация вау-эффектов
     var wow = new WOW(

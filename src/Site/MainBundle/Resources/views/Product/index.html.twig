@@ -96,6 +96,7 @@
         {% endif %}
     </style>
     <link rel="stylesheet" href="{{ asset('sitemain/js/wow/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('sitemain/js/slick/slick.css') }}" />
 {% endblock %}
 
 {% block slider %}
@@ -211,6 +212,7 @@
     {{ parent() }}
     <script type="text/javascript" src="{{ asset('sitemain/js/wow/wow.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('sitemain/js/product.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('sitemain/js/slick/slick.min.js') }}"></script>
     {% if app.request.attributes.get('_route') == 'Site_main_products_one' %}
         <script type="text/javascript">
             $("*[href='{{ path('Site_main_products_one', {category : app.request.get('category'), filter: app.request.get('filter'), slug : product.slug}) }}']").click();

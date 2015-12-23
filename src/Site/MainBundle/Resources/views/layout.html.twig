@@ -7,11 +7,9 @@
     filter='yui_css' %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
-
     {% if app.request.locale == 'cn' %}
         <link rel="stylesheet" href="{{ asset('sitemain/fonts/simhei.css') }}" />
     {% endif %}
-
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <![endif]-->
@@ -130,7 +128,7 @@
     <!-- script -->
     {#<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js'></script>#}
     <!-- Minified Cookie Consent served from our CDN -->
-    <script src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.1.0.2.min.js"></script>
+    <script src="{{ asset('sitemain/js/cookieconsent.1.0.2.min.js') }}"></script>
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
         window.cookieconsent_options = {"message":"{{ "cookie_privacy"|trans }}","dismiss":"OK","learnMore":"{{ "cookie_privacy_link"|trans }}","link":"{{ url('Site_main_page', {slug: 'cookie'}) }}","theme":"dark-bottom"};

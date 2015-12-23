@@ -10,14 +10,14 @@
                     <ul>
                         {% if product.preview.id is defined %}
                             <li>
-                                <a href="javascript:showThumbnailProduct('{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}', true);">
+                                <a href="javascript:showThumbnailProduct('{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}', true);" data-img="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}">
                                     <img src="{{ image('uploads/' ~ product.preview.getMetadataValue('filename')).cropResize(120) }}" alt=""/>
                                 </a>
                             </li>
                         {% endif %}
                         {% for i in product.images %}
                             <li>
-                                <a href="javascript:showThumbnailProduct('{{ asset(i.minSrc) }}', false);">
+                                <a href="javascript:showThumbnailProduct('{{ asset(i.minSrc) }}', false);" data-img="{{ asset(i.minSrc) }}">
                                     <img src="{{ image(i.minSrc).cropResize(120) }}" alt=""/>
                                 </a>
                             </li>

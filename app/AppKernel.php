@@ -35,6 +35,8 @@ class AppKernel extends Kernel
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Gregwar\ImageBundle\GregwarImageBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Lsw\MemcacheBundle\LswMemcacheBundle(),
+            new KG\StaticBundle\KGStaticBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
