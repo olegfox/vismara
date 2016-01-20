@@ -69,6 +69,7 @@ function showProduct(product, animate){
 
     $(".wrap-window-product, .wrap-window-product .close, .wrap-window-product, .wrap-window-product .close *").unbind('click').click(function(){
         if(detectmob()){
+            $('body > .wrap').show();
             $('#mobileMeta').remove();
             $('head').append('<meta id="mobileMeta" name="viewport" content=""/>');
         }
@@ -174,23 +175,86 @@ function showProduct(product, animate){
     // Кнопки переключения фотографий в окошке продукта
     if(detectmob()) {
 
+        $('body > .wrap').hide();
+
         // Удалеяем галерею для веба с изображениями
-        $(".wrap-window-product .window-product .box-product .image .wrap-img").html("<div class='product-slider'></div>");
+        $(".wrap-window-product .window-product .box-product .image .wrap-img").html("<div class='product-slider'><ul class='slides'></ul></div>");
 
         $(".wrap-window-product .window-product .box-product .gallery-list a").each(function(i, e) {
-            $(".wrap-window-product .window-product .box-product .image .wrap-img .product-slider").append("<div><img src='" + $(e).attr('data-img') + "'></div>");
+            $(".wrap-window-product .window-product .box-product .image .wrap-img .product-slider ul").append("<li><img src='" + $(e).attr('data-img') + "'></li>");
         });
 
         $(".wrap-window-product .window-product .box-product .image .wrap-img .product-slider img").css({
             'visibility' : 'visible'
         });
 
-        $('.wrap-window-product .window-product .box-product .image .wrap-img .product-slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            dots: true
+        $('.wrap-window-product .window-product .box-product .image .wrap-img .product-slider').flexslider({
+            animation: "slide",
+            animationSpeed: 1000,
+            slideshowSpeed: 3000,
+            directionNav: true,
+            slideshow: false
         });
+
+        if($('.flex-control-paging').height() > 50) {
+            $('.wrap-window-product .window-product .box-product .description').css({
+                top: '310px'
+            });
+        }
+
+        var showChar = 100; // How many characters are shown by default
+        var ellipsestext = "...";
+        var moretext = "Show more >";
+        var lesstext = "Show less";
+
+        var content = $('.wrap-window-product .window-product .box-product .description .text').html();
+
+        function truncate(s, l){
+            if(s.length <= l){
+                return s;
+            } else {
+                var ts = "";
+                var subs = s.split('&');
+                if(subs[0].length > l){
+                    return subs[0].substring(0, l) + "&hellip;";
+                } else {
+                    ts = ts + subs[0];
+                }
+                for(var i = 1; i < subs.length; i++){
+                    var end = subs[i].indexOf(';');
+                    l += end + 1;
+                    ts = ts + '&' + subs[i];
+                    if(ts.length >= l){
+                        return ts.substring(0,l) + "&hellip;";
+                    }
+                }
+                return ts;
+            }
+        }
+
+        //if(content.length > showChar) {
+        //
+        //    var c = truncate(content, showChar);
+        //    console.log(c);
+        //    var h = content.substr(showChar, content.length - showChar);
+        //    console.log(c);
+        //    var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+        //
+        //    $('.wrap-window-product .window-product .box-product .description .text').html(html);
+        //}
+        //
+        //$(".morelink").click(function(){
+        //    if($(this).hasClass("less")) {
+        //        $(this).removeClass("less");
+        //        $(this).html(moretext);
+        //    } else {
+        //        $(this).addClass("less");
+        //        $(this).html(lesstext);
+        //    }
+        //    $(this).parent().prev().toggle();
+        //    $(this).prev().toggle();
+        //    return false;
+        //});
 
     } else {
         $(".wrap-window-product .n-left, .wrap-window-product .n-left *").click(function(){

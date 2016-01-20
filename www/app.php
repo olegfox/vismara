@@ -18,7 +18,10 @@ require_once __DIR__.'/../app/AppKernel.php';
 require_once __DIR__.'/../app/AppCache.php';
 
 /*  start the output buffer  */
-ob_start('compress_page');
+if(!isContacts()) {
+    ob_start('compress_page');
+}
+
 
 /*  xhtml code below  */
 
@@ -34,7 +37,9 @@ $response->send();
 $kernel->terminate($request, $response);
 
 /*  end the buffer, echo the page content  */
-ob_end_flush();
+if(!isContacts()) {
+    ob_end_flush();
+}
 
 /*  function that gets rid of tabs, line breaks, and extra spaces  */
 function compress_page($buffer) {
@@ -53,4 +58,12 @@ function compress_page($buffer) {
     $buffer = preg_replace($search, $replace, $buffer);
 
     return $buffer;
+}
+
+function isContacts() {
+    if(preg_match("/contacts/", $_SERVER[REQUEST_URI])) {
+        return true;
+    }
+
+    return false;
 }
