@@ -10,3 +10,7 @@
 /www/cache/*
 /www/uploads/*
 /www/catalogs/*
+/www/sitemain/
+/www/js/*
+/www/bundles/*
+/www/FTP/

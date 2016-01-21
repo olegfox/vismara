@@ -69,7 +69,12 @@ function showProduct(product, animate){
 
     $(".wrap-window-product, .wrap-window-product .close, .wrap-window-product, .wrap-window-product .close *").unbind('click').click(function(){
         if(detectmob()){
+            $('body').css({
+                'overflow-x': 'auto'
+            });
             $('body > .wrap').show();
+            $('body > .icone').show();
+            $('body > .language').show();
             $('#mobileMeta').remove();
             $('head').append('<meta id="mobileMeta" name="viewport" content=""/>');
         }
@@ -174,8 +179,12 @@ function showProduct(product, animate){
 
     // Кнопки переключения фотографий в окошке продукта
     if(detectmob()) {
-
+        $('body').css({
+            'overflow-x': 'hidden'
+        });
         $('body > .wrap').hide();
+        $('body > .icone').hide();
+        $('body > .language').hide();
 
         // Удалеяем галерею для веба с изображениями
         $(".wrap-window-product .window-product .box-product .image .wrap-img").html("<div class='product-slider'><ul class='slides'></ul></div>");
