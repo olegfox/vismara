@@ -59,15 +59,7 @@
                         {% endif %}
                     </h1>
                     <div class="text">
-                        {% if app.request.locale == "en" %}
-                            {{ product.text|raw }}
-                        {% elseif app.request.locale == "it" %}
-                            {{ product.textIt|raw }}
-                        {% elseif app.request.locale == "cn" %}
-                            {{ product.textCn|raw }}
-                        {% elseif app.request.locale == "ru" %}
-                            {{ product.textRu|raw }}
-                        {% endif %}
+                        {{ product.genPreview(app.request.locale, 200)|raw }} <a href="#">{{ 'read_more'|trans({}, "messages") }}</a>
                     </div>
                     {% if product.colors|length > 0 %}
                         <div class="colors">

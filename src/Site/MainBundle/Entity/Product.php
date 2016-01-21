@@ -1036,4 +1036,72 @@ class Product
     {
         return $this->metaTitle_cn;
     }
+
+    /**
+     * Get preview
+     *
+     * @return text
+     */
+    public function genPreview($lang, $length = 100)
+    {
+        //$content = strtolower($this->content);
+        switch($lang) {
+            case 'en': {
+                $content = $this->text;
+            }break;
+            case 'it': {
+                $content = $this->text_it;
+            }break;
+            case 'cn': {
+                $content = $this->text_cn;
+            }break;
+            case 'ru': {
+                $content = $this->text_ru;
+            }break;
+            default: {
+                $content = $this->text;
+            }break;
+        }
+
+        preg_match_all('/<img([^>]+)>/i', $content, $img_tags, PREG_OFFSET_CAPTURE);
+        if (count($img_tags[0]) > 1) {
+            $offset = $img_tags[0][1][1];
+            $content = mb_substr($content, 0, $offset);
+        }
+
+        $preview = $content;
+        if (mb_strlen($preview) > $length) {
+            preg_match("/[\.!\?]+[\s<]+/i", $content, $matches, PREG_OFFSET_CAPTURE, $length);
+
+            if (count($matches) > 0) {
+                $offset = $matches[0][1];
+                $length = strlen($matches[0][0]);
+
+                $preview = mb_substr($content, 0, $offset + 1);
+            }
+        }
+
+        preg_match_all("/<\s*(\w+)\s*>/i", $preview, $tags);
+
+        foreach ($tags[1] as $tag) {
+            $tag = trim($tag);
+            if ($tag == "br")
+                continue;
+            if ($tag == "p")
+                continue;
+            $opened = preg_match_all("/<\s*{$tag}\s*>/i", $preview, $arr);
+            $closed = preg_match_all("/<\s*\/\s*{$tag}\s*>/i", $preview, $arr);
+            //$opened = substr_count($preview, "<$tag");
+            //$closed = substr_count($preview, "</$tag");
+            if ($opened > $closed) {
+                $preview .= "</$tag>";
+            }
+        }
+
+        $preview = preg_replace('#<([a-z]+)[^<>]*>\s*</\\1>\s*$#', '', $preview);
+
+        $this->preview = $preview;
+
+        return $preview;
+    }
 }
