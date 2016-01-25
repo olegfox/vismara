@@ -58,8 +58,8 @@
                             {{ product.titleRu }}
                         {% endif %}
                     </h1>
-                    <div class="text">
-                        {{ product.genPreview(app.request.locale, 200)|raw }} <a href="#">{{ 'read_more'|trans({}, "messages") }}</a>
+                    <div class="text" data-full-text="{{ product.genPreview(app.request.locale)|raw|json_encode }}">
+                        {{ product.genPreview(app.request.locale, 200)|raw }} {% if product.genPreview(app.request.locale)|raw|length > 200 %}<a href="#" class="readmore">{{ 'read_more'|trans({}, "messages") }}</a>{% endif %}
                     </div>
                     {% if product.colors|length > 0 %}
                         <div class="colors">

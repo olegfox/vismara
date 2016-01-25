@@ -1784,6 +1784,11 @@ span.cf-name{
         padding-left: 20px;
         overflow-y: auto;
         overflow-x: hidden;
+        .readmore{
+          color: #000;
+          text-decoration: underline;
+          font-weight: bold;
+        }
         ul{
           list-style-type: disc;
         }
@@ -2080,6 +2085,7 @@ span.cf-name{
       min-height: 100%;
       height: auto;
       width: 100%;
+      -webkit-overflow-scrolling: touch;
       .close{
         height: 55px;
         width: 49px;
@@ -2106,19 +2112,20 @@ span.cf-name{
         }
       }
       button.sendMessage{
-        bottom: 105px;
+        position: relative;
+        bottom: 0px;
         right: 0;
-        left: 0;
-        margin: 0 auto;
+        left: 50%;
+        margin: 60px 0 100px -125px;
       }
       .box-product{
         position: relative;
-        padding: 70px 30px 460px 30px;
+        padding: 70px 30px 0px 30px;
         .form{
           background-color: #fff;
           width: auto;
           top: 85px;
-          bottom: -20px;
+          bottom: -115px;
           left: 0;
           right: 0;
           padding-left: 0;
@@ -2128,11 +2135,13 @@ span.cf-name{
           display: none;
         }
         .image{
-          height: 223px;
-          top: 85px;
+          position: relative;
+          height: 423px;
+          top: 0px;
           bottom: auto;
           left: 0;
           right: 0;
+          margin: 0 -30px;
         }
         .description{
           position: relative;
@@ -2140,8 +2149,10 @@ span.cf-name{
           width: auto;
           left: 0;
           right: 0;
-          top: 280px;
-          bottom: 145px;
+          top: 0px!important;
+          bottom: 0px;
+          margin-top: 75px;
+          overflow-y: hidden;
         }
       }
     }
@@ -2170,10 +2181,15 @@ span.cf-name{
   background: red; }
 
 .product-slider .slides img {
-  height: 223px;
+  max-height: 423px;
+  max-width: 100%;
 }
 
 .product-slider .flex-control-nav {
   display: block;
+}
+
+.flex-direction-nav{
+  display: none!important;
 }
 
