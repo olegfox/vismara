@@ -2034,6 +2034,42 @@ span.cf-name{
 }
 
 @media screen and (max-width: 790px) {
+  .product-slider .flex-control-nav{
+    margin-top: -54px;
+  }
+
+  .flex-control-paging li {
+    padding: 15px!important;
+    a{
+      width: 20px!important;
+      height: 20px!important;
+      background-color: #e9e9e9!important;
+      box-shadow: none!important;
+      &.flex-active{
+        background-color: #a5a5a5!important;
+      }
+    }
+  }
+  .wrap-window-product .window-product .box-product .wrap-img{
+    .collection-image{
+      text-align: left;
+      margin-bottom: 40px;
+      padding: 0 64px;
+    }
+    h1{
+      font-size: 16px;
+      line-height: 1;
+      letter-spacing: 3px;
+      margin: 0px 0px 29px 0px;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 0 64px;
+      @media all\0 {
+        margin: 0px 0px 15px 0px;
+      }
+    }
+  }
+
   .wrap-window-product .window-product .box-product .description * {
     padding-right: 0px;
   }
@@ -2087,11 +2123,11 @@ span.cf-name{
       width: 100%;
       -webkit-overflow-scrolling: touch;
       .close{
-        height: 55px;
-        width: 49px;
+        height: 70px;
+        width: 100%;
         padding: 0 20px;
         background: none;
-        color: #000;
+        background-color: #464646;
         &.close2{
           top: auto!important;
           bottom: 0;
@@ -2101,14 +2137,13 @@ span.cf-name{
           display: none;
         }
         .text{
-          top: 15px;
-          bottom: 55px;
-          left: 0;
-          right: 0;
-          color: #000;
-          font-size: 14px;
-          font-weight: 900;
-          text-align: center;
+          width: 42px;
+          height: 42px;
+          background: url('/sitemain/img/close.png') 0 0 no-repeat;
+          top: 13px;
+          left: inherit;
+          right: 30px;
+          font-size: 0;
         }
       }
       button.sendMessage{

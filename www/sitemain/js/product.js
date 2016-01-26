@@ -204,6 +204,9 @@ function showProduct(product, animate){
             // Удалеяем галерею для веба с изображениями
             $(".wrap-window-product .window-product .box-product .image .wrap-img").html("<div class='product-slider'><ul class='slides'></ul></div>");
 
+            // Смена позиции логотипа и заголовка
+            $(".wrap-window-product .window-product .box-product .image .wrap-img").prepend($('.wrap-window-product .window-product .box-product .description > .collection-image, .wrap-window-product .window-product .box-product .description > h1'));
+
             $(".wrap-window-product .window-product .box-product .gallery-list a").each(function(i, e) {
                 $(".wrap-window-product .window-product .box-product .image .wrap-img .product-slider ul").append("<li><img src='" + $(e).attr('data-img') + "'></li>");
             });
