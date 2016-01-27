@@ -1624,7 +1624,7 @@ span.cf-name {
     margin-bottom: 40px;
     padding: 0 64px; }
   .wrap-window-product .window-product .box-product .wrap-img h1 {
-    font-size: 16px;
+    font-size: 32px;
     line-height: 1;
     letter-spacing: 3px;
     margin: 0px 0px 29px 0px;
@@ -1684,6 +1684,7 @@ span.cf-name {
         background: none;
         background-color: #464646; }
         .wrap-window-product .window-product .close.close2 {
+          display: none;
           top: auto !important;
           bottom: 0;
           left: 0; }
@@ -1705,7 +1706,7 @@ span.cf-name {
         margin: 60px 0 100px -125px; }
       .wrap-window-product .window-product .box-product {
         position: relative;
-        padding: 70px 30px 0px 30px; }
+        padding: 70px 60px 0px 60px; }
         .wrap-window-product .window-product .box-product .form {
           background-color: #fff;
           width: auto;
@@ -1719,12 +1720,11 @@ span.cf-name {
           display: none; }
         .wrap-window-product .window-product .box-product .image {
           position: relative;
-          height: 423px;
           top: 0px;
           bottom: auto;
           left: 0;
           right: 0;
-          margin: 0 -30px; }
+          margin: 0 -60px; }
         .wrap-window-product .window-product .box-product .description {
           position: relative;
           padding-left: 0;
@@ -1733,8 +1733,12 @@ span.cf-name {
           right: 0;
           top: 0px !important;
           bottom: 0px;
-          margin-top: 75px;
-          overflow-y: hidden; } }
+          margin-top: 60px;
+          overflow-y: hidden; }
+          .wrap-window-product .window-product .box-product .description .text {
+            font-size: 25px; }
+            .wrap-window-product .window-product .box-product .description .text div {
+              line-height: 1.4em; } }
 .product-slider .slick-dots {
   position: absolute;
   width: 100%;

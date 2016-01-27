@@ -139,7 +139,7 @@ class GalleryAdminController extends Controller
             if($image->getImageName() != ''){
                 $pathinfo = pathinfo($image->getMinSrc());
                 $newFileName = 'uploads/' . $image->getImageName() . '.' . $pathinfo['extension'];
-                if(!file_exists($newFileName)){
+                if(!file_exists($newFileName) && file_exists($image->getMinSrc())){
                     rename($image->getMinSrc(), $newFileName);
                     $image->setMinSrc($newFileName);
                     $em->flush();
