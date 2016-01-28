@@ -84,6 +84,11 @@ Product = {
         $('.wrap-window-product .sendMessage').hide();
         $('.wrap-window-product .box-product .description').hide();
         $('.wrap-window-product .box-product .form').show();
+        if (Product.detectmob()) {
+          $('.wrap-window-product .close').hide();
+          $('.wrap-window-product .left').hide();
+          $('.wrap-window-product .right').hide();
+        }
         $('.flex-direction-nav').hide();
         $('.wrap-window-product .form #submit').click(function() {
           var $form;
@@ -134,6 +139,12 @@ Product = {
         $('.wrap-window-product .sendMessage').show();
         $('.wrap-window-product .box-product .description').show();
         $('.wrap-window-product .box-product .form').hide();
+        $('.wrap-window-product .close').show();
+        if (Product.detectmob()) {
+          $('.wrap-window-product .close2').hide();
+        }
+        $('.wrap-window-product .left').show();
+        $('.wrap-window-product .right').show();
         $('.flex-direction-nav').show();
       });
       $img = $('.wrap-window-product .image img');

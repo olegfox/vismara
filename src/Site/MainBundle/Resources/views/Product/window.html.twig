@@ -1,8 +1,8 @@
 {% if product is defined %}
     <div class="wrap-window-product">
         <div class="window-product">
-            <div class="left"><div class="inner"></div></div>
-            <div class="right"><div class="inner"></div><div class="text">{{ 'next_product'|trans({}, "messages") }}</div></div>
+            <div class="left"><div class="inner"></div><div class="text">PREV</div></div>
+            <div class="right"><div class="inner"></div><div class="text">NEXT</div></div>
             <div class="close"><div class="inner"></div><div class="text">close</div></div>
             <div class="close close2"><div class="inner"></div><div class="text">close</div></div>
             <div class="box-product">
@@ -59,7 +59,7 @@
                         {% endif %}
                     </h1>
                     <div class="text" data-full-text="{{ product.genPreview(app.request.locale)|raw|json_encode }}">
-                        {{ product.genPreview(app.request.locale, 200)|raw }} {% if product.genPreview(app.request.locale)|raw|length > 200 %}<a href="#" class="readmore">{{ 'read_more'|trans({}, "messages") }}</a>{% endif %}
+                        {{ product.genPreview(app.request.locale, 200)|raw }} {% if product.genPreview(app.request.locale)|raw|length > 200 %}<a href="#" class="readmore"><span>+</span>{{ 'read_more'|trans({}, "messages") }}</a>{% endif %}
                     </div>
                     {% if product.colors|length > 0 %}
                         <div class="colors">
