@@ -41,6 +41,7 @@ Product = {
     $('body').append('<div class="global-background"></div>');
     if ($('.global').length > 0) {
       $('.global').remove();
+      $('.form-product-feedback').remove();
     }
     setTimeout((function() {
       $('body').append(JSON.parse($(product).data('html')));
@@ -58,8 +59,62 @@ Product = {
         $('#mobileMeta').remove();
         $('head').append('<meta id="mobileMeta" name="viewport" content=""/>');
         $('.global').remove();
+        $('.form-product-feedback').remove();
         window.history.back();
       });
+      $('.global .message').unbind('click').click(function() {
+        $('.global').hide();
+        $('.form-product-feedback').show();
+      });
+      $('.form-product-feedback #back').unbind('click').click(function() {
+        $('.global').show();
+        $('.form-product-feedback').hide();
+      });
+      $('.form-product-feedback #submit').click(function() {
+        var $form;
+        $form = $('.form-product-feedback form');
+        $.post($form.attr('action'), $form.serialize(), function(response) {
+          if (response.status === 'OK') {
+            $form[0].reset();
+            $form.find('input[type="text"]').removeClass('error');
+            $form.find('input[type="email"]').removeClass('error');
+            $form.find('textarea').removeClass('error');
+            $form.find('.successfully').show();
+            setTimeout((function() {
+              $form.find('.successfully').hide();
+            }), 4000);
+          } else {
+            if (response.firstname.status !== 'OK') {
+              $form.find('#firstname').addClass('error');
+            } else {
+              $form.find('#firstname').removeClass('error');
+            }
+            if (response.lastname.status !== 'OK') {
+              $form.find('#lastname').addClass('error');
+            } else {
+              $form.find('#lastname').removeClass('error');
+            }
+            if (response.country.status !== 'OK') {
+              $form.find('#country').addClass('error');
+            } else {
+              $form.find('#country').removeClass('error');
+            }
+            if (response.email.status !== 'OK') {
+              $form.find('#email_first').addClass('error');
+              $form.find('#email_second').addClass('error');
+            } else {
+              $form.find('#email_first').removeClass('error');
+              $form.find('#email_second').removeClass('error');
+            }
+            if (response.phone.status !== 'OK') {
+              $form.find('#phone').addClass('error');
+            } else {
+              $form.find('#phone').removeClass('error');
+            }
+          }
+        });
+      });
+      return;
       $('.global .arrow_right').unbind('click').click(function(e) {
         e.preventDefault();
         Product.showProduct($(product).parent().next().find('a:first'));

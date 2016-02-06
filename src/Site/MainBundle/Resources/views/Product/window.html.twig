@@ -125,15 +125,15 @@
                         {% endif %}
                     </div>
 
-                    <div class="form" style="display: none;">
-                        {% include 'SiteMainBundle:Product:feedback.html.twig' %}
-                    </div>
-
                     <a href="#" class="message">SEND REQUEST</a>
 
                 </div>
         </div>
         <a href="#" class="arrow_left"><img src="{{ asset('sitemain/img/product_window/arrow_left.jpg') }}" /></a>
         <a href="#" class="arrow_right"><img src="{{ asset('sitemain/img/product_window/arrow_right.jpg') }}" /></a>
+    </div>
+    </div>
+    <div class="form form-product-feedback" style="display: none;">
+        {% include 'SiteMainBundle:Product:feedback.html.twig' %}
     </div>
 {% endif %}

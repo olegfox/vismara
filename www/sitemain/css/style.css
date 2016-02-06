@@ -1914,4 +1914,89 @@ span.cf-name {
   .global .readmore span {
     margin-right: 10px; }
 
+.form-product-feedback {
+  background-color: #fff;
+  width: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 0;
+  z-index: 11; }
+  .form-product-feedback form {
+    position: absolute;
+    display: block;
+    padding-left: 10px;
+    max-width: 309px;
+    max-height: 414px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+    .form-product-feedback form span {
+      display: none; }
+    .form-product-feedback form input {
+      font-family: Arial;
+      font-size: 16px;
+      width: 260px;
+      height: 14px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      display: inline-block;
+      vertical-align: top;
+      color: #3a3a3a;
+      font-weight: 400;
+      border: #bbbbbb solid 2px; }
+      .form-product-feedback form input.error {
+        border: red solid 2px; }
+      .form-product-feedback form input ::-webkit-input-placeholder {
+        color: #3a3a3a !important; }
+      .form-product-feedback form input :-moz-placeholder {
+        color: #3a3a3a !important; }
+      .form-product-feedback form input ::-moz-placeholder {
+        color: #3a3a3a !important; }
+      .form-product-feedback form input :-ms-input-placeholder {
+        color: #3a3a3a !important; }
+    .form-product-feedback form textarea {
+      font-family: Arial;
+      font-size: 16px;
+      width: 260px;
+      height: 65px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      display: inline-block;
+      vertical-align: top;
+      color: #3a3a3a;
+      font-weight: 400;
+      border: #bbbbbb solid 2px;
+      resize: none; }
+      .form-product-feedback form textarea.error {
+        border: red solid 2px; }
+      .form-product-feedback form textarea ::-webkit-input-placeholder {
+        color: #3a3a3a !important; }
+      .form-product-feedback form textarea :-moz-placeholder {
+        color: #3a3a3a !important; }
+      .form-product-feedback form textarea ::-moz-placeholder {
+        color: #3a3a3a !important; }
+      .form-product-feedback form textarea :-ms-input-placeholder {
+        color: #3a3a3a !important; }
+  .form-product-feedback button {
+    padding: 10px 22px;
+    background: 0;
+    color: #000;
+    text-transform: uppercase; }
+  .form-product-feedback #back {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    font-size: 0;
+    padding: 0;
+    background: url("/sitemain/img/close_form.png") 0 0 no-repeat;
+    background-size: contain; }
+
 /*# sourceMappingURL=style.css.map */
