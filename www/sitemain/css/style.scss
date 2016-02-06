@@ -1620,7 +1620,7 @@ span.cf-name{
     margin: auto 0;
     width: 95px;
     cursor: pointer;
-    background-color: #6b6b6b;
+    background-color: #fff;
     .inner{
       position: absolute;
       left: 0;
@@ -1628,9 +1628,12 @@ span.cf-name{
       top: 0;
       bottom: 0px;
       margin: auto;
-      background: url('../img/icon-product.png') 0px center no-repeat;
-      width: 31px;
-      height: 48px;
+      background: url('/sitemain/img/product_left.png.png') 0 center no-repeat;
+      width: 26px;
+      height: 47px;
+    }
+    .text{
+      display: none;
     }
 //    @media (max-width: 1200px){
 //      width: 30px;
@@ -1647,7 +1650,7 @@ span.cf-name{
     margin: auto 0;
     width: 95px;
     cursor: pointer;
-    background-color: #6b6b6b;
+    background-color: #fff;
     .inner{
       position: absolute;
       left: 0;
@@ -1655,9 +1658,9 @@ span.cf-name{
       top: 0;
       bottom: 0px;
       margin: auto;
-      background: url('../img/icon-product.png') -31px center no-repeat;
-      width: 31px;
-      height: 48px;
+      background: url('/sitemain/img/product_right.png.png') 0 center no-repeat;
+      width: 26px;
+      height: 47px;
     }
     .text{
       display: none;
@@ -1706,29 +1709,19 @@ span.cf-name{
     background: #fff;
     .close{
       position: absolute;
-      right: 0;
-      top: 0;
-      width: 95px;
-      height: 85px;
+      right: 20px;
+      top: 20px;
+      width: 35px;
+      height: 35px;
       cursor: pointer;
-      background-color: #000;
+      background: #fff url('/sitemain/img/close_form.png') 0 0 no-repeat;
+      background-size: contain;
       z-index: 2;
       .inner{
-        position: absolute;
-        width: 29px;
-        height: 29px;
-        top: 20px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        background: url('../img/icon-product.png') -62px -9px no-repeat;
+       display: none;
       }
       .text{
-        position: absolute;
-        top: 57px;
-        left: 21px;
-        color: #fff;
-        text-transform: uppercase;
+        display: none;
       }
     }
     .box-product{
@@ -2166,7 +2159,6 @@ span.cf-name{
       min-height: 100%;
       height: auto;
       width: 100%;
-      -webkit-overflow-scrolling: touch;
       overflow-x: hidden;
       .close{
         height: 48px;

@@ -4,26 +4,26 @@
             <div class="left"><div class="inner"></div><div class="text">PREV</div></div>
             <div class="right"><div class="inner"></div><div class="text">NEXT</div></div>
             <div class="close"><div class="inner"></div><div class="text">close</div></div>
-            <div class="close close2"><div class="inner"></div><div class="text">close</div></div>
+            <div class="close close2"><div class="inner"></div></div>
             <div class="box-product">
-                <div class="gallery-list">
-                    <ul>
-                        {% if product.preview.id is defined %}
-                            <li>
-                                <a href="javascript:showThumbnailProduct('{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}', true);" data-img="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}">
-                                    <img src="{{ image('uploads/' ~ product.preview.getMetadataValue('filename')).cropResize(120) }}" alt=""/>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% for i in product.images %}
-                            <li>
-                                <a href="javascript:showThumbnailProduct('{{ asset(i.minSrc) }}', false);" data-img="{{ asset(i.minSrc) }}">
-                                    <img src="{{ image(i.minSrc).cropResize(120) }}" alt=""/>
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                {#<div class="gallery-list">#}
+                    {#<ul>#}
+                        {#{% if product.preview.id is defined %}#}
+                            {#<li>#}
+                                {#<a href="javascript:showThumbnailProduct('{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}', true);" data-img="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}">#}
+                                    {#<img src="{{ image('uploads/' ~ product.preview.getMetadataValue('filename')).cropResize(120) }}" alt=""/>#}
+                                {#</a>#}
+                            {#</li>#}
+                        {#{% endif %}#}
+                        {#{% for i in product.images %}#}
+                            {#<li>#}
+                                {#<a href="javascript:showThumbnailProduct('{{ asset(i.minSrc) }}', false);" data-img="{{ asset(i.minSrc) }}">#}
+                                    {#<img src="{{ image(i.minSrc).cropResize(120) }}" alt=""/>#}
+                                {#</a>#}
+                            {#</li>#}
+                        {#{% endfor %}#}
+                    {#</ul>#}
+                {#</div>#}
 
                 <div class="image">
                     <div class="table">
