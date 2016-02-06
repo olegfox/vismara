@@ -2346,3 +2346,28 @@ span.cf-name{
   display: none!important;
 }
 
+.global-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.global{
+  .readmore{
+    display: inline-block;
+    color: #484848;
+    text-decoration: none;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-top: 35px;
+    font-size: 17px;
+    width: 100%;
+    span{
+      margin-right: 10px;
+    }
+  }
+}
+
