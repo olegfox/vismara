@@ -680,7 +680,7 @@ class Product
      */
     public function getText()
     {
-        return $this->text;
+        return str_replace('justify;\"=""', '', $this->text);
     }
 
     /**
@@ -703,7 +703,7 @@ class Product
      */
     public function getTextIt()
     {
-        return $this->text_it;
+        return str_replace('justify;\"=""', '', $this->text_it);
     }
 
     /**
@@ -726,7 +726,7 @@ class Product
      */
     public function getTextRu()
     {
-        return $this->text_ru;
+        return str_replace('justify;\"=""', '', $this->text_ru);
     }
 
     /**
@@ -749,7 +749,7 @@ class Product
      */
     public function getTextCn()
     {
-        return $this->text_cn;
+        return str_replace('justify;\"=""', '', $this->text_cn);
     }
 
     /**
@@ -1071,6 +1071,8 @@ class Product
         }
 
         if ($considerHtml) {
+            $text = str_replace('justify;\"=""', '', $text);
+
             // if the plain text is shorter than the maximum length, return the whole text
             if (strlen(preg_replace('/<.*?>/', '', $text)) <= $length) {
                 return $text;
