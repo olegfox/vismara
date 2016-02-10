@@ -114,7 +114,6 @@ Product = {
           }
         });
       });
-      return;
       $('.global .arrow_right').unbind('click').click(function(e) {
         e.preventDefault();
         Product.showProduct($(product).parent().next().find('a:first'));
@@ -149,10 +148,16 @@ Product = {
         $('.global .text .inner-text').html($content);
         return false;
       });
-      $('.slider').slick({
+      $('.global .slider').slick({
         dots: true,
         infinite: true,
         arrows: false
+      });
+      $('.global .slider').on('setPosition', function(slick) {
+        return $('.global .slider .slick-track').css('line-height', $('.global .slider .slick-track').height() + 'px');
+      });
+      $('.global .slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        return $('.global .slider .slick-track').css('line-height', $('.global .slider .slick-track').height() + 'px');
       });
     }), timeout);
     return false;

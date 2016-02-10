@@ -6,7 +6,9 @@
                 <div class="mob_title">
                     {% if product.collection.id is defined %}
                         {% if product.collection.collectionImage.id is defined %}
-                            <img class="head" src="{{ image('.'~media_public_url(product.collection.collectionImage, 'reference')).cropResize(200) }}">
+                            <div class="wrap__head">
+                                <img class="head" src="{{ image('.'~media_public_url(product.collection.collectionImage, 'reference')).cropResize(200) }}">
+                            </div>
                         {% endif %}
                     {% endif %}
                     <h1>

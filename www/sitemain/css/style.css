@@ -1913,6 +1913,35 @@ span.cf-name {
   width: 100%; }
   .global .readmore span {
     margin-right: 10px; }
+.global .slick-slider {
+  height: 800px;
+  max-height: 800px; }
+.global .slick-slider * {
+  height: 800px;
+  max-height: 800px; }
+@media screen and (max-width: 768px) {
+  .global .slick-slider {
+    height: auto;
+    max-height: 800px; }
+  .global .slick-slider * {
+    height: auto;
+    max-height: 800px; } }
+.global .slick-slider img {
+  height: auto; }
+.global .slick-slider .slick-dots {
+  height: auto; }
+.global .slick-slider .slick-dots * {
+  height: auto; }
+.global .slick-slide {
+  text-align: center; }
+.global .slick-slide::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle; }
+.global .slick-slide img {
+  vertical-align: middle;
+  display: inline-block; }
 
 .form-product-feedback {
   background-color: #fff;
