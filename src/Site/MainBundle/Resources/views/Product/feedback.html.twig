@@ -6,8 +6,11 @@
             {{ form_widget(e) }}<span>*</span>
         {% endfor %}
         {{ form_widget(form.phone) }}
+        {{ form_widget(form.text) }}<span>*</span>
         <button type="button" id="submit" class="btn btn-success btn-lg">{{ 'Send'|trans }}</button>
-        <button type="button" id="back" class="btn btn-success btn-lg">{{ 'Back'|trans }}</button>
+        <div class="wrap-back">
+            <button type="button" id="back" class="btn btn-success btn-lg">{{ 'Back'|trans }}</button>
+        </div>
         <div class="successfully hide">{{ 'Letter has been sent successfully!'|trans }}</div>
         {{ form_errors(form) }}
         {{ form_end(form) }}

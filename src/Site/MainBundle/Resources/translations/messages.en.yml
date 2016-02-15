@@ -29,6 +29,7 @@ form_catalog:
   website: Website
   requested_password: Requested password
   text: Text
+  phone: phone
   yes: yes
   no: no
   password: password

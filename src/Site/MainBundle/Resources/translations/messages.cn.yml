@@ -29,6 +29,7 @@ form_catalog:
   website: 网址
   requested_password: 请求密码
   text: 请输入信息
+  phone: 电话
   yes: 是
   no: 否
   password: 密码

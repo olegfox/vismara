@@ -25,46 +25,47 @@
                 </div>
                 <div class="slider">
                     {% if product.preview.id is defined %}
-                        <div><img src="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}" alt=""></div>
+                        <div style="background: url({{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}) center no-repeat; background-size: contain;"><img src="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}" alt=""></div>
                     {% endif %}
 
                     {% for i in product.images %}
-                        <div><img src="{{ asset(i.minSrc) }}" alt=""></div>
+                        <div style="background: url({{ asset(i.minSrc) }}) center no-repeat; background-size: contain;"><img src="{{ asset(i.minSrc) }}" alt=""></div>
                     {% endfor %}
                 </div>
             </div>
             <div class="pop_right">
-                <div class="description">
-                    <div class="full_title">
-                        {% if product.collection.id is defined %}
-                            {% if product.collection.collectionImage.id is defined %}
-                                <img class="head" src="{{ image('.'~media_public_url(product.collection.collectionImage, 'reference')).cropResize(200) }}">
+                <div class="wrap-description">
+                    <div class="description">
+                        <div class="full_title">
+                            {% if product.collection.id is defined %}
+                                {% if product.collection.collectionImage.id is defined %}
+                                    <img class="head" src="{{ image('.'~media_public_url(product.collection.collectionImage, 'reference')).cropResize(200) }}">
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
-                        <h1>
-                            {% if app.request.locale == "en" %}
-                                {{ product.title }}
-                            {% elseif app.request.locale == "it" %}
-                                {{ product.titleIt }}
-                            {% elseif app.request.locale == "cn" %}
-                                {{ product.titleCn }}
-                            {% elseif app.request.locale == "ru" %}
-                                {{ product.titleRu }}
-                            {% endif %}
-                        </h1>
-                    </div>
-                    <div class="text">
-                        <div class="inner-text" data-full-text="{{ product.genPreview(app.request.locale)|raw|json_encode }}">
-                            {{ product.genPreview(app.request.locale, 200)|raw }} {% if product.genPreview(app.request.locale)|raw|length > 200 %}<a href="#" class="readmore"><span>+</span>{{ 'read_more'|trans({}, "messages") }}</a>{% endif %}
+                            <h1>
+                                {% if app.request.locale == "en" %}
+                                    {{ product.title }}
+                                {% elseif app.request.locale == "it" %}
+                                    {{ product.titleIt }}
+                                {% elseif app.request.locale == "cn" %}
+                                    {{ product.titleCn }}
+                                {% elseif app.request.locale == "ru" %}
+                                    {{ product.titleRu }}
+                                {% endif %}
+                            </h1>
                         </div>
+                        <div class="text">
+                            <div class="inner-text" data-full-text="{{ product.genPreview(app.request.locale)|raw|json_encode }}">
+                                {{ product.genPreview(app.request.locale, 200)|raw }} {% if product.genPreview(app.request.locale)|raw|length > 200 %}<a href="#" class="readmore"><span>+</span>{{ 'read_more'|trans({}, "messages") }}</a>{% endif %}
+                            </div>
 
-                        {% if product.colors|length > 0 %}
-                            <div class="colors">
-                                <h2>{{ 'product.colors'|trans }}</h2>
-                                <div class="collection-thumb">
-                                    <div>
-                                        {% for color in product.colors %}<div class="content-collection">
-                                            <div class="cf-image-name">
+                            {% if product.colors|length > 0 %}
+                                <div class="colors">
+                                    <h2>{{ 'product.colors'|trans }}</h2>
+                                    <div class="collection-thumb">
+                                        <div>
+                                            {% for color in product.colors %}<div class="content-collection">
+                                                <div class="cf-image-name">
                             <span>
                                 <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
                             </span>
@@ -79,10 +80,10 @@
                                         {{ color.titleRu }}
                                     {% endif %}
                                 </span>
-                                            </div>
+                                                </div>
 
-                                            <div class="cf-m-info">
-                                                <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
+                                                <div class="cf-m-info">
+                                                    <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
                                 <span class="cf-m-info-prod-name">
                                     {% if app.request.locale == "en" %}
                                         {{ color.title }}
@@ -105,30 +106,31 @@
                                         {{ color.descriptionRu }}
                                     {% endif %}
                                 </span>
-                                            </div>
-                                            </div>{% endfor %}
+                                                </div>
+                                                </div>{% endfor %}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endif %}
-                        {% if product.size|length > 0 %}
-                            <div class="size">
-                                <h2>{{ 'product.sizes'|trans }}</h2>
-                                {% if app.request.locale == "en" %}
-                                    {{ product.size|raw|nl2br }}
-                                {% elseif app.request.locale == "it" %}
-                                    {{ product.sizeIt|raw|nl2br }}
-                                {% elseif app.request.locale == "cn" %}
-                                    {{ product.sizeCn|raw|nl2br }}
-                                {% elseif app.request.locale == "ru" %}
-                                    {{ product.sizeRu|raw|nl2br }}
-                                {% endif %}
-                            </div>
-                        {% endif %}
+                            {% endif %}
+                            {% if product.size|length > 0 %}
+                                <div class="size">
+                                    <h2>{{ 'product.sizes'|trans }}</h2>
+                                    {% if app.request.locale == "en" %}
+                                        {{ product.size|raw|nl2br }}
+                                    {% elseif app.request.locale == "it" %}
+                                        {{ product.sizeIt|raw|nl2br }}
+                                    {% elseif app.request.locale == "cn" %}
+                                        {{ product.sizeCn|raw|nl2br }}
+                                    {% elseif app.request.locale == "ru" %}
+                                        {{ product.sizeRu|raw|nl2br }}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <a href="#" class="message">SEND REQUEST</a>
+
                     </div>
-
-                    <a href="#" class="message">SEND REQUEST</a>
-
                 </div>
         </div>
         <a href="#" class="arrow_left"><img src="{{ asset('sitemain/img/product_window/arrow_left.jpg') }}" /></a>

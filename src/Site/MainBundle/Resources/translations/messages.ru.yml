@@ -29,6 +29,7 @@ form_catalog:
   website: Веб-сайт
   requested_password: Отправить пароль?
   text: Текст
+  phone: Телефон
   yes: да
   no: нет
   password: пароль

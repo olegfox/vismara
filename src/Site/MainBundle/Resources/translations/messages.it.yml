@@ -29,6 +29,7 @@ form_catalog:
   website: SITO WEB
   requested_password: RICHIEDI PASSWORD
   text: TESTO
+  phone: telefono
   yes: si
   no: no
   password: password
@@ -56,7 +57,7 @@ Contact name: Nome del contatto
 Message: Messaggio
 First name: Nome
 Second name: Cognome
-Letter has been sent successfully!: Lettera è stata inviata con successo!
+Letter has been sent successfully!: Grazie, la tua lettera è stata inviata
 Error!: Errore!
 Vismara Design in the world: Vismara Design nel mondo
 Catalogs: Cataloghi

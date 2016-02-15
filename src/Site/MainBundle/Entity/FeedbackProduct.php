@@ -42,6 +42,11 @@ class FeedbackProduct
 
     protected $phone;
 
+    /**
+     * @Assert\NotBlank()
+     */
+    protected $text;
+
     protected $product;
 
     public function getFirstname()
@@ -112,6 +117,21 @@ class FeedbackProduct
     public function setPhone($phone)
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
 
         return $this;
     }

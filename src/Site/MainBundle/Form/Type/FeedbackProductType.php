@@ -60,9 +60,16 @@ class FeedbackProductType extends AbstractType
                     )
                 ),
             ))
-            ->add('phone', 'textarea', array(
+            ->add('phone', 'text', array(
                 'required' => false,
                 'label' => "Phone",
+                "attr" => array(
+                    "placeholder" => "form_catalog.phone"
+                )
+            ))
+            ->add('text', 'textarea', array(
+                'required' => true,
+                'label' => "Text",
                 "attr" => array(
                     "placeholder" => "form_catalog.text"
                 )

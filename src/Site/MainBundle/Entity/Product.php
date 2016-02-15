@@ -680,7 +680,7 @@ class Product
      */
     public function getText()
     {
-        return str_replace('justify;\"=""', '', $this->text);
+        return $this->removeSymbolsText($this->text);
     }
 
     /**
@@ -703,7 +703,7 @@ class Product
      */
     public function getTextIt()
     {
-        return str_replace('justify;\"=""', '', $this->text_it);
+        return $this->removeSymbolsText($this->text_it);
     }
 
     /**
@@ -726,7 +726,7 @@ class Product
      */
     public function getTextRu()
     {
-        return str_replace('justify;\"=""', '', $this->text_ru);
+        return $this->removeSymbolsText($this->text_ru);
     }
 
     /**
@@ -749,7 +749,14 @@ class Product
      */
     public function getTextCn()
     {
-        return str_replace('justify;\"=""', '', $this->text_cn);
+        return $this->removeSymbolsText($this->text_cn);
+    }
+
+    private function removeSymbolsText($text) {
+        $text = str_replace('justify;\"=""', '', $text);
+        $text = str_replace('<o:p></o:p>', '', $text);
+
+        return $text;
     }
 
     /**

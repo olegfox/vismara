@@ -1,7 +1,7 @@
 /*
-Syntax error: File to import not found or unreadable: blueprint.
-              Load path: C:/OpenServer/domains/happy-garnets/www/sitemain/js/maximage/lib/scss (DEPRECATED)
-        on line 1 of ie.scss
+Error: File to import not found or unreadable: blueprint.
+       Load path: /var/www/vismara_en/www/sitemain
+        on line 1 of ./www/sitemain/js/maximage/lib/scss/ie.scss
 
 1: @import "blueprint";
 2: 
@@ -11,46 +11,48 @@ Syntax error: File to import not found or unreadable: blueprint.
 6: //Recommended Blueprint configuration with scoping and semantic layout:
 
 Backtrace:
-ie.scss:1
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/import_node.rb:66:in `rescue in import'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/import_node.rb:45:in `import'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/import_node.rb:28:in `imported_file'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/import_node.rb:37:in `css_import?'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:283:in `visit_import'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/stack.rb:121:in `with_frame'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:152:in `visit'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:151:in `visit'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/tree/root_node.rb:20:in `render'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/engine.rb:274:in `render'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/plugin/compiler.rb:378:in `update_stylesheet'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/plugin/compiler.rb:186:in `each'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/plugin.rb:82:in `update_stylesheets'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/exec.rb:489:in `watch_or_update'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/exec.rb:346:in `process_result'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/exec.rb:43:in `parse'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/lib/sass/exec.rb:22:in `parse!'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.8/bin/scss:13:in `<top (required)>'
-C:/Ruby200-x64/bin/scss:23:in `load'
-C:/Ruby200-x64/bin/scss:23:in `<main>'
+./www/sitemain/js/maximage/lib/scss/ie.scss:1
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:45:in `import'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:28:in `imported_file'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:37:in `css_import?'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `map'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `each'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:293:in `watch'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin.rb:108:in `method_missing'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/exec/sass_scss.rb:381:in `watch_or_update'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/exec/base.rb:52:in `parse'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/lib/sass/exec/base.rb:19:in `parse!'
+/var/lib/gems/2.1.0/gems/sass-3.4.13/bin/scss:13:in `<top (required)>'
+/usr/local/bin/scss:23:in `load'
+/usr/local/bin/scss:23:in `<main>'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: blueprint.\A               Load path: C:/OpenServer/domains/happy-garnets/www/sitemain/js/maximage/lib/scss (DEPRECATED)\A         on line 1 of ie.scss\A \A 1: @import \"blueprint\";\A 2: \A 3: // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:\A 4: // @include blueprint-ie\A 5: \A 6: //Recommended Blueprint configuration with scoping and semantic layout:"; }
+  content: "Error: File to import not found or unreadable: blueprint.\A        Load path: /var/www/vismara_en/www/sitemain\A         on line 1 of ./www/sitemain/js/maximage/lib/scss/ie.scss\A \A 1: @import \"blueprint\";\A 2: \A 3: // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:\A 4: // @include blueprint-ie\A 5: \A 6: //Recommended Blueprint configuration with scoping and semantic layout:"; }

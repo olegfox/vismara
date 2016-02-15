@@ -71,7 +71,10 @@ Product = {
         $('.form-product-feedback').hide();
       });
       $('.form-product-feedback #submit').click(function() {
-        var $form;
+        var $form, $submitButton;
+        $submitButton = $(this);
+        $submitButton.css('width', $submitButton.outerWidth());
+        $submitButton.addClass('loader').attr('disable', 'disable');
         $form = $('.form-product-feedback form');
         $.post($form.attr('action'), $form.serialize(), function(response) {
           if (response.status === 'OK') {
@@ -79,10 +82,13 @@ Product = {
             $form.find('input[type="text"]').removeClass('error');
             $form.find('input[type="email"]').removeClass('error');
             $form.find('textarea').removeClass('error');
+            $submitButton.hide();
             $form.find('.successfully').show();
             setTimeout((function() {
               $form.find('.successfully').hide();
-            }), 4000);
+              $submitButton.show();
+              $('.wrap-back button').click();
+            }), 3000);
           } else {
             if (response.firstname.status !== 'OK') {
               $form.find('#firstname').addClass('error');
@@ -111,7 +117,13 @@ Product = {
             } else {
               $form.find('#phone').removeClass('error');
             }
+            if (response.text.status !== 'OK') {
+              $form.find('#text').addClass('error');
+            } else {
+              $form.find('#text').removeClass('error');
+            }
           }
+          $submitButton.removeClass('loader').css('width', 'auto').attr('disable', '');
         });
       });
       $('.global .arrow_right').unbind('click').click(function(e) {

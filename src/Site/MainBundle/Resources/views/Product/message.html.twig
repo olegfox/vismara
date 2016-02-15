@@ -25,6 +25,14 @@
             <td> {{ feedback.email }}</td>
         </tr>
         <tr>
+            <td>{{ 'Phone'|trans }}</td>
+            <td> {{ feedback.phone }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'Text'|trans }}</td>
+            <td> {{ feedback.text }}</td>
+        </tr>
+        <tr>
             <td>{{ 'Product'|trans }}</td>
             <td>
                 {% if app.request.locale == "en" %}
