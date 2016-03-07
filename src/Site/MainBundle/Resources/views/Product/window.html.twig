@@ -114,7 +114,7 @@
                             {% endif %}
                             {% if product.size|length > 0 %}
                                 <div class="size">
-                                    <h2>{{ 'product.sizes'|trans }}</h2>
+                                    <div>{{ 'product.sizes'|trans }}</div>
                                     {% if app.request.locale == "en" %}
                                         {{ product.size|raw|nl2br }}
                                     {% elseif app.request.locale == "it" %}

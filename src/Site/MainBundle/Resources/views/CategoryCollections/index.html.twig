@@ -29,6 +29,32 @@
 {% endblock %}
 
 {% block content %}
+    {% if page is defined %}
+        <div class="wrap_content">
+            <div class="content catalog">
+                <h1>
+                    {% if app.request.locale == "en" %}
+                        {{ page.title }}
+                    {% elseif app.request.locale == "it" %}
+                        {{ page.titleIt }}
+                    {% elseif app.request.locale == "cn" %}
+                        {{ page.titleCn }}
+                    {% elseif app.request.locale == "ru" %}
+                        {{ page.titleRu }}
+                    {% endif %}
+                </h1>
+                {% if app.request.locale == "en" %}
+                    {{ page.text|replace({'<div': '<p', '</div>': "</p>"})|raw }}
+                {% elseif app.request.locale == "it" %}
+                    {{ page.textIt|replace({'<div': '<p', '</div>': "</p>"})|raw }}
+                {% elseif app.request.locale == "cn" %}
+                    {{ page.textCn|replace({'<div': '<p', '</div>': "</p>"})|raw }}
+                {% elseif app.request.locale == "ru" %}
+                    {{ page.textRu|replace({'<div': '<p', '</div>': "</p>"})|raw }}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
     <div class="wrapper-collection catalog layout-max">
         <div class="layout">
             <div class="gallery group gallery-categories">
@@ -36,19 +62,4 @@
             </div>
         </div>
     </div>
-    {% if page is defined %}
-        <div class="wrap_content">
-            <div class="content catalog">
-                {% if app.request.locale == "en" %}
-                    {{ page.text|raw }}
-                {% elseif app.request.locale == "it" %}
-                    {{ page.textIt|raw }}
-                {% elseif app.request.locale == "cn" %}
-                    {{ page.textCn|raw }}
-                {% elseif app.request.locale == "ru" %}
-                    {{ page.textRu|raw }}
-                {% endif %}
-            </div>
-        </div>
-    {% endif %}
 {% endblock %}

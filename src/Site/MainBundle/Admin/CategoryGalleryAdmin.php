@@ -36,6 +36,42 @@ class CategoryGalleryAdmin extends Admin
             ->add('description_it', 'textarea', array('label' => 'Description IT'))
             ->add('description_ru', 'textarea', array('label' => 'Description RU'))
             ->add('description_cn', 'textarea', array('label' => 'Description CN'))
+            ->add('text', 'textarea', array(
+                'label' => 'The text of the page EN',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_it', 'textarea', array(
+                'label' => 'The text of the page IT',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_ru', 'textarea', array(
+                'label' => 'The text of the page RU',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
+            ->add('text_cn', 'textarea', array(
+                'label' => 'The text of the page CN',
+                'required' => '',
+                "attr" => array(
+                    "class" => "redactor",
+                    "width" => "653px",
+                    "height" => "596px"
+                )
+            ))
             ->add('position', 'number', array(
                 'label' => 'Position',
                 'required' => false,

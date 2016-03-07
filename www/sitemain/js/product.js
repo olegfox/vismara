@@ -48,7 +48,7 @@ Product = {
       if (window.history.pushState) {
         window.history.pushState(null, null, $(product).attr('href'));
       }
-      $('.global .ar_close').unbind('click').click(function() {
+      $('.global .ar_close').unbind('click touchstart').bind('click touchstart', function() {
         $('body').css({
           'overflow-x': 'auto'
         });
@@ -62,15 +62,15 @@ Product = {
         $('.form-product-feedback').remove();
         window.history.back();
       });
-      $('.global .message').unbind('click').click(function() {
+      $('.global .message').unbind('click touhstart').bind('click touchstart', function() {
         $('.global').hide();
         $('.form-product-feedback').show();
       });
-      $('.form-product-feedback #back').unbind('click').click(function() {
+      $('.form-product-feedback #back').unbind('click touchstart').bind('click touchstart', function() {
         $('.global').show();
         $('.form-product-feedback').hide();
       });
-      $('.form-product-feedback #submit').click(function() {
+      $('.form-product-feedback #submit').unbind('click touchstart').bind('click touchstart', function() {
         var $form, $submitButton;
         $submitButton = $(this);
         $submitButton.css('width', $submitButton.outerWidth());
@@ -126,11 +126,11 @@ Product = {
           $submitButton.removeClass('loader').css('width', 'auto').attr('disable', '');
         });
       });
-      $('.global .arrow_right').unbind('click').click(function(e) {
+      $('.global .arrow_right').unbind('click touchstart').bind('click touchstart', function(e) {
         e.preventDefault();
         Product.showProduct($(product).parent().next().find('a:first'));
       });
-      $('.global .arrow_left').unbind('click').click(function(e) {
+      $('.global .arrow_left').unbind('click touchstart').bind('click touchstart', function(e) {
         e.preventDefault();
         Product.showProduct($(product).parent().prev().find('a:first'));
       });
@@ -153,11 +153,14 @@ Product = {
           $('.global .ar_close img').click();
         }
       });
-      $('.global .readmore').unbind('click').bind('click', function(e) {
+      $('.global .readmore').unbind('click touchstart').bind('click touchstart', function(e) {
         var $content;
         e.preventDefault();
         $content = JSON.parse($('.global .text .inner-text').attr('data-full-text'));
         $('.global .text .inner-text').html($content);
+        $('.global .container').css({
+          'height': $('.global .pop_right').height()
+        });
         return false;
       });
       $('.global .slider').slick({

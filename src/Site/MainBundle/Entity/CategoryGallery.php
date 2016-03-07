@@ -102,6 +102,27 @@ class CategoryGallery
      */
     private $description_cn = "";
 
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
+    private $text;
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
+    private $text_it;
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
+    private $text_ru;
+
+    /**
+     * @ORM\Column(type="text", nullable = true)
+     */
+    private $text_cn;
+
     /**
      * @ORM\Column(type="text", nullable = true)
      */
@@ -677,5 +698,97 @@ class CategoryGallery
     public function getMetaTitleCn()
     {
         return $this->metaTitle_cn;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return CategoryGallery
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set text_it
+     *
+     * @param string $textIt
+     * @return CategoryGallery
+     */
+    public function setTextIt($textIt)
+    {
+        $this->text_it = $textIt;
+
+        return $this;
+    }
+
+    /**
+     * Get text_it
+     *
+     * @return string 
+     */
+    public function getTextIt()
+    {
+        return $this->text_it;
+    }
+
+    /**
+     * Set text_ru
+     *
+     * @param string $textRu
+     * @return CategoryGallery
+     */
+    public function setTextRu($textRu)
+    {
+        $this->text_ru = $textRu;
+
+        return $this;
+    }
+
+    /**
+     * Get text_ru
+     *
+     * @return string 
+     */
+    public function getTextRu()
+    {
+        return $this->text_ru;
+    }
+
+    /**
+     * Set text_cn
+     *
+     * @param string $textCn
+     * @return CategoryGallery
+     */
+    public function setTextCn($textCn)
+    {
+        $this->text_cn = $textCn;
+
+        return $this;
+    }
+
+    /**
+     * Get text_cn
+     *
+     * @return string 
+     */
+    public function getTextCn()
+    {
+        return $this->text_cn;
     }
 }
