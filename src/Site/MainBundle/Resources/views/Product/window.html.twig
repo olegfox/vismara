@@ -25,7 +25,7 @@
                 </div>
                 <div class="slider">
                     {% if product.preview.id is defined %}
-                        <div style="background: url({{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}) center no-repeat; background-size: contain;"><img src="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}" alt=""></div>
+                        <div style="background: url('{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}') center no-repeat; background-size: contain;"><img src="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}" alt=""></div>
                     {% endif %}
 
                     {% for i in product.images %}
