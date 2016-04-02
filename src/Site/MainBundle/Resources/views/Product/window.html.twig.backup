@@ -1,0 +1,141 @@
+{% if product is defined %}
+    <div class="wrap-window-product">
+        <div class="window-product">
+            <div class="left"><div class="inner"></div><div class="text">PREV</div></div>
+            <div class="right"><div class="inner"></div><div class="text">NEXT</div></div>
+            <div class="close"><div class="inner"></div><div class="text">close</div></div>
+            <div class="close close2"><div class="inner"></div></div>
+            <div class="box-product">
+                {#<div class="gallery-list">#}
+                    {#<ul>#}
+                        {#{% if product.preview.id is defined %}#}
+                            {#<li>#}
+                                {#<a href="javascript:showThumbnailProduct('{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}', true);" data-img="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}">#}
+                                    {#<img src="{{ image('uploads/' ~ product.preview.getMetadataValue('filename')).cropResize(120) }}" alt=""/>#}
+                                {#</a>#}
+                            {#</li>#}
+                        {#{% endif %}#}
+                        {#{% for i in product.images %}#}
+                            {#<li>#}
+                                {#<a href="javascript:showThumbnailProduct('{{ asset(i.minSrc) }}', false);" data-img="{{ asset(i.minSrc) }}">#}
+                                    {#<img src="{{ image(i.minSrc).cropResize(120) }}" alt=""/>#}
+                                {#</a>#}
+                            {#</li>#}
+                        {#{% endfor %}#}
+                    {#</ul>#}
+                {#</div>#}
+
+                <div class="image">
+                    <div class="table">
+                        <div class="table-cell">
+                            {% if product.preview.id is defined %}
+                                <div class="wrap-img">
+                                    <div class="n-left"></div>
+                                    <div class="n-right"></div>
+                                    <img src="{{ asset('uploads/' ~ product.preview.getMetadataValue('filename')) }}" alt=""/>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    {% if product.collection.id is defined %}
+                        {% if product.collection.collectionImage.id is defined %}
+                        <div class="collection-image">
+                            <img src="{{ image('.'~media_public_url(product.collection.collectionImage, 'reference')).cropResize(200) }}" alt=""/>
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                    <h1>
+                        {% if app.request.locale == "en" %}
+                            {{ product.title }}
+                        {% elseif app.request.locale == "it" %}
+                            {{ product.titleIt }}
+                        {% elseif app.request.locale == "cn" %}
+                            {{ product.titleCn }}
+                        {% elseif app.request.locale == "ru" %}
+                            {{ product.titleRu }}
+                        {% endif %}
+                    </h1>
+                    <div class="text" data-full-text="{{ product.genPreview(app.request.locale)|raw|json_encode }}">
+                        {{ product.genPreview(app.request.locale, 200)|raw }} {% if product.genPreview(app.request.locale)|raw|length > 200 %}<a href="#" class="readmore"><span>+</span>{{ 'read_more'|trans({}, "messages") }}</a>{% endif %}
+                    </div>
+                    {% if product.colors|length > 0 %}
+                        <div class="colors">
+                            <h2>{{ 'product.colors'|trans }}</h2>
+                            <div class="collection-thumb">
+                                <div>
+                                    {% for color in product.colors %}<div class="content-collection">
+                                        <div class="cf-image-name">
+                            <span>
+                                <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
+                            </span>
+                                <span class="cf-name">
+                                    {% if app.request.locale == "en" %}
+                                        {{ color.title }}
+                                    {% elseif app.request.locale == "it" %}
+                                        {{ color.titleIt }}
+                                    {% elseif app.request.locale == "cn" %}
+                                        {{ color.titleCn }}
+                                    {% elseif app.request.locale == "ru" %}
+                                        {{ color.titleRu }}
+                                    {% endif %}
+                                </span>
+                                        </div>
+
+                                        <div class="cf-m-info">
+                                            <img src="{{ image(color.webPath).zoomCrop(236, 236) }}" alt="">
+                                <span class="cf-m-info-prod-name">
+                                    {% if app.request.locale == "en" %}
+                                        {{ color.title }}
+                                    {% elseif app.request.locale == "it" %}
+                                        {{ color.titleIt }}
+                                    {% elseif app.request.locale == "cn" %}
+                                        {{ color.titleCn }}
+                                    {% elseif app.request.locale == "ru" %}
+                                        {{ color.titleRu }}
+                                    {% endif %}
+                                </span>
+                                <span class="cf-m-info-descr">
+                                    {% if app.request.locale == "en" %}
+                                        {{ color.description }}
+                                    {% elseif app.request.locale == "it" %}
+                                        {{ color.descriptionIt }}
+                                    {% elseif app.request.locale == "cn" %}
+                                        {{ color.descriptionCn }}
+                                    {% elseif app.request.locale == "ru" %}
+                                        {{ color.descriptionRu }}
+                                    {% endif %}
+                                </span>
+                                        </div>
+                                        </div>{% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if product.size|length > 0 %}
+                        <div class="size">
+                            <h2>{{ 'product.sizes'|trans }}</h2>
+                            {% if app.request.locale == "en" %}
+                                {{ product.size|raw|nl2br }}
+                            {% elseif app.request.locale == "it" %}
+                                {{ product.sizeIt|raw|nl2br }}
+                            {% elseif app.request.locale == "cn" %}
+                                {{ product.sizeCn|raw|nl2br }}
+                            {% elseif app.request.locale == "ru" %}
+                                {{ product.sizeRu|raw|nl2br }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form">
+                    {% include 'SiteMainBundle:Product:feedback.html.twig' %}
+                </div>
+
+                <button class="sendMessage">{{ 'send request'|trans }}</button>
+            </div>
+        </div>
+    </div>
+{% endif %}

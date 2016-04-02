@@ -1,14 +1,16 @@
 <div class="wrapperContent">
     <div class="content contentWhite">
         <div class="wrap_post">
-            <h2>
-                {#<span class="date">{{ n.created|date("d.m.y") }}</span>#}
-                <a href="{{ path('news_post', {slug: n.slug}) }}">
-                    {% set title = n.title %}
-                    {% set description = n.description %}
-                    {{ n.title }}
-                </a>
-            </h2>
+            <div class="content catalog">
+                <h1>
+                    {#<span class="date">{{ n.created|date("d.m.y") }}</span>#}
+                    <a href="{{ path('news_post', {slug: n.slug}) }}">
+                        {% set title = n.title %}
+                        {% set description = n.description %}
+                        {{ n.title }}
+                    </a>
+                </h1>
+            </div>
             {% if n.images|length > 0 %}
                 <div class="gallery">
                     {% for i in n.images %}

@@ -592,7 +592,8 @@ ul {
   .content h1 {
     margin-top: 9px;
     margin-bottom: 27px;
-    text-align: center; }
+    text-align: center;
+    font-size: 2em; }
   .content.gallery-content {
     max-width: 100%;
     padding: 0;

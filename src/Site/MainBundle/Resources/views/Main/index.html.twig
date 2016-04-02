@@ -51,7 +51,28 @@
                                 {% endif %}
                                 <div class="text" {% if slider.link != "" %}onclick="window.location.href='{{ slider.link }}';"{% endif %}>
                                     <div class="table">
-                                        <div class="table-cell{% if slider.dark == false %} dark{% endif %}">
+                                        {% set dark = 0 %}
+                                        {% if app.request.locale == 'en' %}
+                                            {% if slider.text|length > 0 %}
+                                                {% set dark = 1 %}
+                                            {% endif %}
+                                        {% elseif app.request.locale == 'it' %}
+                                            {% if slider.textIt|length > 0 %}
+                                                {% set dark = 1 %}
+                                            {% endif %}
+                                        {% elseif app.request.locale == 'ru' %}
+                                            {% if slider.textRu|length > 0 %}
+                                                {% set dark = 1 %}
+                                            {% endif %}
+                                        {% elseif app.request.locale == 'cn' %}
+                                            {% if slider.textCn|length > 0 %}
+                                                {% set dark = 1 %}
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if slider.dark == true %}
+                                            {% set dark = 0 %}
+                                        {% endif %}
+                                        <div class="table-cell{% if dark == 1 %} dark{% endif %}">
                                             <h1 class="slogan-title">{% if app.request.locale == 'en' %}{{ slider.text|raw }}{% elseif app.request.locale == 'it' %}{{ slider.textIt|raw }}{% elseif app.request.locale == 'ru' %}{{ slider.textRu|raw }}{% elseif app.request.locale == 'cn' %}{{ slider.textCn|raw }}{% endif %}</h1>
                                             {% if slider.video.id is defined %}
                                                 <a href="http://www.youtube.com/embed/{{ slider.video.getProviderReference() }}?fs=1&amp;autoplay=1" class="video-play">{{ 'watch video'|trans }}</a>

@@ -41,6 +41,7 @@ form_catalog:
 product:
   sizes: Размеры
   colors: Варианты цвета
+  all: Все
 
 
 Downloads: Загрузки

@@ -41,6 +41,7 @@ form_catalog:
 product:
   sizes: Sizes
   colors: Color options
+  all: All
 
 Downloads: Downloads
 collection: collection

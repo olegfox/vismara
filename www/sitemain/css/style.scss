@@ -741,7 +741,7 @@ ul {
 }
 
 .content {
-  padding: 0px 20px 134px 20px;
+  padding: 0px 20px 134px 20px;  
   max-width: 836px;
   margin: 0 auto;
   * {
@@ -751,6 +751,8 @@ ul {
     margin-top: 9px;
     margin-bottom: 27px;
     text-align: center;
+    font-size: 2em; 
+    font-weight: normal;
   }
   &.gallery-content {
     max-width: 100%;

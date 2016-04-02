@@ -139,13 +139,13 @@
                    </span>
                </li>
             </ul><ul class="filter right">
-                {#<li>#}
-                   {#{% if filter == 'all' %}#}
-                       {#<span>all</span>#}
-                   {#{% else %}#}
-                       {#<a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'filter': 'all'})) }}">all</a>#}
-                   {#{% endif %}#}
-                    {#<span class="line">/</span>#}
+                <li>
+                   {% if filter == 'all' %}
+                       <span>{{ 'product.all'|trans }}</span>
+                   {% else %}
+                       <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'filter': 'all'})) }}">{{ 'product.all'|trans }}</a>
+                   {% endif %}
+                   <span class="line">/</span>
                 {#</li>#}
                 {% for f in filters %}
                     <li>

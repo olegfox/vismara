@@ -41,6 +41,7 @@ form_catalog:
 product:
   sizes: 尺寸
   colors: 颜色选择
+  all: 所有
 
 Downloads: 下载
 collection: 产品系列
